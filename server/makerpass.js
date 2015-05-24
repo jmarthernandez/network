@@ -3,6 +3,7 @@
 //
 var passport = require('passport')
 var MakerpassStrategy = require('passport-makerpass').Strategy
+var User = require('./models/user.js')
 
 module.exports = function (app, host) {
 
@@ -16,9 +17,15 @@ module.exports = function (app, host) {
       callbackURL: host + '/auth/makerpass/callback'
     },
     function(accessToken, refreshToken, profile, done) {
-      // TODO: Find or create from database
-      console.log("Signed in with Makerpass", profile.id, profile.name)
-      done(null, { id: profile.id })
+      console.log("Signed in with Makerpass", profile)
+
+      User.updateOrCreate({
+          uid: profile.id,
+          name: profile.name,
+          email: profile.email,
+          avatarUrl: profile.avatarUrl
+        })
+        .then(done.papp(null))
     }
   ))
 
@@ -26,12 +33,21 @@ module.exports = function (app, host) {
   app.use(passport.session())
 
   passport.serializeUser(function(user, done) {
-    done(null, user.id)
+    console.log("Serializing user", user)
+    done(null, user.uid)
   })
 
   passport.deserializeUser(function(id, done) {
-    // TODO: Fetch from database
-    done(null, { id: id, name: 'Alice' })
+    User.find(id)
+      .then(done.papp(null))
+      .catch(function (err) {
+        if (err === 'not_found') {
+          done(null, null)
+        }
+        else {
+          done(err)
+        }
+      })
   })
 
   app.get('/auth/makerpass',

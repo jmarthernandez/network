@@ -1,3 +1,4 @@
+require('../ext/functions.js')
 var browserify = require('browserify-middleware')
 var express = require('express')
 var app = express()
