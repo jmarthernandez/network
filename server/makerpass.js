@@ -3,9 +3,13 @@
 //
 var passport = require('passport')
 var MakerpassStrategy = require('passport-makerpass').Strategy
-var User = require('./models/user.js')
+var Promise    = require('knex/node_modules/bluebird')
+var User       = require('./models/user')
+var Group      = require('./models/group')
+var Membership = require('./models/membership')
+var School     = require('./models/school')
 
-module.exports = function (app, host) {
+exports.mount = function (app, host) {
 
   if (! process.env.MAKERPASS_CLIENT_ID || ! process.env.MAKERPASS_CLIENT_SECRET) {
     throw new Error("Please set MAKERPASS_CLIENT_ID and MAKERPASS_CLIENT_SECRET")
@@ -17,15 +21,7 @@ module.exports = function (app, host) {
       callbackURL: host + '/auth/makerpass/callback'
     },
     function(accessToken, refreshToken, profile, done) {
-      console.log("Signed in with Makerpass", profile)
-
-      User.updateOrCreate({
-          uid: profile.id,
-          name: profile.name,
-          email: profile.email,
-          avatarUrl: profile.avatarUrl
-        })
-        .then(done.papp(null))
+      importAuthData(profile).then(done.papp(null))
     }
   ))
 
@@ -33,7 +29,6 @@ module.exports = function (app, host) {
   app.use(passport.session())
 
   passport.serializeUser(function(user, done) {
-    console.log("Serializing user", user)
     done(null, user.uid)
   })
 
@@ -41,7 +36,7 @@ module.exports = function (app, host) {
     User.find(id)
       .then(done.papp(null))
       .catch(function (err) {
-        if (err === 'not_found') {
+        if (err.message === 'not_found') {
           done(null, null)
         }
         else {
@@ -69,4 +64,29 @@ module.exports = function (app, host) {
     res.send({})
   })
 
+}
+
+var importAuthData = module.exports.importAuthData = function (mks) {
+
+  // These two can run in parallel
+  var userPromise = importUser(mks)
+  var schoolPromises = mks.schools.map(School.updateOrCreate)
+
+  return Promise.all(schoolPromises).then(function() {
+    return Promise.all( mks.memberships.map( getProp('group') ).map(Group.updateOrCreate) )
+  }).then(function() {
+    return Membership.sync(mks.uid, mks.memberships)
+  })
+  .then(function() {
+    return userPromise
+  })
+}
+
+function importUser (mks) {
+  return User.updateOrCreate({
+    uid: mks.id,
+    name: mks.name,
+    email: mks.email,
+    avatar_url: mks.avatar_url
+  })
 }

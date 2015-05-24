@@ -1,10 +1,10 @@
 var db = require('../db.js')
 var Promise = require('knex/node_modules/bluebird')
 
-var User = module.exports = {
+var Group = module.exports = {
 
   find: function (uid) {
-    return db('users').select('*').where({ uid: uid }).limit(1)
+    return db('groups').select('*').where({ uid: uid }).limit(1)
       .then(function(rows) {
         return (rows.length === 0) ? Promise.reject(new Error('not_found')) : rows[0]
       })
@@ -12,18 +12,18 @@ var User = module.exports = {
 
   create: function (attrs) {
     attrs.created_at = new Date()
-    return db('users').insert(attrs).return(attrs)
+    return db('groups').insert(attrs).return(attrs)
   },
 
   update: function (attrs) {
     attrs.updated_at = new Date()
-    return db('users').update(attrs).where({ uid: attrs.uid })
+    return db('groups').update(attrs).where({ uid: attrs.uid })
       .then(function(affectedCount) {
         return (affectedCount === 0) ? Promise.reject(new Error('not_found')) : attrs
       })
   },
 
   updateOrCreate: function (attrs) {
-    return User.update(attrs).catch(User.create.papp(attrs))
+    return Group.update(attrs).catch(Group.create.papp(attrs))
   }
 }

@@ -26,9 +26,7 @@ https://github.com/ForbesLindesay/browserify-middleware
 $ knex migrate:rollback
 
 # Resetting the Database
-$ dropdb learn
-$ createdb learn
-$ knex migrate:latest
+$ npm run-script resetdb
 ```
 
 Further reading: http://knexjs.org/#Migrations-CLI

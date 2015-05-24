@@ -1,4 +1,7 @@
+require('../ext/arrays.js')
 require('../ext/functions.js')
+require('../ext/globals.js')
+
 var browserify = require('browserify-middleware')
 var express = require('express')
 var app = express()
@@ -22,7 +25,7 @@ app.use(session({
   signed: true
 }))
 
-require('./makerpass')(app, host)
+require('./makerpass').mount(app, host)
 
 app.listen(port)
 console.log("Listening on port", port)

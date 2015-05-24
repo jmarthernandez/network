@@ -7,7 +7,7 @@ exports.up = function(knex, Promise) {
       table.string('uid').primary()
       table.string('name')
       table.string('email')
-      table.string('avatarUrl')
+      table.string('avatar_url')
 
       table.timestamps()
     }),
@@ -15,8 +15,10 @@ exports.up = function(knex, Promise) {
     knex.schema.createTable('groups', function (table) {
 
       table.string('uid').primary()
+      table.string('school_uid').references('uid').inTable('schools').notNullable()
       table.string('name')
       table.string('role')
+      table.json('info')
 
       table.timestamps()
     }),
@@ -24,12 +26,23 @@ exports.up = function(knex, Promise) {
     knex.schema.createTable('memberships', function (table) {
 
       table.string('uid').primary()
-      table.string('userUid').references('uid').inTable('users')
-      table.string('groupUid').references('uid').inTable('groups')
+      table.string('user_uid').references('uid').inTable('users').notNullable()
+      table.string('group_uid').references('uid').inTable('groups').notNullable()
       table.string('role')
 
       table.timestamps()
+    }),
+
+    knex.schema.createTable('schools', function (table) {
+
+      table.string('uid').primary()
+      table.string('name')
+      table.string('location')
+      table.string('url')
+
+      table.timestamps()
     })
+
   ])
 }
 
