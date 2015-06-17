@@ -11,16 +11,8 @@ var User = module.exports = {
   },
 
   create: function (attrs) {
-    console.log('creating user')
     attrs.created_at = new Date()
     return db('users').insert(attrs).return(attrs)
-  },
-
-  retrieve: function (callback) {
-    return db('users').select('*')
-    .then(function(rows){
-     return (rows.length === 0) ? Promise.reject(new Error('not_found')) : callback(rows)
-    })
   },
 
   update: function (attrs) {
@@ -30,15 +22,6 @@ var User = module.exports = {
         return (affectedCount === 0) ? Promise.reject(new Error('not_found')) : attrs
       })
   },
-
-
-  retrieveOne: function(callback, id){
-    return db('users').select('*').where( {uid: id})
-    .then(function(row){
-     return callback(row);
-    })
-  },
-
 
   updateOrCreate: function (attrs) {
     return User.update(attrs).catch(User.create.papp(attrs))

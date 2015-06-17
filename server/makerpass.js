@@ -21,7 +21,6 @@ exports.mount = function (app, host) {
       callbackURL: host + '/auth/makerpass/callback'
     },
     function(accessToken, refreshToken, profile, done) {
-      console.log('strategy')
       importAuthData(profile).then(done.papp(null))
     }
   ))
@@ -52,25 +51,19 @@ exports.mount = function (app, host) {
   app.get('/auth/makerpass/callback',
     passport.authenticate('makerpass', { failureRedirect: '/' }),
     function(req, res) {
-      // Successful authentication, redirect home.sj
-      console.log('redirecting')
-      res.redirect('/?/profile')
+      // Successful authentication, redirect home.
+      res.redirect('/')
     })
 
   app.get('/me', function (req, res) {
-    res.send({ user: req.user})
-  })
-
-  app.get('/users', function(req, res){
-    var users = User.retrieve(function(x){res.send({users: x})
-    })
+    res.send({ user: req.user })
   })
 
   app.post('/signout', function (req, res) {
-    console.log('signout')
     req.session = null
     res.send({})
   })
+
 }
 
 var importAuthData = module.exports.importAuthData = function (mks) {
@@ -78,22 +71,18 @@ var importAuthData = module.exports.importAuthData = function (mks) {
   // These two can run in parallel
   var userPromise = importUser(mks)
   var schoolPromises = mks.schools.map(School.updateOrCreate)
-  console.log(mks)
 
   return Promise.all(schoolPromises).then(function() {
     return Promise.all( mks.memberships.map( getProp('group') ).map(Group.updateOrCreate) )
   }).then(function() {
-    console.log(mks.memberships)
     return Membership.sync(mks.uid, mks.memberships)
   })
   .then(function() {
-    return userPromise;
+    return userPromise
   })
 }
 
-
 function importUser (mks) {
-  
   return User.updateOrCreate({
     uid: mks.id,
     name: mks.name,

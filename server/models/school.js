@@ -23,14 +23,6 @@ var School = module.exports = {
       })
   },
 
-
-  retrieveAll: function (callback) {
-    return db('schools').select('*')
-    .then(function(rows){
-     return (rows.length === 0) ? callback({title:'schools WIll Be here!!!!'}) : callback(rows)
-    })
-  },
-
   updateOrCreate: function (attrs) {
     return School.update(attrs).catch(School.create.papp(attrs))
   }

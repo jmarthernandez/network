@@ -16,13 +16,6 @@ var Membership = module.exports = {
       })
   },
 
-  retrieveAll: function (callback) {
-    return db('memberships').select('*')
-    .then(function(rows){
-     return (rows.length === 0) ? callback({title:'memberships WIll Be here!!!!'}) : callback(rows)
-    })
-  },
-
   updateOrCreate: function (attrs) {
     return Membership.update(attrs).catch(Membership.create.papp(attrs))
   },
