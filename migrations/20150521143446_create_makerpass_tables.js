@@ -27,14 +27,7 @@ exports.up = function(knex, Promise) {
       table.timestamps()
     }),
 
-    knex.schema.createTable('jobs', function(table){
-      table.increments('id').primary()
-      table.integer('company_id').references('id').inTable('companies')
-      table.integer('title_id').references('id').inTable('titles')
-      table.string('user_id').references('uid').inTable('users')
-      table.dateTime('start_date')
-      table.dateTime('end_date')
-      table.integer('salary')
+    knex.schema.createTable('phases', function (table) {
 
       table.timestamps()
     }),
