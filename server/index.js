@@ -53,5 +53,5 @@ require('./API/schoolsAPI').mount(app);
 
 
 
-app.listen(80)
-console.log("Listening on port", 80 )
+app.listen(port)
+console.log("Listening on port", port)
