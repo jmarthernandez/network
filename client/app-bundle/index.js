@@ -52,7 +52,6 @@ var routes = {
     controller: function () {
       var ctrl = this;
       ctrl.user = Auth.currentUser();
-      
     },
     view: function (ctrl) {
       return checkAuth(ctrl.user, m.component(Fuzzy))
