@@ -25,6 +25,7 @@ exports.view = function (ctrl) {
 	    m.component(StudentInfo, { studentInfo: modelData['studentInfo'] } ),
 	  	m.component(StudentJobs, { apps: modelData['apps'], studentInfo: modelData['studentInfo'] } ),
     ]),
+    m.component(OnsiteInterview),
     m.component(NewApp)
   ]) 
 }
