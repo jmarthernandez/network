@@ -3,6 +3,16 @@ var StudentJobs = require('../../studentJobs/studentJobs.js')
 
 exports.controller = function () {
   var ctrl = this;
+  var newAppForm = {
+    phase: 1,
+    date_applied: '',
+    contact_id: 1,
+    app_method: '',
+    user_id: '',
+    active: true,
+    title_id: '',
+    company_id: ''
+  };
 
 m.request({
       method: 'GET',

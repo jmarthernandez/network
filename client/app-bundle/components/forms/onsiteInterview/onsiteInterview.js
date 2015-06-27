@@ -1,10 +1,15 @@
-var m = require('mithril');
+var m         = require('mithril');
+var AllInts   = require('../../../models/allInts.model.js');
 
 exports.controller = function () {
 	var ctrl = this;
+  AllInts.fetchInt();
+  console.log()
 }
 
 exports.view = function (ctrl) {
+  var modelData = AllInts.all();
+  console.log(AllInts);
   return m('.row', [
     m('.row', [
       m('h3.center-align', 'On-site Interview')
@@ -16,8 +21,8 @@ exports.view = function (ctrl) {
       m('.row',[
         m('.input-field.col.s12.m4', [
           //Should have a limit of text
-          m('input#first_name.validate[type=text][placeholder="Name"]'),
-          m('label[for=first_name]', "Name")
+          m('input#first_name.validate[type=text][placeholder="Name"][name=contact_id]', {value: AllInts.contacts_id}),
+          m('label', "Name")
         ]),
         m('.input-field.col.s12.m4', [
           m('input#first_name.validate[type=text][placeholder="Role"]'),
