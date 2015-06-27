@@ -16,7 +16,6 @@ var exp = module.exports = {
         })
       })
   },
-
   all: function() {
     return exp.apps
   }
