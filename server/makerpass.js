@@ -57,10 +57,6 @@ exports.mount = function (app, host) {
       res.redirect('/?/profile')
     })
 
-  app.get('/me', function (req, res) {
-    res.send({ user: req.user})
-  })
-
   app.get('/users', function(req, res){
     var users = User.retrieve(function(x){res.send({users: x})
     })
