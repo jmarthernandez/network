@@ -15,18 +15,27 @@ exports.mount = function (app) {
   });
 
   app.post('/API/applications', function(req, res){
-    console.log(req.body)
     if (!req.body) return res.sendStatus(400)
     var newValues = Applications.updateOrCreate(req.body)
-    res.send(req.body)
+    res.send(req.body);
   });
 
-
   app.get('/API/appswithcompanies', function(req,res){
-    if (!req.body) return res.sendStatus(400)
-      Applications.retrieveWithCompany(function(x){res.send({Applications: x})
+    if (!req.body) return res.sendStatus(400);
+      Applications.retrieveWithCompany(req.user, function(x){res.send({Applications: x})
     })
   });
 
+  app.get('/API/applications/:id', function(req, res){
+    if (!req.body) return res.sendStatus(400)
+    Applications.retrieveOne(function(x){res.send({Applications: x, Params: req.params.id})}, req.params.id
+  )});
+
+
+  app.get('/API/allApps', function(req,res){
+    if (!req.body) return res.sendStatus(400);
+      Applications.retrieveAllWithCompany(function(x){res.send({Applications: x})
+    })
+  });
 }
 
