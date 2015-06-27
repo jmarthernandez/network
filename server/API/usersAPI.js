@@ -24,7 +24,7 @@ exports.mount = function (app) {
 
 	app.get('/API/users/:id', function(req, res){
     	if (!req.body) return res.sendStatus(400)
-    	User.retrieveOne(function(x){res.send({Users: x, Params: req.params.id})}, req.params.id)
-});
+    	User.retrieveOne(function(x){res.send({Users: x, Params: req.params.id})}, req.params.id
+  )});
 }
 

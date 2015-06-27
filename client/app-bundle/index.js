@@ -44,7 +44,6 @@ var routes = {
       ctrl.user = Auth.currentUser();
     },
     view: function (ctrl) {
-      console.log( 'js', ctrl)
       return checkAuth(ctrl.user, m.component(StudentProfile, ctrl))
     }
   },
@@ -58,17 +57,6 @@ var routes = {
     view: function (ctrl) {
 
       return checkAuth(ctrl.user, m.component(StudentProfile, ctrl))
-    }
-  },
-
-  '/fuzzy': {
-    controller: function () {
-      var ctrl = this;
-      ctrl.user = Auth.currentUser();
-      
-    },
-    view: function (ctrl) {
-      return checkAuth(ctrl.user, m.component(Fuzzy))
     }
   },
 

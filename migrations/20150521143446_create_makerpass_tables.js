@@ -1,4 +1,5 @@
 exports.up = function(knex, Promise) {
+
   console.log('hello')
 
   return Promise.all([
@@ -26,7 +27,14 @@ exports.up = function(knex, Promise) {
       table.timestamps()
     }),
 
-    knex.schema.createTable('phases', function (table) {
+    knex.schema.createTable('jobs', function(table){
+      table.increments('id').primary()
+      table.integer('company_id').references('id').inTable('companies')
+      table.integer('title_id').references('id').inTable('titles')
+      table.string('user_id').references('uid').inTable('users')
+      table.dateTime('start_date')
+      table.dateTime('end_date')
+      table.integer('salary')
 
       table.timestamps()
     }),
@@ -122,12 +130,8 @@ exports.up = function(knex, Promise) {
 
 exports.down = function(knex, Promise) {
   return Promise.all([
-    knex.schema.dropTable('phases'),
+    knex.schema.dropTable('memberships'),
     knex.schema.dropTable('groups'),
-    knex.schema.dropTable('users'),
-    knex.schema.dropTable('companies'),
-    knex.schema.dropTable('jobs'),
-    knex.schema.dropTable('mem')
-
+    knex.schema.dropTable('users')
   ])
 }
