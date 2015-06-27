@@ -31,14 +31,12 @@ var User = module.exports = {
       })
   },
 
-
   retrieveOne: function(callback, id){
     return db('users').select('*').where( {uid: id})
     .then(function(row){
      return callback(row);
     })
   },
-
 
   updateOrCreate: function (attrs) {
     return User.update(attrs).catch(User.create.papp(attrs))

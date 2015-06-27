@@ -17,7 +17,7 @@ exports.mount = function (app) {
   app.post('/API/applications', function(req, res){
     if (!req.body) return res.sendStatus(400)
     var newValues = Applications.updateOrCreate(req.body)
-    res.send(req.body)
+    res.send(req.body);
   });
 
   app.get('/API/appswithcompanies', function(req,res){

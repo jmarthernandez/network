@@ -22,12 +22,6 @@ exports.mount = function (app) {
 		res.send(req.body)
 	});
 
-
-	app.get('/API/contacts/:id', function(req, res){
-		Contacts.retrieveOne(function(x){res.send({Contacts: x, Params: req.params})}, req.params.id
-    )
-  });
-
 }
 
 
