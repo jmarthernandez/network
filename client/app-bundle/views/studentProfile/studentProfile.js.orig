@@ -1,0 +1,35 @@
+var m             	= require('mithril');
+var Navbar        	= require('../../components/navbar/navbar.js');
+var NewApp        	= require('../../components/forms/newApp/newApp.js');
+var Messaging     	= require('../../components/messaging/messaging.js');
+var OnsiteInterview = require('../../components/forms/onsiteInterview/onsiteInterview.js');
+var Phases        	= require('../../components/phases/phases.js');
+var PhoneScreen     = require('../../components/forms/phoneScreen/phoneScreen.js');
+var StudentInfo   	= require('../../components/studentInfo/studentInfo.js');
+var StudentJobs     = require('../../components/studentJobs/studentJobs.js')
+
+//Models
+var StudentApps = require('../../models/studentApps.model.js')
+
+<<<<<<< HEAD
+exports.controller = function () {
+  StudentApps.fetchApps();
+=======
+exports.controller = function (ctrl) {
+  console.log(ctrl, 'huh?')
+  StudentApps.fetchApps(ctrl);
+>>>>>>> a067c47a57a28911465dc11672e6898ab407d06a
+  StudentApps.fetchInfo();
+}
+
+exports.view = function (ctrl) {
+  var modelData = StudentApps.all()
+  return m('.container', [
+  	m('.row'),
+  	m('.row', [
+	    m.component(StudentInfo, { studentInfo: modelData['studentInfo'] } ),
+	  	m.component(StudentJobs, { apps: modelData['apps'], studentInfo: modelData['studentInfo'] } ),
+    ]),
+    m.component(NewApp)
+  ]) 
+}

@@ -6,6 +6,13 @@ var studentApps = module.exports = {
   studentInfo: null,
 
   // All open applications for all students
+<<<<<<< HEAD
+  fetchApps: function() {
+    m.request({ method: 'GET', url: '/api/appsWithCompanies'})
+      .then(function(applications) {
+        studentApps.apps = applications.Applications;
+      });
+=======
   fetchApps: function(ctrl) {
     console.log(ctrl, 'control')
     if(ctrl.thisUserId){
@@ -19,6 +26,7 @@ var studentApps = module.exports = {
         studentApps.apps = applications.Applications;
       });
     }
+>>>>>>> a067c47a57a28911465dc11672e6898ab407d06a
   },
 
   all: function() {

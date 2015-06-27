@@ -28,6 +28,10 @@ app.use(session({
 //enable express router resource which facilitate shared endpoint routing
 var resource = require('express-resource');
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> a067c47a57a28911465dc11672e6898ab407d06a
 // bodyparser for endpoint conversion of JSON objects
 var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json()
@@ -50,5 +54,10 @@ require('./API/contactsAPI').mount(app);
 require('./API/schoolsAPI').mount(app);
 
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> a067c47a57a28911465dc11672e6898ab407d06a
 app.listen(port)
 console.log("Listening on port", port)

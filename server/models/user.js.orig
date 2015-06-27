@@ -31,6 +31,10 @@ var User = module.exports = {
       })
   },
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> a067c47a57a28911465dc11672e6898ab407d06a
   retrieveOne: function(callback, id){
     return db('users').select('*').where( {uid: id})
     .then(function(row){
@@ -38,6 +42,10 @@ var User = module.exports = {
     })
   },
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> a067c47a57a28911465dc11672e6898ab407d06a
   updateOrCreate: function (attrs) {
     return User.update(attrs).catch(User.create.papp(attrs))
   }

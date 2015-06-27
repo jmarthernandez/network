@@ -32,7 +32,11 @@ exports.controller = function () {
         data: ctrl.newAppForm,
         }).then(function(data) {
           console.log(data, 'postApp');
+<<<<<<< HEAD
+          // m.redraw.strategy('all')
+=======
           m.redraw.strategy('all')
+>>>>>>> a067c47a57a28911465dc11672e6898ab407d06a
         })
   };
 
