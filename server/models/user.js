@@ -38,6 +38,16 @@ var User = module.exports = {
     })
   },
 
+
+  retrieveWithRole: function(callback){
+    return db('users').select('*').join('memberships', function() {
+    this.on('memberships.user_uid', '=', 'users.uid')})
+    .then(function(row){
+
+     return callback(row);
+    })
+  },
+
   updateOrCreate: function (attrs) {
     return User.update(attrs).catch(User.create.papp(attrs))
   }

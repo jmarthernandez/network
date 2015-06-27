@@ -26,5 +26,12 @@ exports.mount = function (app) {
     	if (!req.body) return res.sendStatus(400)
     	User.retrieveOne(function(x){res.send({Users: x, Params: req.params.id})}, req.params.id
   )});
+
+
+	app.get('/me/', function(req, res){
+    	if (!req.body) return res.sendStatus(400)
+    	User.retrieveWithRole(function(x){res.send({User: x})})
+	});
+
 }
 
