@@ -15,7 +15,7 @@ var Applications = module.exports = {
     return db('applications').insert(attrs).return(attrs)
   },
 
-  retrieveWithCompany: function (user, callback) {
+  retrieveUserWithCompany: function (user, callback) {
 
   return db.select('*').from('applications').join('companies', function() {
     this.on('companies.id', '=', 'applications.company_id')}).join('titles',

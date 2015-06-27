@@ -15,7 +15,7 @@ var newApp = module.exports = {
 
   // List of all companies all students has applied for
   fetchAutocomplete: function() {
-    m.request({ method: 'GET', url: "/API/companies/" })
+    m.request({ method: 'GET', url: "/API/all/" })
       .then(function(companies) {
         newApp.autocomplete = companies.Companies;
       });
