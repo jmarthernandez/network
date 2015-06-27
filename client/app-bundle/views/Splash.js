@@ -1,5 +1,5 @@
 var m               = require('mithril');
-var Signin          = require('../../components/signin/signin.js');
+var Signin          = require('../components/Signin.js');
 
 exports.controller = function () {
   var ctrl = this;
