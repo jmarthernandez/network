@@ -29,11 +29,18 @@ var studentApps = module.exports = {
   },
 
   // All student profile info uid (e.g. avatar, name ...)
-  fetchInfo: function() {
-    m.request({ method: 'GET', url: "/me/" })
+  fetchInfo: function(ctrl) {
+    if(ctrl.thisUserId){
+    m.request({ method: 'GET', url: "api/users/" + ctrl.thisUserId })
+      .then(function(userInfo) {
+        studentApps.studentInfo = userInfo.Users[0];
+      })
+    } else {
+      m.request({ method: 'GET', url: "/me/" })
       .then(function(userInfo) {
         studentApps.studentInfo = userInfo.user;
       })
-  },
+    }
+  }
 
 };

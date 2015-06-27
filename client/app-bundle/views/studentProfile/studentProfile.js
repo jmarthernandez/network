@@ -13,7 +13,7 @@ var StudentApps = require('../../models/studentApps.model.js')
 
 exports.controller = function (ctrl) {
   StudentApps.fetchApps(ctrl);
-  StudentApps.fetchInfo();
+  StudentApps.fetchInfo(ctrl);
 }
 
 exports.view = function (ctrl) {
