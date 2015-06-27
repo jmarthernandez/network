@@ -26,6 +26,7 @@ var studentApps = module.exports = {
       apps: studentApps.apps,
       studentInfo: studentApps.studentInfo
     };
+      console.log(apps, 'APPS')
   },
 
   // All student profile info uid (e.g. avatar, name ...)

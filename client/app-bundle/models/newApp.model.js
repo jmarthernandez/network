@@ -15,7 +15,7 @@ var newApp = module.exports = {
 
   // List of all companies all students has applied for
   fetchAutocomplete: function() {
-    m.request({ method: 'GET', url: "/API/companies/" })
+    m.request({ method: 'GET', url: '/API/companies/' })
       .then(function(companies) {
         newApp.autocomplete = companies.Companies;
       });
@@ -24,7 +24,7 @@ var newApp = module.exports = {
 //POST requests
 
   postNewApplication: function(applicationFormData) {
-    m.request({ method: 'POST', url: "/API/applications/", data: applicationFormData})
+    m.request({ method: 'POST', url: '/API/applications/', data: applicationFormData})
   }
 
 };

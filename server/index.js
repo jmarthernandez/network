@@ -48,6 +48,8 @@ require('./API/membershipsAPI').mount(app);
 require('./API/interviewsAPI').mount(app);
 require('./API/contactsAPI').mount(app);
 require('./API/schoolsAPI').mount(app);
+require('./API/messagesAPI').mount(app);
+
 
 
 app.listen(port)

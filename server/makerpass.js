@@ -21,7 +21,7 @@ exports.mount = function (app, host) {
       callbackURL: host + '/auth/makerpass/callback'
     },
     function(accessToken, refreshToken, profile, done) {
-      console.log('strategy')
+
       importAuthData(profile).then(done.papp(null))
     }
   ))
@@ -53,7 +53,6 @@ exports.mount = function (app, host) {
     passport.authenticate('makerpass', { failureRedirect: '/' }),
     function(req, res) {
       // Successful authentication, redirect home.sj
-      console.log('redirecting')
       res.redirect('/?/profile')
     })
 
