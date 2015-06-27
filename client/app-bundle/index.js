@@ -44,7 +44,7 @@ var routes = {
       ctrl.user = Auth.currentUser();
     },
     view: function (ctrl) {
-      return checkAuth(ctrl.user, m.component(StudentProfile))
+      return checkAuth(ctrl.user, m.component(StudentProfile, ctrl))
     }
   },
 
