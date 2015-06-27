@@ -30,7 +30,7 @@ exports.mount = function (app) {
 
 	app.get('/api/me', function(req, res){
     	if (!req.body) return res.sendStatus(400)
-    	User.retrieveWithRole(function(x){res.send({user: x})})
+    	User.retrieveWithRole(function(x){res.send({user: x})},req.user.uid)
 	});
 
 }
