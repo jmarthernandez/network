@@ -12,7 +12,6 @@ var StudentJobs     = require('../../components/studentJobs/studentJobs.js')
 var StudentApps = require('../../models/studentApps.model.js')
 
 exports.controller = function (ctrl) {
-  console.log(ctrl, 'huh?')
   StudentApps.fetchApps(ctrl);
   StudentApps.fetchInfo();
 }
