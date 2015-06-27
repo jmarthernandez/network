@@ -1,0 +1,25 @@
+var m = require('mithril');
+
+var Navbar = require('./components/navbar/navbar.js');
+
+
+exports.controller = function() {
+  var ctrl = this;
+};
+
+
+<<<<<<< HEAD
+exports.layout = function(viewContents) {
+  return m('div', [
+    m.component(Navbar),
+    viewContents
+  ]);
+=======
+exports.layout = function(view) {
+  return m('div', [
+    m.component('Navbar'),
+    view
+    ])
+  //render the view  beneath navbar
+>>>>>>> Moved forms into components/forms/
+};

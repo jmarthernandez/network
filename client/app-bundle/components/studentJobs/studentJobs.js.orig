@@ -1,0 +1,51 @@
+var m = require('mithril');
+
+<<<<<<< HEAD
+exports.view = function (ctrl, options) {
+=======
+exports.controller = function () {
+  var ctrl = this;
+  ctrl.studentJobs;
+
+  m.request({ method: 'GET', url: '/api/jobs'})
+    .then(function(jobs) {
+      ctrl.studentJobs = m.prop();
+      return ctrl.studentJobs(jobs['Jobs']);
+    });
+  
+};
+
+//TODO: join query for company name using company_id
+
+
+exports.view = function (ctrl) {
+>>>>>>> refactored routes and required sign in
+  return m('.col.m9.s12', [
+    m('h1.center-align', 'Pending Applications'),
+    m('ul.collection', [
+      options['apps'].map(function(app){
+        return m('li.collection-item avatar', [
+<<<<<<< HEAD
+          m('img[src=' + options['studentInfo'].avatar_url + '].circle'),
+          m('span.title', app.company_name),
+          m('p', 'Title: ' + app.title),
+          m('p', 'Date Applied: ' + app.date_applied.slice(0,10)),
+          // m('p', 'Active: ' + app.active),
+          // m('a.waves-effect.waves-light.secondary-content.btn[href=#]', 'update')
+=======
+          m('img[src=https://avatars.githubusercontent.com/u/5953350?v=3].circle'),
+          m('span.title', job.company_id || 'Company Name'),
+          m('p', 'Company Name'),
+          m('a.waves-effect.waves-light.secondary-content.btn[href=#]', 'update')
+>>>>>>> refactored routes and required sign in
+        ])
+      })
+    ])
+  ])
+<<<<<<< HEAD
+};
+
+
+=======
+};
+>>>>>>> refactored routes and required sign in
