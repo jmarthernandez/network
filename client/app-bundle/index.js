@@ -1,34 +1,83 @@
 // Include language extensions FIRST
-require('./ext/functions.js')
+// require('../functions.js')
 
-var m = require('mithril')
-var Auth = require('../lib/auth.js')
-var Page = require('./components/page/page.js')
+var m              = require('mithril');
+var App            = require('./app.js');
+var Auth           = require('../lib/auth.js');
+var Outcomes       = require('./views/outcomes/outcomes.js');
+var StudentProfile = require('./views/studentProfile/studentProfile.js');
+var Outcomes       = require('./views/outcomes/outcomes.js');
+var Progress       = require('./views/progress/progress.js');
+var Splash         = require('./views/splash/splash.js');
 
+// TODO: Make sure pages can only be accessed when user is authorized
 
-var App = {}
+// var goHome = m.route.papp('/')
 
-App.controller = function () {
-  var ctrl = this
-  ctrl.user = Auth.currentUser()
-  ctrl.signOut = function () {
-    Auth.signOut().then( ctrl.user.papp(null) )
+var checkAuth = function(authorization, componentsArr) {
+  //TODO: Check role of user and redirect correctly
+  if(authorization()){      
+    console.log('authorized')
+    return App.layout(componentsArr);
+  }else{
+    console.log('redirected')
+    return  m.component(Splash);
   }
-}
+};
 
-App.view = function (ctrl) {
-  return [
-    m('h1', "The New Learn App"),
-    m.component(Page, { content: "Hello, I am a page component." }),
 
-    ctrl.user() ? [
-      m('span', JSON.stringify(ctrl.user())),
-      m('a[href=#]', { onclick: ctrl.signOut.chill() }, "Sign Out"),
-    ] : [
-      m('a[href=/auth/makerpass]', "Sign In"),
-    ],
+var routes = {
 
-  ]
-}
+  '/': {
+    controller: function () {
+      var ctrl = this;
+      ctrl.user = Auth.currentUser()
+    },
+    view: function (ctrl) {
+      return  m.component(Splash)
+    }
+  },
 
-m.mount(document.getElementById('app'), App)
+  '/profile': {
+    controller: function () {
+      var ctrl = this;
+      ctrl.user = Auth.currentUser();
+    },
+    view: function (ctrl) {
+      return checkAuth(ctrl.user, m.component(StudentProfile))
+    }
+  },
+
+  '/fuzzy': {
+    controller: function () {
+      var ctrl = this;
+      ctrl.user = Auth.currentUser();
+      
+    },
+    view: function (ctrl) {
+      return checkAuth(ctrl.user, m.component(Fuzzy))
+    }
+  },
+
+  '/outcomes': {
+    controller: function () {
+      var ctrl = this;
+      ctrl.user = Auth.currentUser();
+    },
+    view: function (ctrl) {
+      return checkAuth(ctrl.user, m.component(Outcomes))
+    }
+  },
+
+  '/signout': {
+    controller: function () {
+      Auth.signOut();
+    },
+    view: function () {
+      return m.component(Splash)
+    }
+  }
+};
+
+// m.route.mode = 'pathname';
+m.route(document.getElementById('app'), '/', routes);

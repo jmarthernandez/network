@@ -1,28 +1,56 @@
 {
-  "name": "learn",
+  "name": "network",
   "version": "1.0.0",
-  "description": "The official learn app",
-  "main": "index.js",
-  "scripts": {
-    "watch": "nodemon server/ --ignore client/",
-    "test": "./run_tests.sh",
-    "resetdb": "dropdb learn_dev; createdb learn_dev; ./node_modules/.bin/knex migrate:latest"
+  "description": "",
+  "main": "server/index.js",
+  "directories": {
+    "test": "test"
   },
-  "author": "Gilbert <gilbertbagrza@gmail.com>",
+  "engines": {
+    "node": "0.12.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/makerHire/network/"
+  },
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "browserify-middleware": "^5.0.2",
+    "body-parser": "^1.13.1",
+    "browserify": "^10.2.4",
+    "browserify-middleware": "^6.0.0",
     "cookie-session": "^1.1.0",
     "express": "^4.12.4",
-    "knex": "^0.8.6",
-    "passport": "^0.2.1",
-    "passport-makerpass": "^1.2.0",
-    "pg": "^4.3.0"
+    "express-resource": "^1.0.0",
+    "fuzzysearch-js": "^0.1.1",
+    "glob": "^5.0.10",
+    "gulp": "^3.9.0",
+    "jquery": "^2.1.4",
+    "knex": "^0.8.4",
+    "materialize-css": "^0.96.1",
+    "mithril": "^0.2.0",
+    "mocha": "^2.2.5",
+    "passport": "^0.2.2",
+    "passport-makerpass": "^1.2.0"
   },
   "devDependencies": {
-    "chai": "^2.3.0",
-    "chai-as-promised": "^5.0.0",
-    "mocha": "^2.2.5",
-    "nodemon": "^1.3.7"
+    "del": "^1.2.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-cache": "^0.2.10",
+    "gulp-concat": "^2.5.2",
+    "gulp-imagemin": "^2.2.1",
+    "gulp-jshint": "^1.11.0",
+    "gulp-livereload": "^3.8.0",
+    "gulp-minify-css": "^1.1.6",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^1.0.5",
+    "gulp-nodemon": "^2.0.3",
+    "gulp-uglify": "^1.2.0"
   }
 }

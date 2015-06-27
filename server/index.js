@@ -25,7 +25,33 @@ app.use(session({
   signed: true
 }))
 
-require('./makerpass').mount(app, host)
+//enable express router resource which facilitate shared endpoint routing
+var resource = require('express-resource');
+
+
+// bodyparser for endpoint conversion of JSON objects
+var bodyParser = require('body-parser')
+var jsonParser = bodyParser.json()
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }));
+
+
+//API endpoint integration
+require('./makerpass').mount(app, host);
+require('./API/jobsAPI').mount(app);
+require('./API/usersAPI').mount(app);
+require('./API/companiesAPI').mount(app);
+require('./API/groupsAPI').mount(app);
+require('./API/applicationsAPI').mount(app);
+require('./API/questionsAPI').mount(app);
+require('./API/titlesAPI').mount(app);
+require('./API/membershipsAPI').mount(app);
+require('./API/interviewsAPI').mount(app);
+require('./API/contactsAPI').mount(app);
+require('./API/schoolsAPI').mount(app);
+
+
+
 
 app.listen(port)
 console.log("Listening on port", port)
