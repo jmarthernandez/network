@@ -39,12 +39,14 @@ var User = module.exports = {
   },
 
 
-  retrieveWithRole: function(callback){
+  retrieveWithRole: function(callback, id){
     return db('users').select('*').join('memberships', function() {
     this.on('memberships.user_uid', '=', 'users.uid')})
     .then(function(row){
-
-     return callback(row);
+       var filteredRow = row.filter(function(obj){
+        return id === obj.user_uid;
+        })
+     return callback(filteredRow);
     })
   },
 
