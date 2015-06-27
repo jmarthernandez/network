@@ -18,6 +18,7 @@ exports.controller = function (ctrl) {
 
 exports.view = function (ctrl) {
   var modelData = StudentApps.all()
+  console.log(modelData , " modelData is here")
   return m('.container', [
   	m('.row'),
   	m('.row', [

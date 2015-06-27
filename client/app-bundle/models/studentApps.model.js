@@ -2,21 +2,27 @@ var m = require('mithril');
 
 var studentApps = module.exports = {
 
-  apps: null,
+  apps: {1: [], 2: [], 3: []},
   studentInfo: null,
-
+    
   // All open applications for all students
   fetchApps: function(ctrl) {
     console.log(ctrl, 'control')
     if(ctrl.thisUserId){
       m.request({ method: 'GET', url: '/api/applications/' + ctrl.thisUserId})
       .then(function(applications) {
-        studentApps.apps = applications.Applications;
+        studentApps.apps = {1: [], 2: [], 3: []}
+        applications.Applications.forEach(function(app){
+          studentApps.apps[app.phase].push(app)
+        })
       });
     } else {
       m.request({ method: 'GET', url: '/api/appswithcompanies/'})
       .then(function(applications) {
-        studentApps.apps = applications.Applications;
+        studentApps.apps = {1: [], 2: [], 3: []}
+        applications.Applications.forEach(function(app){
+          studentApps.apps[app.phase].push(app)
+        })
       });
     }
   },
