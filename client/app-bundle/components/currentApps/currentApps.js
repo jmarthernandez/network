@@ -1,4 +1,5 @@
 var m = require('mithril');
+var materialize = require('../../../lib/materialize.js')
 
 var allApps = require('../../models/allApps.model.js')
 
@@ -7,8 +8,7 @@ exports.controller = function () {
 }
 
 exports.view = function (ctrl) {
-  var apps = allApps.all()
-
+ var apps = allApps.all()
   return m('.col.m9.s12', [
     m('h1.center-align', 'Phase I'),
     m('ul.collection', [
@@ -24,7 +24,7 @@ exports.view = function (ctrl) {
           ])
         }
       })
-    ]),
+    ]),//End UL Collection App[1]
     m('h1.center-align', 'Phase II'),
     m('ul.collection', [
       apps[2].map(function(app){
@@ -53,5 +53,36 @@ exports.view = function (ctrl) {
         }
       })
     ])
-  ])
+  ]) //End of Return
 };
+
+
+
+
+
+
+
+
+
+
+
+
+//HOLDING PATTERN
+ // return m('ul[data-collapsible="accordion"]', {class: "collapsible", config: materialize.makeCollapsible}, [
+ //    m('li', [
+ //      m('div', {class: 'collapsible-header'}, "In-Person Interviews"),
+ //      m('div', {class: 'collapsible-body'}, "List Students"),
+ //    ]),
+ //    m('li', [
+ //      m('div', {class: 'collapsible-header'}, "Phone Interviews"),
+ //      m('div', {class: 'collapsible-body'}, "List Students"),
+ //    ]),
+ //    m('li', [
+ //      m('div', {class: 'collapsible-header'}, "Follow Ups"),
+ //      m('div', {class: 'collapsible-body'}, "List Students"),
+ //    ]),
+ //        m('li', [
+ //      m('div', {class: 'collapsible-header'}, "Element 4"),
+ //      m('div', {class: 'collapsible-body'}, "List Students"),
+ //    ])
+ //  ])
