@@ -62,6 +62,13 @@ exports.mount = function (app, host) {
     })
   })
 
+
+app.get('/me', function(req, res){
+  console.log(req.user)
+    res.send({ user: req.user})
+  })
+
+
   app.post('/signout', function (req, res) {
     console.log('signout')
     req.session = null

@@ -28,9 +28,9 @@ exports.mount = function (app) {
   )});
 
 
-	app.get('/me/', function(req, res){
+	app.get('/api/me', function(req, res){
     	if (!req.body) return res.sendStatus(400)
-    	User.retrieveWithRole(function(x){res.send({User: x})})
+    	User.retrieveWithRole(function(x){res.send({user: x})})
 	});
 
 }
