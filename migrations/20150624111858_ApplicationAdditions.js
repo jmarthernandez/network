@@ -19,7 +19,6 @@ exports.up = function(knex, Promise) {
       table.string('receiver_uid').references('uid').inTable('users').notNullable()
       table.integer('app_id').references('id').inTable('applications')
       table.string('body')
-
       table.timestamps()
   		})
 	])

@@ -26,13 +26,11 @@ var Messages = module.exports = {
 
   retrieveOne: function (sender,callback, receiver) {
 
-    return db.select('*').from('messages').leftOuterJoin('users', function() {
-    this.on('users.uid', '=', 'receiver_uid').orOn('users.uid', '=', 'sender_uid')})
+    return db.select('messages.*', 'sender.name AS sender_name', 'sender.uid','sender.status','sender.avatar_url AS sender_url', 'receiver.name AS receiver_name').from('messages')
+    .join('users AS sender', 'messages.sender_uid', 'sender.uid')
+    .join('users AS receiver', 'messages.receiver_uid', 'receiver.uid')
     .then(function(rows){
-      rows[0].sender_name = rows[0].name;
-      rows[0].receiver_name = rows[1].name;
-      rows.pop();
-     return (rows.length === 0) ? callback({title:'Messages WIll Be here!!!!'}) : callback(rows)
+     return (rows.length === 0) ? callback({title:'Messages Will Be here!!!!'}) : callback(rows)
     })
   },
 
