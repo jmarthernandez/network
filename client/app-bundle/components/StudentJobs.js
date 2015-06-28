@@ -1,5 +1,5 @@
 var m = require('mithril');
-var materialize = require('../../../lib/materialize.js');
+var materialize = require('../../lib/materialize.js');
 
 // exports.view = function (ctrl, options) {
 //   return m('.col.m9.s12', [

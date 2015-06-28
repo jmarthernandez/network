@@ -15,6 +15,7 @@ exports.controller = function () {
 
 exports.view = function(ctrl) {
   var apps = AllApps.all()
+  console.log(apps)
 
   return m('.container', [
     m('h1.center-align', 'Student Outcomes'),
