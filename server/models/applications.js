@@ -3,16 +3,16 @@ var Promise = require('knex/node_modules/bluebird')
 
 var Applications = module.exports = {
 
-	find: function (uid) {
+  find: function (uid) {
     return db('applications').select('*').where({ uid: uid }).limit(1)
       .then(function(rows) {
         return (rows.length === 0) ? Promise.reject(new Error('not_found')) : rows[0]
-      })
+      });
   },
 
   create: function (attrs) {
-    attrs.created_at = new Date()
-    return db('applications').insert(attrs).return(attrs)
+    attrs.created_at = new Date();
+    return db('applications').insert(attrs).return(attrs);
   },
 
   retrieveUserWithCompany: function (user, callback) {
@@ -24,10 +24,10 @@ var Applications = module.exports = {
       if(Array.isArray(rows)){
       var filteredRows = rows.filter(function(obj){
         return user.uid === obj.user_id;
-        })
-      }
-     return (rows.length === 0) ? callback({title:'Apps with companies will be here, joined'}) : callback(filteredRows)
-  })
+        });
+      };
+     return (rows.length === 0) ? callback({title:'Apps with companies will be here, joined'}) : callback(filteredRows);
+  });
 },
 
 retrieveAllWithCompany: function (callback) {
@@ -38,15 +38,15 @@ retrieveAllWithCompany: function (callback) {
         this.on('users.uid', '=', 'applications.user_id')
       })
     .then(function(rows){
-     return (rows.length === 0) ? callback({title:'Apps with companies will be here, joined'}) : callback(rows)
-  })
+     return (rows.length === 0) ? callback({title:'Apps with companies will be here, joined'}) : callback(rows);
+  });
 },
 
   retrieveAll: function (callback) {
     return db('applications').select('*')
     .then(function(rows){
-     return (rows.length === 0) ? callback({title:'Applications WIll Be here!!!!'}) : callback(rows)
-    })
+     return (rows.length === 0) ? callback({title:'Applications WIll Be here!!!!'}) : callback(rows);
+    });
   },
 
   update: function (attrs) {
@@ -54,8 +54,8 @@ retrieveAllWithCompany: function (callback) {
     console.log(attrs.uid)
     return db('applications').update(attrs).where({ uid: attrs.uid })
       .then(function(affectedCount) {
-        return (affectedCount === 0) ? Promise.reject(new Error('not_found')) : attrs
-      })
+        return (affectedCount === 0) ? Promise.reject(new Error('not_found')) : attrs;
+      });
   },
 
   retrieveOne: function(callback, id){
@@ -65,16 +65,14 @@ retrieveAllWithCompany: function (callback) {
         this.on('users.uid', '=', 'applications.user_id')
       })
     .then(function(row){
-      if(Array.isArray(row)){
       var filteredRows = row.filter(function(obj){
         return id === obj.user_id;
-        })
-      }
+        });
      return callback(filteredRows);
-    })
+    });
   },
 
   updateOrCreate: function (attrs) {
-    return Applications.update(attrs).catch(Applications.create.papp(attrs))
+    return Applications.update(attrs).catch(Applications.create.papp(attrs));
   }
-}
+};
