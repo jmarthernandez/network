@@ -1,12 +1,6 @@
 var m = require('mithril');
 
-var Navbar = require('./components/navbar/navbar.js');
-
-
-exports.controller = function() {
-  var ctrl = this;
-};
-
+var Navbar = require('./components/Navbar.js');
 
 exports.layout = function(viewContents) {
   return m('div', [

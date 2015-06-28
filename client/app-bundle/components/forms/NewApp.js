@@ -1,8 +1,9 @@
 var m = require('mithril');
-var StudentJobs = require('../../studentJobs/studentJobs.js')
+var StudentJobs = require('../studentJobs.js')
 
 exports.controller = function () {
   var ctrl = this;
+
   var newAppForm = {
     phase: 1,
     date_applied: '',
@@ -14,14 +15,14 @@ exports.controller = function () {
     company_id: ''
   };
 
-m.request({
-      method: 'GET',
-      url: "/me/"
-    }).then(function(req){
-      ctrl.newAppForm = m.prop(newAppForm);
-      ctrl.newAppForm().user_id = req.user.uid 
-      console.log(ctrl.newAppForm(), 'newAppForm');
-    });
+  m.request({
+    method: 'GET',
+    url: "/me/"
+  }).then(function(req){
+    ctrl.newAppForm = m.prop(newAppForm);
+    ctrl.newAppForm().user_id = req.user.uid 
+    console.log(ctrl.newAppForm(), 'newAppForm');
+  });
 
   ctrl.postApp = function(e, data) {
     e.preventDefault()

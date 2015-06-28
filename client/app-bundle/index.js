@@ -4,11 +4,9 @@
 var m              = require('mithril');
 var App            = require('./app.js');
 var Auth           = require('../lib/auth.js');
-var Outcomes       = require('./views/outcomes/outcomes.js');
-var StudentProfile = require('./views/studentProfile/studentProfile.js');
-var Outcomes       = require('./views/outcomes/outcomes.js');
-var Progress       = require('./views/progress/progress.js');
-var Splash         = require('./views/splash/splash.js');
+var Outcomes       = require('./views/Outcomes.js');
+var StudentProfile = require('./views/StudentProfile.js');
+var Splash         = require('./views/Splash.js');
 
 // TODO: Make sure pages can only be accessed when user is authorized
 

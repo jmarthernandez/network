@@ -1,5 +1,9 @@
 var m = require('mithril');
 
+var StudentApps = require('StudentApps.model.js')
+
+// StudentApps.apps
+
 var newApp = module.exports = {
 
   autocomplete: null,
