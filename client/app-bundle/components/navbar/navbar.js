@@ -14,7 +14,7 @@ exports.view = function (ctrl) {
   ];
 	return m("nav.teal.darken-1", [
 		m('.nav-wrapper', [
-			m("a[href='#']#brand-logo", "MakerHire", [
+			m("a[href='#']#brand-logo", "Net&Work", [
 			m("ul#nav-mobile.right.hide-on-med-and-down", [
 				m('li', links.map(function(link) {
       		return m("li",
