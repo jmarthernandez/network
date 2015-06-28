@@ -10,6 +10,7 @@ var StudentJobs     = require('../../components/studentJobs/studentJobs.js')
 
 //Models
 var StudentApps = require('../../models/studentApps.model.js')
+var Interview = require('../../models/Interview.js')
 
 exports.controller = function (ctrl) {
   StudentApps.fetchApps(ctrl);
@@ -25,6 +26,7 @@ exports.view = function (ctrl) {
 	    m.component(StudentInfo, { studentInfo: modelData['studentInfo'] } ),
 	  	m.component(StudentJobs, { apps: modelData['apps'], studentInfo: modelData['studentInfo'] } ),
     ]),
+    m.component(OnsiteInterview, {allInts: modelData['onsiteInterview']}),
     m.component(NewApp)
   ]) 
 }
