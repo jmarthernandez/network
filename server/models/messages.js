@@ -24,7 +24,7 @@ var Messages = module.exports = {
   },
 
 
-  retrieveOne: function (sender,callback, receiver) {
+  retrieveOne: function (callback) {
 
     return db.select('messages.*', 'sender.name AS sender_name', 'sender.uid','sender.status','sender.avatar_url AS sender_url', 'receiver.name AS receiver_name').from('messages')
     .join('users AS sender', 'messages.sender_uid', 'sender.uid')

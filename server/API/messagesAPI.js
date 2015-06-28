@@ -16,10 +16,10 @@ exports.mount = function (app) {
   });
 
 	app.get('/API/messagesToo/', function(req, res){
-    if (!req.body) return res.sendStatus(400)
-    Messages.retrieveOne(req.user, function(x){res.send({Messages: x, Params: req.params.id})}, req.params
-  )});
-
+    	if (!req.body) return res.sendStatus(400)
+    	Messages.retrieveOne(function(x){res.send({Messages: x, Params: req.params.id})})
+	});
+	
 	app.post('/API/messages', function(req, res){
 		console.log(req.body)
 		if (!req.body) return res.sendStatus(400)
