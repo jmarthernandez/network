@@ -10,7 +10,7 @@ var StudentJobs     = require('../../components/studentJobs/studentJobs.js')
 
 //Models
 var StudentApps = require('../../models/studentApps.model.js')
-var allInts = require('../../models/allInts.model.js')
+var Interview = require('../../models/Interview.model.js')
 
 exports.controller = function (ctrl) {
   StudentApps.fetchApps(ctrl);
