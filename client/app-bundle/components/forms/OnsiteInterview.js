@@ -1,5 +1,5 @@
 var m         = require('mithril');
-var Interview   = require('../../../models/Interview.js');
+var Interview   = require('../../models/Interview.js');
 
 exports.controller = function () {
 	var ctrl = this;

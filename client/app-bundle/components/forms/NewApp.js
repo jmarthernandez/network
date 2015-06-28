@@ -1,5 +1,5 @@
 var m = require('mithril');
-var StudentJobs = require('../../studentJobs/studentJobs.js')
+var StudentJobs = require('../studentJobs.js')
 
 exports.controller = function () {
   var ctrl = this;
