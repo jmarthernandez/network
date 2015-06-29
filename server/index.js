@@ -52,6 +52,5 @@ require('./API/schools-api').mount(app);
 require('./API/messages-api').mount(app);
 
 
-
 app.listen(port)
 console.log("Listening on port", port)
