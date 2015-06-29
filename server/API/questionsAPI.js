@@ -1,27 +1,19 @@
-var User       = require('../models/user')
-var Group     = require('../models/group')
-var Membership = require('../models/membership')
-var School     = require('../models/school')
-var Jobs       = require('../models/jobs')
-var Companies  = require('../models/companies')
-var Questions  = require('../models/questions')
-var Utils      = require('./utils')
+var Questions  = require('../models/questions');
 
 
 exports.mount = function (app) {
 
+	//endpoint which returns all questions
 	app.get('/API/Questions', function(req, res){
-		Questions.retrieveAll(function(x){res.send({Questions: x})
-    })
+		Questions.retrieveAll(function(x){res.send({Questions: x});
+    });
   });
 
-
+	//endpoint which posts a new questions
 	app.post('/API/Questions', function(req, res){
-		console.log(req.body)
-		if (!req.body) return res.sendStatus(400)
-		var newValues = Questions.updateOrCreate(req.body)
-		res.send(req.body)
+		if (!req.body) return res.sendStatus(400);
+		var newValues = Questions.updateOrCreate(req.body);
+		res.send(req.body);
 	});
-
-}
+};
 

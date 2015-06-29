@@ -3,6 +3,7 @@ require('../ext/functions.js')
 require('../ext/globals.js')
 
 var browserify = require('browserify-middleware')
+var glob = require('glob')
 var express = require('express')
 var app = express()
 var port = process.env.PORT || 4000
