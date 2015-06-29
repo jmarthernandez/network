@@ -28,7 +28,6 @@ var Jobs = module.exports = {
   //updates a job in the DB
   update: function (attrs) {
     attrs.updated_at = new Date()
-    console.log(attrs.uid)
     return db('jobs').update(attrs).where({ uid: attrs.uid })
       .then(function(affectedCount) {
         return (affectedCount === 0) ? Promise.reject(new Error('not_found')) : attrs;
