@@ -1,7 +1,6 @@
 var Membership = require('../models/membership');
 
 
-
 exports.mount = function (app) {
 
 	//endpoint which retreives all memberships

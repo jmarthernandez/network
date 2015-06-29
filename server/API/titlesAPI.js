@@ -3,7 +3,6 @@ var Titles     = require('../models/titles')
 
 exports.mount = function (app) {
 
-
 	//endpoint which retrieves all questions
 	app.get('/API/titles', function(req, res){
 		Titles.retrieveAll(function(x){res.send({Titles: x});

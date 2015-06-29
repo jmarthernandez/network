@@ -1,8 +1,6 @@
 var Companies  = require('../models/companies');
 
 
-
-
 exports.mount = function (app) {
 
 	//endpoint which retrieves all within companies table
@@ -20,8 +18,7 @@ exports.mount = function (app) {
 
 	//endpoint which retreives a specific company
 	app.get('/API/companies/:id', function(req, res){
-		Companies.retrieveOne(function(x){res.send({Companies: x, Params: req.params})}, req.params.id
-    );
+		Companies.retrieveOne(function(x){res.send({Companies: x, Params: req.params})}, req.params.id);
   });
 };
 

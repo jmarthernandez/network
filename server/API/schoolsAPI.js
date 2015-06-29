@@ -1,7 +1,6 @@
 var School     = require('../models/school')
 
 
-
 exports.mount = function (app) {
 
 	//endpoint which retreives all schools

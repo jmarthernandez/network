@@ -1,7 +1,6 @@
 var Interviews = require('../models/interviews');
 
 
-
 exports.mount = function (app) {
 
 //endpoint which retrieves all interviews
