@@ -22,7 +22,6 @@ var User = module.exports = General.access('users')
     });
   };
 
-
   module.exports.retrieveOne = function(callback, id){
     return db('users').select('*').where( {uid: id})
     .then(function(row){
