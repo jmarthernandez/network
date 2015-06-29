@@ -25,8 +25,8 @@ exports.view = function (ctrl) {
   return m('.container', [
     m('.row'),
     m('.row', [
-      m.component(StudentInfo, { studentInfo: appsData['studentInfo'] } ),
-      m.component(StudentJobs, { apps: appsData['apps'], studentInfo: appsData['studentInfo'] } ),
+      m.component(StudentInfo, { studentInfo: appsData.studentInfo } ),
+      m.component(StudentJobs, { apps: appsData.apps, studentInfo: appsData.studentInfo } ),
     ]),
     m.component(OnsiteInterview),
     m.component(NewApp),

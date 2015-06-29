@@ -7,7 +7,6 @@ var studentApps = module.exports = {
     
   // All open applications for all students
   fetchApps: function(ctrl) {
-    console.log(ctrl, 'control')
     if(ctrl.thisUserId){
       m.request({ method: 'GET', url: '/api/applications/' + ctrl.thisUserId})
       .then(function(applications) {
@@ -32,7 +31,6 @@ var studentApps = module.exports = {
       apps: studentApps.apps,
       studentInfo: studentApps.studentInfo
     };
-      console.log(apps, 'APPS')
   },
 
   // All student profile info uid (e.g. avatar, name ...)
