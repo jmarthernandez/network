@@ -1,19 +1,19 @@
 var Questions  = require('../models/questions');
+var express = require('express')
 
+var router = module.exports = express.Router();
 
-exports.mount = function (app) {
 
 	//endpoint which returns all questions
-	app.get('/API/Questions', function(req, res){
+	router.get('/', function(req, res){
 		Questions.retrieveAll(function(x){res.send({Questions: x});
     });
   });
 
 	//endpoint which posts a new questions
-	app.post('/API/Questions', function(req, res){
+	router.post('/', function(req, res){
 		if (!req.body) return res.sendStatus(400);
 		var newValues = Questions.updateOrCreate(req.body);
 		res.send(req.body);
 	});
-};
 

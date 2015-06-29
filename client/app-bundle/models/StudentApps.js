@@ -16,7 +16,7 @@ var studentApps = module.exports = {
           });
         });
     } else {
-      m.request({ method: 'GET', url: '/api/appswithcompanies/'})
+      m.request({ method: 'GET', url: '/api/applications/allUser/'})
         .then(function(applications) {
           studentApps.apps = {1: [], 2: [], 3: []}
           applications.Applications.forEach(function(app){

@@ -18,7 +18,7 @@ var Messages = module.exports = {
 
   //GETs all messages for current user
   fetch: function (req) {
-    m.request({ methods: 'GET', url: '/API/messagestoo/' })
+    m.request({ methods: 'GET', url: '/API/messages/user/' })
       .then(function(messagesObj){
         Messages.messagesArray = null;
         Messages.messagesArray = messagesObj['Messages'];

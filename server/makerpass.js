@@ -95,7 +95,6 @@ var importAuthData = module.exports.importAuthData = function (mks) {
 
 
 function importUser (mks) {
-  
   return User.updateOrCreate({
     uid: mks.id,
     name: mks.name,

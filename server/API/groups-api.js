@@ -1,19 +1,19 @@
 var Groups     = require('../models/group');
+var express = require('express')
 
 
-exports.mount = function (app) {
+var router = module.exports = express.Router();
 
 //endpoint which retrieves all groups
-	app.get('/API/Groups', function(req, res){
+	router.get('/', function(req, res){
 		Groups.retrieveAll(function(x){res.send({Groups: x});
     });
   });
 
 //endpoint which posts a new group
-	app.post('/API/Groups', function(req, res){
+	router.post('/', function(req, res){
 		if (!req.body) return res.sendStatus(400);
 		var newValues = Groups.updateOrCreate(req.body);
 		res.send(req.body);
 	});
-};
 

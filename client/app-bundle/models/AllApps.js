@@ -9,7 +9,7 @@ var App = module.exports = {
 
   // All open applications for all students 
   fetch: function() {
-    m.request({ method: 'GET', url: '/API/allApps' })
+    m.request({ method: 'GET', url: '/API/applications/all' })
       .then(function(applicationsResponse) {
         App.apps = {1: [], 2: [], 3: []};
         applicationsResponse.Applications.forEach(function(app){
