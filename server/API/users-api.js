@@ -1,4 +1,4 @@
-var User       = require('../models/user')
+var User = require('../models/user')
 
 
 exports.mount = function (app) {
@@ -12,14 +12,14 @@ exports.mount = function (app) {
   //endpoint which adds a new user
 	app.post('/API/users', function(req, res){
 		if (!req.body) return res.sendStatus(400);
-		var newValues = User.updateOrCreate(req.body);
+		User.updateOrCreate(req.body);
 		res.send(req.body);
 	});
 
   //endpoint which retrieves a specific user
 	app.get('/API/users/:id', function(req, res){
     if (!req.body) return res.sendStatus(400);
-    User.retrieveOne(req.params.id, function(x){res.send({Users: x, Params: req.params.id})});
+    User.retrieveOne(function(x){res.send({Users: x, Params: req.params.id})},req.params.id);
   });
 
 	//endpoint which retrieves joined information about the currently logged-in user.
