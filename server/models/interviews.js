@@ -31,9 +31,8 @@ var Interviews = module.exports = {
     });
   },
   
-  //destroys a interview in the DB
+  //destroys an interview in the DB
   destroy: function (uid) {
     return db('interviews').where({ uid: uid }).delete()
   }
-}
-
+};

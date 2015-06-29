@@ -3,11 +3,13 @@ var Promise = require('knex/node_modules/bluebird')
 
 var Membership = module.exports = {
 
+  //creates a membership in the DB
   create: function (attrs) {
     attrs.created_at = new Date();
     return db('memberships').insert(attrs).return(attrs);
   },
 
+  //updates a membership information in the DB
   update: function (attrs) {
     attrs.updated_at = new Date()
     return db('memberships').update(attrs).where({ uid: attrs.uid })
@@ -15,11 +17,13 @@ var Membership = module.exports = {
         return (affectedCount === 0) ? Promise.reject(new Error('not_found')) : attrs;
       });
   },
-
+  
+  //updates or creates a specific membership depending on prior status
   updateOrCreate: function (attrs) {
     return Membership.update(attrs).catch(Membership.create.papp(attrs));
   },
-
+  
+  //destroys a membership in the DB
   destroy: function (uid) {
     return db('memberships').where({ uid: uid }).delete();
   },
@@ -48,7 +52,6 @@ var Membership = module.exports = {
 
     })
   }
-
 }
 
 function extractMembershipData (user_uid, oauthMem) {
