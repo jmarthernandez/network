@@ -1,24 +1,10 @@
-var db = require('../db.js')
-var Promise = require('bluebird')
-
-var Applications = module.exports = {
-
-  //finds and returns a specific application
-  find: function (uid) {
-    return db('applications').select('*').where({ uid: uid }).limit(1)
-      .then(function(rows) {
-        return (rows.length === 0) ? Promise.reject(new Error('not_found')) : rows[0]
-      });
-  },
-
-  //creates a new application
-  create: function (attrs) {
-    attrs.created_at = new Date();
-    return db('applications').insert(attrs).return(attrs);
-  },
+var db = require('../db.js');
+var Promise = require('bluebird');
+var General = require('../lib/general.js');
+var Applications = module.exports = General.access('applications');
 
   //retrieves a specific application table with company specific info and title specific info
-  retrieveUserWithCompany: function (user, callback) {
+  module.exports.retrieveUserWithCompany = function (user, callback) {
     return db.select('*').from('applications').where({'applications.user_id': user.uid})
       .join('companies', function() {
         this.on('companies.id', '=', 'applications.company_id')})
@@ -27,10 +13,10 @@ var Applications = module.exports = {
       .then(function(rows){
        return (rows.length === 0) ? callback({title:'Apps with companies will be here, joined'}) : callback(rows);
       });
-  },
+  };
 
   //retrieves all applications along with the associated user and title rows
-  retrieveAllWithCompany: function (callback) {
+  module.exports.retrieveAllWithCompany = function (callback) {
 
     return db.select('*').from('applications')
       .join('companies', function() {
@@ -42,27 +28,10 @@ var Applications = module.exports = {
       .then(function(rows){
         return (rows.length === 0) ? callback({title:'Apps with companies will be here, joined'}) : callback(rows);
       });
-  },
+  };
 
-  //retrieves all the applications
-  retrieveAll: function (callback) {
-    return db('applications').select('*')
-    .then(function(rows){
-     return (rows.length === 0) ? callback({title:'Applications WIll Be here!!!!'}) : callback(rows);
-    });
-  },
-
-  //updates a specific application
-  update: function (attrs) {
-    attrs.updated_at = new Date()
-    return db('applications').update(attrs).where({ uid: attrs.uid })
-      .then(function(affectedCount) {
-        return (affectedCount === 0) ? Promise.reject(new Error('not_found')) : attrs;
-      });
-  },
-  
   //retrieves a single application table with company specific info and title specific info
-  retrieveOne: function(callback, id){
+  module.exports.retrieveOne = function(callback, id){
     return db('applications').select('*').where({'applications.user_id': id})
       .join('companies', function() {
         this.on('companies.id', '=', 'applications.company_id')})
@@ -73,10 +42,4 @@ var Applications = module.exports = {
       .then(function(row){
         return callback(row);
     })
-  },
-
-  //updates or creates a specific application depending on prior status
-  updateOrCreate: function (attrs) {
-    return Applications.update(attrs).catch(Applications.create.papp(attrs));
-  }
-};
+  };
