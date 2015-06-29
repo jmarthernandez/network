@@ -4,14 +4,16 @@ exports.up = function(knex, Promise) {
 
 	return Promise.all([
 
-
-   	 	knex.schema.table('interviews', function (table) {
-    		table.string('interview_type')
-    	})
+   	knex.schema.table('interviews', function (table) {
+    	table.string('interview_type');
+    })
 	])
-  
 };
 
 exports.down = function(knex, Promise) {
-  
+  return Promise.all([
+    knex.schema.table('interviews', function(table){
+    	table.dropColumn('interview_type');
+    })
+   ])
 };
