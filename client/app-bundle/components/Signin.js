@@ -18,5 +18,5 @@ exports.view = function (ctrl) {
         m('button.btn', 'Sign In')
       ])
     ])  
-  ])
-}
+  ]);
+};

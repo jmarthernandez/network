@@ -20,6 +20,6 @@ var App = module.exports = {
 
   // Makes apps info accessible to view
   all: function() {
-    return App.apps
+    return App.apps;
   }
 };

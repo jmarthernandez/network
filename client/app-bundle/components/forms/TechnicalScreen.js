@@ -1,5 +1,6 @@
 var m = require('mithril');
 
+//TODO: comment
 exports.controller = function () {
   var ctrl = this;
 }
@@ -60,5 +61,5 @@ exports.view = function (ctrl) {
         ])
       ])
     ])
-  ])
-}
+  ]);
+};

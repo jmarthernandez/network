@@ -8,21 +8,21 @@ exports.controller = function () {
 
 exports.view = function (ctrl) {
 	var links = [
-    {title: "Outcomes", url: "/outcomes"},
-    {title: "Students", url: "/profile"},
-    {title: "Sign Out", url: "/signout"}
+  {title: "Outcomes", url: "/outcomes"},
+  {title: "Students", url: "/profile"},
+  {title: "Sign Out", url: "/signout"}
   ];
-	return m("nav.teal.darken-1", [
-		m('.nav-wrapper', [
-			m("a[href='#']#brand-logo", "Net&Work", [
-			m("ul#nav-mobile.right.hide-on-med-and-down", [
-				m('li', links.map(function(link) {
-      		return m("li",
-          		m("a", { href: link.url, config: m.route }, link.title) 
-          	)}
+  return m("nav.teal.darken-1", [
+    m('.nav-wrapper', [
+      m("a[href='#']#brand-logo", "Net&Work", [
+        m("ul#nav-mobile.right.hide-on-med-and-down", [
+          m('li', links.map(function(link) {
+            return m("li",
+              m("a", { href: link.url, config: m.route }, link.title) 
+            )}
           ))
-      	])
-	  ])
-	])
-  ])
-}
+        ])
+      ])
+    ])
+  ]);
+};
