@@ -20,37 +20,18 @@ var Applications = module.exports = {
   //retrieves a specific application table with company specific info and title specific info
   retrieveUserWithCompany: function (user, callback) {
 
-    return db.select('*').from('applications')
-      .join('companies', function() {
-        this.on('companies.id', '=', 'applications.company_id')})
-      .join('titles', function(){ 
-        this.on('titles.id', '=', 'applications.title_id')})
-      .then(function(rows){
-
-        //filter out the rows that arent specific for this application// REFACTOR TO USE WHERE
-        var filteredRows = rows.filter(function(obj){
-            return user.uid === obj.user_id;
-        });
-       return (rows.length === 0) ? callback({title:'Apps with companies will be here, joined'}) : callback(filteredRows);
-      });
-  },
-
-  //retrieves all applications along with the associated user and title rows
   retrieveAllWithCompany: function (callback) {
 
-    return db.select('*').from('applications')
-      .join('companies', function() {
-        this.on('companies.id', '=', 'applications.company_id')})
-      .join('titles',function() {
-        this.on('titles.id', '=', 'applications.title_id')})
-      .join('users', function() {
-        this.on('users.uid', '=', 'applications.user_id')})
+    return db.select('*').from('applications').join('companies', function() {
+      this.on('companies.id', '=', 'applications.company_id')}).join('titles',
+        function(){ this.on('titles.id', '=', 'applications.title_id')}).join('users', function() {
+          this.on('users.uid', '=', 'applications.user_id')
+        })
       .then(function(rows){
-        return (rows.length === 0) ? callback({title:'Apps with companies will be here, joined'}) : callback(rows);
-      });
+       return (rows.length === 0) ? callback({title:'Apps with companies will be here, joined'}) : callback(rows)
+    })
   },
 
-  //retrieves all the applications
   retrieveAll: function (callback) {
     return db('applications').select('*')
     .then(function(rows){
@@ -69,7 +50,7 @@ var Applications = module.exports = {
   
   //retrieves a single application table with company specific info and title specific info
   retrieveOne: function(callback, id){
-    return db('applications').select('*')
+    return db('applications').select('*').where({'applications.user_id': id})
       .join('companies', function() {
         this.on('companies.id', '=', 'applications.company_id')})
       .join('titles', function(){ 
@@ -77,17 +58,12 @@ var Applications = module.exports = {
       .join('users', function() {
         this.on('users.uid', '=', 'applications.user_id')})
       .then(function(row){
-      
-        //filter out the rows that arent specific for this user// REFACTOR TO USE WHERE
-        var filteredRows = row.filter(function(obj){
-          return id === obj.user_id;
-        });
-        return callback(filteredRows);
-      });
+        return callback(row);
+    })
   },
 
   //updates or creates a specific application depending on prior status
   updateOrCreate: function (attrs) {
     return Applications.update(attrs).catch(Applications.create.papp(attrs));
   }
-};
+}
