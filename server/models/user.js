@@ -9,23 +9,22 @@ var User = module.exports = {
   find: function (uid) {
     return db('users').select('*').where({ uid: uid }).limit(1)
       .then(function(rows) {
-        return (rows.length === 0) ? Promise.reject(new Error('not_found')) : rows[0]
-      })
+        return (rows.length === 0) ? Promise.reject(new Error('not_found')) : rows[0];
+      });
   },
   
   //creates a new user in the db
   create: function (attrs) {
-    console.log('creating user')
-    attrs.created_at = new Date()
-    return db('users').insert(attrs).return(attrs)
+    attrs.created_at = new Date();
+    return db('users').insert(attrs).return(attrs);
   },
 
   //retrieves all users
   retrieve: function (callback) {
     return db('users').select('*')
     .then(function(rows){
-     return (rows.length === 0) ? Promise.reject(new Error('not_found')) : callback(rows)
-    })
+     return (rows.length === 0) ? Promise.reject(new Error('not_found')) : callback(rows);
+    });
   },
 
   //updates an existing school in the DB
@@ -33,8 +32,8 @@ var User = module.exports = {
     attrs.updated_at = new Date()
     return db('users').update(attrs).where({ uid: attrs.uid })
       .then(function(affectedCount) {
-        return (affectedCount === 0) ? Promise.reject(new Error('not_found')) : attrs
-      })
+        return (affectedCount === 0) ? Promise.reject(new Error('not_found')) : attrs;
+      });
   },
 
   //retrieves a single application associated with a userID
@@ -42,7 +41,7 @@ var User = module.exports = {
     return db('users').select('*').where( {uid: id})
     .then(function(row){
      return callback(row);
-    })
+    });
   },
 
   //retreives all applications associated with a specific user
@@ -55,11 +54,11 @@ var User = module.exports = {
     })
     .then(function(row){
      return callback(filteredRow);
-    })
+    });
   },
   
   //updates or creates a specific user depending on prior status
   updateOrCreate: function (attrs) {
-    return User.update(attrs).catch(User.create.papp(attrs))
+    return User.update(attrs).catch(User.create.papp(attrs));
   }
-}
+};

@@ -38,4 +38,4 @@ var Titles = module.exports = {
   updateOrCreate: function (attrs) {
     return Titles.update(attrs).catch(Titles.create.papp(attrs));
   }
-}
+};
