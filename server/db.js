@@ -10,7 +10,7 @@ module.exports = knex;
 
 knex.migrate.latest([config]); 
 
-
+//efficiently deallocates and deleted the users and group tables  
 knex.deleteEverything = function () {
   return knex('memberships').truncate().then(function() {
     return Promise.all([
