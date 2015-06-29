@@ -1,19 +1,19 @@
 
 exports.up = function(knex, Promise) {
-	console.log('adding interview_type migration')
+  console.log('adding interview_type migration')
 
-	return Promise.all([
+  return Promise.all([
 
-   	knex.schema.table('interviews', function (table) {
-    	table.string('interview_type');
+    knex.schema.table('interviews', function (table) {
+      table.string('interview_type');
     })
-	])
+  ])
 };
 
 exports.down = function(knex, Promise) {
   return Promise.all([
     knex.schema.table('interviews', function(table){
-    	table.dropColumn('interview_type');
+      table.dropColumn('interview_type');
     })
    ])
 };
