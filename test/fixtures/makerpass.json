@@ -1,0 +1,84 @@
+{
+  "uid": "90b72025841d",
+  "id": "90b72025841d",
+  "provider": "makerpass",
+  "name": "Gilbert",
+  "email": "gilbertbgarza@gmail.com",
+  "avatar_url": "https:\/\/avatars.githubusercontent.com\/u\/17013?v=3",
+  "providers": [
+    {
+      "name": "github",
+      "type": "Github",
+      "info": {
+        "username": "mindeavor"
+      }
+    }
+  ],
+  "memberships": [
+    {
+      "uid": "e2c64768e5cc",
+      "role": "instructor",
+      "group": {
+        "uid": "393e0739905a",
+        "school_uid": "0876f0dc236f",
+        "name": "MKS 14",
+        "role": "cohort",
+        "info": {
+          "isRemote": false,
+          "startDate": {
+            "month": 3,
+            "day": 2,
+            "year": 2015
+          },
+          "endDate": {
+            "month": 6,
+            "day": 1,
+            "year": 2015
+          },
+          "toSeniorTransitionDate": {
+            "month": 4,
+            "day": 13,
+            "year": 2015
+          }
+        }
+      }
+    },
+    {
+      "uid": "bbea95b8d490",
+      "role": "instructor",
+      "group": {
+        "uid": "6b56fc0d3f71",
+        "school_uid": "0876f0dc236f",
+        "name": "MKS 16",
+        "role": "cohort",
+        "info": {
+          "isRemote": false,
+          "floor": 6,
+          "startDate": {
+            "month": 4,
+            "day": 20,
+            "year": 2015
+          },
+          "endDate": {
+            "month": 7,
+            "day": 20,
+            "year": 2015
+          },
+          "toSeniorTransitionDate": {
+            "month": 6,
+            "day": 1,
+            "year": 2015
+          }
+        }
+      }
+    }
+  ],
+  "schools": [
+    {
+      "uid": "0876f0dc236f",
+      "name": "MakerSquare",
+      "location": "Austin, TX",
+      "url": "http:\/\/www.makersquare.com\/"
+    }
+  ]
+}
