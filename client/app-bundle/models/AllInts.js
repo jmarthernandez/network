@@ -1,7 +1,7 @@
 var m = require('mithril');
 
 //TODO: Comment and make functional
-var allInts = module.exports = {
+var AllInts = module.exports = {
 
 	contacts_id: '',
 
@@ -14,7 +14,7 @@ var allInts = module.exports = {
 		m.request({ method: 'GET', url: '/API/interviews', data: ints })
 	},
 	all: function() {
-		return allInts.ints;
+		return AllInts.ints;
   }
 
 };
