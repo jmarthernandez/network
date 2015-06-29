@@ -8,7 +8,7 @@ var Promise = require('bluebird');
 
 module.exports = knex;
 
-knex.migrate.rollback([config]); 
+knex.migrate.latest([config]); 
 
 //efficiently deallocates and deleted the users and group tables  
 knex.deleteEverything = function () {
