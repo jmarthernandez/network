@@ -36,6 +36,7 @@ var studentApps = module.exports = {
   },
 
   // All student profile info uid (e.g. avatar, name ...)
+  //TODO: grab student school and active attributes
   fetchInfo: function(ctrl) {
     if(ctrl.thisUserId){
     m.request({ method: 'GET', url: 'api/users/' + ctrl.thisUserId })

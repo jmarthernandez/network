@@ -5,6 +5,8 @@ var Messages = module.exports = {
 
   messagesArray: null,
 
+
+  //View-model for messages form
   vm: function (attrs) {
     attrs = attrs || '';
 
@@ -16,6 +18,7 @@ var Messages = module.exports = {
     }
   },
 
+  //GETs all messages for current user
   fetch: function (req) {
     m.request({
         methods: 'GET',
@@ -26,7 +29,7 @@ var Messages = module.exports = {
       Messages.messagesArray = messagesObj['Messages'];
     });
   },
-
+  //TODO: Set up POST to send messages
   send: function () {
     m.request({
         method: 'GET',
@@ -35,6 +38,7 @@ var Messages = module.exports = {
     })
   },
   
+  //Maker fn instantiating messages view-model
   makeVm: function() {
       return Messages.vm()
   },
