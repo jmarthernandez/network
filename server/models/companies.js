@@ -31,7 +31,7 @@ var Companies = module.exports = {
     })
   },
 
-  //retreives all the companies in the DB
+  //retrieves all the companies in the DB
   retrieveAll: function (callback) {
     return db('companies').select('*')
     .then(function(rows){

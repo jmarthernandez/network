@@ -17,7 +17,7 @@ var Applications = module.exports = {
     return db('applications').insert(attrs).return(attrs);
   },
 
-  //retreives a specific application table with company specific info and title specific info
+  //retrieves a specific application table with company specific info and title specific info
   retrieveUserWithCompany: function (user, callback) {
 
     return db.select('*').from('applications')
@@ -67,7 +67,7 @@ var Applications = module.exports = {
       });
   },
   
-  //retreives a single application table with company specific info and title specific info
+  //retrieves a single application table with company specific info and title specific info
   retrieveOne: function(callback, id){
     return db('applications').select('*')
       .join('companies', function() {
@@ -86,7 +86,7 @@ var Applications = module.exports = {
       });
   },
 
-  //updates or creates a specific applation depending on prior status
+  //updates or creates a specific application depending on prior status
   updateOrCreate: function (attrs) {
     return Applications.update(attrs).catch(Applications.create.papp(attrs));
   }
