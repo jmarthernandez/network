@@ -4,7 +4,7 @@ var path = require('path')
 var config = require('../knexfile.js');
 var env = process.env.NODE_ENV || 'development';
 var knex = require('knex')(config[env]);
-var Promise = require('knex/node_modules/bluebird');
+var Promise = require('bluebird');
 
 module.exports = knex;
 
