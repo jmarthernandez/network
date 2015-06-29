@@ -18,7 +18,7 @@ var School = module.exports = {
     return db('schools').insert(attrs).return(attrs);
   },
 
-  //updates an existing new school in the DB
+  //updates an existing school in the DB
   update: function (attrs) {
     attrs.updated_at = new Date()
     return db('schools').update(attrs).where({ uid: attrs.uid })

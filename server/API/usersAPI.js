@@ -19,7 +19,7 @@ exports.mount = function (app) {
   //endpoint which retrieves a specific user
 	app.get('/API/users/:id', function(req, res){
     if (!req.body) return res.sendStatus(400);
-    User.retrieveOne(function(x){res.send({Users: x, Params: req.params.id})}, req.params.id);
+    User.retrieveOne(req.params.id, function(x){res.send({Users: x, Params: req.params.id})});
   });
 
 	//endpoint which retrieves joined information about the currently logged-in user.
