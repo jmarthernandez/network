@@ -1,5 +1,5 @@
 var db = require('../db.js')
-var Promise = require('knex/node_modules/bluebird')
+var Promise = require('bluebird')
 
 var User = module.exports = {
 
@@ -47,13 +47,11 @@ var User = module.exports = {
   //retreives all applications associated with a specific user
   retrieveWithRole: function(callback, id){
     
-    User.retrieveOne(function(x){return x},id).then(function(user){
-    return db('users').select('*')
+    return db('users').select('*').where({ 'users.uid': id })
     .join('memberships', function() {
       this.on('memberships.user_uid', '=', 'users.uid')})
-    })
     .then(function(row){
-     return callback(filteredRow);
+     return callback(row);
     });
   },
   

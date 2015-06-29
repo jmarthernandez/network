@@ -1,5 +1,5 @@
 var db = require('../db.js')
-var Promise = require('knex/node_modules/bluebird')
+var Promise = require('bluebird')
 
 var School = module.exports = {
 

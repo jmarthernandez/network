@@ -3,7 +3,7 @@
 //
 var passport = require('passport')
 var MakerpassStrategy = require('passport-makerpass').Strategy
-var Promise    = require('knex/node_modules/bluebird')
+var Promise    = require('bluebird')
 var User       = require('./models/user')
 var Group      = require('./models/group')
 var Membership = require('./models/membership')
