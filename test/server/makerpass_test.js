@@ -1,6 +1,6 @@
 var fs = require('fs');
 var db = require(__server + '/db');
-var Promise = require('knex/node_modules/bluebird');
+var Promise = require('bluebird');
 var Makerpass  = require(__server + '/makerpass');
 var Group      = require(__server + '/models/group');
 var User       = require(__server + '/models/user');

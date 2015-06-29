@@ -8,14 +8,14 @@ var router = module.exports = express.Router();
 
   //endpoint which retrieves all applications
   router.get('/', function(req, res){
-    Applications.retrieveAll(function(x){res.send({Applications: x});
+      Applications.retrieveAll().then(function(apps){ res.send({Applications: apps})
     });
-  })
+  });
 
   //endpoint which posts a new application
   router.post('/', function(req, res){
     if (!req.body) return res.sendStatus(400);
-    var newValues = Applications.updateOrCreate(req.body);
+    Applications.updateOrCreate(req.body);
     res.send(req.body);
   });
 
@@ -23,11 +23,10 @@ var router = module.exports = express.Router();
   router.get('/:id', function(req, res){
     if (!req.body) return res.sendStatus(400);
       if (req.params.id === 'allUser' || req.params.id === 'alluser'){
-        Applications.retrieveUserWithCompany(req.user, function(x){res.send({Applications: x});
-        });
+        Applications.retrieveUserWithCompany(req.user).then(function(apps){ res.send({Applications: apps})});
       } else if(req.params.id === 'all'){
-        Applications.retrieveAllWithCompany(function(x){res.send({Applications: x});
-      })} else {
-        Applications.retrieveOne(function(x){res.send({Applications: x, Params: req.params.id});}, req.params.id);
-    }
-  });
+        Applications.retrieveAllWithCompany().then(function(apps){ res.send({Applications: apps})});
+      } else {
+        Applications.retrieveOne(req.params.id).then(function(apps){ res.send({Applications: apps})});
+  }
+})

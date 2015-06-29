@@ -5,14 +5,14 @@ var router = module.exports = express.Router();
 
 	//endpoint which retreives all messages
 	router.get('/', function(req, res){
-		Messages.retrieveAll(function(x){res.send({Messages: x});
-    });
+			Messages.retrieveAll().then(function(messages){ res.send({Messages: messages})
+		});
   });
 
 	//endpoint which retrieves a message between a specific user and a specific sender
 	router.get('/user', function(req, res){
     if (!req.body) return res.sendStatus(400);
-    Messages.retrieveOne(function(x){res.send({Messages: x, Params: req.params.id})});
+    Messages.retrieveOne().then(function(messages){ res.send({Messages: messages})});
 	});
 	
 	//endpoint which adds a message
