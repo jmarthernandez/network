@@ -16,7 +16,7 @@ exports.controller = function () {
 
   m.request({
     method: 'GET',
-    url: "/me/"
+    url: '/me/'
   }).then(function(req){
     ctrl.newAppForm = m.prop(newAppForm);
     ctrl.newAppForm().user_id = req.user.uid 
@@ -28,7 +28,7 @@ exports.controller = function () {
 
     m.request({
         method: 'POST',
-        url: "/API/applications/",
+        url: '/API/applications/',
         data: ctrl.newAppForm,
         }).then(function(data) {
           console.log(data, 'postApp');
@@ -40,7 +40,7 @@ exports.controller = function () {
     e.preventDefault()
     m.request({
       method: 'GET',
-      url: "/API/companies/",
+      url: '/API/companies/',
     }).then(function(companies){
       console.log(companies)
     });
@@ -65,34 +65,34 @@ exports.view = function (ctrl) {
       m('.row', [
       m('.input-field.col.s12.m6', [
           //Should have a limit of text
-          m('input#first_name.validate[type=text][placeholder="company"][name=company_id]', {onclick: ctrl.getJob}),
-          m('label', "company")
+          m('input#first_name.validate[type=text][placeholder=company][name=company_id]', {onclick: ctrl.getJob}),
+          m('label', 'company')
         ]),
       // m('.input-field.col.s12.m6', [
       //     //Should auto complete for common jobs
-      //     m('input#first_name.validate[type=text][placeholder="active"][name=active]', {value: ctrl.newAppForm().active}, console.log(ctrl.newAppForm())),
-      //     m('label', "active")
+      //     m('input#first_name.validate[type=text][placeholder=active][name=active]', {value: ctrl.newAppForm().active}, console.log(ctrl.newAppForm())),
+      //     m('label', 'active')
       //   ]),
         // m('.input-field.col.s12.m6', [
         //   //Should have a limit of text
-        //   m('input#first_name.validate[type=text][placeholder="phase"][name=phase]', {value: ctrl.newAppForm().phase}),
-        //   m('label', "phase")
+        //   m('input#first_name.validate[type=text][placeholder=phase][name=phase]', {value: ctrl.newAppForm().phase}),
+        //   m('label', 'phase')
         // ]),
      
         m('.input-field.col.s12.m6', [
           //Should auto complete for common companies
           m('input#first_name.validate[type=text][placeholder=title][name=title_id]', {value: ctrl.newAppForm().title_id}),
-          m('label', "title")
+          m('label', 'title')
         ]),
            m('.input-field.col.s12.m6', [
           //Should have a limit of text
-          m('input#first_name.validate[type=text][placeholder="application method"][name=app_method]', {value: ctrl.newAppForm().app_method}),
-          m('label', "application method")
+          m('input#first_name.validate[type=text][placeholder=application method][name=app_method]', {value: ctrl.newAppForm().app_method}),
+          m('label', 'application method')
         ]),
         m('.input-field.col.s12.m6', [
           //Should auto complete for common jobs
           m('input#first_name.datepicker[type=date][placeholder=""][name=date_applied]', {value: ctrl.newAppForm().date_applied}),
-          m('label', "")
+          m('label', '')
         ]),
         // m('.input-field.col.s12.m6', [
         //   //Should auto complete for common jobs

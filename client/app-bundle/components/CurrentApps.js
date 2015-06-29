@@ -15,7 +15,7 @@ exports.view = function (ctrl, options) {
             m('p', 'Title: ' + app.title),
             m('p', 'Company: ' + app.company_name)
           ])
-        }
+        };
       })
     ]),
     // End Phase I
@@ -31,7 +31,7 @@ exports.view = function (ctrl, options) {
             m('p', 'Title: ' + app.title),
             m('p', 'Company: ' + app.company_name)
           ])
-        }
+        };
       })
     ]),
     // End Phase II
@@ -47,7 +47,7 @@ exports.view = function (ctrl, options) {
             m('p', 'Title: ' + app.title),
             m('p', 'Company: ' + app.company_name)
           ])
-        }
+        };
       })
     ])
   ]);

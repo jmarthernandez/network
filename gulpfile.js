@@ -21,7 +21,7 @@ var routes = {
 gulp.task('lint', function() {
   return gulp.src(routes.javascript)
     .pipe(jshint())
-    .pipe(jshint.reporter('default'))
+    .pipe(jshint.reporter('jshint-stylish'))
 });
 
 gulp.task('build', function() {
