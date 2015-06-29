@@ -48,11 +48,9 @@ var General = module.exports = {
 
       //updates or creates a specific group depending on prior status
       updateOrCreate: function (attrs) {
-        console.log(attrs, 'general functions')
-        console.log(General.update)
         return General.access(nodeName).update(attrs).catch(General.access(nodeName).create.papp(attrs));
       },
-      
+
       //destroys a contact in the DB
       destroy: function (uid) {
        return db(nodeLowerCase).where({ uid: uid }).delete();
