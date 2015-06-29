@@ -5,7 +5,7 @@ var Applications = module.exports = General.access('applications');
 
   //retrieves a specific application table with company specific info and title specific info
   module.exports.retrieveUserWithCompany = function (user, callback) {
-    return db.select('*').from('applications').where({'applications.user_id': user.uid})
+    return db.select('*','companies.name AS company_name').from('applications').where({'applications.user_id': user.uid})
       .join('companies', function() {
         this.on('companies.id', '=', 'applications.company_id')})
       .join('titles', function(){ 
@@ -18,7 +18,7 @@ var Applications = module.exports = General.access('applications');
   //retrieves all applications along with the associated user and title rows
   module.exports.retrieveAllWithCompany = function (callback) {
 
-    return db.select('*').from('applications')
+    return db.select('*','companies.name AS company_name').from('applications')
       .join('companies', function() {
         this.on('companies.id', '=', 'applications.company_id')})
       .join('titles',function() {
@@ -32,7 +32,7 @@ var Applications = module.exports = General.access('applications');
 
   //retrieves a single application table with company specific info and title specific info
   module.exports.retrieveOne = function(callback, id){
-    return db('applications').select('*').where({'applications.user_id': id})
+    return db.select('*','companies.name AS company_name').from('applications').where({'applications.user_id': id})
       .join('companies', function() {
         this.on('companies.id', '=', 'applications.company_id')})
       .join('titles', function(){ 
