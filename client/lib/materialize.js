@@ -3,8 +3,8 @@ exports.makeCollapsible = function(elem, isInitialized){
 
 	$(elem).collapsible({
 		accordion: false
-	})
-}
+	});
+};
 
 
 

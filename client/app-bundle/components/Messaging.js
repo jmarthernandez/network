@@ -1,6 +1,5 @@
 var m = require('mithril');
 
-
 // TODO: Set up post request body
 exports.controller = function () {
   var ctrl = this;
@@ -12,13 +11,13 @@ exports.controller = function () {
     //then clears message body and renders a success toast
 
   //
-}
+};
 
 exports.view = function (ctrl, options) {
   return m( '.row', [
     m('h1.center-align', 'Pending Applications'),
     m('ul.collection', [
-      options['messages'].map(function(message){
+      options.messages.map(function(message){
         return m('li.collection-item avatar', [
           // m('img[src=' + options['studentInfo'].avatar_url + '].circle'),
           m('p', 'Sender: ' + message.sender_name),
