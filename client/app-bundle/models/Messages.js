@@ -5,11 +5,9 @@ var Messages = module.exports = {
 
   messagesArray: null,
 
-
   //View-model for messages form
   vm: function (attrs) {
     attrs = attrs || '';
-
     return {
       sender_uid: m.prop(''),
       reciever_uid: m.prop(''),
@@ -20,29 +18,23 @@ var Messages = module.exports = {
 
   //GETs all messages for current user
   fetch: function (req) {
-    m.request({
-        methods: 'GET',
-        url: '/API/messagestoo/',
-
-    }).then(function(messagesObj){
-      Messages.messagesArray = null;
-      Messages.messagesArray = messagesObj['Messages'];
-    });
+    m.request({ methods: 'GET', url: '/API/messagestoo/' })
+      .then(function(messagesObj){
+        Messages.messagesArray = null;
+        Messages.messagesArray = messagesObj['Messages'];
+      });
   },
   //TODO: Set up POST to send messages
   send: function () {
-    m.request({
-        method: 'GET',
-        url: '/API/interviews',
-        data: ints,
-    })
+    m.request({ method: 'GET', url: '/API/interviews', data: message });
   },
   
   //Maker fn instantiating messages view-model
   makeVm: function() {
-      return Messages.vm()
+      return Messages.vm();
   },
 
+  // Makes messages accessible to the view
   all: function() {
     return Messages.messagesArray;
   }

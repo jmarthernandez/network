@@ -1,13 +1,10 @@
 var m = require('mithril');
 
-
+//TODO: Comment and fix functionality
 var Interview = module.exports = {
 
 	vm: function (attrs) {
-		console.log('attrs',attrs);
-		attrs = attrs || ''
-
-			console.log('typeof attrs',typeof attrs);
+		attrs = attrs || '';
 
 		return {
 			// id: attrs.id,
@@ -18,30 +15,23 @@ var Interview = module.exports = {
 			follow_up: m.prop(''),
 			quality: m.prop(''),
 			preparedness: m.prop('')
-
-
 			// scheduled_date: m.prop(attrs.scheduled_date || new Date()),
 			// quality: m.prop(attrs.quality || 3)
-		}
+		};
 	},
 
 	fetchInt: function (req) {
-		m.request({
-			methods: 'GET',
-			url: '/API/interviews/',
-
-		}).then(console.log('Interviews GET request'), req);
+		m.request({ methods: 'GET', url: '/API/interviews/' })
+			.then(console.log('Interviews GET request'), req);
 	},
 
 	postInterview: function () {
-		m.request({
-			method: 'POST',
-			url: '/API/interviews',
-			data:Interview.vm(),
-		}).then(console.log('Interview POST'))
+		m.request({ method: 'POST', url: '/API/interviews', data:Interview.vm() })
+			.then(console.log('Interview POST'));
 	},
+	
 	all: function() {
-		return Interview.vm()
+		return Interview.vm();
   }
 
 };

@@ -18,7 +18,7 @@ var App = module.exports = {
       })
   },
 
-  // Makes apps info accessable to view
+  // Makes apps info accessible to view
   all: function() {
     return App.apps
   }

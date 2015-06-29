@@ -19,7 +19,7 @@ exports.controller = function (ctrl) {
 }
 
 exports.view = function (ctrl) {
-  // .all() Makes data accessable to the components 
+  // .all() Makes data accessible to the components 
   var appsData     = StudentApps.all();
   var messagesData = Messages.all();
   return m('.container', [
