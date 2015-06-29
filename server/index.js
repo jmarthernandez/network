@@ -38,18 +38,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 //API endpoint integration
 require('./makerpass').mount(app, host);
-require('./API/jobsAPI').mount(app);
-require('./API/usersAPI').mount(app);
-require('./API/companiesAPI').mount(app);
-require('./API/groupsAPI').mount(app);
-require('./API/applicationsAPI').mount(app);
-require('./API/questionsAPI').mount(app);
-require('./API/titlesAPI').mount(app);
-require('./API/membershipsAPI').mount(app);
-require('./API/interviewsAPI').mount(app);
-require('./API/contactsAPI').mount(app);
-require('./API/schoolsAPI').mount(app);
-require('./API/messagesAPI').mount(app);
+require('./API/jobs-api').mount(app);
+require('./API/users-api').mount(app);
+require('./API/companies-api').mount(app);
+require('./API/groups-api').mount(app);
+require('./API/applications-api').mount(app);
+require('./API/questions-api').mount(app);
+require('./API/titles-api').mount(app);
+require('./API/memberships-api').mount(app);
+require('./API/interviews-api').mount(app);
+require('./API/contacts-api').mount(app);
+require('./API/schools-api').mount(app);
+require('./API/messages-api').mount(app);
 
 
 
