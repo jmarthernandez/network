@@ -35,21 +35,36 @@ var jsonParser = bodyParser.json()
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
 
+var router = express.Router();
+
 
 //API endpoint integration
 require('./makerpass').mount(app, host);
-require('./API/jobs-api').mount(app);
-require('./API/users-api').mount(app);
-require('./API/companies-api').mount(app);
-require('./API/groups-api').mount(app);
-require('./API/applications-api').mount(app);
-require('./API/questions-api').mount(app);
-require('./API/titles-api').mount(app);
-require('./API/memberships-api').mount(app);
-require('./API/interviews-api').mount(app);
-require('./API/contacts-api').mount(app);
-require('./API/schools-api').mount(app);
-require('./API/messages-api').mount(app);
+app.use('/API/jobs', require('./API/jobs-api'));
+app.use('/API/users', require('./API/users-api'));
+app.use('/API/companies', require('./API/companies-api'));
+app.use('/API/questions', require('./API/questions-api'));
+app.use('/API/messages',require('./API/messages-api'));
+app.use('/API/groups', require('./API/groups-api'));
+app.use('/API/titles',require('./API/titles-api'));
+app.use('/API/memberships',require('./API/memberships-api'));
+app.use('/API/interviews',require('./API/interviews-api'));
+app.use('/API/contacts',require('./API/contacts-api'));
+app.use('/API/applications',require('./API/applications-api'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 app.listen(port)

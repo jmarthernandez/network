@@ -1,19 +1,18 @@
 var Membership = require('../models/membership');
+var express = require('express')
 
-
-exports.mount = function (app) {
+var router = module.exports = express.Router();
 
 	//endpoint which retreives all memberships
-	app.get('/API/membership', function(req, res){
+	router.get('/', function(req, res){
 		Membership.retrieveAll(function(x){res.send({Membership: x});
     });
   });
 
 	//endpoint which adds a membership
-	app.post('/API/membership', function(req, res){
+	router.post('/', function(req, res){
 		if (!req.body) return res.sendStatus(400);
 		var newValues = Membership.updateOrCreate(req.body);
 		res.send(req.body);
 	});
-};
 
