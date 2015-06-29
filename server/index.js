@@ -53,19 +53,5 @@ app.use('/API/contacts',require('./API/contacts-api'));
 app.use('/API/applications',require('./API/applications-api'));
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 app.listen(port)
 console.log("Listening on port", port)
