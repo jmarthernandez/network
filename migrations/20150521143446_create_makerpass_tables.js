@@ -132,6 +132,19 @@ exports.down = function(knex, Promise) {
   return Promise.all([
     knex.schema.dropTable('memberships'),
     knex.schema.dropTable('groups'),
-    knex.schema.dropTable('users')
+    knex.schema.dropTable('users'),
+    knex.schema.dropTable('contacts'),
+    knex.schema.dropTable('questions'),
+    knex.schema.dropTable('titles'),
+    knex.schema.dropTable('applications'),
+    knex.schema.dropTable('companies'),
+    knex.schema.dropTable('jobs'),
+    knex.schema.dropTable('interviews')
+    knex.schema.dropTable('companies')
+
+
+
+
+
   ])
 }

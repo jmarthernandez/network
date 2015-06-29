@@ -9,9 +9,11 @@ exports.up = function(knex, Promise) {
     		table.string('interview_type')
     	})
 	])
-  
 };
 
 exports.down = function(knex, Promise) {
+    knex.schema.table('interviews', function(table){
+    	table.dropColumn('interview_type')
+    })
   
 };

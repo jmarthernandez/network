@@ -11,8 +11,6 @@ exports.up = function(knex, Promise) {
       table.integer('company_id').references('id').inTable('companies')
     }),
 
-
-
     knex.schema.createTable('messages', function(table) {
 	  table.increments('id').primary()		
       table.string('sender_uid').references('uid').inTable('users').notNullable()
@@ -25,5 +23,9 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  
+    knex.schema.dropTable('messages')
+
+    knex.schema.table('applications', function(table){
+      table.dropColumn('company_id');
+    })
 };
