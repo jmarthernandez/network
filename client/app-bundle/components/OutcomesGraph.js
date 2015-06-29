@@ -18,5 +18,5 @@ exports.view = function (ctrl) {
       m('h1', "Third Progress"),
       m('.graph', "This will be the third graph"),
     ])
-  ])
-}
+  ]);
+};

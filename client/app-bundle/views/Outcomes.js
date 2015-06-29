@@ -1,27 +1,21 @@
-var m = require('mithril')
+var m = require('mithril');
 
 //Components
-var Phases         = require('../components/Phases.js')
-var OutcomesGraph  = require('../components/OutcomesGraph.js')
-var Messaging      = require('../components/Messaging.js')
-var CurrentApps    = require('../components/CurrentApps.js')
+var CurrentApps = require('../components/CurrentApps.js');
 
 //Models
-var AllApps = require('../models/AllApps.model.js')
+var AllApps = require('../models/AllApps.js');
 
-exports.controller = function () {
-  AllApps.fetch()
-}
+exports.controller = function() {
+  //Grabs apps for all students
+  AllApps.fetch();
+};
 
 exports.view = function(ctrl) {
-  var apps = AllApps.all()
-  console.log(apps)
+  var apps = AllApps.all();
 
   return m('.container', [
     m('h1.center-align', 'Student Outcomes'),
-    // m.component(OutcomesGraph),
-    // m.component(Phases),
-    // m.component(Messaging),
     m.component(CurrentApps, {apps: apps})
-  ])
-}
+  ]);
+};

@@ -1,5 +1,7 @@
 var m = require('mithril');
 
+
+// TODO: Set up post request body
 exports.controller = function () {
   var ctrl = this;
 
@@ -13,7 +15,6 @@ exports.controller = function () {
 }
 
 exports.view = function (ctrl, options) {
-      console.log(options, 'Messages in component')
   return m( '.row', [
     m('h1.center-align', 'Pending Applications'),
     m('ul.collection', [
@@ -26,23 +27,21 @@ exports.view = function (ctrl, options) {
           // m('a.waves-effect.waves-light.secondary-content.btn[href=#]', 'update')
         ])
       })
+    ]),
+    m('form.col.s12', [
+      m('.row', [
+        m('.row.input-field.col.l6.m6.s12', [
+          m('i.mdi-editor-mode-edit.prefix'),
+          m('textarea#icon_prefix2.materialize-textarea'),
+          m('label[for=icon_prefix2]', "Message")
+        ]),
+        m('.row', [
+          m('button.btn.waves-effect.waves-light', 'Send Message',[
+            //POST to database
+            m('i.mdi-content-send.right')
+          ])
+        ])
+      ])
     ])
-  ])
-  // return m('.row', [
-  //   m('form.col.s12', [
-  //     m('.row', [
-  //       m('.row.input-field.col.l6.m6.s12', [
-  //         m('i.mdi-editor-mode-edit.prefix'),
-  //         m('textarea#icon_prefix2.materialize-textarea'),
-  //         m('label[for=icon_prefix2]', "Message")
-  //       ]),
-  //       m('.row', [
-  //         m('button.btn.waves-effect.waves-light', 'Send Message',[
-  //           //POST to database
-  //           m('i.mdi-content-send.right')
-  //         ])
-  //       ])
-  //     ])
-  //   ])
-  // ])
-}
+  ]);
+};

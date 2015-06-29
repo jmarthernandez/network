@@ -1,5 +1,4 @@
 var m = require('mithril');
-var StudentJobs = require('../studentJobs.js')
 
 exports.controller = function () {
   var ctrl = this;
@@ -109,5 +108,5 @@ exports.view = function (ctrl) {
         ])
       ])
     ])
-  ])
-}
+  ]);
+};

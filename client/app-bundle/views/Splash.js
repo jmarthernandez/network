@@ -1,9 +1,7 @@
 var m               = require('mithril');
-var Signin          = require('../components/Signin.js');
 
-exports.controller = function () {
-  var ctrl = this;
-}
+//Components
+var Signin          = require('../components/Signin.js');
 
 exports.view = function (ctrl) {
   return m('.container', [

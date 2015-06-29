@@ -2,11 +2,12 @@ var m = require('mithril');
 
 var App = module.exports = {
 
+  // Organizes apps by phase 
   apps: {1: [], 2: [], 3: []},
+
 // GET requests
 
-  // All open applications for all students
-  
+  // All open applications for all students 
   fetch: function() {
     m.request({ method: 'GET', url: '/API/allApps' })
       .then(function(applicationsResponse) {
@@ -16,7 +17,9 @@ var App = module.exports = {
         })
       })
   },
+
+  // Makes apps info accessible to view
   all: function() {
-    return App.apps
+    return App.apps;
   }
 };

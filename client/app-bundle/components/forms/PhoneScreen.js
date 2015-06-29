@@ -1,5 +1,7 @@
 var m = require('mithril');
 
+
+//TODO: comment
 exports.controller = function () {
   var ctrl = this;
 }
@@ -57,12 +59,5 @@ exports.view = function (ctrl) {
         ])
       ])
     ])
-  ])
-}
-
-
-// Scheduled for (date and time):
-// Completed on (date and time):
-// Person(s) Giving Screen (Name, Role, and Email):
-// How did it go? (Scale from 1-5):
-// The Next Step:
+  ]);
+};

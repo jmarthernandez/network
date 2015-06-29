@@ -1,5 +1,6 @@
 var m = require('mithril');
 
+//TODO: Comment
 exports.controller = function () {
   var ctrl = this;
 }
@@ -10,23 +11,23 @@ exports.view = function (ctrl) {
       m('h3.center-align', 'Coding Challenge')
     ]),
     m('form.col.s12' , [
-      m('.row',
+      m('.row', [
         m('h4.center-align', 'Interviewer')
-      ),
+      ]),
       m('.row',[
         m('.input-field.col.s12.m4', [
-          //Should have a limit of text
+          //TODO: Should have a limit of text
           m('input#first_name.validate[type=text][placeholder="Name"]'),
           m('label[for=first_name]', "Name")
         ]),
         m('.input-field.col.s12.m4', [
           m('input#first_name.validate[type=text][placeholder="Role"]'),
-          //Should autocomplete for common methods
+          //TODO: Should autocomplete for common methods
           m('label[for=first_name]', "Role")
         ]),
         m('.input-field.col.s12.m4', [
           m('input#first_name.validate[type=email][placeholder="Email"]'),
-          //Should autocomplete for common methods
+          //TODO: Should autocomplete for common methods
           m('label[for=first_name]', "Email")
         ])
       ]),
@@ -43,12 +44,12 @@ exports.view = function (ctrl) {
           ])
         ])
       ]),
-      m('.row',
+      m('.row', [
         m('h4.center-align', 'Date')
-      ),
+      ]),
       m('.row', [
         m('.input-field.col.s12.m6', [
-          //Should have a limit of text
+          //TODO: Should have a limit of text
           m('input#first_name.datepicker[type=date][placeholder="Date Applied"]'),
           m('label[for=first_name]', "Scheduled For")
         ]),
@@ -67,5 +68,5 @@ exports.view = function (ctrl) {
         ])
       ])
     ])
-  ])
-}
+  ]);
+};
