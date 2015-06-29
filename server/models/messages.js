@@ -49,4 +49,4 @@ var Messages = module.exports = {
   updateOrCreate: function (attrs) {
     return Messages.update(attrs).catch(Messages.create.papp(attrs));
   }
-}
+};

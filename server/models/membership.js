@@ -49,7 +49,6 @@ var Membership = module.exports = {
           return results.filter(echo);
         })
       })
-
     })
   }
 }
