@@ -33,8 +33,8 @@ exports.up = function(knex, Promise) {
       table.integer('company_id').references('id').inTable('companies');
       table.integer('title_id').references('id').inTable('titles');
       table.string('user_id').references('uid').inTable('users');
-      table.dateTime('start_date');
-      table.dateTime('end_date');
+      table.dateTime('started_on');
+      table.dateTime('ended_on');
       table.integer('salary');
 
       table.timestamps();
@@ -65,7 +65,7 @@ exports.up = function(knex, Promise) {
 
       table.increments('id').primary();
       table.string('phase');
-      table.dateTime('date_applied');
+      table.dateTime('applied_on');
       table.integer('contact_id').references('id').inTable('contacts');
       table.string('app_method');
       table.string('user_id').references('uid').inTable('users');
@@ -98,8 +98,8 @@ exports.up = function(knex, Promise) {
       table.increments('id').primary();
       table.integer('app_id').references('id').inTable('applications');
       table.json('info');
-      table.dateTime('scheduled_date');
-      table.dateTime('occured_date');
+      table.dateTime('scheduled_on');
+      table.dateTime('occured_on');
       table.integer('contacts').references('id').inTable('contacts');
       table.string('follow_up');
       table.integer('quality');
