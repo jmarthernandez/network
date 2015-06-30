@@ -9,19 +9,19 @@ var NewApp          = require('../components/forms/NewApp.js');
 
 //Models
 var StudentApp     = require('../models/StudentApp.js');
-var Messages        = require('../models/Message.js');
+var Message        = require('../models/Message.js');
 
 exports.controller = function (ctrl) {
   //Fetches student apps, info, and messages from db
   StudentApp.fetchApps(ctrl);
   StudentApp.fetchInfo(ctrl);
-  Messages.fetch(ctrl);
+  Message.fetch(ctrl);
 }
 
 exports.view = function (ctrl) {
   // .all() Makes data accessible to the components 
   var appsData     = StudentApp.all();
-  var messagesData = Messages.all();
+  var messagesData = Message.all();
   return m('.container', [
     m('.row'),
     m('.row', [
