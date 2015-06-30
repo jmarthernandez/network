@@ -15,7 +15,7 @@ exports.controller = function () {
 
 exports.view = function (ctrl, options) {
   return m( '.row', [
-    m('h1.center-align', 'Pending Applications'),
+    m('h1.center-align', 'Messages'),
     m('ul.collection', [
       options.messages.map(function(message){
         return m('li.collection-item avatar', [

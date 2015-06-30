@@ -1,7 +1,7 @@
 var m = require('mithril');
 
 
-var Messages = module.exports = {
+var Message = module.exports = {
 
   messagesArray: null,
 
@@ -20,8 +20,8 @@ var Messages = module.exports = {
   fetch: function (req) {
     m.request({ methods: 'GET', url: '/API/messages/user/' })
       .then(function(messagesObj){
-        Messages.messagesArray = null;
-        Messages.messagesArray = messagesObj['Messages'];
+        Message.messagesArray = null;
+        Message.messagesArray = messagesObj['Messages'];
       });
   },
   //TODO: Set up POST to send messages
@@ -31,12 +31,12 @@ var Messages = module.exports = {
   
   //Maker fn instantiating messages view-model
   makeVm: function() {
-      return Messages.vm();
+      return Message.vm();
   },
 
   // Makes messages accessible to the view
   all: function() {
-    return Messages.messagesArray;
+    return Message.messagesArray;
   }
 
 };

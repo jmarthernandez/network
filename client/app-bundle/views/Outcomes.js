@@ -4,7 +4,7 @@ var m = require('mithril');
 var CurrentApps = require('../components/CurrentApps.js');
 
 //Models
-var AllApps = require('../models/AllApps.js');
+var Apps = require('../models/App.js');
 
 exports.controller = function() {
   //Grabs apps for all students
