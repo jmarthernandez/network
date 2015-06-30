@@ -5,7 +5,7 @@ var materialize = require('../../lib/materialize.js');
 //Student info in sidebar 
 exports.view = function (ctrl, options) {
   return m('.col.m3.s12', [
-    m('div.card.large.blue-grey.darken-1#jk', [
+    m('div.card.large.teal.darken-1#jk', [ 
       m('card-content.white-text', [
         m('div.center-align', [
           m('img.responsive-img[src=' + options.studentInfo.avatar_url +']')

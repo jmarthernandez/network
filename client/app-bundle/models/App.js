@@ -3,7 +3,7 @@ var m = require('mithril');
 var App = module.exports = {
 
   // Organizes apps by phase 
-  apps: {1: [], 2: [], 3: []},
+  apps: {1: [], 2: [], 3: [], 4: [], 5: []},
 
 // GET requests
 
@@ -14,7 +14,7 @@ var App = module.exports = {
         if (!Array.isArray(applicationsResponse.Application)) {
           App.apps = false;
         }else{
-          App.apps = {1: [], 2: [], 3: []};
+          App.apps = {1: [], 2: [], 3: [], 4: [], 5: []};
           applicationsResponse.Application.forEach(function(app){
             App.apps[app.phase].push(app);
           });

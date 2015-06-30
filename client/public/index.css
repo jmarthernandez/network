@@ -34,3 +34,20 @@
 #jk{
 	border-radius: 50px;
 }
+
+/*From Client/Views/Outcomes.css
+.container{
+	background-color: 'red';
+	display: block;
+	height: '300px';
+}
+
+.words{
+	color: red;
+}*/
+
+/*From Components/Navbar.css
+ul {
+	display: inline;
+}*/
+

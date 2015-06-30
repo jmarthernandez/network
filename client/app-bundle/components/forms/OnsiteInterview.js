@@ -29,9 +29,9 @@ exports.view = function (ctrl) {
       m('h3.center-align', 'On-site Interview')
     ]),
     m('form.col.s12', { onsubmit: ctrl.submit }, [
-      m('.row',
-        m('h4.center-align', 'Interviewer')
-      ),
+      // m('.row',
+      //   m('h4.center-align', 'Interviewer')
+      // ),
       m('.row',[
         m('.input-field.col.s12.m4', [
           //Should have a limit of text
