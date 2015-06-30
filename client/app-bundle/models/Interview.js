@@ -12,10 +12,7 @@ var Interview = module.exports = {
 			contacts_id: m.prop('1'),
 			role: m.prop('1'),
 			scheduled_date: m.prop(''),
-			occured_date: m.prop(''),
-			follow_up: m.prop(''),
-			quality: m.prop('3'),
-			preparedness: m.prop('2')
+			occured_date: m.prop('')
 
 
 			// contacts_id: m.prop(''),

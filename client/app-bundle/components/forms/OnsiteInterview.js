@@ -76,12 +76,6 @@ exports.view = function (ctrl) {
           m('label[for=first_name]', 'Completed On')
         ])
       ]),
-      m('p.range-field', 'How did it go?',[
-        m('input#test5[type=range][min=0][max=5]', {
-          value: ctrl.interview.preparedness(),
-          onchange: m.withAttr('value', ctrl.interview.preparedness),
-        })
-      ]),
       m('.row', [
         m('button.btn.waves-effect.waves-light', 'Submit', [
           //POST to database
