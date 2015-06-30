@@ -56,5 +56,5 @@ var General = module.exports = {
        return db(nodeLowerCase).where({ uid: uid }).delete();
       }
     };
-  };
+  }
 };
