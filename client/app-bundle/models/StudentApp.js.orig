@@ -10,22 +10,36 @@ var studentApp = module.exports = {
     if(ctrl.thisUserId){
       m.request({ method: 'GET', url: '/api/applications/' + ctrl.thisUserId})
         .then(function(applications) {
+<<<<<<< HEAD:client/app-bundle/models/StudentApp.js
           studentApp.apps = {1: [], 2: [], 3: []}
-          applications.Application.forEach(function(app){
+          applications.Applications.forEach(function(app){
             studentApp.apps[app.phase].push(app);
+=======
+          studentApps.apps = {1: [], 2: [], 3: []}
+          applications.Application.forEach(function(app){
+            studentApps.apps[app.phase].push(app);
+>>>>>>> rebasing:client/app-bundle/models/StudentApps.js
           });
         });
     } else {
       m.request({ method: 'GET', url: '/api/applications/allUser/'})
         .then(function(applications) {
-          if (!Array.isArray(applications.Application)) {
+<<<<<<< HEAD:client/app-bundle/models/StudentApp.js
+          console.log(applications)
+          if (!Array.isArray(applications.Applications)) {
             studentApp.apps = false;
           }else{
             studentApp.apps = {1: [], 2: [], 3: []};
-            applications.Application.forEach(function(app){
+            applications.Applications.forEach(function(app){
               studentApp.apps[app.phase].push(app);
             });
           }
+=======
+          studentApps.apps = {1: [], 2: [], 3: []}
+          applications.Application.forEach(function(app){
+            studentApps.apps[app.phase].push(app);
+          });
+>>>>>>> rebasing:client/app-bundle/models/StudentApps.js
         });
     }
   },
