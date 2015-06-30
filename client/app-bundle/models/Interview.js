@@ -8,11 +8,15 @@ var Interview = module.exports = {
 
 		return {
 			// id: attrs.id,
+			type: m.prop(''),
 			contacts_id: m.prop(''),
 			role: m.prop(''),
-			type: m.prop(''),
 			scheduled_date: m.prop(''),
-			occured_date: m.prop('')
+			occured_date: m.prop(''),
+			follow_up:m.prop(''),
+			quality: m.prop(''),
+			questions: m.prop(''),
+			preparedness: m.prop(''),
 
 
 			// contacts_id: m.prop(''),

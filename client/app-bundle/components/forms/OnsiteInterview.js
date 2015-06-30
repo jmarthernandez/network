@@ -1,6 +1,7 @@
 var m         = require('mithril');
 var Interview   = require('../../models/Interview.js');
 
+//rename to Interview
 exports.controller = function () {
 	var ctrl = this;
   // Interview.fetchInt();
@@ -11,19 +12,12 @@ exports.controller = function () {
     console.log("hi")
     e.preventDefault();
     Interview.postInterview( ctrl.interview );
-    // Interview.create( ctrl.interview ).then(function() {
-    //   console.log('we are submitting')
-    //   // Reset VM (or something)
-    //   ctrl.interview = Interview.vm()
-    // })
   }
 }
 
 exports.view = function (ctrl) {
   var modelData = Interview.all();
-  // console.log('ha',ctrl.interview.contacts_id(data))
 
-  // ctrl.interview.contacts_id()
   return m('.row', [
     m('.row', [
       m('h3.center-align', 'On-site Interview')
@@ -52,7 +46,7 @@ exports.view = function (ctrl) {
           m('input.validate[type=text][placeholder=Name][name=contacts_id]',{
             value: ctrl.interview.contacts_id(),
             onchange: m.withAttr('value', ctrl.interview.contacts_id)
-          }),
+          }, console.log(JSON.stringify(ctrl.interview))),
           m('label', 'Name')
         ]),
         m('.input-field.col.s12.m4', [
@@ -63,19 +57,6 @@ exports.view = function (ctrl) {
           //Should autocomplete for common methods
           m('label[for=first_name]', 'Role')
         ]),
-        m('.input-field.col.s12.m4', [
-          m('input.validate[type=text][placeholder=Type][name=type]', {
-            value: ctrl.interview.type(),
-            onchange: m.withAttr('value', ctrl.interview.type)
-          }),
-          //Should autocomplete for common methods
-          m('label[for=first_name]', 'Type')
-        ]),
-        // m('.input-field.col.s12.m4', [
-        //   m('input.validate[type=email][placeholder=Email]', console.log('view', JSON.stringify(ctrl.interview))),
-        //   //Should autocomplete for common methods
-        //   m('label[for=first_name]', 'Email')
-        // ])
       ]),
       m('.row',
         m('h4.center-align', 'Date')
@@ -87,17 +68,55 @@ exports.view = function (ctrl) {
             value: ctrl.interview.scheduled_date(),
             onchange: m.withAttr('value', ctrl.interview.scheduled_date),
           }),
-          m('label[for=first_name]', 'Scheduled For')
+          m('label', 'Scheduled For')
         ]),
         m('.input-field.col.s12.m6', [
           m('input.datepicker[type=date][placeholder=occured_date]',{
             value: ctrl.interview.occured_date(),
             onchange: m.withAttr('value', ctrl.interview.occured_date),
           }),
-
-          m('label[for=first_name]', 'Completed On')
+          m('label', 'Completed On')
         ])
       ]),
+      m('.row',
+        m('h3.center-align', 'Follow up')
+      ),
+      m('.row', [
+        m('.input-field.col.s12.m6', [
+          //Should have a limit of text
+          m('input.validate[type=text][placeholder=Follow Up?]', {
+            value: ctrl.interview.follow_up(),
+            onchange: m.withAttr('value', ctrl.interview.follow_up),
+          }),
+          m('label', 'Follow Up?')
+        ]),
+        m('.input-field.col.s12.m6', [
+          //Should have a limit of text
+          m('input.validate[type=text][placeholder=How prepared did you feel?]', {
+            value: ctrl.interview.preparedness(),
+            onchange: m.withAttr('value', ctrl.interview.preparedness),
+          }),
+          m('label', 'How prepared did you feel?')
+        ]),     
+      ]),
+     m('.row', [
+        m('.input-field.col.s12.m6', [
+          //Should have a limit of text
+          m('input.validate[type=text][placeholder=What technical questions were asked?]', {
+            value: ctrl.interview.questions(),
+            onchange: m.withAttr('value', ctrl.interview.questions),
+          }),
+          m('label', 'What technical questions were asked?')
+        ]), 
+      ]),
+     m('.row', [
+      m('p.range-field', 'How did it go?',[
+        m('input#test5[type=range][min=0][max=5]', {
+            value: ctrl.interview.quality(),
+            onchange: m.withAttr('value', ctrl.interview.quality),
+          }),
+      ]),
+    ]),
       m('.row', [
         m('button.btn.waves-effect.waves-light', 'Submit', [
           //POST to database
