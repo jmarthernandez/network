@@ -18,10 +18,15 @@ var studentApp = module.exports = {
     } else {
       m.request({ method: 'GET', url: '/api/applications/allUser/'})
         .then(function(applications) {
-          studentApp.apps = {1: [], 2: [], 3: []}
-          applications.Applications.forEach(function(app){
-            studentApp.apps[app.phase].push(app);
-          });
+          console.log(applications)
+          if (!Array.isArray(applications.Applications)) {
+            studentApp.apps = false;
+          }else{
+            studentApp.apps = {1: [], 2: [], 3: []};
+            applications.Applications.forEach(function(app){
+              studentApp.apps[app.phase].push(app);
+            });
+          }
         });
     }
   },

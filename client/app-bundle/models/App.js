@@ -11,10 +11,14 @@ var App = module.exports = {
   fetch: function() {
     m.request({ method: 'GET', url: '/API/applications/all' })
       .then(function(applicationsResponse) {
-        App.apps = {1: [], 2: [], 3: []};
-        applicationsResponse.Applications.forEach(function(app){
-          App.apps[app.phase].push(app);
-        })
+        if (!Array.isArray(applicationsResponse.Applications)) {
+          App.apps = false;
+        }else{
+          App.apps = {1: [], 2: [], 3: []};
+          applicationsResponse.Applications.forEach(function(app){
+            App.apps[app.phase].push(app);
+          });
+        }
       })
   },
 
