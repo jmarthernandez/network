@@ -4,15 +4,15 @@ var m = require('mithril');
 var CurrentApps = require('../components/CurrentApps.js');
 
 //Models
-var AllApps = require('../models/AllApps.js');
+var App = require('../models/App.js');
 
 exports.controller = function() {
   //Grabs apps for all students
-  AllApps.fetch();
+  App.fetch();
 };
 
 exports.view = function(ctrl) {
-  var apps = AllApps.all();
+  var apps = App.all();
 
   return m('.container', [
     m('h1.center-align', 'Student Outcomes'),

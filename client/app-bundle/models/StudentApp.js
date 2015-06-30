@@ -1,6 +1,6 @@
 var m = require('mithril');
 
-var studentApps = module.exports = {
+var studentApp = module.exports = {
 
   apps: {1: [], 2: [], 3: []},
   studentInfo: null,
@@ -10,17 +10,17 @@ var studentApps = module.exports = {
     if(ctrl.thisUserId){
       m.request({ method: 'GET', url: '/api/applications/' + ctrl.thisUserId})
         .then(function(applications) {
-          studentApps.apps = {1: [], 2: [], 3: []}
+          studentApp.apps = {1: [], 2: [], 3: []}
           applications.Applications.forEach(function(app){
-            studentApps.apps[app.phase].push(app);
+            studentApp.apps[app.phase].push(app);
           });
         });
     } else {
       m.request({ method: 'GET', url: '/api/applications/allUser/'})
         .then(function(applications) {
-          studentApps.apps = {1: [], 2: [], 3: []}
+          studentApp.apps = {1: [], 2: [], 3: []}
           applications.Applications.forEach(function(app){
-            studentApps.apps[app.phase].push(app);
+            studentApp.apps[app.phase].push(app);
           });
         });
     }
@@ -28,8 +28,8 @@ var studentApps = module.exports = {
 
   all: function() {
     return {
-      apps: studentApps.apps,
-      studentInfo: studentApps.studentInfo
+      apps: studentApp.apps,
+      studentInfo: studentApp.studentInfo
     };
   },
 
@@ -39,12 +39,12 @@ var studentApps = module.exports = {
     if(ctrl.thisUserId){
       m.request({ method: 'GET', url: 'api/users/' + ctrl.thisUserId })
         .then(function(userInfo) {
-          studentApps.studentInfo = userInfo.Users[0];
+          studentApp.studentInfo = userInfo.Users[0];
         });
     } else {
       m.request({ method: 'GET', url: '/me/' })
         .then(function(userInfo) {
-          studentApps.studentInfo = userInfo.user;
+          studentApp.studentInfo = userInfo.user;
         });
     }
   }

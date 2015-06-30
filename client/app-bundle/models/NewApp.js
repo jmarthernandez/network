@@ -1,6 +1,6 @@
 var m = require('mithril');
 
-var StudentApps = require('StudentApps.model.js')
+var StudentApp = require('StudentApp.model.js')
 
 // StudentApps.apps
 
@@ -18,7 +18,7 @@ var newApp = module.exports = {
   fetchInfo: function() {
     m.request({ method: 'GET', url: "/me/" })
       .then(function(userInfo) {
-        studentApps.studentInfo = userInfo.user;
+        studentApp.studentInfo = userInfo.user;
       })
   },
 
@@ -27,7 +27,7 @@ var newApp = module.exports = {
     m.request({ method: 'GET', url: '/API/companies/' })
       .then(function(companies) {
         console.log(companies,'in helper')
-        studentApps.autocomplete = companies.Companies;
+        studentApp.autocomplete = companies.Companies;
       });
   },
 
