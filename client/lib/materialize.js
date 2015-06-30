@@ -6,6 +6,14 @@ exports.makeCollapsible = function(elem, isInitialized){
 	});
 };
 
+exports.makeCollapsible = function(elem, isInitialized){
+	if (isInitialized) return;
+
+	$(elem).collapsible({
+		accordion: false
+	});
+};
+
 
 
 // <script>

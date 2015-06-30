@@ -15,7 +15,7 @@ exports.controller = function () {
 
 exports.view = function (ctrl, options) {
   return m( '.row', [
-    m('h1.center-align', 'Messages'),
+    m('h3.center-align', 'Messages'),
     m('ul.collection', [
       options.messages.map(function(message){
         return m('li.collection-item avatar', [
@@ -33,12 +33,12 @@ exports.view = function (ctrl, options) {
           m('i.mdi-editor-mode-edit.prefix'),
           m('textarea#icon_prefix2.materialize-textarea'),
           m('label[for=icon_prefix2]', "Message")
-        ]),
-        m('.row', [
-          m('button.btn.waves-effect.waves-light', 'Send Message',[
-            //POST to database
-            m('i.mdi-content-send.right')
-          ])
+        ])
+      ]),
+      m('.div.center-align', [
+        m('button.btn.waves-effect.waves-light', 'Send Message',[
+          //POST to database
+          m('i.mdi-content-send')
         ])
       ])
     ])
