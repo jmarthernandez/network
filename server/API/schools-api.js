@@ -1,4 +1,4 @@
-var School     = require('../models/school')
+var School     = require('../models/School')
 var express = require('express')
 
 var router = module.exports = express.Router();

@@ -1,4 +1,4 @@
-var Titles     = require('../models/titles')
+var Titles     = require('../models/Title')
 var express = require('express')
 
 var router = module.exports = express.Router();

@@ -1,4 +1,4 @@
-var Interviews = require('../models/interviews');
+var Interviews = require('../models/Interview');
 var express = require('express')
 
 

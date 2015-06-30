@@ -1,4 +1,4 @@
-var Membership = require('../models/membership');
+var Membership = require('../models/Membership');
 var express = require('express')
 
 var router = module.exports = express.Router();

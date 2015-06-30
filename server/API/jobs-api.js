@@ -1,4 +1,4 @@
-var Jobs       = require('../models/jobs');
+var Jobs       = require('../models/Job');
 var express = require('express')
 
 

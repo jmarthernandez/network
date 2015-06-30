@@ -1,4 +1,4 @@
-var Groups     = require('../models/group');
+var Groups     = require('../models/Group');
 var express = require('express')
 
 

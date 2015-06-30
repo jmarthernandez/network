@@ -1,4 +1,4 @@
-var Questions  = require('../models/questions');
+var Questions  = require('../models/Question');
 var express = require('express')
 
 var router = module.exports = express.Router();

@@ -1,4 +1,4 @@
-var Contacts   = require('../models/contacts');
+var Contacts   = require('../models/Contact');
 var express = require('express')
 
 var router = module.exports = express.Router();

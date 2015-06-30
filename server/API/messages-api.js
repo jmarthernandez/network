@@ -1,4 +1,4 @@
-var Messages   = require('../models/messages');
+var Messages   = require('../models/Message');
 var express = require('express')
 
 var router = module.exports = express.Router();

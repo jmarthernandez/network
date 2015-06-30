@@ -1,4 +1,4 @@
-var Companies  = require('../models/companies');
+var Companies  = require('../models/Company');
 var express = require('express')
 
 
