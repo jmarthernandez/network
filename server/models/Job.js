@@ -1,4 +1,4 @@
 var db = require('../db.js')
 var Promise = require('bluebird')
-var General = require('../lib/general.js');
+var General = require('../lib/General.js');
 var Jobs = module.exports =  General.access('jobs');

@@ -32,17 +32,17 @@ var General = module.exports = {
       },
 
       //retrieves allnodeLowerCasein the DB
-      retrieveAll: function (callback) {
+      retrieveAll: function () {
         return db(nodeLowerCase).select('*')
         .then(function(rows){
-         return (rows.length === 0) ? callback({title:'Groups WIll Be here!!!!'}) : callback(rows)
+         return rows;
         });
       },
 
-      retrieveOne: function(callback, id){
+      retrieveOne: function(id){
        return db(nodeLowerCase).select('*').where( {id: id})
          .then(function(row){
-       return callback(row);
+       return row;
        });
       },
 
@@ -55,6 +55,6 @@ var General = module.exports = {
       destroy: function (uid) {
        return db(nodeLowerCase).where({ uid: uid }).delete();
       }
-    }
+    };
   }
-}
+};

@@ -1,4 +1,4 @@
-var Jobs       = require('../models/jobs');
+var Jobs       = require('../models/Job');
 var express = require('express')
 
 
@@ -7,8 +7,8 @@ var router = module.exports = express.Router();
 
 	//endpoint which retreives all jobs
 	router.get('/', function(req, res){
-		Jobs.retrieveAll(function(x){res.send({Jobs: x});
-    });
+		Jobs.retrieveAll().then(function(jobs){ res.send({Jobs: jobs})
+		});
   });
 
 //endpoint which adds a job
