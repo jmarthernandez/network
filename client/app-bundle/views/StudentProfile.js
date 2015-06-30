@@ -2,7 +2,7 @@ var m               = require('mithril');
 
 //Components
 var StudentInfo     = require('../components/StudentInfo.js');
-var StudentJobs     = require('../components/StudentJobs.js');
+var StudentJob     = require('../components/StudentJob.js');
 var OnsiteInterview = require('../components/forms/OnsiteInterview.js');
 var Messaging       = require('../components/Messaging.js');
 var NewApp          = require('../components/forms/NewApp.js');
@@ -26,7 +26,7 @@ exports.view = function (ctrl) {
     m('.row'),
     m('.row', [
       m.component(StudentInfo, { studentInfo: appsData.studentInfo } ),
-      m.component(StudentJobs, { apps: appsData.apps, studentInfo: appsData.studentInfo } ),
+      m.component(StudentJob, { apps: appsData.apps, studentInfo: appsData.studentInfo } ),
     ]),
     m.component(OnsiteInterview),
     m.component(NewApp),
