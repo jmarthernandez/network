@@ -48,7 +48,7 @@ exports.view = function (ctrl) {
           m('label[for=first_name]', 'Role')
         ]),
         m('.input-field.col.s12.m4', [
-          m('input.validate[type=email][placeholder=Email]', console.log('view', JSON.stringify(ctrl.interview))),
+          m('input.validate[type=email][placeholder=Email]'),
           //Should autocomplete for common methods
           m('label[for=first_name]', 'Email')
         ])
