@@ -6,9 +6,11 @@ exports.controller = function () {
   // Interview.fetchInt();
   ctrl.interview = Interview.vm();
 
-  ctrl.submit = function () {
-
-    Interview.postInterview();
+  // controller action
+  ctrl.submit = function (e) {
+    console.log("hi")
+    e.preventDefault();
+    Interview.postInterview( ctrl.interview );
     // Interview.create( ctrl.interview ).then(function() {
     //   console.log('we are submitting')
     //   // Reset VM (or something)
@@ -26,7 +28,7 @@ exports.view = function (ctrl) {
     m('.row', [
       m('h3.center-align', 'On-site Interview')
     ]),
-    m('form.col.s12' , [
+    m('form.col.s12', { onsubmit: ctrl.submit }, [
       m('.row',
         m('h4.center-align', 'Interviewer')
       ),
@@ -47,11 +49,11 @@ exports.view = function (ctrl) {
           //Should autocomplete for common methods
           m('label[for=first_name]', 'Role')
         ]),
-        m('.input-field.col.s12.m4', [
-          m('input.validate[type=email][placeholder=Email]'),
-          //Should autocomplete for common methods
-          m('label[for=first_name]', 'Email')
-        ])
+        // m('.input-field.col.s12.m4', [
+        //   m('input.validate[type=email][placeholder=Email]', console.log('view', JSON.stringify(ctrl.interview))),
+        //   //Should autocomplete for common methods
+        //   m('label[for=first_name]', 'Email')
+        // ])
       ]),
       m('.row',
         m('h4.center-align', 'Date')
@@ -81,7 +83,7 @@ exports.view = function (ctrl) {
         })
       ]),
       m('.row', [
-        m('button.btn.waves-effect.waves-light', 'Submit', {onclick: ctrl.submit},[
+        m('button.btn.waves-effect.waves-light', 'Submit', [
           //POST to database
           m('i.mdi-content-send.right')
         ])
