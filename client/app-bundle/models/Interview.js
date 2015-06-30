@@ -8,9 +8,9 @@ var Interview = module.exports = {
 
 		return {
 			// id: attrs.id,
-
-			contacts_id: m.prop('1'),
-			role: m.prop('1'),
+			contacts_id: m.prop(''),
+			role: m.prop(''),
+			type: m.prop(''),
 			scheduled_date: m.prop(''),
 			occured_date: m.prop('')
 
