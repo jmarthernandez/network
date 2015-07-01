@@ -1,71 +1,64 @@
 var m = require('mithril');
+var NewApp = require('../../models/NewApp.js')
 
 exports.controller = function () {
   var ctrl = this;
+  ctrl.newApp = NewApp.vm();
 
-  var newAppForm = {
-    phase: 1,
-    date_applied: '',
-    contact_id: 1,
-    app_method: '',
-    user_id: '',
-    active: true,
-    title_id: '',
-    company_id: ''
-  };
+  ctrl.submit  = function (e) {
+    e.preventDefault();
+    NewApp.postNewApplication(ctrl.newApp);
+  }
+  // m.request({
+  //   method: 'GET',
+  //   url: '/me/'
+  // }).then(function(req){
+  //   ctrl.newAppForm = m.prop(newAppForm);
+  //   ctrl.newAppForm().user_id = req.user.uid 
+  //   console.log(ctrl.newAppForm(), 'newAppForm');
+  // });
 
-  m.request({
-    method: 'GET',
-    url: '/me/'
-  }).then(function(req){
-    ctrl.newAppForm = m.prop(newAppForm);
-    ctrl.newAppForm().user_id = req.user.uid 
-    console.log(ctrl.newAppForm(), 'newAppForm');
-  });
+  // ctrl.postApp = function(e, data) {
+  //   e.preventDefault()
 
-  ctrl.postApp = function(e, data) {
-    e.preventDefault()
+  //   m.request({
+  //       method: 'POST',
+  //       url: '/API/applications/',
+  //       data: ctrl.newAppForm,
+  //       }).then(function(data) {
+  //         console.log(data, 'postApp');
+  //         // m.redraw.strategy('all')
+  //       })
+  // };
 
-    m.request({
-        method: 'POST',
-        url: '/API/applications/',
-        data: ctrl.newAppForm,
-        }).then(function(data) {
-          console.log(data, 'postApp');
-          // m.redraw.strategy('all')
-        })
-  };
-
-  ctrl.getCompany = function(e, data) {
-    e.preventDefault()
-    m.request({
-      method: 'GET',
-      url: '/API/companies/',
-    }).then(function(companies){
-      console.log(companies)
-    });
-  };
+  // ctrl.getCompany = function(e, data) {
+  //   e.preventDefault()
+  //   m.request({
+  //     method: 'GET',
+  //     url: '/API/companies/',
+  //   }).then(function(companies){
+  //     console.log(companies)
+  //   });
+  // };
 
 };  
 
-var binds = function(data) {
-  return {onchange: function(e) {
-    data[e.target.name] = e.target.value;
-  }};
-};
-
-
-
 exports.view = function (ctrl) {
-  return m('.row', binds(ctrl.newAppForm()), [
+
+  var modelData = NewApp.all(); 
+
+  return m('.row', [
     m('.row', [
       m('h3.center-align', 'Add Application')
     ]),
     m('form.col.s12', [
       m('.row', [
-      m('.input-field.col.s12.m6', [
+      m('.input-field.col.s12.m6', { onsubmit: ctrl.submit },  [
           //Should have a limit of text
-          m('input#first_name.validate[type=text][placeholder=company][name=company_id]', {onclick: ctrl.getJob}),
+          m('input#first_name.validate[type=text][placeholder=company][name=companies_id]', {
+            value: ctrl.newApp.companies_id(),
+            onchange: m.withAttr('value', ctrl.newApp.companies_id)
+          }),
           m('label', 'company')
         ]),
       // m('.input-field.col.s12.m6', [
@@ -81,17 +74,26 @@ exports.view = function (ctrl) {
      
         m('.input-field.col.s12.m6', [
           //Should auto complete for common companies
-          m('input#first_name.validate[type=text][placeholder=title][name=title_id]', {value: ctrl.newAppForm().title_id}),
+          m('input#first_name.validate[type=text][placeholder=title][name=title_id]', {
+            value: ctrl.newApp.title_id(),
+            onchange: m.withAttr('value', ctrl.newApp.title_id)
+          }),
           m('label', 'title')
         ]),
            m('.input-field.col.s12.m6', [
           //Should have a limit of text
-          m('input#first_name.validate[type=text][placeholder=application method][name=app_method]', {value: ctrl.newAppForm().app_method}),
+          m('input#first_name.validate[type=text][placeholder=application method][name=app_method]', {
+            value: ctrl.newApp.app_method(),
+            onchange: m.withAttr('value', ctrl.newApp.app_method)
+          }),
           m('label', 'application method')
         ]),
         m('.input-field.col.s12.m6', [
           //Should auto complete for common jobs
-          m('input#first_name.datepicker[type=date][placeholder=""][name=date_applied]', {value: ctrl.newAppForm().date_applied}),
+          m('input#first_name.datepicker[type=date][placeholder=""][name=date_applied]', {
+            value: ctrl.newApp.date_applied(),
+            onchange: m.withAttr('value', ctrl.newApp.date_applied)
+          },  console.log(JSON.stringify(ctrl.newApp))),
           m('label', '')
         ]),
         // m('.input-field.col.s12.m6', [
@@ -102,7 +104,7 @@ exports.view = function (ctrl) {
       ]),
       m('.row.center-align', [
         // m('button.btn.waves-effect.waves-light[type=button]', 'Submit', {onclick: function() {postApp}},
-        m('button.btn.waves-effect.waves-light[type=button]', { onclick: ctrl.postApp }, 'Submit', [
+        m('button.btn.waves-effect.waves-light[type=button]', 'Submit', [
           //POST to database
           // m('i.mdi-content-send.right')a
         ])
