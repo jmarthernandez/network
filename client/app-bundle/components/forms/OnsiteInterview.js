@@ -45,19 +45,19 @@ exports.view = function (ctrl) {
         m('.input-field.col.s12.m4', [
           //Should have a limit of text
           m('input.validate[type=text][placeholder=Name]',{
-            value: ctrl.interview.contacts_id(),
-            onchange: m.withAttr('value', ctrl.interview.contacts_id)
+            value: ctrl.interview.contacts(),
+            onchange: m.withAttr('value', ctrl.interview.contacts)
           }, console.log(JSON.stringify(ctrl.interview))),
           m('label', 'Name')
         ]),
-        m('.input-field.col.s12.m4', [
-          m('input.validate[type=text][placeholder=Role]', {
-            value: ctrl.interview.role(),
-            onchange: m.withAttr('value', ctrl.interview.role)
-          }),
-          //Should autocomplete for common methods
-          m('label[for=first_name]', 'Role')
-        ]),
+        // m('.input-field.col.s12.m4', [
+        //   m('input.validate[type=text][placeholder=Role]', {
+        //     value: ctrl.interview.role(),
+        //     onchange: m.withAttr('value', ctrl.interview.role)
+        //   }),
+        //   //Should autocomplete for common methods
+        //   m('label[for=first_name]', 'Role')
+        // ]),
       ]),
       m('.row',
         m('h4.center-align', 'Date')
@@ -65,16 +65,16 @@ exports.view = function (ctrl) {
       m('.row', [
         m('.input-field.col.s12.m6', [
           //Should have a limit of text
-          m('input.datepicker[type=date][placeholder=scheduled_date]', {
-            value: ctrl.interview.scheduled_date(),
-            onchange: m.withAttr('value', ctrl.interview.scheduled_date),
+          m('input.datepicker[type=date][placeholder=scheduled_on]', {
+            value: ctrl.interview.scheduled_on(),
+            onchange: m.withAttr('value', ctrl.interview.scheduled_on),
           }),
           m('label', 'Scheduled For')
         ]),
         m('.input-field.col.s12.m6', [
-          m('input.datepicker[type=date][placeholder=occured_date]',{
-            value: ctrl.interview.occured_date(),
-            onchange: m.withAttr('value', ctrl.interview.occured_date),
+          m('input.datepicker[type=date][placeholder=occured_on]',{
+            value: ctrl.interview.occured_on(),
+            onchange: m.withAttr('value', ctrl.interview.occured_on),
           }),
           m('label', 'Completed On')
         ])
@@ -104,8 +104,8 @@ exports.view = function (ctrl) {
         m('.input-field.col.s12.m6', [
           //Should have a limit of text
           m('input.validate[type=text][placeholder=What technical questions were asked?]', {
-            value: ctrl.interview.questions(),
-            onchange: m.withAttr('value', ctrl.interview.questions),
+            value: ctrl.interview.info(),
+            onchange: m.withAttr('value', ctrl.interview.info),
           }),
           m('label', 'What technical questions were asked?')
         ]), 
