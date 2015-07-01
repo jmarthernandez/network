@@ -41,16 +41,12 @@ AutocompleteInput.controller = function (attrs) {
   ctrl.mode = m.prop('keyboard');
   ctrl.query = m.prop(null);
  
-  ctrl.options = m.prop([])//ctrl.options response object
-  // updateAllOptions(attrs.options())
- 
-  // // Expect attrs.options to be a m.superProp
-  // attrs.options.subscribe(updateAllOptions)
+  ctrl.options = m.prop([])
  
   ctrl.select = function () {
-    console.log('SELECTED!')
     var opt = ctrl.options()[ ctrl.dropdownIndex() ]
-    if (opt) attrs.onSelect(opt[0]) // Send back id
+    if (opt) attrs.onSelect(opt.id || opt.uid) // Send back id
+      console.log(attrs.onSelect)
     ctrl.reset()
     // ctrl.isFocused(true)
     if (ctrl.mode() === 'mouse') blur = true
@@ -98,7 +94,7 @@ AutocompleteInput.controller = function (attrs) {
       ctrl.query(newQuery);
 
       // Fuzzy.companySearch(newQuery).then(ctrl.options);      
-      Fuzzy.search(attrs.search,newQuery).then(ctrl.options);
+      Fuzzy.search(attrs.search, newQuery).then(ctrl.options);
     }
     else if (!dirty) {
       m.redraw.strategy('none');

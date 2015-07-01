@@ -27,20 +27,14 @@ exports.view = function (ctrl) {
     ]),
     m('form.col.s12', { onsubmit: ctrl.submit }, [
       m('.row', [
-        m('.input-field.col.s12.m6',[
-          //Should have a limit of text
-          m('input#first_name.validate[type=text][placeholder=company]', {
-            value: ctrl.newApp.company_id(),
-            onchange: m.withAttr('value', ctrl.newApp.company_id)
-          }),
-          m('label', 'company')
-        ]),
-
         m.component(Fuzzy, {
-          search: 'contacts',
+          search: 'companies',
+          onSelect: function (company) {
+            ctrl.newApp.company_id = company;
+          },
           placeholder: 'Companies'
         }),
-        
+
         m('.input-field.col.s12.m6', [
           //Should auto complete for common companies
           m('input#first_name.validate[type=text][placeholder=title][name=title_id]', {
