@@ -46,9 +46,17 @@ var General = module.exports = {
        });
       },
 
+      retrieveByName: function(string){
+        console.log(string, "SWIIING")
+        return db.select('*').from(nodeLowerCase).where('name', 'like', '%'+string+'%')
+        .then(function(row){
+          return row;
+        })
+      },
+
       //updates or creates a specific group depending on prior status
       updateOrCreate: function (attrs) {
-        return General.access(nodeName).update(attrs).catch(General.access(nodeName).create.papp(attrs));
+        return General.access(nodeLowerCase).update(attrs).catch(General.access(nodeLowerCase).create.papp(attrs));
       },
 
       //destroys a contact in the DB

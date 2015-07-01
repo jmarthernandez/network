@@ -12,12 +12,13 @@ var router = module.exports = express.Router();
   //endpoint which retrieves a message between a specific user and a specific sender
   router.get('/user', function(req, res){
     if (!req.body) return res.sendStatus(400);
-    Messages.retrieveOne().then(function(messages){ res.send({Messages: messages})});
+    console.log(req.user.uid)
+    Messages.retrieveOne(req.user.uid).then(function(messages){ res.send({Messages: messages})});
   });
   
   //endpoint which adds a message
   router.post('/', function(req, res){
-    if (req.body) return res.sendStatus(400);
+    if (!req.body) return res.sendStatus(400);
     Messages.updateOrCreate(req.body);
     res.send(req.body);
   });
