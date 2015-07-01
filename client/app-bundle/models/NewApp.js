@@ -1,17 +1,26 @@
 var m = require('mithril');
 
-var StudentApp = require('StudentApp.model.js')
-
 // StudentApps.apps
 
-var newApp = module.exports = {
+var NewApp = module.exports = {
 
-  autocomplete: null,
+  vm: function(attrs) {
+    attrs || '';
 
-  };
+    return {
+        phase: m.prop(''),
+        date_applied: m.prop(''),
+        contact_id: m.prop(''),
+        app_method: m.prop(''),
+        user_id: m.prop(''),
+        active: m.prop(''),
+        title_id: m.prop(''), 
+        companies_id: m.prop(''),
+    };
+  }, 
 
   all: function() {
-    return newApp.autocomplete;
+    return NewApp.vm();
   },
 
   // All student profile info uid (e.g. avatar, name ...)
@@ -33,8 +42,18 @@ var newApp = module.exports = {
 
 //POST requests
 
-  postNewApplication: function(applicationFormData) {
-    m.request({ method: 'POST', url: '/API/applications/', data: applicationFormData})
+  //   m.request({
+  //       method: 'POST',
+  //       url: '/API/applications/',
+  //       data: ctrl.newAppForm,
+  //       }).then(function(data) {
+  //         console.log(data, 'postApp');
+  //         // m.redraw.strategy('all')
+  //       })
+  // };
+
+  postNewApplication: function(newApp) {
+    m.request({ method: 'POST', url: '/API/applications/', data: newApp})
   }
 
 };
