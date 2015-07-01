@@ -1,12 +1,17 @@
 var m = require('mithril');
 
+//model
+var Message   = require('../models/Message.js');
 // TODO: Set up post request body
 exports.controller = function () {
   var ctrl = this;
+  ctrl.message = Message.vm();
 
-  //Create view model for message body
-    // vm : {sender_id: '', reciever_id: '', app_id: '', body: '' }
-
+  ctrl.submit = function (e) {
+    e.preventDefault();
+    Message.postMessage( ctrl.message );
+  }
+  
   //Submit button is a post request
     //then clears message body and renders a success toast
 
@@ -14,8 +19,16 @@ exports.controller = function () {
 };
 
 exports.view = function (ctrl, options) {
+  console.log(JSON.stringify(ctrl.message), 'ctrl message');
   return m( '.row', [
-    m('h3.center-align', 'Messages'),
+    m('ul', [
+      options.users.map(function(user){
+        return m('li', [
+          m('p', 'Message ' + user.name)
+        ])
+      })
+    ]),
+    m('h1.center-align', 'Messages'),
     m('ul.collection', [
       options.messages.map(function(message){
         return m('li.collection-item avatar', [
@@ -27,11 +40,14 @@ exports.view = function (ctrl, options) {
         ])
       })
     ]),
-    m('form.col.s12', [
+    m('form.col.s12', { onsubmit: ctrl.submit }, [
       m('.row', [
         m('.row.input-field.col.l6.m6.s12', [
           m('i.mdi-editor-mode-edit.prefix'),
-          m('textarea#icon_prefix2.materialize-textarea'),
+          m('textarea#icon_prefix2.materialize-textarea', {
+            value: ctrl.message.body(),
+            onchange: m.withAttr('value', ctrl.message.body)
+          }),
           m('label[for=icon_prefix2]', "Message")
         ])
       ]),
