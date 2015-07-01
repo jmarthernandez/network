@@ -52,6 +52,7 @@ app.use('/API/interviews',require('./API/interviews-api'));
 app.use('/API/contacts',require('./API/contacts-api'));
 app.use('/API/applications',require('./API/applications-api'));
 app.use('/API/schools',require('./API/schools-api'));
+app.use('/API/fuzzy',require('./API/fuzzy-api'));
 
 
 

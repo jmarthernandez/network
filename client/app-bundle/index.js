@@ -8,6 +8,8 @@ var App            = require('./app.js');
 var Outcomes       = require('./views/Outcomes.js');
 var StudentProfile = require('./views/StudentProfile.js');
 var Splash         = require('./views/Splash.js');
+var Fuzzy         = require('./views/fuzzy.js');
+
 
 var checkAuth = function(authorization, componentsArr) {
   //TODO: Check role of user and redirect correctly
@@ -57,7 +59,6 @@ var routes = {
     controller: function () {
       var ctrl = this;
       ctrl.user = Auth.currentUser();
-      
     },
     view: function (ctrl) {
       return checkAuth(ctrl.user, m.component(Fuzzy));
