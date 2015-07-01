@@ -1,5 +1,7 @@
 var m         = require('mithril');
 var Interview   = require('../../models/Interview.js');
+var Fuzzy = require('../../models/Fuzzy.js')
+
 
 //rename to Interview
 exports.controller = function () {

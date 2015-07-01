@@ -27,8 +27,12 @@ Function.prototype.chill = function() {
 
 // attr.options is expected to be an array of objects
 AutocompleteInput.controller = function (attrs) {
-  var ctrl = this
- 
+  var ctrl = this;
+  
+  // ctrl.table = {};
+
+  // ctrl.table.search = 'companies';
+
   var inititalOptions = attrs.initialOptions || [];
 
   
@@ -44,6 +48,7 @@ AutocompleteInput.controller = function (attrs) {
   // attrs.options.subscribe(updateAllOptions)
  
   ctrl.select = function () {
+    console.log('SELECTED!')
     var opt = ctrl.options()[ ctrl.dropdownIndex() ]
     if (opt) attrs.onSelect(opt[0]) // Send back id
     ctrl.reset()
@@ -93,7 +98,7 @@ AutocompleteInput.controller = function (attrs) {
       ctrl.query(newQuery);
 
       // Fuzzy.companySearch(newQuery).then(ctrl.options);      
-      Fuzzy.search('companies',newQuery).then(ctrl.options);
+      Fuzzy.search(attrs.search,newQuery).then(ctrl.options);
     }
     else if (!dirty) {
       m.redraw.strategy('none');
@@ -122,6 +127,7 @@ AutocompleteInput.controller = function (attrs) {
 }
  
 AutocompleteInput.view = function (ctrl, attrs) {
+
   var ddIdx = ctrl.dropdownIndex()
   var mode = ctrl.mode()
   var queryRegex = ctrl.query() && new RegExp('(.*)('+ctrl.query()+')(.*)', 'i')

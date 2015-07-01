@@ -14,7 +14,7 @@ var Fuzzy = module.exports = {
 
 
 
-   search: function(table,newQuery){
+   search: function(table , newQuery){
     return m.request({ method: 'GET', url: 'api/fuzzy/' + table + '/' + newQuery})
   }
 

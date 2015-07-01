@@ -7,5 +7,6 @@ exports.view = function (ctrl) {
 	searchUrl: '/companies',
 	search: 'companies',
 	onSelect: function (company) {},
+	placeholder: ''
 	})
 };
