@@ -28,9 +28,9 @@ Function.prototype.chill = function() {
 // attr.options is expected to be an array of objects
 AutocompleteInput.controller = function (attrs) {
   var ctrl = this
-  console.log(attrs, 'ATTRIBUTES');
  
   var inititalOptions = attrs.initialOptions || [];
+
   
   ctrl.isFocused = m.prop(false);
   ctrl.dropdownIndex = m.prop(0);
@@ -93,7 +93,7 @@ AutocompleteInput.controller = function (attrs) {
       ctrl.query(newQuery);
 
       // Fuzzy.companySearch(newQuery).then(ctrl.options);      
-      attrs.search(newQuery).then(ctrl.options);
+      Fuzzy.search('companies',newQuery).then(ctrl.options);
     }
     else if (!dirty) {
       m.redraw.strategy('none');
