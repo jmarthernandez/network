@@ -6,6 +6,7 @@ exports.controller = function () {
   ctrl.newApp = NewApp.vm();
 
   ctrl.submit  = function (e) {
+    console.log('hi')
     e.preventDefault();
     NewApp.postNewApplication(ctrl.newApp);
   }
@@ -51,9 +52,9 @@ exports.view = function (ctrl) {
     m('.row', [
       m('h3.center-align', 'Add Application')
     ]),
-    m('form.col.s12', [
+    m('form.col.s12', { onsubmit: ctrl.submit }, [
       m('.row', [
-      m('.input-field.col.s12.m6', { onsubmit: ctrl.submit },  [
+      m('.input-field.col.s12.m6',[
           //Should have a limit of text
           m('input#first_name.validate[type=text][placeholder=company][name=companies_id]', {
             value: ctrl.newApp.companies_id(),
@@ -104,9 +105,9 @@ exports.view = function (ctrl) {
       ]),
       m('.row.center-align', [
         // m('button.btn.waves-effect.waves-light[type=button]', 'Submit', {onclick: function() {postApp}},
-        m('button.btn.waves-effect.waves-light[type=button]', 'Submit', [
+        m('button.btn.waves-effect.waves-light', 'Submit',  [
           //POST to database
-          // m('i.mdi-content-send.right')a
+          m('i.mdi-content-send.right')
         ])
       ])
     ])

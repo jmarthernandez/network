@@ -52,8 +52,8 @@ var NewApp = module.exports = {
   //       })
   // };
 
-  postNewApplication: function(newApp) {
-    m.request({ method: 'POST', url: '/API/applications/', data: newApp})
+  postNewApplication: function(applicationFormData) {
+    return m.request({ method: 'POST', url: '/API/applications/', data: applicationFormData})
   }
 
 };
