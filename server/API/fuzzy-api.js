@@ -32,7 +32,7 @@ router.get('/companies/', function(req, res){
 //endpoint which retreives a specific company
 router.get('/companies/:id', function(req, res){
   Companies.retrieveByName(req.params.id)
-  .then(function(x){ res.send({Companies: x})});
+  .then(function(x){ res.send(x)});
 });
 
 //endpoint which retreives a specific contact

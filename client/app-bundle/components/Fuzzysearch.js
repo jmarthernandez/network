@@ -1,5 +1,6 @@
 var m = require('mithril')
 var fuzzyMatch = require('../../../node_modules/fuzzysearch-js/js/FuzzySearch.js')
+var Fuzzy = require('../models/fuzzy.js')
  
 var AutocompleteInput = module.exports = {}
 
@@ -20,6 +21,8 @@ Function.prototype.chill = function() {
     return fn()
   }
 };
+
+
  
 
 // attr.options is expected to be an array of objects
@@ -27,7 +30,7 @@ AutocompleteInput.controller = function (attrs) {
   var ctrl = this
   console.log(attrs, 'ATTRIBUTES');
  
-  var allOptions = null;
+  var inititalOptions = attrs.initialOptions || [];
   
   ctrl.isFocused = m.prop(false);
   ctrl.dropdownIndex = m.prop(0);
@@ -52,7 +55,7 @@ AutocompleteInput.controller = function (attrs) {
     clearTimeout(lastSearchTimeout);
     ctrl.dropdownIndex(0);
     ctrl.query(null);
-    ctrl.options(allOptions);
+    ctrl.options(inititalOptions);
     dirty = true;
     m.redraw();
   };
@@ -70,31 +73,27 @@ AutocompleteInput.controller = function (attrs) {
     if (key === 27) { blur = true; ctrl.isFocused(false) }
   };
  
+
+
   var lastSearchTimeout = null
   ctrl.onkeyup = function (e) {
     var query = ctrl.query()
     var newQuery = e.currentTarget.value;
-    console.log(newQuery, 'QUERY QIERY')
-    m.request({ method: 'GET', url: 'api/fuzzy/companies/' + newQuery})
-        .then(function(userInfo) {
-         ctrl.options(userInfo.Companies)
-         console.log(ctrl.options(), typeof ctrl.options())
-    });
 
-    if (newQuery.length < 2) {
+
+
+    if (newQuery.length < 1) {
       ctrl.query(null)
-      ctrl.options(allOptions)
+      ctrl.options(inititalOptions)
     }
     else if (newQuery !== query) {
-      // Search can be cpu-intensive, so do it asynchronously
-      m.redraw.strategy('none');
-      clearTimeout(lastSearchTimeout);
-      lastSearchTimeout = setTimeout(function(){
-        ctrl.mode('keyboard');
-        ctrl.dropdownIndex(0);
-        ctrl.query(newQuery);
-        m.redraw();
-      }, 0)
+      
+      ctrl.mode('keyboard');
+      ctrl.dropdownIndex(0);
+      ctrl.query(newQuery);
+
+      // Fuzzy.companySearch(newQuery).then(ctrl.options);      
+      attrs.search(newQuery).then(ctrl.options);
     }
     else if (!dirty) {
       m.redraw.strategy('none');
@@ -115,10 +114,10 @@ AutocompleteInput.controller = function (attrs) {
   // Format: [['myOptionValue', 'myOptionDisplayText', 'myoptiondisplaytext'], ...]
   function updateAllOptions (options) {
     console.log("UPDATING", options)
-    allOptions = options.map(function(op) {
+    inititalOptions = options.map(function(op) {
       return [ op[attrs.idAttr], op[attrs.searchAttr], op[attrs.searchAttr].toLowerCase() ]
     })
-    if (ctrl.query() === null) ctrl.options(allOptions)
+    if (ctrl.query() === null) ctrl.options(inititalOptions)
   }
 }
  
@@ -161,6 +160,7 @@ AutocompleteInput.view = function (ctrl, attrs) {
     }, opt.name)
   }
  
+
   function selectHovered (e) {
     if (e.target.tagName !== 'LI') return;
     var idx = e.target.getAttribute('data-idx')
