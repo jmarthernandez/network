@@ -11,7 +11,7 @@ exports.controller = function () {
     NewApp.postNewApplication(ctrl.newApp);
   }
 
-  // ctrl.fetchInfo = NewApp.fetchInfo();
+  ctrl.fetchInfo = NewApp.fetchInfo();
   // m.request({
   //   method: 'GET',
   //   url: '/me/'
@@ -58,7 +58,7 @@ exports.view = function (ctrl) {
       m('.row', [
       m('.input-field.col.s12.m6',[
           //Should have a limit of text
-          m('input#first_name.validate[type=text][placeholder=company][name=company_id]', {
+          m('input#first_name.validate[type=text][placeholder=company]', {
             value: ctrl.newApp.company_id(),
             onchange: m.withAttr('value', ctrl.newApp.company_id)
           }),
@@ -108,6 +108,13 @@ exports.view = function (ctrl) {
       m('.row.center-align', [
         // m('button.btn.waves-effect.waves-light[type=button]', 'Submit', {onclick: function() {postApp}},
         m('button.btn.waves-effect.waves-light', 'Submit',  [
+          //POST to database
+          m('i.mdi-content-send.right')
+        ])
+      ]),
+       m('.row.center-align', [
+        // m('button.btn.waves-effect.waves-light[type=button]', 'Submit', {onclick: function() {postApp}},
+        m('button.btn.waves-effect.waves-light[type=button]', [
           //POST to database
           m('i.mdi-content-send.right')
         ])
