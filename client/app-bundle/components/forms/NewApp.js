@@ -1,5 +1,7 @@
 var m = require('mithril');
 var NewApp = require('../../models/NewApp.js')
+var Fuzzy = require('../Fuzzysearch.js')
+
 
 exports.controller = function () {
   var ctrl = this;
@@ -12,10 +14,8 @@ exports.controller = function () {
       ctrl.newApp = NewApp.vm();
     });
   }
-
   ctrl.fetchInfo = NewApp.fetchInfo();
-
-};  
+};
 
 exports.view = function (ctrl) {
 
@@ -35,6 +35,12 @@ exports.view = function (ctrl) {
           }),
           m('label', 'company')
         ]),
+
+        m.component(Fuzzy, {
+          search: 'contacts',
+          placeholder: 'Companies'
+        }),
+        
         m('.input-field.col.s12.m6', [
           //Should auto complete for common companies
           m('input#first_name.validate[type=text][placeholder=title][name=title_id]', {

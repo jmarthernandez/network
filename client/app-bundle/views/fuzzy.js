@@ -5,7 +5,7 @@ exports.view = function (ctrl) {
 
   return m.component(AutocompleteInput, {
 	searchUrl: '/companies',
-	search: 'companies',
+	search: 'contacts',
 	onSelect: function (company) {},
 	placeholder: ''
 	})
