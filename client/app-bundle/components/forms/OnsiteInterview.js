@@ -11,7 +11,9 @@ exports.controller = function () {
   ctrl.submit = function (e) {
     console.log("hi")
     e.preventDefault();
-    Interview.postInterview( ctrl.interview );
+    Interview.postInterview( ctrl.interview ).then(function () {
+      ctrl.interview = Interview.vm();
+    })
   }
 }
 
@@ -27,30 +29,29 @@ exports.view = function (ctrl) {
         m('h4.center-align', 'Type')
       ),
       m('.row', [
-        m('.input-field.col.s12.m4', [
-          m('input.validate[type=text][placeholder=Type][name=type]', {
+        m('.input-field.s12.m4', [
+          m('input.validate[type=text][placeholder=Type]', {
             value: ctrl.interview.type(),
             onchange: m.withAttr('value', ctrl.interview.type)
           }),
           //Should autocomplete for common methods
-          m('label[for=first_name]', 'Type')
+          m('label', 'Type')
         ]),
-
-        ]),
+      ]),
       m('.row',
         m('h4.center-align', 'Interviewer')
       ),
       m('.row',[
         m('.input-field.col.s12.m4', [
           //Should have a limit of text
-          m('input.validate[type=text][placeholder=Name][name=contacts_id]',{
+          m('input.validate[type=text][placeholder=Name]',{
             value: ctrl.interview.contacts_id(),
             onchange: m.withAttr('value', ctrl.interview.contacts_id)
           }, console.log(JSON.stringify(ctrl.interview))),
           m('label', 'Name')
         ]),
         m('.input-field.col.s12.m4', [
-          m('input.validate[type=text][placeholder=Role][name=role]', {
+          m('input.validate[type=text][placeholder=Role]', {
             value: ctrl.interview.role(),
             onchange: m.withAttr('value', ctrl.interview.role)
           }),

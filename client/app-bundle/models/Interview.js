@@ -1,4 +1,5 @@
 var m = require('mithril');
+var StudentApp =  require('./StudentApp.js')
 
 //TODO: Comment and fix functionality
 var Interview = module.exports = {
@@ -8,28 +9,16 @@ var Interview = module.exports = {
 
 		return {
 			// id: attrs.id,
+			user_id: m.prop(StudentApp.studentInfo.uid),
 			type: m.prop(''),
-			contacts_id: m.prop(''),
+			contacts_id: m.prop(null),
 			role: m.prop(''),
 			scheduled_date: m.prop(''),
 			occured_date: m.prop(''),
 			follow_up:m.prop(''),
 			quality: m.prop(''),
 			questions: m.prop(''),
-			preparedness: m.prop(''),
-
-
-			// contacts_id: m.prop(''),
-			// role: m.prop(''),
-			// scheduled_date: m.prop(''),
-			// occured_date: m.prop(''),
-			// follow_up: m.prop(''),
-			// quality: m.prop(''),
-			// preparedness: m.prop('')
-
-
-			// scheduled_date: m.prop(attrs.scheduled_date || new Date()),
-			// quality: m.prop(attrs.quality || 3)
+			preparedness: m.prop(null),
 		};
 	},
 
