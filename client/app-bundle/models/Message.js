@@ -9,8 +9,8 @@ var Message = module.exports = {
   vm: function (attrs) {
     attrs = attrs || '';
     return {
-      sender_uid: m.prop('6be463f5fad5'),
-      receiver_uid: m.prop('6be463f5fad5'),
+      sender_uid: m.prop(''),
+      receiver_uid: m.prop(''),
       body: m.prop(''),
     }
   },
@@ -38,6 +38,7 @@ var Message = module.exports = {
         Message.usersArray = usersObj.Users;
       });
   },
+
   //TODO: Set up POST to send messages
   send: function () {
     m.request({ method: 'GET', url: '/API/interviews', data: message });
