@@ -10,6 +10,8 @@ exports.controller = function () {
     e.preventDefault();
     NewApp.postNewApplication(ctrl.newApp);
   }
+
+  // ctrl.fetchInfo = NewApp.fetchInfo();
   // m.request({
   //   method: 'GET',
   //   url: '/me/'
@@ -56,9 +58,9 @@ exports.view = function (ctrl) {
       m('.row', [
       m('.input-field.col.s12.m6',[
           //Should have a limit of text
-          m('input#first_name.validate[type=text][placeholder=company][name=companies_id]', {
-            value: ctrl.newApp.companies_id(),
-            onchange: m.withAttr('value', ctrl.newApp.companies_id)
+          m('input#first_name.validate[type=text][placeholder=company][name=company_id]', {
+            value: ctrl.newApp.company_id(),
+            onchange: m.withAttr('value', ctrl.newApp.company_id)
           }),
           m('label', 'company')
         ]),
@@ -91,9 +93,9 @@ exports.view = function (ctrl) {
         ]),
         m('.input-field.col.s12.m6', [
           //Should auto complete for common jobs
-          m('input#first_name.datepicker[type=date][placeholder=""][name=date_applied]', {
-            value: ctrl.newApp.date_applied(),
-            onchange: m.withAttr('value', ctrl.newApp.date_applied)
+          m('input#first_name.datepicker[type=date][placeholder=""][name=applied_on]', {
+            value: ctrl.newApp.applied_on(),
+            onchange: m.withAttr('value', ctrl.newApp.applied_on)
           },  console.log(JSON.stringify(ctrl.newApp))),
           m('label', '')
         ]),
