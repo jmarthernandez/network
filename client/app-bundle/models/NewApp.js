@@ -1,6 +1,5 @@
-var m = require('mithril');
-
-// StudentApps.apps
+var m           = require('mithril');
+// var StudentApp  = require('StudentApp.js');
 
 var NewApp = module.exports = {
 
@@ -8,14 +7,14 @@ var NewApp = module.exports = {
     attrs || '';
 
     return {
-        phase: m.prop(''),
-        date_applied: m.prop(''),
-        contact_id: m.prop(''),
-        app_method: m.prop(''),
-        user_id: m.prop(''),
-        active: m.prop(''),
-        title_id: m.prop(''), 
-        companies_id: m.prop(''),
+        phase: m.prop(1),
+        applied_on: m.prop(),
+        contact_id: m.prop(),
+        app_method: m.prop(),
+        user_id: m.prop(),
+        active: m.prop(true),
+        title_id: m.prop(), 
+        company_id: m.prop(),
     };
   }, 
 
