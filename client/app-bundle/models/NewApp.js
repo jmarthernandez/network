@@ -1,24 +1,32 @@
-var m = require('mithril');
+var m           = require('mithril');
+var StudentApp  = require('./StudentApp.js');
 
-var StudentApp = require('StudentApp.model.js')
+var NewApp = module.exports = {
 
-// StudentApps.apps
+  vm: function(attrs) {
+    attrs || '';
 
-var newApp = module.exports = {
-
-  autocomplete: null,
-
-  };
+    return {
+        phase: m.prop(1),
+        applied_on: m.prop(null),
+        contact_id: m.prop(null),
+        app_method: m.prop(null),
+        user_id: m.prop(StudentApp.studentInfo.uid),
+        active: m.prop(true),
+        title_id: m.prop(null), 
+        company_id: m.prop(null),
+    };
+  }, 
 
   all: function() {
-    return newApp.autocomplete;
+    return NewApp.vm();
   },
 
   // All student profile info uid (e.g. avatar, name ...)
   fetchInfo: function() {
-    m.request({ method: 'GET', url: "/me/" })
+    return m.request({ method: 'GET', url: "/me/" })
       .then(function(userInfo) {
-        studentApp.studentInfo = userInfo.user;
+        StudentApp.studentInfo = userInfo.user;
       })
   },
 
@@ -27,14 +35,12 @@ var newApp = module.exports = {
     m.request({ method: 'GET', url: '/API/companies/' })
       .then(function(companies) {
         console.log(companies,'in helper')
-        studentApp.autocomplete = companies.Companies;
+        StudentApp.autocomplete = companies.Companies;
       });
   },
 
-//POST requests
-
   postNewApplication: function(applicationFormData) {
-    m.request({ method: 'POST', url: '/API/applications/', data: applicationFormData})
+    return m.request({ method: 'POST', url: '/API/applications/', data: applicationFormData})
   }
 
 };
