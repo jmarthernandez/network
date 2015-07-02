@@ -38,8 +38,6 @@ exports.view = function (ctrl) {
             value: ctrl.interview.type(),
             onchange: m.withAttr('value', ctrl.interview.type)
           }),
-          //Should autocomplete for common methods
-          // m('label', 'Type')
         ]),
       ]),
       m('.row',
