@@ -23,7 +23,12 @@ exports.controller = function () {
 };
 
 exports.view = function (ctrl, options) {
-  ctrl.allMessages = options.messages;
+  ctrl.selectedUser = '';
+  if(ctrl.message.receiver_uid()){
+    var user = options.users.filter(function(user){return user.uid === ctrl.message.receiver_uid()});
+    ctrl.selectedUser = user[0].name;
+  }
+  ctrl.allMessages = options.messages; 
   console.log(ctrl.message, 'ctrl.message')
   ctrl.message.sender_uid = options.studentInfo.uid;
   return m( '.row', [
@@ -35,7 +40,7 @@ exports.view = function (ctrl, options) {
             return m('li', [
               m('a', {
                 value: user.uid,
-                onclick: m.withAttr('value', ctrl.message.receiver_uid)
+                onclick: m.withAttr('value', ctrl.message.receiver_uid),
               }, user.name),
             ])
           }
@@ -57,7 +62,7 @@ exports.view = function (ctrl, options) {
             value: ctrl.message.body(),
             onchange: m.withAttr('value', ctrl.message.body)
           }),
-          m('label[for=icon_prefix2]', 'Message to : ' + ctrl.message.receiver_uid())
+          m('label[for=icon_prefix2]', 'Message to : ' + ctrl.selectedUser)
         ])
       ]),
       m('.div.center-align', [
