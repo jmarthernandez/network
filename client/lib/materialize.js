@@ -4,29 +4,42 @@ exports.makeCollapsible = function(elem, isInitialized){
 	$(elem).collapsible({
 		accordion: false
 	});
+
+	//config: materialize.makeCollapsible
 };
 
-exports.makeCollapsible = function(elem, isInitialized){
+exports.pickDates = function(elem, isInitialized){
 	if (isInitialized) return;
 
-	$(elem).collapsible({
-		accordion: false
-	});
+  $(elem).pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year
+
+    dateFormat: 'yyyy-mm-dd',
+  	
+	  format: 'mmmm dd , yyyy',
+	  formatSubmit: 'yyyy-mm-dd',
+	  hiddenPrefix: 'prefix__',
+	  hiddenSuffix: '__suffix',
+
+		onSet: function () {
+			this.close();
+		},
+
+		onClose: function(){
+	        $(document.activeElement).blur()
+	    }
+    //{class: 'datepicker', config: materialize.pickDates},
+  });
 };
 
+// exports.setter = function (prop) {
+// 	return function(elem, isInitialized){
+// 		if (isInitialized) return;
 
-
-
-
-// <script>
-// 	$(document).ready(function(){
-// 	    $('.collapsible').collapsible({
-// 	      accordion : false
-// 	    });
-//       $('.datepicker').pickadate({
-//         selectMonths: true, // Creates a dropdown to control month
-//         selectYears: 15 // Creates a dropdown of 15 years to control year
-//       });
-// 	  });
-
-// </script>
+// 		$(elem).datepicker({
+// 	  	dateFormat: "yyyy-mm-dd",
+// 	  	onSelect: prop
+// 		});
+// 	};
+// }

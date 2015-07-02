@@ -62,7 +62,7 @@ exports.view = function (ctrl, options) {
       ]),
       m('.div.center-align', [
         m('button.btn.waves-effect.waves-light', 'Send Message',[
-          m('i.mdi-content-send')
+          m('i.mdi-content-send.right')
         ])
       ])
     ])

@@ -7,18 +7,15 @@ exports.view = function(ctrl, options){
 
  return m('.col.m9.s12', [
     //Start Phase I
-    // if (test < 20){
-    //   console.log("Less than 20!")
-    // }
     m('h5.center-align', 'Pending Applications: ' +  options.apps[1].length),
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['1'].map(function(app){
         return m('li', [
           m('div.collapsible-header', 'Company: ' + app.company_name + ' Title: ' + app.title + ' Date Applied: ' + app.applied_on.slice(0,10)),
-          m('.collapsible-body', [ 
-            m('div', 'More information can be inserted here'),
+          m('.collapsible-body.center-align', [
             m('span', 'Active: ' + app.active),
-            m('a.waves-effect.waves-light.secondary-content.btn[href=#]', 'update')
+            m("br"),
+            m('a.waves-effect.waves-light.btn[href=#]', 'update')
             ])
         ])
       })
@@ -31,10 +28,10 @@ exports.view = function(ctrl, options){
       options.apps['2'].map(function(app){
         return m('li', [
           m('.collapsible-header', 'Company: ' + app.company_name + ' Title: ' + app.title + ' Date Applied: ' + app.applied_on.slice(0,10)),
-          m('.collapsible-body', [
-            m('div', 'More information can be inserted here'),
+          m('.collapsible-body.center-align', [
             m('span', 'Active: ' + app.active),
-            m('a.waves-effect.waves-light.secondary-content.btn[href=#]', 'update')
+            m("br"),
+            m('a.waves-effect.waves-light.btn[href=#]', 'update')
           ])
         ])
       })
@@ -47,10 +44,10 @@ exports.view = function(ctrl, options){
       options.apps['3'].map(function(app){
         return m('li', [
           m('.collapsible-header', 'Company: ' + app.company_name + ' Title: ' + app.title + ' Date Applied: ' + app.applied_on.slice(0,10)),
-          m('.collapsible-body', [
-            m('div', 'More information can be inserted here'),
+          m('.collapsible-body.center-align', [
             m('span', 'Active: ' + app.active),
-            m('a.waves-effect.waves-light.secondary-content.btn[href=#]', 'update')
+            m("br"),
+            m('a.waves-effect.waves-light.btn[href=#]', 'update')
           ])
         ])
       })
@@ -63,10 +60,10 @@ exports.view = function(ctrl, options){
       options.apps['4'].map(function(app){
         return m('li', [
           m('.collapsible-header', 'Company: ' + app.company_name + ' Title: ' + app.title + ' Date Applied: ' + app.applied_on.slice(0,10)),
-          m('.collapsible-body', [
-            m('div', 'More information can be inserted here'),
+          m('.collapsible-body.center-align', [
             m('span', 'Active: ' + app.active),
-            m('a.waves-effect.waves-light.secondary-content.btn[href=#]', 'update')
+            m("br"),
+            m('a.waves-effect.waves-light.btn[href=#]', 'update')
           ])
         ])
       })
@@ -79,10 +76,10 @@ exports.view = function(ctrl, options){
       options.apps['5'].map(function(app){
         return m('li', [
           m('.collapsible-header', 'Company: ' + app.company_name + ' Title: ' + app.title + ' Date Applied: ' + app.applied_on.slice(0,10)),
-          m('.collapsible-body', [
-            m('div', 'More information can be inserted here'),
+          m('.collapsible-body.center-align', [
             m('span', 'Active: ' + app.active),
-            m('a.waves-effect.waves-light.secondary-content.btn[href=#]', 'update')
+            m("br"),
+            m('a.waves-effect.waves-light.btn[href=#]', 'update')
           ])
         ])
       })
