@@ -143,17 +143,21 @@ AutocompleteInput.view = function (ctrl, attrs) {
   }
 
   function optionView (opt, i) {
-    if(opt.name){
+    if(attrs.search === 'contacts'){
     return m('li', {
       'class': (mode === 'keyboard' && ddIdx == i) ? 'active' : 'no-hover',
       'data-idx': i
-    }, opt.name + "  -  " + opt.address + "  -  " + opt.url)
-  } else {
+    }, opt.name + "  -  " + opt.phone_number + "  -  " + opt.company_id/*TODO: get company name*/)
+      } else if(attrs.search === 'titles') {
     return m('li', {
       'class': (mode === 'keyboard' && ddIdx == i) ? 'active' : 'no-hover',
       'data-idx': i
     }, opt.title)
-
+  } else {
+    return m('li', {
+      'class': (mode === 'keyboard' && ddIdx == i) ? 'active' : 'no-hover',
+      'data-idx': i
+    }, opt.name + "  -  " + opt.address + "  -  " + opt.url)
   }
   }
 

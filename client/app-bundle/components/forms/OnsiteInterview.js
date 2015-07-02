@@ -46,14 +46,13 @@ exports.view = function (ctrl) {
         m('h4.center-align', 'Interviewer')
       ),
       m('.row',[
-        m('.input-field.col.s12', [
-          //Should have a limit of text
-          m('input.validate[type=text][placeholder=Name]',{
-            value: ctrl.interview.contacts(),
-            onchange: m.withAttr('value', ctrl.interview.contacts)
-          }, console.log(JSON.stringify(ctrl.interview))),
-          // m('label', 'Name')
-        ]),
+        m.component(Fuzzy, {
+          search: 'contacts',
+          onSelect: function (name) {
+            ctrl.interview.contacts = name;
+          },
+          placeholder: 'Name'
+        }),
         // m('.input-field.col.s12.m4', [
         //   m('input.validate[type=text][placeholder=Role]', {
         //     value: ctrl.interview.role(),
