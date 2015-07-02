@@ -1,5 +1,6 @@
 var m         = require('mithril');
 var Interview   = require('../../models/Interview.js');
+var materialize = require('../../../lib/materialize.js');
 var Fuzzy = require('../../models/Fuzzy.js')
 
 
@@ -38,7 +39,7 @@ exports.view = function (ctrl) {
             onchange: m.withAttr('value', ctrl.interview.type)
           }),
           //Should autocomplete for common methods
-          m('label', 'Type')
+          // m('label', 'Type')
         ]),
       ]),
       m('.row',
@@ -51,7 +52,7 @@ exports.view = function (ctrl) {
             value: ctrl.interview.contacts(),
             onchange: m.withAttr('value', ctrl.interview.contacts)
           }, console.log(JSON.stringify(ctrl.interview))),
-          m('label', 'Name')
+          // m('label', 'Name')
         ]),
         // m('.input-field.col.s12.m4', [
         //   m('input.validate[type=text][placeholder=Role]', {
@@ -68,18 +69,20 @@ exports.view = function (ctrl) {
       m('.row', [
         m('.input-field.col.s12.m6', [
           //Should have a limit of text
-          m('input.datepicker[type=date][placeholder=scheduled_on]', {
+          m('input[type=date][placeholder=Scheduled For]', {
+            class: 'datepicker', 
+            config: materialize.pickDates, 
             value: ctrl.interview.scheduled_on(),
             onchange: m.withAttr('value', ctrl.interview.scheduled_on),
           }),
-          m('label', 'Scheduled For')
         ]),
         m('.input-field.col.s12.m6', [
-          m('input.datepicker[type=date][placeholder=occured_on]',{
+          m('input[type=date][placeholder=Completed On]',{
+            class: 'datepicker', 
+            config: materialize.pickDates, 
             value: ctrl.interview.occured_on(),
             onchange: m.withAttr('value', ctrl.interview.occured_on),
           }),
-          m('label', 'Completed On')
         ])
       ]),
       m('.row', [
