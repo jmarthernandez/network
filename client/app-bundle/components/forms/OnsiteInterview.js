@@ -33,7 +33,7 @@ exports.view = function (ctrl) {
         m('h4.center-align', 'Type')
       ),
       m('.row', [
-        m('.input-field.s12.m4', [
+        m('.input-field.col.s12', [
           m('input.validate[type=text][placeholder=Type]', {
             value: ctrl.interview.type(),
             onchange: m.withAttr('value', ctrl.interview.type)
@@ -46,7 +46,7 @@ exports.view = function (ctrl) {
         m('h4.center-align', 'Interviewer')
       ),
       m('.row',[
-        m('.input-field.s12.m4', [
+        m('.input-field.col.s12', [
           //Should have a limit of text
           m('input.validate[type=text][placeholder=Name]',{
             value: ctrl.interview.contacts(),
