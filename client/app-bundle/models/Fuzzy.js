@@ -2,14 +2,14 @@ var m = require('mithril');
 
 
 var Fuzzy = module.exports = {
-    tempValue: null,
+  tempValue: null,
 
-   companySearch: function(newQuery){
-    return m.request({ method: 'GET', url: 'api/fuzzy/companies/' + newQuery})
-    // .then(function(info) {
-    //   console.log(info.Companies, 'info')
-    //   tempValue = info;
-    // })
+ companySearch: function(newQuery){
+  return m.request({ method: 'GET', url: 'api/fuzzy/companies/' + newQuery})
+  // .then(function(info) {
+  //   console.log(info.Companies, 'info')
+  //   tempValue = info;
+  // })
   },
 
   titleSearch: function(newQuery){

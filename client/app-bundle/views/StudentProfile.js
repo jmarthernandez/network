@@ -2,7 +2,7 @@ var m               = require('mithril');
 
 //Components
 var StudentInfo     = require('../components/StudentInfo.js');
-var StudentJob     = require('../components/StudentJob.js');
+var StudentJob      = require('../components/StudentJob.js');
 var OnsiteInterview = require('../components/forms/OnsiteInterview.js');
 var Messaging       = require('../components/Messaging.js');
 var NewApp          = require('../components/forms/NewApp.js');
@@ -17,6 +17,7 @@ exports.controller = function (ctrl) {
   StudentApp.fetchApps(ctrl);
   StudentApp.fetchInfo(ctrl);
   Message.fetch(ctrl);
+  Message.fetchUsers();
 }
 
 exports.view = function (ctrl) {
@@ -29,9 +30,12 @@ exports.view = function (ctrl) {
       m.component(StudentInfo, { studentInfo: appsData.studentInfo } ),
       m.component(StudentJob, { apps: appsData.apps, studentInfo: appsData.studentInfo } ),
     ]),
-    m.component(NewApp),
     m.component(OnsiteInterview),
-    m.component(FollowUp),
-    m.component(Messaging, { messages: messagesData } )
+    m.component(NewApp),
+    m.component(Messaging, {
+      messages: messagesData.messages,
+      users: messagesData.users,
+      studentInfo: appsData.studentInfo
+    })
   ]) 
 }

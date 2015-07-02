@@ -1,43 +1,66 @@
 var m = require('mithril');
 
-// TODO: Set up post request body
+//model
+var Message   = require('../models/Message.js');
+
 exports.controller = function () {
   var ctrl = this;
+  ctrl.message = Message.vm();
+  ctrl.allMessages = m.prop();
 
-  //Create view model for message body
-    // vm : {sender_id: '', reciever_id: '', app_id: '', body: '' }
+  ctrl.submit = function (e) {
+    e.preventDefault();
+    Message.postMessage( ctrl.message )
+      .then(function(){
+        ctrl.message = Message.vm();
+      })
+  }
 
-  //Submit button is a post request
-    //then clears message body and renders a success toast
+  ctrl.setReceiver = function(e) {
+    ctrl.message.sender_uid = e;
+  };
 
-  //
 };
 
 exports.view = function (ctrl, options) {
+  ctrl.allMessages = options.messages;
+  ctrl.message.sender_uid = options.studentInfo.uid;
   return m( '.row', [
-    m('h3.center-align', 'Messages'),
-    m('ul.collection', [
-      options.messages.map(function(message){
-        return m('li.collection-item avatar', [
-          // m('img[src=' + options['studentInfo'].avatar_url + '].circle'),
-          m('p', 'Sender: ' + message.sender_name),
-          m('span.title', message.body),
-          // m('p', 'Active: ' + app.active),
-          // m('a.waves-effect.waves-light.secondary-content.btn[href=#]', 'update')
-        ])
-      })
-    ]),
-    m('form.col.s12', [
-      m('.row', [
+    m('h1.center-align', 'Messages'),
+    m('form.col.s12', { onsubmit: ctrl.submit }, [
+      m('ul', [
+        options.users.map(function(user){
+          if(user.uid !== options.studentInfo.uid){
+            return m('li', [
+              m('a', {
+                value: user.uid,
+                onclick: m.withAttr('value', ctrl.message.receiver_uid)
+              }, user.name),
+            ])
+          }
+        })
+      ]),
+      m('ul.collection', [
+        ctrl.allMessages.map(function(message){
+          return m('li.collection-item avatar', [
+            m('p', 'From: ' + message.sender_name),
+            m('p', 'To: ' + message.receiver_name),
+            m('span.title', message.body),
+          ])
+        })
+      ]),
+      m('.row', [        
         m('.row.input-field.col.l6.m6.s12', [
           m('i.mdi-editor-mode-edit.prefix'),
-          m('textarea#icon_prefix2.materialize-textarea'),
-          m('label[for=icon_prefix2]', "Message")
+          m('textarea#icon_prefix2.materialize-textarea', {
+            value: ctrl.message.body(),
+            onchange: m.withAttr('value', ctrl.message.body)
+          }),
+          m('label[for=icon_prefix2]', 'Message to : ' + ctrl.message.receiver_uid())
         ])
       ]),
       m('.div.center-align', [
         m('button.btn.waves-effect.waves-light', 'Send Message',[
-          //POST to database
           m('i.mdi-content-send')
         ])
       ])

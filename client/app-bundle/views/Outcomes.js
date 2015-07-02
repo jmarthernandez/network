@@ -12,6 +12,7 @@ exports.controller = function() {
   //Grabs apps for all students
   App.fetch();
   Message.fetch();
+  Message.fetchUsers();
 };
 
 exports.view = function(ctrl) {
@@ -20,6 +21,6 @@ exports.view = function(ctrl) {
   return m('.container', [
     m('h1.center-align', 'Student Outcomes'),
     m.component(CurrentApps, {apps: apps}),
-    m.component(Messaging, { messages: messagesData } )
+    m.component(Messaging, { messages: messagesData.messages, users: messagesData.users } )
   ]);
 };

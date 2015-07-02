@@ -16,6 +16,8 @@ exports.makeCollapsible = function(elem, isInitialized){
 
 
 
+
+
 // <script>
 // 	$(document).ready(function(){
 // 	    $('.collapsible').collapsible({
