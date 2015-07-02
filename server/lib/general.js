@@ -48,10 +48,11 @@ var General = module.exports = {
       
       retrieveByName: function(string){
         console.log(string, "SWIIING")
-        return db.select('*').from(nodeLowerCase).where('name', 'like', '%'+string+'%')
-        .then(function(row){
-          return row;
-        })
+        if (string.length < 4){
+          return db.select('*').from(nodeLowerCase).where('name', 'ILIKE', '%'+string+'%')
+        } else {
+          return db.select('*').from(nodeLowerCase).whereRaw('? % name', string)
+        } 
       },
 
       //updates or creates a specific group depending on prior status
