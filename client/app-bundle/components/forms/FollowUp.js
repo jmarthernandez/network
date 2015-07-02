@@ -9,7 +9,6 @@ exports.controller = function () {
 
   // controller action
   ctrl.submit = function (e) {
-    console.log("hi")
     e.preventDefault();
     Interview.postInterview( ctrl.interview ).then(function () {
       ctrl.interview = Interview.vm();

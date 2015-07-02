@@ -6,7 +6,6 @@ var Message   = require('../models/Message.js');
 exports.controller = function () {
   var ctrl = this;
   ctrl.message = Message.vm();
-  ctrl.allMessages = m.prop();
 
   ctrl.submit = function (e) {
     e.preventDefault();
@@ -20,6 +19,10 @@ exports.controller = function () {
     ctrl.message.sender_uid = e;
   };
 
+  ctrl.filter = function(e) {
+    ctrl.message.sender_uid = e;
+  };
+
 };
 
 exports.view = function (ctrl, options) {
@@ -28,14 +31,23 @@ exports.view = function (ctrl, options) {
     var user = options.users.filter(function(user){return user.uid === ctrl.message.receiver_uid()});
     ctrl.selectedUser = user[0].name;
   }
-  ctrl.allMessages = options.messages; 
-  console.log(ctrl.message, 'ctrl.message')
+  ctrl.allMessages = options.messages;
   ctrl.message.sender_uid = options.studentInfo.uid;
   return m( '.row', [
     m('h1.center-align', 'Messages'),
     m('form.col.s12', { onsubmit: ctrl.submit }, [
+      m('ul.collection', [
+        options.messages.map(function(message){
+          return m('li.collection-item avatar', [
+            m('p', 'From: ' + message.sender_name),
+            m('p', 'To: ' + message.receiver_name),
+            m('span.title', message.body),
+          ])
+        })
+      ]),
       m('ul', [
         options.users.map(function(user){
+          console.log(user)
           if(user.uid !== options.studentInfo.uid){
             return m('li', [
               m('a', {
@@ -44,15 +56,6 @@ exports.view = function (ctrl, options) {
               }, user.name),
             ])
           }
-        })
-      ]),
-      m('ul.collection', [
-        ctrl.allMessages.map(function(message){
-          return m('li.collection-item avatar', [
-            m('p', 'From: ' + message.sender_name),
-            m('p', 'To: ' + message.receiver_name),
-            m('span.title', message.body),
-          ])
         })
       ]),
       m('.row', [        
