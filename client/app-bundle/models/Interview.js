@@ -8,15 +8,13 @@ var Interview = module.exports = {
 		attrs = attrs || '';
 
 		return {
-			// id: attrs.id,
 			user_id: m.prop(StudentApp.studentInfo.uid),
 			type: m.prop(null),
 			contacts: m.prop(null),
 			scheduled_on: m.prop(null),
 			occured_on: m.prop(null),
-			follow_up:m.prop(null),
+			follow_up: m.prop(null),
 			quality: m.prop(null),
-			// questions: m.prop(null),
 			preparedness: m.prop(null),
 			info: {
 				questions: m.prop(null),
