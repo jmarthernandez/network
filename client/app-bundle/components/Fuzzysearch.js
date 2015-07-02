@@ -41,7 +41,7 @@ AutocompleteInput.controller = function (attrs) {
   ctrl.select = function () {
     var opt = ctrl.options()[ ctrl.dropdownIndex() ]
     if (opt) attrs.onSelect(opt.id || opt.uid) // Send back id
-    ctrl.reset()
+    ctrl.reset(opt.name)
     // ctrl.isFocused(true)
     if (ctrl.mode() === 'mouse') blur = true;
   }
@@ -49,7 +49,8 @@ AutocompleteInput.controller = function (attrs) {
   ctrl.reset = function (value) {
     clearTimeout(lastSearchTimeout);
     ctrl.dropdownIndex(0);
-    dirty = false;
+    dirty = true;
+    ctrl.query(value);
     m.redraw();
   };
  
