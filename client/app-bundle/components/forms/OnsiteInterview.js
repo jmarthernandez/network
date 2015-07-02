@@ -26,7 +26,7 @@ exports.view = function (ctrl) {
 
   return m('.row', [
     m('.row', [
-      m('h3.center-align', 'On-site Interview')
+      m('h3.center-align', 'Interview')
     ]),
     m('form.col.s12', { onsubmit: ctrl.submit }, [
       m('.row',
