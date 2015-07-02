@@ -14,7 +14,7 @@ exports.view = function(ctrl, options){
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['1'].map(function(app){
         return m('li', [
-          m('div.collapsible-header', 'Company: ' + app.company_name + ' Title: ' + app.title + ' Date Applied: ' + app.date_applied.slice(0,10)),
+          m('div.collapsible-header', 'Company: ' + app.company_name + ' Title: ' + app.title + ' Date Applied: ' + app.applied_on.slice(0,10)),
           m('.collapsible-body', [ 
             m('div', 'More information can be inserted here'),
             m('span', 'Active: ' + app.active),
@@ -30,7 +30,7 @@ exports.view = function(ctrl, options){
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['2'].map(function(app){
         return m('li', [
-          m('.collapsible-header', 'Company: ' + app.company_name + ' Title: ' + app.title + ' Date Applied: ' + app.date_applied.slice(0,10)),
+          m('.collapsible-header', 'Company: ' + app.company_name + ' Title: ' + app.title + ' Date Applied: ' + app.applied_on.slice(0,10)),
           m('.collapsible-body', [
             m('div', 'More information can be inserted here'),
             m('span', 'Active: ' + app.active),
@@ -46,7 +46,7 @@ exports.view = function(ctrl, options){
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['3'].map(function(app){
         return m('li', [
-          m('.collapsible-header', 'Company: ' + app.company_name + ' Title: ' + app.title + ' Date Applied: ' + app.date_applied.slice(0,10)),
+          m('.collapsible-header', 'Company: ' + app.company_name + ' Title: ' + app.title + ' Date Applied: ' + app.applied_on.slice(0,10)),
           m('.collapsible-body', [
             m('div', 'More information can be inserted here'),
             m('span', 'Active: ' + app.active),
@@ -62,7 +62,7 @@ exports.view = function(ctrl, options){
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['4'].map(function(app){
         return m('li', [
-          m('.collapsible-header', 'Company: ' + app.company_name + ' Title: ' + app.title + ' Date Applied: ' + app.date_applied.slice(0,10)),
+          m('.collapsible-header', 'Company: ' + app.company_name + ' Title: ' + app.title + ' Date Applied: ' + app.applied_on.slice(0,10)),
           m('.collapsible-body', [
             m('div', 'More information can be inserted here'),
             m('span', 'Active: ' + app.active),
@@ -78,7 +78,7 @@ exports.view = function(ctrl, options){
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['5'].map(function(app){
         return m('li', [
-          m('.collapsible-header', 'Company: ' + app.company_name + ' Title: ' + app.title + ' Date Applied: ' + app.date_applied.slice(0,10)),
+          m('.collapsible-header', 'Company: ' + app.company_name + ' Title: ' + app.title + ' Date Applied: ' + app.applied_on.slice(0,10)),
           m('.collapsible-body', [
             m('div', 'More information can be inserted here'),
             m('span', 'Active: ' + app.active),
