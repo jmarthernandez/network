@@ -24,6 +24,7 @@ exports.controller = function () {
 
 exports.view = function (ctrl, options) {
   ctrl.allMessages = options.messages;
+  console.log(ctrl.message, 'ctrl.message')
   ctrl.message.sender_uid = options.studentInfo.uid;
   return m( '.row', [
     m('h1.center-align', 'Messages'),

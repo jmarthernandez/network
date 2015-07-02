@@ -3,7 +3,6 @@ var materialize = require('../../lib/materialize.js');
 
 exports.view = function (ctrl, options) {
   if(options.apps){
-    console.log(options.apps)
     return m('.col.m9.s12', [
       // Start Phase I
       m('h5.center-align', 'Pending Applications: ' +  options.apps[1].length),
