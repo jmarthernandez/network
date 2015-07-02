@@ -28,11 +28,6 @@ Function.prototype.chill = function() {
 // attr.options is expected to be an array of objects
 AutocompleteInput.controller = function (attrs) {
   var ctrl = this;
-  
-  // ctrl.table = {};
-
-  // ctrl.table.search = 'companies';
-
   var inititalOptions = attrs.initialOptions || [];
 
   
@@ -41,23 +36,20 @@ AutocompleteInput.controller = function (attrs) {
   ctrl.mode = m.prop('keyboard');
   ctrl.query = m.prop(null);
  
-  ctrl.options = m.prop([])
+  ctrl.options = m.prop([]);
  
   ctrl.select = function () {
     var opt = ctrl.options()[ ctrl.dropdownIndex() ]
     if (opt) attrs.onSelect(opt.id || opt.uid) // Send back id
-      console.log(attrs.onSelect)
     ctrl.reset()
     // ctrl.isFocused(true)
-    if (ctrl.mode() === 'mouse') blur = true
+    if (ctrl.mode() === 'mouse') blur = true;
   }
  
-  ctrl.reset = function () {
+  ctrl.reset = function (value) {
     clearTimeout(lastSearchTimeout);
     ctrl.dropdownIndex(0);
-    ctrl.query(null);
-    ctrl.options(inititalOptions);
-    dirty = true;
+    dirty = false;
     m.redraw();
   };
  
@@ -74,14 +66,10 @@ AutocompleteInput.controller = function (attrs) {
     if (key === 27) { blur = true; ctrl.isFocused(false) }
   };
  
-
-
   var lastSearchTimeout = null
   ctrl.onkeyup = function (e) {
     var query = ctrl.query()
     var newQuery = e.currentTarget.value;
-
-
 
     if (newQuery.length < 1) {
       ctrl.query(null)
@@ -114,7 +102,6 @@ AutocompleteInput.controller = function (attrs) {
  
   // Format: [['myOptionValue', 'myOptionDisplayText', 'myoptiondisplaytext'], ...]
   function updateAllOptions (options) {
-    console.log("UPDATING", options)
     inititalOptions = options.map(function(op) {
       return [ op[attrs.idAttr], op[attrs.searchAttr], op[attrs.searchAttr].toLowerCase() ]
     })
@@ -155,13 +142,19 @@ AutocompleteInput.view = function (ctrl, attrs) {
   }
 
   function optionView (opt, i) {
-
+    if(opt.name){
     return m('li', {
       'class': (mode === 'keyboard' && ddIdx == i) ? 'active' : 'no-hover',
       'data-idx': i
-    }, opt.name)
+    }, opt.name + "  -  " + opt.address + "  -  " + opt.url)
+  } else {
+    return m('li', {
+      'class': (mode === 'keyboard' && ddIdx == i) ? 'active' : 'no-hover',
+      'data-idx': i
+    }, opt.title)
+
   }
- 
+  }
 
   function selectHovered (e) {
     if (e.target.tagName !== 'LI') return;

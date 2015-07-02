@@ -27,6 +27,8 @@ exports.view = function (ctrl) {
     ]),
     m('form.col.s12', { onsubmit: ctrl.submit }, [
       m('.row', [
+
+
         m.component(Fuzzy, {
           search: 'companies',
           onSelect: function (company) {
@@ -34,15 +36,13 @@ exports.view = function (ctrl) {
           },
           placeholder: 'Companies'
         }),
-
-        m('.input-field.col.s12.m6', [
-          //Should auto complete for common companies
-          m('input#first_name.validate[type=text][placeholder=title][name=title_id]', {
-            value: ctrl.newApp.title_id(),
-            onchange: m.withAttr('value', ctrl.newApp.title_id)
-          }),
-          m('label', 'title')
-        ]),
+        m.component(Fuzzy, {
+          search: 'titles',
+          onSelect: function (title) {
+            ctrl.newApp.title_id = title;
+          },
+          placeholder: 'Title'
+        }),
            m('.input-field.col.s12.m6', [
           //Should have a limit of text
           m('input#first_name.validate[type=text][placeholder=application method][name=app_method]', {
