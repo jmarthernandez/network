@@ -4,6 +4,7 @@ var Message = module.exports = {
 
   messagesArray: null,
   usersArray: null,
+  me: null,
 
   //View-model for messages form
   vm: function (attrs) {
@@ -13,6 +14,13 @@ var Message = module.exports = {
       receiver_uid: m.prop(''),
       body: m.prop(''),
     }
+  },
+
+  fetchMe: function() {
+    m.request({ method: 'GET', url: '/me/' })
+      .then(function(userInfo) {
+        Message.me = userInfo.user;
+      });
   },
 
   postMessage: function(message){
@@ -48,7 +56,8 @@ var Message = module.exports = {
   all: function() {
     return {
       messages: Message.messagesArray,
-      users: Message.usersArray
+      users: Message.usersArray,
+      me: Message.me
     }
   }
 };
