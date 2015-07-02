@@ -53,7 +53,10 @@ exports.view = function (ctrl) {
         ]),
         m('.input-field.col.s12.m6', [
           //Should auto complete for common jobs
-          m('input#first_name.datepicker[type=date][placeholder=""][name=applied_on]', {value: ctrl.newAppForm().applied_on}),
+          m('input#first_name.datepicker[type=date][placeholder=""][name=applied_on]', {
+            value: ctrl.newApp.applied_on(),
+            onchange: m.withAttr('value', ctrl.newApp.applied_on)
+          },  console.log(JSON.stringify(ctrl.newApp))),
           m('label', '')
         ]),
       ]),

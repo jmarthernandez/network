@@ -16,7 +16,7 @@ var Message = module.exports = {
   },
 
   postMessage: function(message){
-    m.request({ method: 'POST', url: 'api/messages', data: message })
+    return m.request({ method: 'POST', url: 'api/messages', data: message })
       .then(function (serverResponse) {
         return serverResponse
       })
