@@ -1,4 +1,5 @@
 var m = require('mithril');
+var Fuzzy = require('../../models/Fuzzy.js')
 
 //TODO: Comment
 exports.controller = function () {
