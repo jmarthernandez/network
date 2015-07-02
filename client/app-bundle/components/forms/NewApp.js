@@ -1,7 +1,7 @@
 var m = require('mithril');
 var NewApp = require('../../models/NewApp.js')
+var materialize = require('../../../lib/materialize.js');
 var Fuzzy = require('../Fuzzysearch.js')
-
 
 exports.controller = function () {
   var ctrl = this;
@@ -27,37 +27,39 @@ exports.view = function (ctrl) {
     ]),
     m('form.col.s12', { onsubmit: ctrl.submit }, [
       m('.row', [
-
-
         m.component(Fuzzy, {
           search: 'companies',
           onSelect: function (company) {
             ctrl.newApp.company_id = company;
           },
-          placeholder: 'Companies'
+          placeholder: 'Companies',
+          optionView: function (company) {
+            return company.name + "  -  " + company.address + "  -  " + company.url
+          }
         }),
         m.component(Fuzzy, {
           search: 'titles',
           onSelect: function (title) {
             ctrl.newApp.title_id = title;
           },
-          placeholder: 'Title'
+          placeholder: 'Title',
+          optionView: function (titles) { return titles.title  }
         }),
            m('.input-field.col.s12.m6', [
           //Should have a limit of text
-          m('input#first_name.validate[type=text][placeholder=application method][name=app_method]', {
+          m('input.validate[type=text][placeholder=Application Method][name=app_method]', {
             value: ctrl.newApp.app_method(),
             onchange: m.withAttr('value', ctrl.newApp.app_method)
           }),
-          m('label', 'application method')
         ]),
         m('.input-field.col.s12.m6', [
           //Should auto complete for common jobs
-          m('input#first_name.datepicker[type=date][placeholder=""][name=applied_on]', {
+          m('input.[type=date][name=applied_on][placeholder="Applied On"]', {
+            class: 'datepicker', 
+            config: materialize.pickDates,
             value: ctrl.newApp.applied_on(),
             onchange: m.withAttr('value', ctrl.newApp.applied_on)
           },  console.log(JSON.stringify(ctrl.newApp))),
-          m('label', '')
         ]),
       ]),
       m('.row.center-align', [

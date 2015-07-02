@@ -44,7 +44,7 @@ exports.view = function (ctrl) {
         ]),     
       ]),
      m('.row', [
-        m('.input-field.s12.m6', [
+        m('.input-field.col.s12', [
           //Should have a limit of text
           m('input.validate[type=text][placeholder=What technical questions were asked?]', {
             value: ctrl.interview.info.questions(),

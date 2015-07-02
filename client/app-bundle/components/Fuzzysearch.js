@@ -40,8 +40,11 @@ AutocompleteInput.controller = function (attrs) {
  
   ctrl.select = function () {
     var opt = ctrl.options()[ ctrl.dropdownIndex() ]
-    if (opt) attrs.onSelect(opt.id || opt.uid) // Send back id
-    ctrl.reset(opt.name)
+    if (opt) {
+      attrs.onSelect(opt.id || opt.uid) // Send back id
+      pendingInputValue = attrs.optionView(opt)
+    }
+    ctrl.reset()
     // ctrl.isFocused(true)
     if (ctrl.mode() === 'mouse') blur = true;
   }
@@ -49,7 +52,6 @@ AutocompleteInput.controller = function (attrs) {
   ctrl.reset = function (value) {
     clearTimeout(lastSearchTimeout);
     ctrl.dropdownIndex(0);
-    dirty = true;
     ctrl.query(value);
     m.redraw();
   };
@@ -85,19 +87,17 @@ AutocompleteInput.controller = function (attrs) {
       // Fuzzy.companySearch(newQuery).then(ctrl.options);      
       Fuzzy.search(attrs.search, newQuery).then(ctrl.options);
     }
-    else if (!dirty) {
-      m.redraw.strategy('none');
-    }
   }
  
-  var dirty = false
   var blur = false
+  var pendingInputValue = null
   ctrl.cleanInput = function (input) {
     if (blur) {
       input.blur(); ctrl.reset(); blur = false
     }
-    if (dirty) {
-      input.value = ''; dirty = false
+    if (pendingInputValue) {
+      input.value = pendingInputValue
+      pendingInputValue = null
     }
   }
  
@@ -143,18 +143,10 @@ AutocompleteInput.view = function (ctrl, attrs) {
   }
 
   function optionView (opt, i) {
-    if(opt.name){
     return m('li', {
       'class': (mode === 'keyboard' && ddIdx == i) ? 'active' : 'no-hover',
       'data-idx': i
-    }, opt.name + "  -  " + opt.address + "  -  " + opt.url)
-  } else {
-    return m('li', {
-      'class': (mode === 'keyboard' && ddIdx == i) ? 'active' : 'no-hover',
-      'data-idx': i
-    }, opt.title)
-
-  }
+    }, attrs.optionView(opt) )
   }
 
   function selectHovered (e) {

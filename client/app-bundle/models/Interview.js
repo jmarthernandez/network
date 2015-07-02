@@ -8,7 +8,8 @@ var Interview = module.exports = {
 		attrs = attrs || '';
 
 		return {
-			user_id: m.prop(StudentApp.studentInfo.uid),
+			app_id: m.prop(null),
+			// user_id: m.prop(StudentApp.studentInfo.uid),
 			type: m.prop(null),
 			contacts: m.prop(null),
 			scheduled_on: m.prop(null),
