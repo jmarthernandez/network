@@ -53,7 +53,7 @@ exports.view = function (ctrl) {
           },
           placeholder: 'Name',
           optionView: function (contacts) { 
-            return contacts.name + "  -  " + contacts.phone_number + "  -  " + contacts.company_id
+            return contacts.name + "  -  " + contacts.phone_number + "  -  " + contacts.company_name
            }
         }),
       ]),
