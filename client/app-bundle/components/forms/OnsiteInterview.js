@@ -42,7 +42,7 @@ exports.view = function (ctrl) {
         m('h4.center-align', 'Interviewer')
       ),
       m('.row',[
-        m('.input-field.col.s12.m4', [
+        m('.input-field.s12.m4', [
           //Should have a limit of text
           m('input.validate[type=text][placeholder=Name]',{
             value: ctrl.interview.contacts(),
@@ -79,45 +79,6 @@ exports.view = function (ctrl) {
           m('label', 'Completed On')
         ])
       ]),
-      m('.row',
-        m('h3.center-align', 'Follow up')
-      ),
-      m('.row', [
-        m('.input-field.col.s12.m6', [
-          //Should have a limit of text
-          m('input.validate[type=text][placeholder=Follow Up?]', {
-            value: ctrl.interview.follow_up(),
-            onchange: m.withAttr('value', ctrl.interview.follow_up),
-          }),
-          m('label', 'Follow Up?')
-        ]),
-        m('.input-field.col.s12.m6', [
-          //Should have a limit of text
-          m('input.validate[type=text][placeholder=How prepared did you feel?]', {
-            value: ctrl.interview.preparedness(),
-            onchange: m.withAttr('value', ctrl.interview.preparedness),
-          }),
-          m('label', 'How prepared did you feel?')
-        ]),     
-      ]),
-     m('.row', [
-        m('.input-field.col.s12.m6', [
-          //Should have a limit of text
-          m('input.validate[type=text][placeholder=What technical questions were asked?]', {
-            value: ctrl.interview.info(),
-            onchange: m.withAttr('value', ctrl.interview.info),
-          }),
-          m('label', 'What technical questions were asked?')
-        ]), 
-      ]),
-     m('.row', [
-      m('p.range-field', 'How did it go?',[
-        m('input#test5[type=range][min=0][max=5]', {
-            value: ctrl.interview.quality(),
-            onchange: m.withAttr('value', ctrl.interview.quality),
-          }),
-      ]),
-    ]),
       m('.row', [
         m('button.btn.waves-effect.waves-light', 'Submit', [
           //POST to database

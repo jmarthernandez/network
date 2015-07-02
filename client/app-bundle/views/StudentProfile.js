@@ -6,6 +6,7 @@ var StudentJob     = require('../components/StudentJob.js');
 var OnsiteInterview = require('../components/forms/OnsiteInterview.js');
 var Messaging       = require('../components/Messaging.js');
 var NewApp          = require('../components/forms/NewApp.js');
+var FollowUp        = require('../components/forms/FollowUp.js')
 
 //Models
 var StudentApp     = require('../models/StudentApp.js');
@@ -30,6 +31,7 @@ exports.view = function (ctrl) {
     ]),
     m.component(NewApp),
     m.component(OnsiteInterview),
+    m.component(FollowUp),
     m.component(Messaging, { messages: messagesData } )
   ]) 
 }
