@@ -8,7 +8,7 @@ module.exports.retrieveOne = function (uid) {
 
   return db.select('messages.*', 'sender.name AS sender_name', 'sender.uid','sender.status','sender.avatar_url AS sender_url', 'receiver.name AS receiver_name').from('messages').where({'sender_uid': uid}).orWhere({'receiver_uid':uid})
   .join('users AS sender', 'messages.sender_uid', 'sender.uid')
-  .join('users AS receiver', 'messages.receiver_uid', 'receiver.uid')
+  .join('users AS receiver', 'messages.receiver_uid', 'receiver.uid').orderBy('created_at', 'asc')
   .then(function(rows){
    return rows;
   })
