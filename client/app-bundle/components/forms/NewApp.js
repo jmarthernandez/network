@@ -1,5 +1,7 @@
 var m = require('mithril');
 var NewApp = require('../../models/NewApp.js')
+var Fuzzy = require('../Fuzzysearch.js')
+
 
 exports.controller = function () {
   var ctrl = this;
@@ -12,10 +14,8 @@ exports.controller = function () {
       ctrl.newApp = NewApp.vm();
     });
   }
-
   ctrl.fetchInfo = NewApp.fetchInfo();
-
-};  
+};
 
 exports.view = function (ctrl) {
 
@@ -27,22 +27,22 @@ exports.view = function (ctrl) {
     ]),
     m('form.col.s12', { onsubmit: ctrl.submit }, [
       m('.row', [
-        m('.input-field.col.s12.m6',[
-          //Should have a limit of text
-          m('input#first_name.validate[type=text][placeholder=company]', {
-            value: ctrl.newApp.company_id(),
-            onchange: m.withAttr('value', ctrl.newApp.company_id)
-          }),
-          m('label', 'company')
-        ]),
-        m('.input-field.col.s12.m6', [
-          //Should auto complete for common companies
-          m('input#first_name.validate[type=text][placeholder=title][name=title_id]', {
-            value: ctrl.newApp.title_id(),
-            onchange: m.withAttr('value', ctrl.newApp.title_id)
-          }),
-          m('label', 'title')
-        ]),
+
+
+        m.component(Fuzzy, {
+          search: 'companies',
+          onSelect: function (company) {
+            ctrl.newApp.company_id = company;
+          },
+          placeholder: 'Companies'
+        }),
+        m.component(Fuzzy, {
+          search: 'titles',
+          onSelect: function (title) {
+            ctrl.newApp.title_id = title;
+          },
+          placeholder: 'Title'
+        }),
            m('.input-field.col.s12.m6', [
           //Should have a limit of text
           m('input#first_name.validate[type=text][placeholder=application method][name=app_method]', {

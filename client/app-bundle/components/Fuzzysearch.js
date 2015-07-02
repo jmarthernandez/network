@@ -27,36 +27,30 @@ Function.prototype.chill = function() {
 
 // attr.options is expected to be an array of objects
 AutocompleteInput.controller = function (attrs) {
-  var ctrl = this
-  console.log(attrs, 'ATTRIBUTES');
- 
+  var ctrl = this;
   var inititalOptions = attrs.initialOptions || [];
+
   
   ctrl.isFocused = m.prop(false);
   ctrl.dropdownIndex = m.prop(0);
   ctrl.mode = m.prop('keyboard');
   ctrl.query = m.prop(null);
  
-  ctrl.options = m.prop([])//ctrl.options response object
-  // updateAllOptions(attrs.options())
- 
-  // // Expect attrs.options to be a m.superProp
-  // attrs.options.subscribe(updateAllOptions)
+  ctrl.options = m.prop([]);
  
   ctrl.select = function () {
     var opt = ctrl.options()[ ctrl.dropdownIndex() ]
-    if (opt) attrs.onSelect(opt[0]) // Send back id
-    ctrl.reset()
+    if (opt) attrs.onSelect(opt.id || opt.uid) // Send back id
+    ctrl.reset(opt.name)
     // ctrl.isFocused(true)
-    if (ctrl.mode() === 'mouse') blur = true
+    if (ctrl.mode() === 'mouse') blur = true;
   }
  
-  ctrl.reset = function () {
+  ctrl.reset = function (value) {
     clearTimeout(lastSearchTimeout);
     ctrl.dropdownIndex(0);
-    ctrl.query(null);
-    ctrl.options(inititalOptions);
     dirty = true;
+    ctrl.query(value);
     m.redraw();
   };
  
@@ -73,14 +67,10 @@ AutocompleteInput.controller = function (attrs) {
     if (key === 27) { blur = true; ctrl.isFocused(false) }
   };
  
-
-
   var lastSearchTimeout = null
   ctrl.onkeyup = function (e) {
     var query = ctrl.query()
     var newQuery = e.currentTarget.value;
-
-
 
     if (newQuery.length < 1) {
       ctrl.query(null)
@@ -93,7 +83,7 @@ AutocompleteInput.controller = function (attrs) {
       ctrl.query(newQuery);
 
       // Fuzzy.companySearch(newQuery).then(ctrl.options);      
-      attrs.search(newQuery).then(ctrl.options);
+      Fuzzy.search(attrs.search, newQuery).then(ctrl.options);
     }
     else if (!dirty) {
       m.redraw.strategy('none');
@@ -113,7 +103,6 @@ AutocompleteInput.controller = function (attrs) {
  
   // Format: [['myOptionValue', 'myOptionDisplayText', 'myoptiondisplaytext'], ...]
   function updateAllOptions (options) {
-    console.log("UPDATING", options)
     inititalOptions = options.map(function(op) {
       return [ op[attrs.idAttr], op[attrs.searchAttr], op[attrs.searchAttr].toLowerCase() ]
     })
@@ -122,6 +111,7 @@ AutocompleteInput.controller = function (attrs) {
 }
  
 AutocompleteInput.view = function (ctrl, attrs) {
+
   var ddIdx = ctrl.dropdownIndex()
   var mode = ctrl.mode()
   var queryRegex = ctrl.query() && new RegExp('(.*)('+ctrl.query()+')(.*)', 'i')
@@ -153,13 +143,19 @@ AutocompleteInput.view = function (ctrl, attrs) {
   }
 
   function optionView (opt, i) {
-
+    if(opt.name){
     return m('li', {
       'class': (mode === 'keyboard' && ddIdx == i) ? 'active' : 'no-hover',
       'data-idx': i
-    }, opt.name)
+    }, opt.name + "  -  " + opt.address + "  -  " + opt.url)
+  } else {
+    return m('li', {
+      'class': (mode === 'keyboard' && ddIdx == i) ? 'active' : 'no-hover',
+      'data-idx': i
+    }, opt.title)
+
   }
- 
+  }
 
   function selectHovered (e) {
     if (e.target.tagName !== 'LI') return;

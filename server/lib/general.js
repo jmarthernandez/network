@@ -45,7 +45,7 @@ var General = module.exports = {
        return row;
        });
       },
-
+      
       retrieveByName: function(string){
         console.log(string, "SWIIING")
         return db.select('*').from(nodeLowerCase).where('name', 'like', '%'+string+'%')

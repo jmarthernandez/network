@@ -26,7 +26,7 @@ router.post('/', function(req, res){
 
 router.get('/companies/', function(req, res){
   Companies.retrieveAll(req.params.id)
-  .then(function(x){ res.send({Companies: x})});
+  .then(function(x){ res.send(x)});
 });
 
 //endpoint which retreives a specific company
@@ -37,20 +37,20 @@ router.get('/companies/:id', function(req, res){
 
 //endpoint which retreives a specific contact
 router.get('/contacts/:id', function(req, res){
-  Contact.retrieveByName(req.params.id).then(function(x){ res.send({Contacts: x})});
+  Contacts.retrieveByName(req.params.id).then(function(x){ res.send(x)});
 });
 
 //endpoint which retreives a specific company
 router.get('/questions/:id', function(req, res){
-  Questions.retrieveByName(req.params.id).then(function(x){ res.send({Questions: x})});
+  Questions.retrieveByName(req.params.id).then(function(x){ res.send(x)});
 });
 
 //endpoint which retreives a specific company
 router.get('/users/:id', function(req, res){
-  Users.retrieveByName(req.params.id).then(function(x){ res.send({Users: x})});
+  Users.retrieveByName(req.params.id).then(function(x){ res.send(x)});
 });
 
 //endpoint which retreives a specific company
 router.get('/titles/:id', function(req, res){
-  Titles.retrieveByName(req.params.id).then(function(x){ res.send({Titles: x})});
+  Titles.retrieveByName(req.params.id).then(function(x){ res.send(x)});
 });
