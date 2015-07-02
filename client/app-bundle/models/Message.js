@@ -26,6 +26,8 @@ var Message = module.exports = {
   postMessage: function(message){
     return m.request({ method: 'POST', url: 'api/messages', data: message })
       .then(function (serverResponse) {
+        Message.fetch();
+        Message.all();
         return serverResponse
       })
   },
@@ -45,11 +47,6 @@ var Message = module.exports = {
         Message.usersArray = null;
         Message.usersArray = usersObj.Users;
       });
-  },
-
-  //TODO: Set up POST to send messages
-  send: function () {
-    m.request({ method: 'GET', url: '/API/interviews', data: message });
   },
 
   // Makes messages accessible to the view
