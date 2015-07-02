@@ -31,6 +31,7 @@ exports.view = function (ctrl) {
       m.component(StudentJob, { apps: appsData.apps, studentInfo: appsData.studentInfo } ),
     ]),
     m.component(OnsiteInterview),
+    m.component(FollowUp),
     m.component(NewApp),
     m.component(Messaging, {
       messages: messagesData.messages,
