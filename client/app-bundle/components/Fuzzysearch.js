@@ -147,22 +147,6 @@ AutocompleteInput.view = function (ctrl, attrs) {
       'class': (mode === 'keyboard' && ddIdx == i) ? 'active' : 'no-hover',
       'data-idx': i
     }, attrs.optionView(opt) )
-    //   if(attrs.search === 'contacts'){
-    //   return m('li', {
-    //     'class': (mode === 'keyboard' && ddIdx == i) ? 'active' : 'no-hover',
-    //     'data-idx': i
-    //   }, opt.name + "  -  " + opt.phone_number + "  -  " + opt.company_id/*TODO: get company name*/)
-    //     } else if(attrs.search === 'titles') {
-    //   return m('li', {
-    //     'class': (mode === 'keyboard' && ddIdx == i) ? 'active' : 'no-hover',
-    //     'data-idx': i
-    //   }, opt.title)
-    // } else {
-    //   return m('li', {
-    //     'class': (mode === 'keyboard' && ddIdx == i) ? 'active' : 'no-hover',
-    //     'data-idx': i
-    //   }, )
-    // }
   }
 
   function selectHovered (e) {

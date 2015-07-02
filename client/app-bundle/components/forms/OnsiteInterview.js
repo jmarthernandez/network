@@ -1,7 +1,7 @@
 var m         = require('mithril');
 var Interview   = require('../../models/Interview.js');
 var materialize = require('../../../lib/materialize.js');
-var Fuzzy = require('../../models/Fuzzy.js')
+var Fuzzy = require('../Fuzzysearch.js')
 
 
 //rename to Interview
@@ -56,14 +56,6 @@ exports.view = function (ctrl) {
             return contacts.name + "  -  " + contacts.phone_number + "  -  " + contacts.company_id
            }
         }),
-        // m('.input-field.col.s12.m4', [
-        //   m('input.validate[type=text][placeholder=Role]', {
-        //     value: ctrl.interview.role(),
-        //     onchange: m.withAttr('value', ctrl.interview.role)
-        //   }),
-        //   //Should autocomplete for common methods
-        //   m('label[for=first_name]', 'Role')
-        // ]),
       ]),
       m('.row',
         m('h4.center-align', 'Date')
