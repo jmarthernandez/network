@@ -26,6 +26,11 @@ exports.controller = function () {
 };
 
 exports.view = function (ctrl, options) {
+  ctrl.selectedUser = '';
+  if(ctrl.message.receiver_uid()){
+    var user = options.users.filter(function(user){return user.uid === ctrl.message.receiver_uid()});
+    ctrl.selectedUser = user[0].name;
+  }
   ctrl.allMessages = options.messages;
   ctrl.message.sender_uid = options.studentInfo.uid;
   return m( '.row', [
