@@ -52,7 +52,9 @@ exports.view = function (ctrl) {
             ctrl.interview.contacts = name;
           },
           placeholder: 'Name',
-          optionView: function () { return 'TODO' }
+          optionView: function (contacts) { 
+            return contacts.name + "  -  " + contacts.phone_number + "  -  " + contacts.company_id
+           }
         }),
         // m('.input-field.col.s12.m4', [
         //   m('input.validate[type=text][placeholder=Role]', {

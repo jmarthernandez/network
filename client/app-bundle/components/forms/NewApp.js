@@ -43,7 +43,7 @@ exports.view = function (ctrl) {
             ctrl.newApp.title_id = title;
           },
           placeholder: 'Title',
-          optionView: function () { return 'TODO' }
+          optionView: function (titles) { return titles.title  }
         }),
            m('.input-field.col.s12.m6', [
           //Should have a limit of text
