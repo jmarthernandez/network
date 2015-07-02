@@ -32,14 +32,18 @@ exports.view = function (ctrl) {
           onSelect: function (company) {
             ctrl.newApp.company_id = company;
           },
-          placeholder: 'Companies'
+          placeholder: 'Companies',
+          optionView: function (company) {
+            return company.name + "  -  " + company.address + "  -  " + company.url
+          }
         }),
         m.component(Fuzzy, {
           search: 'titles',
           onSelect: function (title) {
             ctrl.newApp.title_id = title;
           },
-          placeholder: 'Title'
+          placeholder: 'Title',
+          optionView: function () { return 'TODO' }
         }),
            m('.input-field.col.s12.m6', [
           //Should have a limit of text

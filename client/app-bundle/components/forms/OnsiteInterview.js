@@ -51,7 +51,8 @@ exports.view = function (ctrl) {
           onSelect: function (name) {
             ctrl.interview.contacts = name;
           },
-          placeholder: 'Name'
+          placeholder: 'Name',
+          optionView: function () { return 'TODO' }
         }),
         // m('.input-field.col.s12.m4', [
         //   m('input.validate[type=text][placeholder=Role]', {
