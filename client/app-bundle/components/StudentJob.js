@@ -15,8 +15,12 @@ exports.view = function(ctrl, options){
           m('.collapsible-body.center-align', [
             m('span', 'Active: ' + app.active),
             m("br"),
-            m('a.waves-effect.waves-light.btn[href=#]', 'update')
-            ])
+            m('a.waves-effect.waves-light.btn[href=/codingchallenge]', { config: m.route }, 'Coding Challenge'),
+            m('a.waves-effect.waves-light.btn[href=/followup]', { config: m.route }, 'Follow Up'),
+            m('a.waves-effect.waves-light.btn[href=/onsiteinterview]', { config: m.route }, 'Onsite Interview'),
+            m('a.waves-effect.waves-light.btn[href=/phonescreen]', { config: m.route }, 'Phone Screen'),
+            m('a.waves-effect.waves-light.btn[href=/technicalscreen]', { config: m.route }, 'Technical Screen')
+          ])
         ])
       })
     ]), 
@@ -31,7 +35,11 @@ exports.view = function(ctrl, options){
           m('.collapsible-body.center-align', [
             m('span', 'Active: ' + app.active),
             m("br"),
-            m('a.waves-effect.waves-light.btn[href=#]', 'update')
+            m('a.waves-effect.waves-light.btn[href=/codingchallenge]', { config: m.route }, 'Coding Challenge'),
+            m('a.waves-effect.waves-light.btn[href=/followup]', { config: m.route }, 'Follow Up'),
+            m('a.waves-effect.waves-light.btn[href=/onsiteinterview]', { config: m.route }, 'Onsite Interview'),
+            m('a.waves-effect.waves-light.btn[href=/phonescreen]', { config: m.route }, 'Phone Screen'),
+            m('a.waves-effect.waves-light.btn[href=/technicalscreen]', { config: m.route }, 'Technical Screen')
           ])
         ])
       })
@@ -47,7 +55,11 @@ exports.view = function(ctrl, options){
           m('.collapsible-body.center-align', [
             m('span', 'Active: ' + app.active),
             m("br"),
-            m('a.waves-effect.waves-light.btn[href=#]', 'update')
+            m('a.waves-effect.waves-light.btn[href=/codingchallenge]', { config: m.route },'Coding Challenge'),
+            m('a.waves-effect.waves-light.btn[href=/followup]', { config: m.route }, 'Follow Up'),
+            m('a.waves-effect.waves-light.btn[href=/onsiteinterview]', { config: m.route }, 'Onsite Interview'),
+            m('a.waves-effect.waves-light.btn[href=/phonescreen]', { config: m.route }, 'Phone Screen'),
+            m('a.waves-effect.waves-light.btn[href=/technicalscreen]', { config: m.route }, 'Technical Screen')
           ])
         ])
       })
@@ -63,7 +75,11 @@ exports.view = function(ctrl, options){
           m('.collapsible-body.center-align', [
             m('span', 'Active: ' + app.active),
             m("br"),
-            m('a.waves-effect.waves-light.btn[href=#]', 'update')
+            m('a.waves-effect.waves-light.btn[href=/codingchallenge]', { config: m.route }, 'Coding Challenge'),
+            m('a.waves-effect.waves-light.btn[href=/followup]', { config: m.route }, 'Follow Up'),
+            m('a.waves-effect.waves-light.btn[href=/onsiteinterview]', { config: m.route }, 'Onsite Interview'),
+            m('a.waves-effect.waves-light.btn[href=/phonescreen]', { config: m.route }, 'Phone Screen'),
+            m('a.waves-effect.waves-light.btn[href=/technicalscreen]', { config: m.route }, 'Technical Screen')
           ])
         ])
       })
@@ -79,7 +95,11 @@ exports.view = function(ctrl, options){
           m('.collapsible-body.center-align', [
             m('span', 'Active: ' + app.active),
             m("br"),
-            m('a.waves-effect.waves-light.btn[href=#]', 'update')
+            m('a.waves-effect.waves-light.btn[href=/codingchallenge]', { config: m.route }, 'Coding Challenge'),
+            m('a.waves-effect.waves-light.btn[href=/followup]', { config: m.route }, 'Follow Up'),
+            m('a.waves-effect.waves-light.btn[href=/onsiteinterview]', { config: m.route }, 'Onsite Interview'),
+            m('a.waves-effect.waves-light.btn[href=/phonescreen]', { config: m.route }, 'Phone Screen'),
+            m('a.waves-effect.waves-light.btn[href=/technicalscreen]', { config: m.route }, 'Technical Screen')
           ])
         ])
       })
