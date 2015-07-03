@@ -1,18 +1,18 @@
 var m = require('mithril');
 var Fuzzy = require('../Fuzzysearch.js')
-var Contacts = require('../../models/AddContacts.js')
+var Title = require('../../models/AddTitle.js')
 
 
 exports.controller = function () {
   var ctrl = this;
-  ctrl.addContacts = Contacts.vm();
+  ctrl.addTitle = Title.vm();
 
 
   ctrl.submit = function(e){
     e.preventDefault();
-    Contacts.postContacts(ctrl.addContacts)
+    Title.postTitle(ctrl.addTitle)
       .then(function(){
-        ctrl.addContacts = Contacts.vm();
+        ctrl.addTitle = Title.vm();
       })
   }
 };
@@ -22,24 +22,24 @@ exports.controller = function () {
 exports.view = function (ctrl) {
 
   return m('form.col.s12' , { onsubmit: ctrl.submit }, [
-    m('h4.center-align', 'Add a Contacts'),
+    m('h4.center-align', 'Add a Title'),
     m('.row', [
       m('.input-field.col.s12.m4', [
         m('input[type=text]', {
-          value: ctrl.addContacts.name(),
-          onchange: m.withAttr('value', ctrl.addContacts.name)
+          value: ctrl.addTitle.name(),
+          onchange: m.withAttr('value', ctrl.addTitle.name)
         }),
         m('label', 'Contact Name')
       ]),
       m('.input-field.col.s12.m4', [
         m('input#[type=text]', {
-        value: ctrl.addContacts.phone_number(),
-        onchange: m.withAttr('value', ctrl.addContacts.phone_number)}),
+        value: ctrl.addTitle.phone_number(),
+        onchange: m.withAttr('value', ctrl.addTitle.phone_number)}),
       m('label', 'Phone Number')]),
       m.component(Fuzzy, {
         search: 'companies',
         onSelect: function (company) {
-          ctrl.addContacts.company_id = company;
+          ctrl.addTitle.company_id = company;
         },
         placeholder: 'Companies',
         optionView: function (company) {

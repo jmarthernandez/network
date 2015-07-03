@@ -27,7 +27,7 @@ exports.view = function (ctrl) {
     ]),
     m('form.col.s12', { onsubmit: ctrl.submit }, [
       m('.row', [
-        m.component(Fuzzy, {
+        m.component( Fuzzy, {
           search: 'companies',
           onSelect: function (company) {
             ctrl.newApp.company_id = company;
@@ -37,7 +37,7 @@ exports.view = function (ctrl) {
             return company.name + "  -  " + company.address + "  -  " + company.url
           }
         }),
-        m.component(Fuzzy, {
+        m.component( Fuzzy, {
           search: 'titles',
           onSelect: function (title) {
             ctrl.newApp.title_id = title;

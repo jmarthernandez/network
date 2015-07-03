@@ -9,7 +9,6 @@ exports.controller = function () {
 
 
   ctrl.submit = function(e){
-    alert('POSTING POST IN')
     e.preventDefault();
     Company.postCompany(ctrl.addCompany)
       .then(function(){
@@ -23,37 +22,33 @@ exports.controller = function () {
 exports.view = function (ctrl) {
 
   return m('form.col.s12' , { onsubmit: ctrl.submit }, [
-        m('h4.center-align', 'Add a Company'),
-      m('.row', [
-        m('.input-field.col.s12.m4', 
-          [
-          //Should have a limit of text
-          m('input[type=text]', {
-            value: ctrl.addCompany.name(),
-            onchange: m.withAttr('value', ctrl.addCompany.name)
-          }),
-          m('label', 'Company Name')
-        ]),
-        m('.input-field.col.s12.m4', [
-          m('input#[type=text]', {
-            value: ctrl.addCompany.url(),
-            onchange: m.withAttr('value', ctrl.addCompany.url)}),
-          m('label', 'URL')
-        ]),
-        m('.input-field.col.s12.m4', [
-          //Should have a limit of text
-          m('input[type=text]', {
-            value: ctrl.addCompany.address(),
-            onchange: m.withAttr('value', ctrl.addCompany.address)
-            }, console.log(JSON.stringify(ctrl.addCompany))),
-          m('label', 'Location')
-          ]),
-         m('.row.center-align', [
-          m('button.btn.waves-effect.waves-light', 'Submit',  [
-          //POST to database
+    m('h4.center-align', 'Add a Company'),
+    m('.row', [
+      m('.input-field.col.s12.m4', [
+        m('input[type=text]', {
+          value: ctrl.addCompany.name(),
+          onchange: m.withAttr('value', ctrl.addCompany.name)
+        }),
+        m('label', 'Company Name')
+      ]),
+      m('.input-field.col.s12.m4', [
+        m('input#[type=text]', {
+          value: ctrl.addCompany.url(),
+          onchange: m.withAttr('value', ctrl.addCompany.url)}),
+        m('label', 'URL')
+      ]),
+      m('.input-field.col.s12.m4', [
+        m('input[type=text]', {
+          value: ctrl.addCompany.address(),
+          onchange: m.withAttr('value', ctrl.addCompany.address)
+          }, console.log(JSON.stringify(ctrl.addCompany))),
+        m('label', 'Location')
+      ]),
+      m('.row.center-align', [
+        m('button.btn.waves-effect.waves-light', 'Submit',  [
           m('i.mdi-content-send.right')
-         ])
         ])
       ])
     ])
+  ])
 };
