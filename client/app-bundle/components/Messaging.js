@@ -47,7 +47,6 @@ exports.view = function (ctrl, options) {
       ]),
       m('ul', [
         options.users.map(function(user){
-          console.log(user)
           if(user.uid !== options.studentInfo.uid){
             return m('li', [
               m('a', {

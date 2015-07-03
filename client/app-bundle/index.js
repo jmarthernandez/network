@@ -73,53 +73,58 @@ var routes = {
     }
   },
 
-  '/codingchallenge': {
+  '/codingchallenge/:id': {
     controller: function () {
-      var ctrl = this;
+      var ctrl  = this;
       ctrl.user = Auth.currentUser();
+      ctrl.appId = m.route.param('id')
     },
     view: function (ctrl) {
-      return checkAuth(ctrl.user, m.component(CodingChallenge));
+      return checkAuth(ctrl.user, m.component(CodingChallenge, ctrl));
     }
   },
 
-  '/followup': {
+  '/followup/:id': {
     controller: function () {
       var ctrl = this;
       ctrl.user = Auth.currentUser();
+      ctrl.appId = m.route.param('id')
     },
     view: function (ctrl) {
-      return checkAuth(ctrl.user, m.component(FollowUp));
+      return checkAuth(ctrl.user, m.component(FollowUp, ctrl));
     }
   },
 
-  '/onsiteinterview': {
+  '/onsiteinterview/:id': {
     controller: function () {
       var ctrl = this;
       ctrl.user = Auth.currentUser();
+      ctrl.appId = m.route.param('id')
     },
     view: function (ctrl) {
-      return checkAuth(ctrl.user, m.component(OnsiteInterview));
+      return checkAuth(ctrl.user, m.component(OnsiteInterview, ctrl));
     }
   },
 
-  '/phonescreen': {
+  '/phonescreen/:id': {
     controller: function () {
       var ctrl = this;
       ctrl.user = Auth.currentUser();
+      ctrl.appId = m.route.param('id')
     },
     view: function (ctrl) {
-      return checkAuth(ctrl.user, m.component(PhoneScreen));
+      return checkAuth(ctrl.user, m.component(PhoneScreen, ctrl));
     }
   },
 
-  '/technicalscreen': {
+  '/technicalscreen/:id': {
     controller: function () {
       var ctrl = this;
       ctrl.user = Auth.currentUser();
+      ctrl.appId = m.route.param('id')
     },
     view: function (ctrl) {
-      return checkAuth(ctrl.user, m.component(TechnicalScreen));
+      return checkAuth(ctrl.user, m.component(TechnicalScreen, ctrl));
     }
   },
 
