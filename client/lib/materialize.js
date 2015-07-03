@@ -17,7 +17,7 @@ exports.pickDates = function(elem, isInitialized){
 
     dateFormat: 'yyyy-mm-dd',
   	
-	  format: 'mmmm dd , yyyy',
+	  format: 'mmmm dd, yyyy',
 	  formatSubmit: 'yyyy-mm-dd',
 	  hiddenPrefix: 'prefix__',
 	  hiddenSuffix: '__suffix',
@@ -33,13 +33,32 @@ exports.pickDates = function(elem, isInitialized){
   });
 };
 
-// exports.setter = function (prop) {
-// 	return function(elem, isInitialized){
-// 		if (isInitialized) return;
+exports.tabInit = function(elem, isInitialized){
+	if (isInitialized) return;
 
-// 		$(elem).datepicker({
-// 	  	dateFormat: "yyyy-mm-dd",
-// 	  	onSelect: prop
-// 		});
-// 	};
-// }
+	console.log("????")
+
+  $(elem).tabs();  //.ul.tabs
+};
+
+
+
+exports.modalClick = function(elem, isInitialized){
+	if (isInitialized) return;
+
+  $(elem).leanModal({  //.modal-trigger
+      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+      opacity: .5, // Opacity of modal background
+      in_duration: 300, // Transition in duration
+      out_duration: 200, // Transition out duration
+      // ready: function() { alert('Ready'); }, // Callback for Modal open
+      // complete: function() { alert('Closed'); } // Callback for Modal close
+    }
+  );
+};
+
+
+
+
+
+
