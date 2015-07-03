@@ -7,6 +7,10 @@ var OnsiteInterview = require('../components/forms/OnsiteInterview.js');
 var Messaging       = require('../components/Messaging.js');
 var NewApp          = require('../components/forms/NewApp.js');
 var FollowUp        = require('../components/forms/FollowUp.js')
+var AddCompany      = require('../components/forms/AddCompany.js')
+var AddContacts     = require('../components/forms/AddContact.js')
+
+
 
 //Models
 var StudentApp     = require('../models/StudentApp.js');
@@ -37,6 +41,10 @@ exports.view = function (ctrl) {
       messages: messagesData.messages,
       users: messagesData.users,
       studentInfo: appsData.studentInfo
-    })
+    }),
+    m.component(AddCompany),
+    m.component(AddContacts)
+
+
   ]) 
 }

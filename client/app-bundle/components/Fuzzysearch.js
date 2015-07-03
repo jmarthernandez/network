@@ -92,12 +92,13 @@ AutocompleteInput.controller = function (attrs) {
   var blur = false
   var pendingInputValue = null
   ctrl.cleanInput = function (input) {
+
     if (blur) {
       input.blur(); ctrl.reset(); blur = false
     }
     if (pendingInputValue) {
       input.value = pendingInputValue
-      pendingInputValue = null
+      pendingInputValue = null;
     }
   }
  
@@ -116,7 +117,7 @@ AutocompleteInput.view = function (ctrl, attrs) {
   var mode = ctrl.mode()
   var queryRegex = ctrl.query() && new RegExp('(.*)('+ctrl.query()+')(.*)', 'i')
  
-  return m('.autocomplete-input', [
+  return m('.autocomplete-input.col.s12.m4', [
  
     m('input[type=text]', {
       key: 'autocomplete',
@@ -129,14 +130,21 @@ AutocompleteInput.view = function (ctrl, attrs) {
     }),
     ctrl.isFocused() ?
       m('.autocomplete-input--select-drop', [
-        m('ul', { class: mode, onmouseover: selectHovered, onmousedown: ctrl.select.chill() }, renderOptions())
+        m('ul', { class: mode, onmouseover: selectHovered, onmousedown: ctrl.select.chill() }, renderOptions(ctrl.query()))
       ])
       : null
   ])
  
-  function renderOptions () {
-    if (ctrl.options().length === 0) {
-      return m('li', m('i', "No matches found."))
+  function renderOptions (query) {
+    if (ctrl.options().length === 0 && query !== null) {
+      return m('.row',  { onsubmit: ctrl.submit }, [ 
+        m('li.btn.waves-effect.waves-light.right-align', 'Add',  [
+          m('i.mdi-content-send.right')
+        ]),
+        m('li.right-align', 
+          m('i', "No matches found.")
+        )
+      ])
    	} else {
       return ctrl.options().map(optionView)
   	}

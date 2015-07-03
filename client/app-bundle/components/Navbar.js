@@ -3,11 +3,11 @@ var m = require('mithril');
 
 
 exports.controller = function () {
-	var ctrl = this;
+  var ctrl = this;
 };
 
 exports.view = function (ctrl) {
-	var links = [
+  var links = [
     {title: 'Outcomes', url: '/outcomes'},
     {title: 'Students', url: '/profile'},
     {title: 'Sign Out', url: '/signout'}
