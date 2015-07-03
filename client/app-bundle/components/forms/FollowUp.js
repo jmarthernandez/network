@@ -51,15 +51,15 @@ exports.view = function (ctrl) {
           }),
           m('label', 'What technical questions were asked?')
         ]), 
-      ]),
-     m('.row', [
-      m('p.range-field', 'How did it go?',[
+      m('p.range-field.col.s12', 'How did it go?',[
         m('input#test5[type=range][min=0][max=5]', {
             value: ctrl.interview.quality(),
             onchange: m.withAttr('value', ctrl.interview.quality),
           }),
       ]),
-    ]),
+      ]),
+    //  m('.row', [
+    // ]),
       m('.row', [
         m('button.btn.waves-effect.waves-light', 'Submit', [
           //POST to database

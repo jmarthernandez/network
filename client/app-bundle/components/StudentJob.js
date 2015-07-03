@@ -1,14 +1,50 @@
 var m = require('mithril');
 var materialize = require('../../lib/materialize.js');
 
-//TODO: List additional application info in drop down
 //TODO: Add Update button that directs to a form
 exports.view = function(ctrl, options){
 
+
+  // exports.view = function (ctrl) {
+  // return m('div', [
+  //   m('head', [
+  //     m('link[href=./style.css][rel=stylesheet]')
+  //   ]),
+
+
+
+
+
  return m('.col.m9.s12', [
-    //Start Phase I
+  m('head', [
+    m('link[href=./../public/index.css][rel=stylesheet]')
+  ]),
+  m('.row', [
+    m('div.col.s12', [
+      m('ul', {class: 'tabs', config: materialize.tabInit}, [
+        m('li.tab.col.s3', [
+          m('a[href="#activeApps"]', "Applications"), 
+        ]),
+        m('li.tab.col.s3', [
+          m('a[href="#phone"]', "Phone"), 
+        ]),
+        m('li.tab.col.s3', [
+          m('a[href="#interviews"]', "Interviews"), 
+        ]),
+        m('li.tab.col.s3', [
+          m('a[href="#onsites"]', "Onsites"), 
+        ]),
+        m('li.tab.col.s3', [
+          m('a[href="#offers"]', "Offers"), 
+        ]),
+      ]), //End Tabs UL
+    ]), //End Div.Col.S12 
+  ]), //Ends Row Just Under Return M
+
+  //Begin Active Applications (Phase 1)
+  m('div#activeApps.center-align', [
     m('h5.center-align', 'Pending Applications: ' +  options.apps[1].length),
-    m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
+    m('ul.collapsible#shorten[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['1'].map(function(app){
         return m('li', [
           m('div.collapsible-header', 'Company: ' + app.company_name + ' Title: ' + app.title + ' Date Applied: ' + app.applied_on.slice(0,10)),
@@ -23,9 +59,10 @@ exports.view = function(ctrl, options){
         ])
       })
     ]), 
-    //End Phase I
+  ]), //End Active Applications (Phase I)
 
-    //Start Phase II
+  //Begin Phone Interviews (Phase 2)
+  m('div#phone.center-align', [
     m('h5.center-align', 'Phone Interview Scheduled: ' +  options.apps[2].length),
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['2'].map(function(app){
@@ -42,9 +79,10 @@ exports.view = function(ctrl, options){
         ])
       })
     ]),
-    //End Phase II
+  ]), //End Phone Interviews (Phase 2)
 
-    //Start Phase III
+  //Begin Onsites (Phase 3)
+  m('div#interviews.center-align', [
     m('h5.center-align', 'Coding Challenges/Tech Interviews: ' +  options.apps[3].length),
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['3'].map(function(app){
@@ -62,9 +100,10 @@ exports.view = function(ctrl, options){
         ])
       })
     ]),
-    //End Phase III
+  ]), //End Interviews (Phase 3)
 
-    //Start Phase IV
+  //Begin Onsites (Phase 4)
+  m('div#onsites.center-align', [
     m('h5.center-align', 'Onsites: ' +  options.apps[4].length),
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['4'].map(function(app){
@@ -81,9 +120,10 @@ exports.view = function(ctrl, options){
         ])
       })
     ]),
-    //End Phase IV
+  ]), //End Onsites (Phase 4)
 
-    //Start Phase V
+  //Begin Offers (Phase 5)
+  m('div#offers.center-align', [
     m('h5.center-align', 'Offers: ' +  options.apps[5].length),
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['5'].map(function(app){
@@ -99,7 +139,8 @@ exports.view = function(ctrl, options){
           ])
         ])
       })
-    ]),
-    //End Phase V
-  ]);
+    ]),//ends ul collaps
+  ])  //End Offers (Phase 5)
+
+  ]); //Ends Return M .col.m9.s12'
 };

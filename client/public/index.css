@@ -1,3 +1,27 @@
+.collapsible{
+	height: 50%;
+	overflow: auto;
+}
+
+.collapsible-header {
+  display: block;
+  cursor: pointer;
+  height: 2rem;
+  line-height: 2rem;
+  padding: 0 1rem;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd; }
+  .collapsible-header i {
+    width: 2rem;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    display: block;
+    float: left;
+    text-align: center;
+    margin-right: 1rem; }
+
+    
+
 .buffer{
 	height: 20px;
 
@@ -20,20 +44,22 @@
 	background-size: 100%;
 }*/
 
-#gh{
+/*#gh{
 	background-color: white;
 	color: black;
 	opacity: 0.1;
 	border-radius: 10px;
-}
+}*/
 
 #gh2{
 	background-image: url("/images/image1.jpg");
 }
 
-#jk{
+/*#jk{
 	border-radius: 50px;
-}
+}*/
+
+
 
 /*From Client/Views/Outcomes.css
 .container{
@@ -41,6 +67,7 @@
 	display: block;
 	height: '300px';
 }
+
 
 .words{
 	color: red;
