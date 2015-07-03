@@ -30,9 +30,9 @@ exports.view = function (ctrl) {
       m.component(StudentInfo, { studentInfo: appsData.studentInfo } ),
       m.component(StudentJob, { apps: appsData.apps, studentInfo: appsData.studentInfo } ),
     ]),
-    m.component(OnsiteInterview),
-    m.component(FollowUp),
-    m.component(NewApp),
+    m('.row.center-align', [
+      m('a.btn[href=/newapp]', {config: m.route}, 'New Application')
+    ]),
     m.component(Messaging, {
       messages: messagesData.messages,
       users: messagesData.users,
