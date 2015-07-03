@@ -15,11 +15,10 @@ exports.view = function(ctrl, options){
           m('.collapsible-body.center-align', [
             m('span', 'Active: ' + app.active),
             m("br"),
-            m('a.waves-effect.waves-light.btn[href=/codingchallenge]', { config: m.route }, 'Coding Challenge'),
-            m('a.waves-effect.waves-light.btn[href=/followup]', { config: m.route }, 'Follow Up'),
-            m('a.waves-effect.waves-light.btn[href=/onsiteinterview]', { config: m.route }, 'Onsite Interview'),
-            m('a.waves-effect.waves-light.btn[href=/phonescreen]', { config: m.route }, 'Phone Screen'),
-            m('a.waves-effect.waves-light.btn[href=/technicalscreen]', { config: m.route }, 'Technical Screen')
+            m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.id + ']', { config: m.route }, 'Coding Challenge'),
+            m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.id + ']', { config: m.route }, 'Onsite Interview'),
+            m('a.waves-effect.waves-light.btn[href=/phonescreen/' + app.id + ']', { config: m.route }, 'Phone Screen'),
+            m('a.waves-effect.waves-light.btn[href=/technicalscreen/' + app.id + ']', { config: m.route }, 'Technical Screen')
           ])
         ])
       })
@@ -35,11 +34,10 @@ exports.view = function(ctrl, options){
           m('.collapsible-body.center-align', [
             m('span', 'Active: ' + app.active),
             m("br"),
-            m('a.waves-effect.waves-light.btn[href=/codingchallenge]', { config: m.route }, 'Coding Challenge'),
-            m('a.waves-effect.waves-light.btn[href=/followup]', { config: m.route }, 'Follow Up'),
-            m('a.waves-effect.waves-light.btn[href=/onsiteinterview]', { config: m.route }, 'Onsite Interview'),
-            m('a.waves-effect.waves-light.btn[href=/phonescreen]', { config: m.route }, 'Phone Screen'),
-            m('a.waves-effect.waves-light.btn[href=/technicalscreen]', { config: m.route }, 'Technical Screen')
+            m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.id + ']', { config: m.route }, 'Coding Challenge'),
+            m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.id + ']', { config: m.route }, 'Onsite Interview'),
+            m('a.waves-effect.waves-light.btn[href=/phonescreen/' + app.id + ']', { config: m.route }, 'Phone Screen'),
+            m('a.waves-effect.waves-light.btn[href=/technicalscreen/' + app.id + ']', { config: m.route }, 'Technical Screen')
           ])
         ])
       })
@@ -50,16 +48,16 @@ exports.view = function(ctrl, options){
     m('h5.center-align', 'Coding Challenges/Tech Interviews: ' +  options.apps[3].length),
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['3'].map(function(app){
+        console.log(app.id, 'app')
         return m('li', [
           m('.collapsible-header', 'Company: ' + app.company_name + ' Title: ' + app.title + ' Date Applied: ' + app.applied_on.slice(0,10)),
           m('.collapsible-body.center-align', [
             m('span', 'Active: ' + app.active),
             m("br"),
-            m('a.waves-effect.waves-light.btn[href=/codingchallenge]', { config: m.route },'Coding Challenge'),
-            m('a.waves-effect.waves-light.btn[href=/followup]', { config: m.route }, 'Follow Up'),
-            m('a.waves-effect.waves-light.btn[href=/onsiteinterview]', { config: m.route }, 'Onsite Interview'),
-            m('a.waves-effect.waves-light.btn[href=/phonescreen]', { config: m.route }, 'Phone Screen'),
-            m('a.waves-effect.waves-light.btn[href=/technicalscreen]', { config: m.route }, 'Technical Screen')
+            m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.id + ' ]', { config: m.route },'Coding Challenge'),
+            m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.id + ']', { config: m.route }, 'Onsite Interview'),
+            m('a.waves-effect.waves-light.btn[href=/phonescreen/' + app.id + ']', { config: m.route }, 'Phone Screen'),
+            m('a.waves-effect.waves-light.btn[href=/technicalscreen/' + app.id + ']', { config: m.route }, 'Technical Screen')
           ])
         ])
       })
@@ -75,11 +73,10 @@ exports.view = function(ctrl, options){
           m('.collapsible-body.center-align', [
             m('span', 'Active: ' + app.active),
             m("br"),
-            m('a.waves-effect.waves-light.btn[href=/codingchallenge]', { config: m.route }, 'Coding Challenge'),
-            m('a.waves-effect.waves-light.btn[href=/followup]', { config: m.route }, 'Follow Up'),
-            m('a.waves-effect.waves-light.btn[href=/onsiteinterview]', { config: m.route }, 'Onsite Interview'),
-            m('a.waves-effect.waves-light.btn[href=/phonescreen]', { config: m.route }, 'Phone Screen'),
-            m('a.waves-effect.waves-light.btn[href=/technicalscreen]', { config: m.route }, 'Technical Screen')
+            m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.id + ']', { config: m.route }, 'Coding Challenge'),
+            m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.id + ']', { config: m.route }, 'Onsite Interview'),
+            m('a.waves-effect.waves-light.btn[href=/phonescreen/' + app.id + ']', { config: m.route }, 'Phone Screen'),
+            m('a.waves-effect.waves-light.btn[href=/technicalscreen/' + app.id + ']', { config: m.route }, 'Technical Screen')
           ])
         ])
       })
@@ -95,11 +92,10 @@ exports.view = function(ctrl, options){
           m('.collapsible-body.center-align', [
             m('span', 'Active: ' + app.active),
             m("br"),
-            m('a.waves-effect.waves-light.btn[href=/codingchallenge]', { config: m.route }, 'Coding Challenge'),
-            m('a.waves-effect.waves-light.btn[href=/followup]', { config: m.route }, 'Follow Up'),
-            m('a.waves-effect.waves-light.btn[href=/onsiteinterview]', { config: m.route }, 'Onsite Interview'),
-            m('a.waves-effect.waves-light.btn[href=/phonescreen]', { config: m.route }, 'Phone Screen'),
-            m('a.waves-effect.waves-light.btn[href=/technicalscreen]', { config: m.route }, 'Technical Screen')
+            m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.id + ']', { config: m.route }, 'Coding Challenge'),
+            m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.id + ']', { config: m.route }, 'Onsite Interview'),
+            m('a.waves-effect.waves-light.btn[href=/phonescreen/' + app.id + ']', { config: m.route }, 'Phone Screen'),
+            m('a.waves-effect.waves-light.btn[href=/technicalscreen/' + app.id + ']', { config: m.route }, 'Technical Screen')
           ])
         ])
       })
