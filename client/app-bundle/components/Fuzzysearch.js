@@ -116,7 +116,7 @@ AutocompleteInput.view = function (ctrl, attrs) {
   var mode = ctrl.mode()
   var queryRegex = ctrl.query() && new RegExp('(.*)('+ctrl.query()+')(.*)', 'i')
  
-  return m('.autocomplete-input', [
+  return m('.autocomplete-input.col.s12.m4', [
  
     m('input[type=text]', {
       key: 'autocomplete',

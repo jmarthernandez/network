@@ -34,7 +34,6 @@ exports.view = function (ctrl) {
           }),
           m('label', 'Company Name')
         ]),
-
         m('.input-field.col.s12.m4', [
           m('input#[type=text]', {
             value: ctrl.addCompany.url(),
