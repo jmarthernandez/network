@@ -9,6 +9,7 @@ var NewApp          = require('../components/forms/NewApp.js');
 var FollowUp        = require('../components/forms/FollowUp.js')
 var AddCompany      = require('../components/forms/AddCompany.js')
 var AddContacts     = require('../components/forms/AddContact.js')
+var AddTitles       = require('../components/forms/AddTitle.js')
 
 //Models
 var StudentApp     = require('../models/StudentApp.js');
@@ -41,8 +42,7 @@ exports.view = function (ctrl) {
       studentInfo: appsData.studentInfo
     }),
     m.component(AddCompany),
-    m.component(AddContacts)
-
-
+    m.component(AddContacts),
+    m.component(AddTitles)
   ]) 
 }

@@ -27,7 +27,6 @@ var Applications = module.exports = General.access('applications');
       .join('users', function() {
         this.on('users.uid', '=', 'applications.user_id')})
       .then(function(rows){
-        console.log(rows)
        return rows;
       });
   };

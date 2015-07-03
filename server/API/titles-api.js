@@ -12,6 +12,7 @@ router.get('/', function(req, res){
 
 //endpoint which adds a new questions
 router.post('/', function(req, res){
+	console.log('WORD',req.body)
   if (!req.body) return res.sendStatus(400);
   Titles.updateOrCreate(req.body);
   res.send(req.body);

@@ -1,6 +1,6 @@
 var m = require('mithril');
 
-var AddContacts = module.exports = {
+var AddTitle = module.exports = {
 
   
   usersArray: null,
@@ -10,15 +10,13 @@ var AddContacts = module.exports = {
   vm: function (attrs) {
     attrs = attrs || '';
     return {
-      name: m.prop(''),
-      phone_number: m.prop(''),
-      company_id: m.prop('')
+      title: m.prop('')
     }
   },
 
-  postContacts: function(data){
+  postTitle: function(data){
       console.log(data, " I AM OVER HERE!")
-    return m.request({ method: 'POST', url: 'api/contacts', data: data })
+    return m.request({ method: 'POST', url: 'api/titles', data: data })
   },
   // Makes messages accessible to the view
   all: function() {

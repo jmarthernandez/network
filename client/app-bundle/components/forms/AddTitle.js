@@ -26,26 +26,9 @@ exports.view = function (ctrl) {
     m('.row', [
       m('.input-field.col.s12.m4', [
         m('input[type=text]', {
-          value: ctrl.addTitle.name(),
-          onchange: m.withAttr('value', ctrl.addTitle.name)
+          value: ctrl.addTitle.title(),
+          onchange: m.withAttr('value', ctrl.addTitle.title)
         }),
-        m('label', 'Contact Name')
-      ]),
-      m('.input-field.col.s12.m4', [
-        m('input#[type=text]', {
-        value: ctrl.addTitle.phone_number(),
-        onchange: m.withAttr('value', ctrl.addTitle.phone_number)}),
-      m('label', 'Phone Number')]),
-      m.component(Fuzzy, {
-        search: 'companies',
-        onSelect: function (company) {
-          ctrl.addTitle.company_id = company;
-        },
-        placeholder: 'Companies',
-        optionView: function (company) {
-          return company.name + "  -  " + company.address + "  -  " + company.url
-        }
-      })
     ]),
     m('.row.center-align', [
       m('button.btn.waves-effect.waves-light', 'Submit',  [
@@ -53,4 +36,5 @@ exports.view = function (ctrl) {
       ])
     ])
   ])
+    ])
 };
