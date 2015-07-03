@@ -10,7 +10,7 @@ var port = process.env.PORT || 4000
 var host = process.env.HOST || 'http://localhost:' + port
 
 //provide a browserified file at a path
-var shared = ['mithril', './ext/functions.js']
+var shared = ['mithril', './ext/functions.js', 'highcharts', 'jquery']
 app.get('/js/vendor.js', browserify(shared))
 app.get('/js/app-bundle.js', browserify('./client/app-bundle/index.js', { external: shared }))
 
