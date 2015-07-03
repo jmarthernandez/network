@@ -26,7 +26,10 @@ exports.view = function (ctrl) {
 
   return m('.row', [
     m('.row', [
-      m('h4.center-align', 'Interview')
+      m('a.btn[href=/profile]', { config: m.route }, 'Back to profile')
+    ]),
+    m('.row', [
+      m('h3.center-align', 'Interview')
     ]),
     m('form.col.s12', { onsubmit: ctrl.submit }, [
       m('.row', [
@@ -35,8 +38,6 @@ exports.view = function (ctrl) {
             value: ctrl.interview.type(),
             onchange: m.withAttr('value', ctrl.interview.type)
           }),
-          //Should autocomplete for common methods
-          // m('label', 'Type')
         ]),
       ]),
       m('form.col.s12',  [

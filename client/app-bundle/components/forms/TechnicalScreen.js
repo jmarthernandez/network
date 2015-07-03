@@ -7,6 +7,9 @@ exports.controller = function () {
 
 exports.view = function (ctrl) {
   return m('.row', [
+    m('.row', [
+      m('a.btn[href=/profile]', { config: m.route }, 'Back to profile')
+    ]),
     m('form.col.s12', [
       m('.row', [
         m('.input-field.col.s12.m6', [

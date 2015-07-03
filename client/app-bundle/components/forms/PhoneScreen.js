@@ -9,6 +9,9 @@ exports.controller = function () {
 exports.view = function (ctrl) {
   return m('.row', [
     m('.row', [
+      m('a.btn[href=/profile]', { config: m.route }, 'Back to profile')
+    ]),
+    m('.row', [
       m('h3.center-align', 'Phone Screen')
     ]),
     m('form.col.s12' , [

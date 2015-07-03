@@ -1,13 +1,29 @@
 var m = require('mithril');
-var Fuzzy = require('../../models/Fuzzy.js')
+var Fuzzy = require('../../models/Fuzzy.js');
+
+//Model
+var CodingChallenge = require('../../models/CodingChallenge.js');
 
 //TODO: Comment
 exports.controller = function () {
   var ctrl = this;
+
+  ctrl.codingChallenge = CodingChallenge.vm();
+
+  ctrl.submit  = function (e) {
+    console.log('hi')
+    e.preventDefault();
+    CodingChallenge.post(ctrl.codingChallenge).then(function () {
+      ctrl.newApp = CodingChallenge.vm();
+    });
+  }
 }
 
 exports.view = function (ctrl) {
   return m('.row', [
+    m('.row', [
+      m('a.btn[href=/profile]', { config: m.route }, 'Back to profile')
+    ]),
     m('.row', [
       m('h3.center-align', 'Coding Challenge')
     ]),
@@ -54,14 +70,15 @@ exports.view = function (ctrl) {
           m('input#first_name.datepicker[type=date][placeholder="Date Applied"]'),
           m('label[for=first_name]', "Scheduled For")
         ]),
-        m('.input-field.col.s12.m6', [
-          m('input#first_name.datepicker[type=date][placeholder="Date Applied"]'),
-          m('label[for=first_name]', "Completed On")
-        ])
+        // These should be in the update form
+        // m('.input-field.col.s12.m6', [
+        //   m('input#first_name.datepicker[type=date][placeholder="Date Applied"]'),
+        //   m('label[for=first_name]', "Completed On")
+        // ])
       ]),
-      m('p.range-field', 'How did it go?',[
-        m('input#test5[type=range][min=0][max=5]')
-      ]),
+      // m('p.range-field', 'How did it go?',[
+      //   m('input#test5[type=range][min=0][max=5]')
+      // ]),
       m('.row', [
         m('button.btn.waves-effect.waves-light', 'Submit',[
           //POST to database
