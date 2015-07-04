@@ -7,7 +7,5 @@ var Fuzzy = module.exports = {
   },
   post: function(table){
     return m.request({ method: 'GET', url: 'api/' + table})
-
   }
-
 };
