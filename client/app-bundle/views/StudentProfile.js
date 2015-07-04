@@ -31,7 +31,7 @@ exports.view = function (ctrl) {
   return m('.container', [
     m('.row'),
     m('.row', [
-      m.component(StudentInfo, { studentInfo: appsData.studentInfo } ),
+      // m.component(StudentInfo, { studentInfo: appsData.studentInfo } ),
       m.component(StudentJob, { apps: appsData.apps, studentInfo: appsData.studentInfo } ),
     ]),
     m('.row.center-align', [

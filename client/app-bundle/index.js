@@ -80,7 +80,7 @@ var routes = {
       ctrl.appId = m.route.param('id')
     },
     view: function (ctrl) {
-      return checkAuth(ctrl.user, m.component(CodingChallenge, ctrl));
+      return checkAuth(ctrl.user, m.component(CodingChallenge, {app_id: ctrl.appId}));
     }
   },
 
@@ -91,7 +91,7 @@ var routes = {
       ctrl.appId = m.route.param('id')
     },
     view: function (ctrl) {
-      return checkAuth(ctrl.user, m.component(FollowUp, ctrl));
+      return checkAuth(ctrl.user, m.component(FollowUp, {app_id: ctrl.appId}));
     }
   },
 
@@ -102,7 +102,7 @@ var routes = {
       ctrl.appId = m.route.param('id')
     },
     view: function (ctrl) {
-      return checkAuth(ctrl.user, m.component(OnsiteInterview, ctrl));
+      return checkAuth(ctrl.user, m.component(OnsiteInterview, {app_id: ctrl.appId}));
     }
   },
 
@@ -113,7 +113,7 @@ var routes = {
       ctrl.appId = m.route.param('id')
     },
     view: function (ctrl) {
-      return checkAuth(ctrl.user, m.component(PhoneScreen, ctrl));
+      return checkAuth(ctrl.user, m.component(PhoneScreen, {app_id: ctrl.appId}));
     }
   },
 
@@ -124,7 +124,7 @@ var routes = {
       ctrl.appId = m.route.param('id')
     },
     view: function (ctrl) {
-      return checkAuth(ctrl.user, m.component(TechnicalScreen, ctrl));
+      return checkAuth(ctrl.user, m.component(TechnicalScreen, {app_id: ctrl.appId}));
     }
   },
 

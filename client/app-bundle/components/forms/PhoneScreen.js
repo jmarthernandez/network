@@ -1,10 +1,28 @@
 var m = require('mithril');
+var materialize = require('../../../lib/materialize.js');
 
+//Model
+var Interview   = require('../../models/Interview.js');
 
 //TODO: comment
 exports.controller = function () {
   var ctrl = this;
-};
+
+  // Instantiate view-model
+  ctrl.interview = Interview.vm();
+  ctrl.interview.type = 'Phone Screen';
+
+  // controller action
+  ctrl.submit = function (e) {
+    e.preventDefault();
+    Interview.postInterview( ctrl.interview )
+      .then(function () {
+        ctrl.interview = Interview.vm();
+        m.route('/profile')
+      })
+  }
+}
+
 
 exports.view = function (ctrl) {
   return m('.row', [
@@ -14,7 +32,7 @@ exports.view = function (ctrl) {
     m('.row', [
       m('h3.center-align', 'Phone Screen')
     ]),
-    m('form.col.s12' , [
+    m('form.col.s12', { config: m.route }, [
       m('.row',
         m('h4.center-align', 'Person Contacted')
       ),
@@ -41,12 +59,12 @@ exports.view = function (ctrl) {
       m('.row', [
         m('.input-field.col.s12.m6', [
           //Should have a limit of text
-          m('input#first_name.datepicker[type=date][placeholder=Date Applied]'),
-          m('label[for=first_name]', 'Scheduled For')
-        ]),
-        m('.input-field.col.s12.m6', [
-          m('input#first_name.datepicker[type=date][placeholder=Date Applied]'),
-          m('label[for=first_name]', 'Completed On')
+          m('input[type=date][placeholder=Scheduled For]', {
+            class: 'datepicker', 
+            config: materialize.pickDates, 
+            value: ctrl.interview.scheduled_on(),
+            onchange: m.withAttr('value', ctrl.interview.scheduled_on),
+          })
         ])
       ]),
       m('p.range-field', 'How did it go?',[
