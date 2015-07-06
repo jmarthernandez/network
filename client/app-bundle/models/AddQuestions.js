@@ -1,6 +1,6 @@
 var m = require('mithril');
 
-var AddTitle = module.exports = {
+var AddQuestions = module.exports = {
 
   
   usersArray: null,
@@ -10,16 +10,17 @@ var AddTitle = module.exports = {
   vm: function (attrs) {
     attrs = attrs || '';
     return {
-      title: m.prop('')
+      name: m.prop(''),
+      interview_id: m.prop(1)
     }
   },
 
-  postTitle: function(data){
+  postQuestions: function(data){
       console.log(data, " I AM OVER HERE!")
-    return m.request({ method: 'POST', url: 'api/titles', data: data })
+    return m.request({ method: 'POST', url: 'api/questions', data: data })
   },
   // Makes messages accessible to the view
   all: function() {
-    return AddContacts.vm();
+    return AddQuestions.vm();
   }
 };

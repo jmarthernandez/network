@@ -1,18 +1,17 @@
 var m = require('mithril');
 var Fuzzy = require('../Fuzzysearch.js')
-var Title = require('../../models/AddTitle.js')
+var Questions = require('../../models/AddQuestions.js')
 
 
 exports.controller = function () {
   var ctrl = this;
-  ctrl.addTitle = Title.vm();
-
+  ctrl.addQuestion = Questions.vm();
 
   ctrl.submit = function(e){
     e.preventDefault();
-    Title.postTitle(ctrl.addTitle)
+    Questions.postQuestions(ctrl.addQuestion)
       .then(function(){
-        ctrl.addTitle = Title.vm();
+        ctrl.addQuestion = Questions.vm();
       })
   }
 };
@@ -22,14 +21,15 @@ exports.controller = function () {
 exports.view = function (ctrl) {
 
   return m('form.col.s12' , { onsubmit: ctrl.submit }, [
-    m('h4.center-align', 'Add a Title'),
+    m('h4.center-align', 'Add a Questions'),
     m('.row', [
       m('.input-field.col.s12.m4', [
         m('input[type=text]', {
-          value: ctrl.addTitle.title(),
-          onchange: m.withAttr('value', ctrl.addTitle.title)
+          value: ctrl.addQuestion.name(),
+          onchange: m.withAttr('value', ctrl.addQuestion.name)
         }),
-        m('label', 'Title')
+        m('label', 'Questions')
+
     ]),
     m('.row.center-align', [
       m('button.btn.waves-effect.waves-light', 'Submit',  [
