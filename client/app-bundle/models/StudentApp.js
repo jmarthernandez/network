@@ -18,7 +18,6 @@ var studentApp = module.exports = {
     } else {
       m.request({ method: 'GET', url: '/api/applications/allUser/'})
         .then(function(applications) {
-          console.log(applications, 'APPS GET')
           if (!Array.isArray(applications.Application)) {
             studentApp.apps = false;
           }else{
