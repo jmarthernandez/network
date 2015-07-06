@@ -7,11 +7,11 @@ exports.controller = function () {
 
   ctrl.appFetch = Graph.fetchApplication().then(function(appData) {
     ctrl.graphOptions = graphOptions(appData);
+  });
+
+   ctrl.fetchAll = Graph.fetchAll().then(function(appData) {
+    ctrl.graphOptions = graphOptions(appData);
   })
-  // ctrl.fetchInterview = Graph.fetchInterview().then(function(appData) {
-  //   ctrl.graphOptions = graphOptions(appData);
-  // })
-      // .then(function (applications) {submitApp = 2000; console.log(applications.Application[0].phase); console.log(Graph.plot().series[0].data[0][1]) });
 }
 
 exports.plotter = function(ctrl) { // config class
@@ -30,8 +30,7 @@ exports.plotter = function(ctrl) { // config class
 exports.view = function(ctrl) { // view
     return  m("html", [ m("body", [
         m("#plot[style=height:400px]", {config: exports.plotter(ctrl)}), console.log(ctrl),
-        //when I set breakpoint here I can see plot for a moment. It disappears when I resume normal script flow
-        m("p", "some text after plot", console.log(JSON.stringify(ctrl.appFetch))),
+        m("p", "some text after plot", console.log(JSON.stringify(ctrl.fetchAll))),
         ]),
     ])
 };
