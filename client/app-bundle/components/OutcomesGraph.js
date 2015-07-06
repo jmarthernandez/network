@@ -4,15 +4,17 @@ var Graph = require('../models/Graph.js');
 
 exports.controller = function () {
   var ctrl = this;
-  ctrl.apk = Graph.plot();
-  this.cfg = this.apk.plotCfg;
+  ctrl.graph = Graph.plot();
+  ctrl.cfg = ctrl.graph.plotCfg;
 }
 
 exports.plotter = function(ctrl) { // config class
     return function(elem,isin) {
         if(!isin) {
           m.startComputation();
-          var chart = Highcharts.StockChart(ctrl.cfg);
+          console.log(Highcharts)
+          ctrl.graph.chart.renderTo = elem
+          var chart = new Highcharts.Chart(ctrl.graph);
           m.endComputation();
         }
     };
