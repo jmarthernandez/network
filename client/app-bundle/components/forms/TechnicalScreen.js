@@ -29,6 +29,8 @@ exports.controller = function () {
 
 exports.view = function (ctrl, options) {
   ctrl.interview.app_id = + options.app_id;
+  ctrl.update.id        = + options.app_id;
+  ctrl.update.phase     = 3;
   return m('.row', [
     m('.row', [
       m('a.btn[href=/profile]', { config: m.route }, 'Back to profile')
