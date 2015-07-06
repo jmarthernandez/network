@@ -8,6 +8,9 @@ exports.controller = function () {
   ctrl.appFetch = Graph.fetchApplication().then(function(appData) {
     ctrl.graphOptions = graphOptions(appData);
   })
+  // ctrl.fetchInterview = Graph.fetchInterview().then(function(appData) {
+  //   ctrl.graphOptions = graphOptions(appData);
+  // })
       // .then(function (applications) {submitApp = 2000; console.log(applications.Application[0].phase); console.log(Graph.plot().series[0].data[0][1]) });
 }
 

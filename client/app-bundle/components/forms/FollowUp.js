@@ -28,7 +28,7 @@ exports.view = function (ctrl) {
         m('h3.center-align', 'Follow up')
       ]),
       m('.row', [
-        m('.input-field.col.s12.m6', console.log(JSON.stringify(ctrl.interview)) ,[
+        m('.input-field.col.s12.m6',[
           //Should have a limit of text
           m('input.validate[type=text][placeholder=Follow Up?]', {
             value: ctrl.interview.follow_up(),
