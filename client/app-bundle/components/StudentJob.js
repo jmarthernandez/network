@@ -11,10 +11,6 @@ exports.view = function(ctrl, options){
   //     m('link[href=./style.css][rel=stylesheet]')
   //   ]),
 
-
-
-
-
  return m('.col.m12.s12', [
   m('.row', [
     m('div.col.s12', [
@@ -22,15 +18,9 @@ exports.view = function(ctrl, options){
         m('li.tab.col.s4', [
           m('a[href="#activeApps"]', "Applications"), 
         ]),
-        // m('li.tab.col.s3', [
-        //   m('a[href="#phone"]', "Phone"), 
-        // ]),
         m('li.tab.col.s4', [
           m('a[href="#events"]', "Events"), 
         ]),
-        // m('li.tab.col.s3', [
-        //   m('a[href="#onsites"]', "Onsites"), 
-        // ]),
         m('li.tab.col.s4', [
           m('a[href="#offers"]', "Offers"), 
         ]),
@@ -83,7 +73,6 @@ exports.view = function(ctrl, options){
     m('h5.center-align', 'Coding Challenges/Tech Interviews: ' +  options.apps[3].length),
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['3'].map(function(app){
-        console.log(app)
         return m('li', [
           m('.collapsible-header', 'Company: ' + app.company_name + ' Title: ' + app.title + ' Date Applied: ' + app.applied_on.slice(0,10)),
           m('.collapsible-body.center-align', [
@@ -104,7 +93,6 @@ exports.view = function(ctrl, options){
     m('h5.center-align', 'Onsites: ' +  options.apps[4].length),
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['4'].map(function(app){
-        console.log(app)
         return m('li', [
           m('.collapsible-header', 'Company: ' + app.company_name + ' Title: ' + app.title + ' Date Applied: ' + app.applied_on.slice(0,10)),
           m('.collapsible-body.center-align', [

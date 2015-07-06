@@ -1,8 +1,9 @@
 var m         = require('mithril');
-var Interview   = require('../../models/Interview.js');
 var materialize = require('../../../lib/materialize.js');
 var Fuzzy = require('../Fuzzysearch.js')
 
+//Model
+var Interview   = require('../../models/Interview.js');
 
 //rename to Interview
 exports.controller = function () {
@@ -54,7 +55,6 @@ exports.view = function (ctrl) {
       ),
       m('.row', [
         m('.input-field.col.s12.m6', [
-          //Should have a limit of text
           m('input[type=date][placeholder=Scheduled For]', {
             class: 'datepicker', 
             config: materialize.pickDates, 
@@ -62,14 +62,6 @@ exports.view = function (ctrl) {
             onchange: m.withAttr('value', ctrl.interview.scheduled_on),
           }),
         ]),
-        // m('.input-field.col.s12.m6', [
-        //   m('input[type=date][placeholder=Completed On]',{
-        //     class: 'datepicker', 
-        //     config: materialize.pickDates, 
-        //     value: ctrl.interview.occured_on(),
-        //     onchange: m.withAttr('value', ctrl.interview.occured_on),
-        //   }),
-        // ])
       ]),
       m('.row', [
         m('button.btn.waves-effect.waves-light', 'Submit', [

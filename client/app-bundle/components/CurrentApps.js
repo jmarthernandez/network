@@ -8,7 +8,6 @@ exports.view = function (ctrl, options) {
       m('h5.center-align', 'Pending Applications: ' +  options.apps[1].length),
       m('ul.collection', [
         options.apps[1].map(function(app){
-          //console.log(app);
           if(app.phase === '1'){  
             //var counter++;
             return m('li.collection-item avatar', [

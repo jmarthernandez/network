@@ -1,5 +1,6 @@
 var m = require('mithril');
 var materialize = require('../../../lib/materialize.js');
+var Fuzzy = require('../Fuzzysearch.js')
 
 //Model
 var Interview   = require('../../models/Interview.js');
@@ -32,26 +33,24 @@ exports.view = function (ctrl) {
     m('.row', [
       m('h3.center-align', 'Phone Screen')
     ]),
-    m('form.col.s12', { config: m.route }, [
+    m('form.col.s12', { onsubmit: ctrl.submit }, [
       m('.row',
         m('h4.center-align', 'Person Contacted')
       ),
+      m('.row',
+        m('h4.center-align', 'Interviewer')
+      ),
       m('.row',[
-        m('.input-field.col.s12.m4', [
-          //Should have a limit of text
-          m('input#first_name.validate[type=text][placeholder=Name]'),
-          m('label[for=first_name]', 'Name')
-        ]),
-        m('.input-field.col.s12.m4', [
-          m('input#first_name.validate[type=text][placeholder=Role]'),
-          //Should autocomplete for common methods
-          m('label[for=first_name]', 'Role')
-        ]),
-        m('.input-field.col.s12.m4', [
-          m('input#first_name.validate[type=email][placeholder=Email]'),
-          //Should autocomplete for common methods
-          m('label[for=first_name]', 'Email')
-        ])
+        m.component(Fuzzy, {
+          search: 'contacts',
+          onSelect: function (name) {
+            ctrl.interview.contacts = name;
+          },
+          placeholder: 'Name',
+          optionView: function (contacts) { 
+            return contacts.name + "  -  " + contacts.phone_number + "  -  " + contacts.company_name
+           }
+        }),
       ]),
       m('.row',
         m('h4.center-align', 'Date')
@@ -63,12 +62,9 @@ exports.view = function (ctrl) {
             class: 'datepicker', 
             config: materialize.pickDates, 
             value: ctrl.interview.scheduled_on(),
-            onchange: m.withAttr('value', ctrl.interview.scheduled_on),
+            onchange: m.withAttr('value', ctrl.interview.scheduled_on)
           })
         ])
-      ]),
-      m('p.range-field', 'How did it go?',[
-        m('input#test5[type=range][min=0][max=5]')
       ]),
       m('.row', [
         m('button.btn.waves-effect.waves-light', 'Submit',[
