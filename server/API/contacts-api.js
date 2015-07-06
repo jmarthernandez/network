@@ -21,3 +21,8 @@ router.post('/', function(req, res){
 router.get('/:id', function(req, res){
   Contacts.retrieveOne(req.params.id).then(function(contacts){res.send({Contacts: contacts})});
 });
+
+
+// router.get('/company/:id', function(req.res){
+//   Contacts.retrieveCompanyId(req.params.id).then(function(contacts){res.send({Contacts: contacts})});
+// })

@@ -17,7 +17,7 @@ exports.controller = function () {
   ctrl.fetchInfo = NewApp.fetchInfo();
 };
 
-exports.view = function (ctrl) {
+exports.view = function (ctrl, options) {
 
   var modelData = NewApp.all(); 
 
@@ -38,7 +38,9 @@ exports.view = function (ctrl) {
           placeholder: 'Companies',
           optionView: function (company) {
             return company.name + "  -  " + company.address + "  -  " + company.url
-          }
+          },
+           route: m('a.waves-effect.waves-light.btn[href=/company/]', { config: m.route }, 'Add a Company')
+
         }),
         m.component( Fuzzy, {
           search: 'titles',
@@ -46,7 +48,9 @@ exports.view = function (ctrl) {
             ctrl.newApp.title_id = title;
           },
           placeholder: 'Title',
-          optionView: function (titles) { return titles.title  }
+          optionView: function (titles) { return titles.title  },
+           route: m('a.waves-effect.waves-light.btn[href=/title/]', { config: m.route }, 'Add a Title')
+
         }),
            m('.input-field.col.s12.m6', [
           //Should have a limit of text

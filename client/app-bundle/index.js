@@ -17,7 +17,12 @@ var CodingChallenge = require('./components/forms/CodingChallenge.js');
 var OnsiteInterview = require('./components/forms/OnsiteInterview.js');
 var PhoneScreen     = require('./components/forms/PhoneScreen.js');
 var TechnicalScreen = require('./components/forms/TechnicalScreen.js');
+var AddContact      = require('./components/forms/AddContact.js')
+var AddTitle        = require('./components/forms/AddTitle.js')
+var AddCompany      = require('./components/forms/AddCompany.js')
 
+
+ 
 
 var checkAuth = function(authorization, componentsArr) {
   //TODO: Check role of user and redirect correctly
@@ -128,6 +133,38 @@ var routes = {
     }
   },
 
+
+  '/title/': {
+    controller: function () {
+      var ctrl = this;
+      ctrl.user = Auth.currentUser();
+    },
+    view: function (ctrl) {
+      return checkAuth(ctrl.user, m.component(AddTitle));
+    }
+  },
+
+  '/company/': {
+    controller: function () {
+      var ctrl = this;
+      ctrl.user = Auth.currentUser();
+    },
+    view: function (ctrl) {
+      return checkAuth(ctrl.user, m.component(AddCompany));
+    }
+  },
+
+  '/contacts/:id': {
+    controller: function () {
+      var ctrl = this;
+      ctrl.user = Auth.currentUser();
+      ctrl.appId = m.route.param('id')
+    },
+    view: function (ctrl) {
+      return checkAuth(ctrl.user, m.component(AddContact),  {app_id: ctrl.appId});
+    }
+  },
+
   '/outcomes': {
     controller: function () {
       var ctrl = this;
@@ -137,6 +174,7 @@ var routes = {
       return checkAuth(ctrl.user, m.component(Outcomes));
     }
   },
+
 
   '/signout': {
     controller: function () {

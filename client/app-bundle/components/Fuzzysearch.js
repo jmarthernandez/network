@@ -137,7 +137,7 @@ AutocompleteInput.view = function (ctrl, attrs) {
       : null,
 
       ]),
-        ctrl.options().length === 0 && ctrl.query !== null ? 'Add a ' + attrs.name : 'red'
+        ctrl.options().length === 0 && ctrl.query ? attrs.route : null
     ])
  
   function renderOptions (query) {
