@@ -1,54 +1,23 @@
 var m           = require('mithril');
 var h           = require('highcharts')
+var submitApp;
 
 var Graph = module.exports = {
 
-  plot: function (attrs) {
-    attrs = attrs || '';
-
-    return {
-        chart: {
-            type: 'funnel',
-            marginRight: 100
-        },
-        title: {
-            text: 'Sales funnel',
-            x: -50
-        },
-        plotOptions: {
-            series: {
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b> ({point.y:,.0f})',
-                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black',
-                    softConnector: true
-                },
-                neckWidth: '30%',
-                neckHeight: '25%'
-
-                //-- Other available options
-                // height: pixels or percent
-                // width: pixels or percent
-            }
-        },
-        legend: {
-            enabled: false
-        },
-        series: [{
-            name: 'Unique users',
-            data: [
-                ['Website visits',   15654],
-                ['Downloads',       4064],
-                ['Requested price list', 1987],
-                ['Invoice sent',    976],
-                ['Finalized',    846]
-            ]
-        }]
-    }
-  },
-
   fetchApplication: function(req) {
     return m.request({ method: 'GET', url: '/API/applications/'})
+                  .then(function (applications) {
+                    submitApp = 2000;
+                    console.log(applications.Application[0].phase);
+                    // console.log(Graph.plot().series[0].data[0][1])
+                    return {
+                      submitted: 9234,
+                      phoneScreens: 4064,
+                      interviews: 1987,
+                      offers: 976,
+                      acceptedOffers: 846,
+                    }
+                  })
   },
 
   fetchInterview: function (req) {
