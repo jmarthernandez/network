@@ -14,6 +14,7 @@ exports.controller = function () {
 
   // controller action
   ctrl.submit = function (e) {
+    console.log('in submit')
     e.preventDefault();
     Interview.postInterview( ctrl.interview )
       .then(function () {
@@ -31,17 +32,17 @@ exports.view = function (ctrl) {
     m('.row', [
       m('h1.center-align', 'Technical Screen')
     ]),
-    m('form.col.s12', [
+    m('form.col.s12', { onsubmit: ctrl.submit }, [
       m('.row', [
         m('.input-field.col.s12.m12', [
           //Should have a limit of text
-          m('input#first_name.datepicker[type=date][placeholder="Date Applied"]', {
+          m('input#first_name.datepicker[type=date][placeholder="Scheduled Date"]', {
             class: 'datepicker', 
             config: materialize.pickDates, 
             value: ctrl.interview.scheduled_on(),
             onchange: m.withAttr('value', ctrl.interview.scheduled_on),
           }),
-          m('label[for=first_name]', 'Date Applied')
+          m('label[for=first_name]', 'Scheduled Date')
         ])
       ]),
       m('.row', [
