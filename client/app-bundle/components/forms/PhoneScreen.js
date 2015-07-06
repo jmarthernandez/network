@@ -12,20 +12,27 @@ exports.controller = function () {
   // Instantiate view-model
   ctrl.interview = Interview.vm();
   ctrl.interview.type = 'Phone Screen';
+  ctrl.update = Interview.vmApp();
 
   // controller action
   ctrl.submit = function (e) {
     e.preventDefault();
     Interview.postInterview( ctrl.interview )
       .then(function () {
-        ctrl.interview = Interview.vm();
-        m.route('/profile')
+        Interview.updatePhase(ctrl.update);
       })
-  }
-}
+      .then(function () {
+        ctrl.interview = Interview.vm();
+        m.route('/profile');
+      })
+  };
+};
 
 
-exports.view = function (ctrl) {
+exports.view = function (ctrl, options) {
+  ctrl.interview.app_id = + options.app_id;
+  ctrl.update.id        = + options.app_id;
+  ctrl.update.phase     = 2;
   return m('.row', [
     m('.row', [
       m('a.btn[href=/profile]', { config: m.route }, 'Back to profile')

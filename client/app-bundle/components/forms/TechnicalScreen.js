@@ -11,20 +11,24 @@ exports.controller = function () {
   // Instantiate view-model
   ctrl.interview = Interview.vm();
   ctrl.interview.type = 'Technical Screen';
+  ctrl.update = Interview.vmApp();
 
   // controller action
   ctrl.submit = function (e) {
-    console.log('in submit')
     e.preventDefault();
     Interview.postInterview( ctrl.interview )
       .then(function () {
-        ctrl.interview = Interview.vm();
-        m.route('/profile')
+        Interview.updatePhase(ctrl.update);
       })
-  }
-}
+      .then(function () {
+        ctrl.interview = Interview.vm();
+        m.route('/profile');
+      })
+  };
+};
 
-exports.view = function (ctrl) {
+exports.view = function (ctrl, options) {
+  ctrl.interview.app_id = + options.app_id;
   return m('.row', [
     m('.row', [
       m('a.btn[href=/profile]', { config: m.route }, 'Back to profile')

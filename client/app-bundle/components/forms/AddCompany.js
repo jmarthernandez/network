@@ -44,7 +44,7 @@ exports.view = function (ctrl) {
         m('input[type=text]', {
           value: ctrl.addCompany.address(),
           onchange: m.withAttr('value', ctrl.addCompany.address)
-          }, console.log(JSON.stringify(ctrl.addCompany))),
+          }),
         m('label', 'Location')
       ]),
       m('.row.center-align', [

@@ -36,8 +36,6 @@ exports.pickDates = function(elem, isInitialized){
 exports.tabInit = function(elem, isInitialized){
 	if (isInitialized) return;
 
-	console.log("????")
-
   $(elem).tabs();  //.ul.tabs
 };
 
