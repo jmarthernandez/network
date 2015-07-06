@@ -31,6 +31,14 @@ var Applications = module.exports = General.access('applications');
       });
   };
 
+  module.exports.update = function (attrs) {
+        attrs.updated_at = new Date()
+        return db('applications').update(attrs).where({ id: attrs.id })
+          .then(function(affectedCount) {
+            return (affectedCount === 0) ? Promise.reject(new Error('not_found')) : attrs;
+          });
+      };
+
   //retrieves a single application table with company specific info and title specific info
   module.exports.retrieveOne = function(id){
 
@@ -44,4 +52,17 @@ var Applications = module.exports = General.access('applications');
       .then(function(rows){
         return rows;
     })
+  };
+
+
+  //updates or creates a specific group depending on prior status
+  module.exports.updateOrCreate = function (attrs) {
+    return Applications.update(attrs).catch(Applications.create.papp(attrs));
+  };
+
+
+
+  module.exports.create= function (attrs) {
+    attrs.created_at = new Date();
+    return db('Applications').insert(attrs).return(attrs);
   };

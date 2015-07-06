@@ -23,15 +23,24 @@ var Interview = module.exports = {
 		};
 	},
 
+	vmApp: function (attrs) {
+		attrs = attrs || '';
+
+		return {};
+	},
+
 	fetchInt: function (req) {
 		return m.request({ methods: 'GET', url: '/API/interviews/' })
 			.then(console.log('Interviews GET request'), req);
 	},
 
+	updatePhase: function(applicationFormData) {
+	  return m.request({ method: 'POST', url: '/API/applications/', data: applicationFormData})
+	  	.then(function(res){console.log('Interviews POST request', applicationFormData, 'asd', res)});
+	},
+
 	postInterview: function (interview) {
 		return m.request({ method: 'POST', url: '/API/interviews', data: interview })
-			// .then(console.log('Interview POST'));
-			// .then(undefined);
 			.then(function (serverResponse) {
 				console.log('Interview POST', serverResponse)
 				return serverResponse

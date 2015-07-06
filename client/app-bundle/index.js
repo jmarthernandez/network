@@ -26,7 +26,6 @@ var AddCompany      = require('./components/forms/AddCompany.js')
 
 var checkAuth = function(authorization, componentsArr) {
   //TODO: Check role of user and redirect correctly
-  console.log('in checkAuth')
   if(authorization()){      
     return App.layout(componentsArr);
   }else{

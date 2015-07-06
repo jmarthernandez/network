@@ -9,22 +9,28 @@ var Interview = require('../../models/Interview.js');
 exports.controller = function () {
   var ctrl = this;
 
-  ctrl.codingChallenge = Interview.vm();
-  ctrl.codingChallenge.type = 'Coding Challenge'
+  ctrl.interview = Interview.vm();
+  ctrl.interview.type = 'Coding Challenge';
+  ctrl.update = Interview.vmApp();
 
 
-  ctrl.submit  = function (e) {
+  ctrl.submit = function (e) {
     e.preventDefault();
-    Interview.postInterview(ctrl.codingChallenge)
-    .then(function () {
-      ctrl.newApp = Interview.vm();
-      m.route('/profile');
-    });
-  }
-}
+    Interview.postInterview( ctrl.interview )
+      .then(function () {
+        Interview.updatePhase(ctrl.update);
+      })
+      .then(function () {
+        ctrl.interview = Interview.vm();
+        m.route('/profile');
+      })
+  };
+};
 
 exports.view = function (ctrl, options) { 
-  ctrl.codingChallenge.app_id = + options.app_id;
+  ctrl.interview.app_id = + options.app_id;
+  ctrl.update.id        = + options.app_id;
+  ctrl.update.phase     = 3;
   return m('.row', [
     m('.row', [
       m('a.btn[href=/profile]', { config: m.route }, 'Back to profile')
@@ -37,8 +43,8 @@ exports.view = function (ctrl, options) {
         m('.row.input-field.col.s12.m12.l12.cent', [
           m('i.mdi-editor-mode-edit.prefix'),
           m('textarea#icon_prefix2.materialize-textarea', {
-            value: ctrl.codingChallenge.info.questions(),
-            onchange: m.withAttr('value', ctrl.codingChallenge.info.questions)
+            value: ctrl.interview.info.questions(),
+            onchange: m.withAttr('value', ctrl.interview.info.questions)
           }),
           m('label[for=icon_prefix2]', "Coding Prompt")
         ]),
@@ -52,8 +58,8 @@ exports.view = function (ctrl, options) {
           m('input[type=date]', {
             class: 'datepicker', 
             config: materialize.pickDates,
-            value: ctrl.codingChallenge.scheduled_on(),
-            onchange: m.withAttr('value', ctrl.codingChallenge.scheduled_on)
+            value: ctrl.interview.scheduled_on(),
+            onchange: m.withAttr('value', ctrl.interview.scheduled_on)
           }),
           m('label[for=first_name]', "Scheduled For")
         ]),

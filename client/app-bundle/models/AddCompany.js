@@ -24,7 +24,6 @@ var AddCompany = module.exports = {
   },
 
   postCompany: function(data){
-      console.log(data, " I AM OVER HERE!")
     return m.request({ method: 'POST', url: 'api/companies', data: data })
   },
 
