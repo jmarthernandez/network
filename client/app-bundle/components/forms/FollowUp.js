@@ -20,6 +20,9 @@ exports.view = function (ctrl) {
   var modelData = Interview.all();
 
   return m('.row', [
+    m('.row', [
+      m('a.btn[href=/profile]', { config: m.route }, 'Back to profile')
+    ]),
     m('form.col.s12', { onsubmit: ctrl.submit }, [
       m('.row',[
         m('h3.center-align', 'Follow up')

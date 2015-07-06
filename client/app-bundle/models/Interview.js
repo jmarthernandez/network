@@ -11,7 +11,7 @@ var Interview = module.exports = {
 			app_id: m.prop(null),
 			// user_id: m.prop(StudentApp.studentInfo.uid),
 			type: m.prop(null),
-			contacts: m.prop(null),
+
 			scheduled_on: m.prop(null),
 			occured_on: m.prop(null),
 			follow_up: m.prop(null),
