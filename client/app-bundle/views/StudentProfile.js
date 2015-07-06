@@ -11,6 +11,7 @@ var AddCompany      = require('../components/forms/AddCompany.js')
 var AddContacts     = require('../components/forms/AddContact.js')
 var AddTitles       = require('../components/forms/AddTitle.js')
 var AddQuestions    = require('../components/forms/AddQuestions.js')
+var Graph           = require('../components/OutcomesGraph.js')
 
 //Models
 var StudentApp     = require('../models/StudentApp.js');

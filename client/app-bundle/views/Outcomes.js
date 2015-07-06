@@ -1,12 +1,13 @@
 var m = require('mithril');
 
 //Components
-var CurrentApps = require('../components/CurrentApps.js');
-var Messaging = require('../components/Messaging.js');
+var CurrentApps     = require('../components/CurrentApps.js');
+var Messaging       = require('../components/Messaging.js');
+var Graph           = require('../components/OutcomesGraph.js')  
 
 //Models
-var App     = require('../models/App.js');
-var Message = require('../models/Message.js');
+var App             = require('../models/App.js');
+var Message         = require('../models/Message.js');
 
 exports.controller = function() {
   //Grabs apps for all students
@@ -23,6 +24,7 @@ exports.view = function(ctrl) {
   return m('.container', [
     m('h1.center-align', 'Student Outcomes'),
     m.component(CurrentApps, {apps: apps}),
+    m.component(Graph),
     m.component(Messaging, {
       messages: messagesData.messages,
       users: messagesData.users,
