@@ -44,6 +44,7 @@ exports.view = function (ctrl) {
           onSelect: function (name) {
             ctrl.interview.contacts = name;
           },
+          name: 'Contact',
           placeholder: 'Name',
           optionView: function (contacts) { 
             return contacts.name + "  -  " + contacts.phone_number + "  -  " + contacts.company_name

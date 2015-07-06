@@ -117,7 +117,9 @@ AutocompleteInput.view = function (ctrl, attrs) {
   var mode = ctrl.mode()
   var queryRegex = ctrl.query() && new RegExp('(.*)('+ctrl.query()+')(.*)', 'i')
  
-  return m('.autocomplete-input.col.s12.m4', [
+  return m('.row', [
+
+    m('.autocomplete-input.col.s12.m4', [
     
     m('input[type=text]', {
       key: 'autocomplete',
@@ -132,19 +134,18 @@ AutocompleteInput.view = function (ctrl, attrs) {
       m('.autocomplete-input--select-drop', [
         m('ul', { class: mode, onmouseover: selectHovered, onmousedown: ctrl.select.chill() }, renderOptions(ctrl.query()))
       ])
-      : null
-  ])
+      : null,
+
+      ]),
+        ctrl.options().length === 0 && ctrl.query !== null ? 'Add a ' + attrs.name : 'red'
+    ])
  
   function renderOptions (query) {
     if (ctrl.options().length === 0 && query !== null) {
-      return m('.row',  { onsubmit: ctrl.submit }, [ 
-        m('li.btn.waves-effect.waves-light.right-align', 'Add',  [
-          m('i.mdi-content-send.right')
-        ]),
+      return m('.row',
         m('li.right-align', 
           m('i', "No matches found.")
-        )
-      ])
+        ))
    	} else {
       return ctrl.options().map(optionView)
   	}
