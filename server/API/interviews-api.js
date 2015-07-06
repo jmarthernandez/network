@@ -16,3 +16,10 @@ router.post('/', function(req, res){
   Interviews.updateOrCreate(req.body);
   res.send(req.body);
 });
+
+
+router.get('/all', function(req, res){
+  if (!req.body) return res.sendStatus(400);
+  Interviews.megaJoin().then(function(interviews){ res.send({Interviews: interviews})
+	})
+})

@@ -21,6 +21,9 @@ exports.controller = function () {
 exports.view = function (ctrl) {
 
   return m('form.col.s12' , { onsubmit: ctrl.submit }, [
+    m('.row', [
+      m('a.btn[href=/profile]', { config: m.route }, 'Back to profile')
+    ]),
     m('h4.center-align', 'Add a Questions'),
     m('.row', [
       m('.input-field.col.s12.m4', [

@@ -1,6 +1,7 @@
 var m         = require('mithril');
 var materialize = require('../../../lib/materialize.js');
 var Fuzzy = require('../Fuzzysearch.js')
+var Contacts = require('./AddContact.js')
 
 //Model
 var Interview   = require('../../models/Interview.js');
@@ -24,9 +25,9 @@ exports.controller = function () {
   }
 }
 
-exports.view = function (ctrl) {
+exports.view = function (ctrl, options) {
   var modelData = Interview.all();
-
+console.log(options.app_id, 'CTRONERS')
   return m('.row', [
     m('.row', [
       m('a.btn[href=/profile]', { config: m.route }, 'Back to profile')
@@ -44,10 +45,12 @@ exports.view = function (ctrl) {
           onSelect: function (name) {
             ctrl.interview.contacts = name;
           },
+          name: 'Contact',
           placeholder: 'Name',
           optionView: function (contacts) { 
             return contacts.name + "  -  " + contacts.phone_number + "  -  " + contacts.company_name
-           }
+           },
+           route: m('a.waves-effect.waves-light.btn[href=/contacts/' + options.app_id + ']', { config: m.route }, 'Add a Contacts')
         }),
       ]),
       m('.row',
