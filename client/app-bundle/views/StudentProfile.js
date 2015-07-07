@@ -42,9 +42,5 @@ exports.view = function (ctrl) {
       users: messagesData.users,
       studentInfo: appsData.studentInfo
     }),
-    m.component(AddCompany),
-    m.component(AddContacts),
-    m.component(AddTitles),
-    m.component(AddQuestions)
   ]) 
 }

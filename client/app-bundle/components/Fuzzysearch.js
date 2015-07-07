@@ -130,20 +130,19 @@ AutocompleteInput.view = function (ctrl, attrs) {
       onblur: ctrl.isFocused.papp(false),
       placeholder: attrs.placeholder
     }),
+    ]),
     ctrl.isFocused() ?
-      m('.autocomplete-input--select-drop', [
+      m('.autocomplete-input--select-drop.relative', [
         m('ul', { class: mode, onmouseover: selectHovered, onmousedown: ctrl.select.chill() }, renderOptions(ctrl.query()))
       ])
       : null,
-
-      ]),
         ctrl.options().length === 0 && ctrl.query ? attrs.route : null
     ])
  
   function renderOptions (query) {
     if (ctrl.options().length === 0 && query !== null) {
-      return m('.row',
-        m('li.right-align', 
+      return m('.row.absolute.nothing',
+        m('li.right-align.nothing', 
           m('i', "No matches found.")
         ))
    	} else {
@@ -153,7 +152,7 @@ AutocompleteInput.view = function (ctrl, attrs) {
 
   function optionView (opt, i) {
     return m('li', {
-      'class': (mode === 'keyboard' && ddIdx == i) ? 'active' : 'no-hover',
+      'class': (mode === 'keyboard' && ddIdx == i) ? 'active.z-index' : 'no-hover.z-index',
       'data-idx': i
     }, attrs.optionView(opt) )
   }
