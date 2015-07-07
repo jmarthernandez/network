@@ -4,6 +4,7 @@ var m = require('mithril');
 var CurrentApps     = require('../components/CurrentApps.js');
 var Messaging       = require('../components/Messaging.js');
 var Graph           = require('../components/OutcomesGraph.js')  
+var StudentProgress = require('../components/StudentProgress.js')
 
 //Models
 var App             = require('../models/App.js');
@@ -24,6 +25,7 @@ exports.view = function(ctrl) {
     m('h1.center-align', 'Student Outcomes'),
     m.component(CurrentApps, {apps: apps}),
     m.component(Graph),
+    m.component(StudentProgress),
     m.component(Messaging, {
       messages: messagesData.messages,
       users: messagesData.users,
