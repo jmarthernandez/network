@@ -1,6 +1,6 @@
 var db = require('../db.js')
 var Promise = require('bluebird')
-var General = require('../lib/General.js');
+var General = require('../lib/general.js');
 var User = module.exports = General.access('users')
 
   //retreives all applications associated with a specific user
