@@ -13,17 +13,21 @@ exports.controller = function () {
     Title.postTitle(ctrl.addTitle)
       .then(function(){
         ctrl.addTitle = Title.vm();
+        ctrl.back();
       })
   }
+
+
+  ctrl.back = function(e){
+    window.history.back();
+  }
 };
-
-
 
 exports.view = function (ctrl) {
 
   return m('form.col.s12' , { onsubmit: ctrl.submit }, [
     m('.row', [
-      m('a.btn[href=/profile]', { config: m.route }, 'Back to profile')
+      m('a.btn',{ onclick: ctrl.back}, 'Back')
     ]),
     m('h4.center-align', 'Add a Title'),
     m('.row', [
