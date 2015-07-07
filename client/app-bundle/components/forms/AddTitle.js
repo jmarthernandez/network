@@ -13,13 +13,17 @@ exports.controller = function () {
     Title.postTitle(ctrl.addTitle)
       .then(function(){
         ctrl.addTitle = Title.vm();
+        ctrl.back();
       })
+  }
+
+
+  ctrl.back = function(e){
+    window.history.back();
   }
 };
 
-
-
-exports.view = function (ctrl) {
+exports.view = function (ctrl, options) {
 
   return m('form.col.s12' , { onsubmit: ctrl.submit }, [
     m('.row', [

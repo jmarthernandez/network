@@ -19,7 +19,7 @@ exports.controller = function () {
 
 
 
-exports.view = function (ctrl) {
+exports.view = function (ctrl, options) {
 
   return m('form.col.s12' , { onsubmit: ctrl.submit }, [
     m('.row', [
@@ -52,7 +52,7 @@ exports.view = function (ctrl) {
     ]),
     m('.row.center-align', [
       m('button.btn.waves-effect.waves-light', 'Submit',  [
-        m('i.mdi-content-send.right')
+        m('i.mdi-content-send.right[href=/'+ options.route + '/]')
       ])
     ])
   ])

@@ -17,6 +17,7 @@ exports.controller = function () {
 };
 
 exports.view = function (ctrl, options) {
+  console.log(ctrl)
 
   var modelData = NewApp.all(); 
 
