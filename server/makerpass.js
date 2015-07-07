@@ -4,10 +4,10 @@
 var passport = require('passport')
 var MakerpassStrategy = require('passport-makerpass').Strategy
 var Promise    = require('bluebird')
-var User       = require('./models/user')
-var Group      = require('./models/group')
-var Membership = require('./models/membership')
-var School     = require('./models/school')
+var User       = require('./models/User')
+var Group      = require('./models/Group')
+var Membership = require('./models/Membership')
+var School     = require('./models/School')
 
 exports.mount = function (app, host) {
 
