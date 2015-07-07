@@ -29,6 +29,7 @@
     "express-resource": "^1.0.0",
     "fuzzysearch-js": "^0.1.1",
     "glob": "^5.0.10",
+    "highcharts": "0.0.8",
     "jquery": "^2.1.4",
     "knex": "^0.8.4",
     "materialize-css": "^0.96.1",
