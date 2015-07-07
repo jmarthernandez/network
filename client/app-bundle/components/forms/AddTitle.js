@@ -23,7 +23,7 @@ exports.controller = function () {
   }
 };
 
-exports.view = function (ctrl, options) {
+exports.view = function (ctrl) {
 
   return m('form.col.s12' , { onsubmit: ctrl.submit }, [
     m('.row', [
