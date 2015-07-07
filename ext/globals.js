@@ -16,15 +16,12 @@
     }
   }
 
-  global.merge = function (target) {
-    var sources = Array.prototype.slice.call(arguments, 1)
-    for (var i=0; i < sources.length; i++) {
-      var source = sources[i]
-      for (var prop in source) {
-        if (source.hasOwnProperty(prop)) target[prop] = source[prop]
-      }
-    }
-    return target
+  global.propEq = function (propName, value) {
+    return function (obj) { return obj[propName] === value }
+  }
+
+  global.setObjProp = function (obj, propName) {
+    return function (value) { obj[propName] = value; return obj }
   }
 
   global.echo = function (x) { return x }

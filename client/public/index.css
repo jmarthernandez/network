@@ -91,12 +91,19 @@ ul {
 	display: inline;
 }*/
 
+.form-btn {
+  width: 200px;
+}
+
 #testSmall{
 	width: 33%;
 	display: inline-block;
 
 }
 
+.container {
+  width: 90%;
+}
 
 @media (min-width: 400px) and (max-width: 699px) {
   #testSmall {

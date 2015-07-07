@@ -4,13 +4,6 @@ var materialize = require('../../lib/materialize.js');
 //TODO: Add Update button that directs to a form
 exports.view = function(ctrl, options){
 
-
-  // exports.view = function (ctrl) {
-  // return m('div', [
-  //   m('head', [
-  //     m('link[href=./style.css][rel=stylesheet]')
-  //   ]),
-
  return m('.col.m12.s12', [
   m('head', [
     m('link[href=./../public/index.css][rel=stylesheet]')
@@ -33,14 +26,12 @@ exports.view = function(ctrl, options){
 
   //Begin Active Applications (Phase 1)
   m('div#activeApps', [
-    m('h5.center-align', 'Pending Applications: ' +  options.apps[1].length),
+    m('h5.center-align', 'Pending Applications'),
     m('ul.collapsible#shorten[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['1'].map(function(app){
         return m('li', [
-          m('.collapsible-header', app.company_name + ': ' + app.title + ' (' + app.applied_on.slice(0,10) + ')'),
-          //m('div.collapsible-header', 'Company: ' + app.company_name + ' Title: ' + app.title + ' Date Applied: ' + app.applied_on.slice(0,10)),
+          m('div.collapsible-header', app.company_name + ': ' + app.title),
           m('.collapsible-body.center-align', [
-            m('span', 'Active: ' + app.active),
             m("br"),
             m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
             m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview'),
@@ -55,13 +46,12 @@ exports.view = function(ctrl, options){
   //Begin Phone Interviews (Phase 2)
   m('div#events', [
     m('div#testSmall.m4.s12', [
-    m('h5.center-align', 'Phone Interviews Scheduled: ' +  options.apps[2].length),
+    m('h5.center-align', 'Phone Interviews'),
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['2'].map(function(app){
         return m('li', [
-          m('.collapsible-header', app.company_name + ': ' + app.title + ' (' + app.applied_on.slice(0,10) + ')'),
+          m('.collapsible-header', app.company_name + ': ' + app.title),
           m('.collapsible-body.center-align', [
-            m('span', 'Active: ' + app.active),
             m("br"),
             m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
             m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview'),
@@ -77,14 +67,13 @@ exports.view = function(ctrl, options){
   //Begin Onsites (Phase 3)
   //m('div#gg', [
     m('div#testSmall.m4.s12', [
-    m('h5.center-align', 'Challenges and Tech Interviews: ' +  options.apps[3].length),
+    m('h5.center-align', 'Challenges and Tech Interviews'),
     //m('h5.center-align', 'Coding Challenges/Tech Interviews: ' +  options.apps[3].length),
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['3'].map(function(app){
         return m('li', [
-          m('.collapsible-header', app.company_name + ': ' + app.title + ' (' + app.applied_on.slice(0,10) + ')'),
+          m('.collapsible-header', app.company_name + ': ' + app.title),
           m('.collapsible-body.center-align', [
-            m('span', 'Active: ' + app.active),
             m("br"),
             m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ' ]', { config: m.route },'Coding Challenge'),
             m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview'),
@@ -100,13 +89,12 @@ exports.view = function(ctrl, options){
   //Begin Onsites (Phase 4)
   //m('div#ggg', [
     m('div#testSmall.m4.s12', [
-    m('h5.center-align', 'Onsite Interviews Scheduled: ' +  options.apps[4].length),
+    m('h5.center-align', 'Onsite Interviews'),
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['4'].map(function(app){
         return m('li', [
-          m('.collapsible-header', app.company_name + ': ' + app.title + ' (' + app.applied_on.slice(0,10) + ')'),
+          m('.collapsible-header', app.company_name + ': ' + app.title),
           m('.collapsible-body.center-align', [
-            m('span', 'Active: ' + app.active),
             m("br"),
             m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
             m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview'),
@@ -121,13 +109,12 @@ exports.view = function(ctrl, options){
 
   //Begin Offers (Phase 5)
   m('div#offers', [
-    m('h5.center-align', 'Offers: ' +  options.apps[5].length),
+    m('h5.center-align', 'Offers'),
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['5'].map(function(app){
         return m('li', [
-          m('.collapsible-header', app.company_name + ': ' + app.title + ' (' + app.applied_on.slice(0,10) + ')'),
+          m('.collapsible-header', app.company_name + ': ' + app.title),
           m('.collapsible-body.center-align', [
-            m('span', 'Active: ' + app.active),
             m("br"),
             m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
             m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview'),

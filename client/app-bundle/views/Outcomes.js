@@ -20,7 +20,6 @@ exports.controller = function() {
 exports.view = function(ctrl) {
   var apps = App.all();
   var messagesData = Message.all();
-  console.log(messagesData)
   return m('.container', [
     m('h1.center-align', 'Student Outcomes'),
     m.component(CurrentApps, {apps: apps}),

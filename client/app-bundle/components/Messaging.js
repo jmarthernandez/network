@@ -6,6 +6,7 @@ var Message   = require('../models/Message.js');
 exports.controller = function () {
   var ctrl = this;
   ctrl.message = Message.vm();
+  ctrl.filter = echo
 
   ctrl.submit = function (e) {
     e.preventDefault();
@@ -13,14 +14,14 @@ exports.controller = function () {
       .then(function(){
         ctrl.message = Message.vm();
       })
-  }
+  };
 
   ctrl.setReceiver = function(e) {
     ctrl.message.sender_uid = e;
   };
 
-  ctrl.filter = function(e) {
-    ctrl.message.sender_uid = e;
+  ctrl.filterMessages = function() {
+    ctrl.filter = propEq('receiver_name', 'Dan Corman')
   };
 
 };
@@ -30,14 +31,14 @@ exports.view = function (ctrl, options) {
   if(ctrl.message.receiver_uid()){
     var user = options.users.filter(function(user){return user.uid === ctrl.message.receiver_uid()});
     ctrl.selectedUser = user[0].name;
-  }
+  };
   ctrl.allMessages = options.messages;
   ctrl.message.sender_uid = options.studentInfo.uid;
   return m( '.row', [
     m('h1.center-align', 'Messages'),
     m('form.col.s12', { onsubmit: ctrl.submit }, [
       m('ul.collection', [
-        options.messages.map(function(message){
+        options.messages.filter(ctrl.filter).map(function(message){
           return m('li.collection-item avatar', [
             m('p', 'From: ' + message.sender_name),
             m('p', 'To: ' + message.receiver_name),
@@ -51,7 +52,7 @@ exports.view = function (ctrl, options) {
             return m('li', [
               m('a', {
                 value: user.uid,
-                onclick: m.withAttr('value', ctrl.message.receiver_uid),
+                onclick: ctrl.filterMessages
               }, user.name),
             ])
           }

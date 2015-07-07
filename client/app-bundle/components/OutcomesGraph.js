@@ -15,7 +15,6 @@ exports.plotter = function(ctrl) { // config class
           // m.startComputation();
           // console.log(Highcharts)
           ctrl.graphOptions.chart.renderTo = elem
-          console.log("Using options:", ctrl.graphOptions)
           var chart = new Highcharts.Chart(ctrl.graphOptions);
           // m.endComputation();
         }
@@ -24,8 +23,8 @@ exports.plotter = function(ctrl) { // config class
 
 exports.view = function(ctrl) { // view
     return  m("html", [ m("body", [
-        m("#plot[style=height:400px]", {config: exports.plotter(ctrl)}), console.log(ctrl),
-        m("p", "some text after plot", console.log(JSON.stringify(ctrl.fetchAll))),
+        m("#plot[style=height:400px]", {config: exports.plotter(ctrl)}),
+        m("p", "some text after plot"),
         ]),
     ])
 };

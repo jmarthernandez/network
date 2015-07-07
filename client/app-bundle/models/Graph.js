@@ -78,7 +78,6 @@ var Graph = module.exports = {
     return m.request({ method: 'GET', url: '/API/interviews/all/'})
                   .then(function (all) {
                     
-                    console.log('all', all);
                   var phases = Graph.appCount(all);
                   var phoneInterview = Graph.phoneCount(all);
                   var onSiteInterview = Graph.onsiteCount(all);
