@@ -13,8 +13,14 @@ exports.controller = function () {
     Company.postCompany(ctrl.addCompany)
       .then(function(){
         ctrl.addCompany = Company.vm();
+        ctrl.back()
       })
   }
+
+  ctrl.back = function(e){
+    window.history.back();
+  }
+};
 };
 
 

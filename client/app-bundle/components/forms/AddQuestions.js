@@ -12,8 +12,15 @@ exports.controller = function () {
     Questions.postQuestions(ctrl.addQuestion)
       .then(function(){
         ctrl.addQuestion = Questions.vm();
+        ctrl.back()
       })
   }
+
+
+  ctrl.back = function(e){
+    window.history.back();
+  }
+};
 };
 
 

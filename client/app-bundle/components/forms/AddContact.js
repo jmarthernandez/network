@@ -13,8 +13,15 @@ exports.controller = function () {
     Contacts.postContacts(ctrl.addContacts)
       .then(function(){
         ctrl.addContacts = Contacts.vm();
+        ctrl.back()
       })
   }
+
+
+  ctrl.back = function(e){
+    window.history.back();
+  }
+};
 };
 
 
