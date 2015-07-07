@@ -12,6 +12,9 @@ exports.view = function(ctrl, options){
   //   ]),
 
  return m('.col.m12.s12', [
+  m('head', [
+    m('link[href=./../public/index.css][rel=stylesheet]')
+  ]),
   m('.row', [
     m('div.col.s12', [
       m('ul', {class: 'tabs', config: materialize.tabInit}, [
@@ -50,7 +53,8 @@ exports.view = function(ctrl, options){
 
   //Begin Phone Interviews (Phase 2)
   m('div#events', [
-    m('h5.center-align', 'Phone Interview Scheduled: ' +  options.apps[2].length),
+    m('div#testSmall', [
+    m('h5.center-align', 'Phone Interviews Scheduled: ' +  options.apps[2].length),
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['2'].map(function(app){
         return m('li', [
@@ -66,11 +70,14 @@ exports.view = function(ctrl, options){
         ])
       })
     ]),
-  ]), //End Phone Interviews (Phase 2)
+    ]),  //End #testSmall
+  //]), //End Phone Interviews (Phase 2)
 
   //Begin Onsites (Phase 3)
-  m('div#events', [
-    m('h5.center-align', 'Coding Challenges/Tech Interviews: ' +  options.apps[3].length),
+  //m('div#gg', [
+    m('div#testSmall', [
+    m('h5.center-align', 'Challenges and Tech Interviews: ' +  options.apps[3].length),
+    //m('h5.center-align', 'Coding Challenges/Tech Interviews: ' +  options.apps[3].length),
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['3'].map(function(app){
         return m('li', [
@@ -86,11 +93,13 @@ exports.view = function(ctrl, options){
         ])
       })
     ]),
-  ]), //End Interviews (Phase 3)
+    ]),  //End #testSmall
+  //]), //End Interviews (Phase 3)
 
   //Begin Onsites (Phase 4)
-  m('div#events', [
-    m('h5.center-align', 'Onsites: ' +  options.apps[4].length),
+  //m('div#ggg', [
+    m('div#testSmall', [
+    m('h5.center-align', 'Onsite Interviews Scheduled: ' +  options.apps[4].length),
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['4'].map(function(app){
         return m('li', [
@@ -106,7 +115,8 @@ exports.view = function(ctrl, options){
         ])
       })
     ]),
-  ]), //End Onsites (Phase 4)
+    ]),  //End #testSmall
+  ]), //End Onsites (Phase 4)  //End#Events
 
   //Begin Offers (Phase 5)
   m('div#offers', [

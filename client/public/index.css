@@ -11,14 +11,15 @@
   padding: 0 1rem;
   background-color: #fff;
   border-bottom: 1px solid #ddd; }
-  .collapsible-header i {
-    width: 2rem;
-    font-size: 1.6rem;
-    line-height: 2rem;
-    display: block;
-    float: left;
-    text-align: center;
-    margin-right: 1rem; }
+
+.collapsible-header i {
+  width: 2rem;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  display: block;
+  float: left;
+  text-align: center;
+  margin-right: 1rem; }
 
     
 
@@ -90,3 +91,8 @@ ul {
 	display: inline;
 }*/
 
+#testSmall{
+	width: 33%;
+	display: inline-block;
+
+}
