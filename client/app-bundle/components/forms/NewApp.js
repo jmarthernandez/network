@@ -8,7 +8,6 @@ exports.controller = function () {
   ctrl.newApp = NewApp.vm();
 
   ctrl.submit  = function (e) {
-    console.log('hi')
     e.preventDefault();
     NewApp.postNewApplication(ctrl.newApp).then(function () {
       ctrl.newApp = NewApp.vm();
@@ -66,7 +65,7 @@ exports.view = function (ctrl, options) {
             config: materialize.pickDates,
             value: ctrl.newApp.applied_on(),
             onchange: m.withAttr('value', ctrl.newApp.applied_on)
-          },  console.log(JSON.stringify(ctrl.newApp))),
+          }),
         ]),
       ]),
       m('.row.center-align', [
