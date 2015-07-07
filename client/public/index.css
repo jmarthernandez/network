@@ -96,3 +96,16 @@ ul {
 	display: inline-block;
 
 }
+
+
+@media (min-width: 400px) and (max-width: 699px) {
+  #testSmall {
+    width: 100%;
+    display: block;
+  } 
+}
+
+
+
+
+
