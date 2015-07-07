@@ -141,8 +141,8 @@ AutocompleteInput.view = function (ctrl, attrs) {
  
   function renderOptions (query) {
     if (ctrl.options().length === 0 && query !== null) {
-      return m('.row.absolute',
-        m('li.right-align', 
+      return m('.row.absolute.nothing',
+        m('li.right-align.nothing', 
           m('i', "No matches found.")
         ))
    	} else {

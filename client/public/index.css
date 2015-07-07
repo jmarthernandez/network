@@ -63,6 +63,11 @@
 	position: relative;
 }
 
+.nothing{
+	bottom: -25px;
+
+}
+
 
 .absolute{
 	position: absolute;
