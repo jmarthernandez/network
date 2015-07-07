@@ -16,8 +16,7 @@ exports.controller = function () {
   ctrl.fetchInfo = NewApp.fetchInfo();
 };
 
-exports.view = function (ctrl, options) {
-  console.log(ctrl)
+exports.view = function (ctrl) {
 
   var modelData = NewApp.all(); 
 
