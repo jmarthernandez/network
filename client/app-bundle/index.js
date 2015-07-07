@@ -1,3 +1,4 @@
+require('../../ext')
 var m               = require('mithril');
 
 // Helpers
