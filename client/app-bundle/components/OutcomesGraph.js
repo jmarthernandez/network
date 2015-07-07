@@ -4,12 +4,7 @@ var Graph = require('../models/Graph.js');
 
 exports.controller = function () {
   var ctrl = this;
-
-  ctrl.appFetch = Graph.fetchApplication().then(function(appData) {
-    ctrl.graphOptions = graphOptions(appData);
-  });
-
-   ctrl.fetchAll = Graph.fetchAll().then(function(appData) {
+  ctrl.fetchAll = Graph.fetchAll().then(function(appData) {
     ctrl.graphOptions = graphOptions(appData);
   })
 }
@@ -68,7 +63,6 @@ function graphOptions (graphData) {
             name: 'Students',
             data: [
                 ['Applications Submitted',  graphData.submitted],
-                // ['Applications Submitted',  submitApp, undefined],
                 [' Phones Screens',       graphData.phoneScreens],
                 ['Onsite Interviews', graphData.interviews],
                 ['Offers',    graphData.offers],

@@ -3,28 +3,61 @@ var h           = require('highcharts')
 
 var Graph = module.exports = {
 
-  appCount: function(applications) {
+  appCount: function(all) {
     var count = 0;
-    var apps = applications.Application;
+    var apps = all.Interviews;
     for(var i = 0; i < apps.length; i++) {
       var app = apps[i];
-      if(app.phase === '1') {
+      if(app.phase === '1' && app.active === true) {
+        count++
+      }
+    }
+    return count;
+  },
+  phoneCount: function(all) {
+    var count = 0;
+    for(var i = 0; i < all.Interviews.length; i++) {
+      var interview = all.Interviews[i];
+      if(interview.phase === '2' && interview.active === true) {
+        count++
+      }
+    }
+    return count;
+  },
+  onsiteCount: function(all) {
+    var count = 0;
+    var Interviews = all.Interviews
+    for(var i = 0; i < Interviews.length; i++) {
+      var interview = Interviews[i];
+      if(interview.phase === '3' && interview.active === true) {
+        count++
+      }
+    }
+    return count;
+  },
+  offerCount: function(all) {
+    var count = 0;
+    var Interviews = all.Interviews
+    for(var i = 0; i < Interviews.length; i++) {
+      var interview = Interviews[i];
+      if(interview.phase === '4' && interview.active === true) {
+        count++
+      }
+    }
+    return count;
+  },
+  acceptedOffers: function(all) {
+    var count = 0;
+    var Interviews = all.Interviews
+    for(var i = 0; i < Interviews.length; i++) {
+      var interview = Interviews[i];
+      if(interview.phase === '5' && interview.active === true) {
         count++
       }
     }
     return count;
   },
 
-  phoneCount: function(interviews) {
-    var count = 0;
-    for(var i = 0; i < interviews.length; i++) {
-      var interview = interviews[i];
-      if(interview.type === 'phone') {
-        count++
-      }
-    }
-    return count;
-  },
   // fetchApplication: function(req) {
   //   return m.request({ method: 'GET', url: '/API/applications/'})
   //                 .then(function (applications) {
@@ -46,24 +79,23 @@ var Graph = module.exports = {
                   .then(function (all) {
                     
                     console.log('all', all);
-                  // var phases = Graph.appCount(applications);
+                  var phases = Graph.appCount(all);
+                  var phoneInterview = Graph.phoneCount(all);
+                  var onSiteInterview = Graph.onsiteCount(all);
+                  var offer = Graph.offerCount(all);
+                  var acceptOffer = Graph.acceptedOffers(all);
 
 
                     // console.log(Graph.plot().series[0].data[0][1])
                     return {
                       submitted: phases,
-                      phoneScreens: 4064,
-                      interviews: 1987,
-                      offers: 976,
-                      acceptedOffers: 846,
+                      phoneScreens: phoneInterview,
+                      interviews: onSiteInterview,
+                      offers: offer,
+                      acceptedOffers: acceptOffer,
                     }
                   })
     },
-
-  // fetchInterview: function (req) {
-  //   return m.request({ methods: 'GET', url: '/API/interviews/' })
-  //     .then(function(interviews) {});
-  // },
 };
 
 
