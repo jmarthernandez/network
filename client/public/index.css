@@ -59,7 +59,14 @@
 	border-radius: 50px;
 }*/
 
+.relative{
+	position: relative;
+}
 
+
+.absolute{
+	position: absolute;
+}
 
 /*From Client/Views/Outcomes.css
 .container{

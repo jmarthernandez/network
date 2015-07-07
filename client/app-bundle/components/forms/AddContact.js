@@ -25,7 +25,7 @@ exports.view = function (ctrl) {
     m('.row', [
       m('a.btn[href=/profile]', { config: m.route }, 'Back to profile')
     ]),
-    m('h4.center-align', 'Add a Contacts'),
+    m('h4.center-align', 'Add a Contact'),
     m('.row', [
       m('.input-field.col.s12.m4', [
         m('input[type=text]', {

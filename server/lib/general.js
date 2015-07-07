@@ -49,9 +49,9 @@ var General = module.exports = {
       retrieveByName: function(string, id){
         console.log(string, "SWIIING")
         if (string.length < 4){
-          return db.select('*').from(nodeLowerCase).where('name', 'ILIKE', '%'+string+'%')
+          return db.select('*').from(nodeLowerCase).where('name', 'ILIKE', '%'+string+'%').limit('3')
         } else {
-          return db.select('*').from(nodeLowerCase).whereRaw('? % name', string)
+          return db.select('*').from(nodeLowerCase).whereRaw('? % name', string).limit('3')
         } 
       },
 
