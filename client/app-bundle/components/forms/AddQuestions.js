@@ -12,7 +12,7 @@ exports.controller = function () {
     Questions.postQuestions(ctrl.addQuestion)
       .then(function(){
         ctrl.addQuestion = Questions.vm();
-        ctrl.back()
+        ctrl.back();
       })
   }
 
@@ -20,7 +20,6 @@ exports.controller = function () {
   ctrl.back = function(e){
     window.history.back();
   }
-};
 };
 
 
@@ -43,7 +42,7 @@ exports.view = function (ctrl, options) {
     ]),
     m('.row.center-align', [
       m('button.btn.waves-effect.waves-light', 'Submit',  [
-        m('i.mdi-content-send.right[href=/'+ options.route + '/]')
+        m('i.mdi-content-send.right')
       ])
     ])
   ])

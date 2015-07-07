@@ -22,7 +22,6 @@ exports.controller = function () {
     window.history.back();
   }
 };
-};
 
 
 
@@ -59,7 +58,7 @@ exports.view = function (ctrl, options) {
     ]),
     m('.row.center-align', [
       m('button.btn.waves-effect.waves-light', 'Submit',  [
-        m('i.mdi-content-send.right[href=/'+ options.route + '/]')
+        m('i.mdi-content-send.right')
       ])
     ])
   ])
