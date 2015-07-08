@@ -70,17 +70,18 @@ var Applications = module.exports = General.access('applications');
 
 
 
-  module.exports.addCount = function(apps){
-    var newObj = {};
-     (function(){ return db('interviews.app_id').from('interviews')})().then(function(interviews){
-      apps.map(function(app){
+  module.exports.addCount = function(apps, callback){
+
+      return db('interviews.app_id').from('interviews').then(function(interviews){
+      apps.forEach(function(app){
         interviews.forEach(function(interview){
+
           if(app.app_id === interview.app_id){
             app.count ? app.count++ : app.count = 1;
           }    
       });
     });
+    callback(apps);
   })
-     newObj = apps;
-     return newObj;
+     
 }

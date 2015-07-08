@@ -23,10 +23,19 @@ router.post('/', function(req, res){
 router.get('/:id', function(req, res){
   if (!req.body) return res.sendStatus(400);
     if (req.params.id === 'allUser' || req.params.id === 'alluser'){
-      Applications.retrieveUserWithCompany(req.user).then(function(apps){ res.send({Application: Applications.addCount(apps)})});
+      Applications.retrieveUserWithCompany(req.user).then(function(apps){ 
+          Applications.addCount(apps, function(x){res.send({Application: x})
+        })
+      });
     } else if(req.params.id === 'all'){
-      Applications.retrieveAllWithCompany().then(function(apps){ res.send({Application: Applications.addCount(apps)})});
+        Applications.retrieveAllWithCompany().then(function(apps){ 
+          Applications.addCount(apps, function(x){res.send({Application: x})
+        })
+      });
     } else {
-      Applications.retrieveOne(req.params.id).then(function(apps){ res.send({Application: Applications.addCount(apps)})});
+      Applications.retrieveOne(req.params.id).then(function(apps){ 
+        Applications.addCount(apps, function(x){res.send({Application: x})
+      })
+    });
   }
 })
