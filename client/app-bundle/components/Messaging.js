@@ -23,14 +23,21 @@ exports.controller = function () {
 
   ctrl.filterMessages = function(e) {
     var id = this.getAttribute('value');
+    var user = this.getAttribute('me');
+    var other = this.text;
     ctrl.message.receiver_uid(id)
-    ctrl.filter = propEq('receiver_name', 'Dan Corman')
-  };
 
-};
+    ctrl.filter = function(message){
+
+      if((message.receiver_name ===  other && message.sender_name === user) || 
+        (message.sender_name === other && message.receiver_name === user))
+        return message;
+      };
+    };
+  }
 
 exports.view = function (ctrl, options) {
-  console.log(ctrl.message.receiver_uid())
+  console.log(options.studentInfo)
   ctrl.selectedUser = '';
   if(ctrl.message.receiver_uid()){
     var user = options.users.filter(function(user){return user.uid === ctrl.message.receiver_uid()});
@@ -56,6 +63,7 @@ exports.view = function (ctrl, options) {
             return m('li', [
               m('a', {
                 value: user.uid,
+                me: options.studentInfo.name,
                 onclick: ctrl.filterMessages
               }, user.name),
             ])
