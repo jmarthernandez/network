@@ -50,7 +50,7 @@ exports.view = function(ctrl, options){
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['2'].map(function(app){
         return m('li', [
-          m('.collapsible-header', app.company_name + ': ' + app.title),
+          m('.collapsible-header', {class: 'green lighten-' + (5 -  app.count) }, app.company_name + ': ' + app.title),
           m('.collapsible-body.center-align', [
             m("br"),
             m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
@@ -72,7 +72,7 @@ exports.view = function(ctrl, options){
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['3'].map(function(app){
         return m('li', [
-          m('.collapsible-header', app.company_name + ': ' + app.title),
+          m('.collapsible-header', {class: 'green lighten-' + (5 -  app.count) }, app.company_name + ': ' + app.title),
           m('.collapsible-body.center-align', [
             m("br"),
             m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ' ]', { config: m.route },'Coding Challenge'),
@@ -93,7 +93,7 @@ exports.view = function(ctrl, options){
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['4'].map(function(app){
         return m('li', [
-          m('.collapsible-header', app.company_name + ': ' + app.title),
+          m('.collapsible-header', {class: 'green lighten-' + (5 -  app.count) }, app.company_name + ': ' + app.title),
           m('.collapsible-body.center-align', [
             m("br"),
             m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
@@ -113,7 +113,7 @@ exports.view = function(ctrl, options){
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['5'].map(function(app){
         return m('li', [
-          m('.collapsible-header', app.company_name + ': ' + app.title),
+          m('.collapsible-header', {class: 'green lighten-' + (5 -  app.count) }, app.company_name + ': ' + app.title),
           m('.collapsible-body.center-align', [
             m("br"),
             m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
