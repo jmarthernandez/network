@@ -7,7 +7,6 @@ exports.controller = function () {
 
 	ctrl.fetchAll = Graph.fetchAll().then(function(appData) {
     	ctrl.graphOptions = graphOptions(appData);
-    	console.log('SP')
   })
 };
 

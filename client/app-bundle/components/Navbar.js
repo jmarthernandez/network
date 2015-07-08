@@ -8,7 +8,7 @@ exports.controller = function () {
 };
 
 exports.view = function (ctrl, user) {
-  var links = [
+    var links = [
     {title: 'Outcomes', url: '/outcomes'},
     {title: 'Students', url: '/profile'},
     {title: 'Sign Out', url: '/signout'}
@@ -28,11 +28,6 @@ exports.view = function (ctrl, user) {
           })),
         ]),
         m('ul#mobile-demo.side-nav', [
-          // m('li', links.map(function(link) {
-          //   return m('li',
-          //     m('a', { href: link.url, config: m.route }, link.title)
-          //   )
-          // })), //Does not work in this format
           m('li', [
             m('a[href="/outcomes"]', { config: m.route }, "Outcomes"),
             m('a[href="/profile"]', { config: m.route }, "Profile"),

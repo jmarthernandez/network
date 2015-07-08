@@ -27,9 +27,6 @@
 }
 
 .profile3{
-/*	height: 30%;
-	width: 30%;*/
-	/*height: 30%;*/
 	border: 1px black solid;
 }
 
@@ -56,23 +53,6 @@
 .absolute{
 	position: absolute;
 }
-
-/*From Client/Views/Outcomes.css
-.container{
-	background-color: 'red';
-	display: block;
-	height: '300px';
-}
-
-.words{
-	color: red;
-}*/
-
-/*From Components/Navbar.css
-ul {
-	display: inline;
-}*/
-
 .form-btn {
   width: 200px;
 }
@@ -86,12 +66,11 @@ ul {
   width: 90%;
 }
 
-
 .navPic{
 	height: 64px;
   }
 
-@media (min-width: 400px) and (max-width: 699px) {
+@media (min-width: 400px) and (max-width: 600px) {
   #testSmall {
     width: 100%;
     display: block;
