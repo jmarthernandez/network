@@ -33,9 +33,9 @@ exports.view = function (ctrl, user) {
           //   )
           // })), //Does not work in this format
           m('li', [
-            m('a[href="/?/outcomes"]', "Outcomes"),
-            m('a[href="/?/profile"]', "Profile"),
-            m('a[href="/?/signout"]', "Sign Out"),
+            m('a[href="/outcomes"]', { config: m.route }, "Outcomes"),
+            m('a[href="/profile"]', { config: m.route }, "Profile"),
+            m('a[href="/signout"]', { config: m.route }, "Sign Out"),
           ]), 
         ]),
       ])
