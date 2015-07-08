@@ -6,7 +6,7 @@ exports.view = function(ctrl, options){
 
  return m('.col.m12.s12', [
   m('head', [
-    m('link[href=./../public/index.css][rel=stylesheet]')
+    m('link[href=../../public/index.css][rel=stylesheet]')
   ]),
   m('.row', [
     m('div.col.s12', [

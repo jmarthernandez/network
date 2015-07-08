@@ -21,11 +21,8 @@
   text-align: center;
   margin-right: 1rem; }
 
-    
-
 .buffer{
 	height: 20px;
-
 	display: block;
 }
 
@@ -40,25 +37,9 @@
 	height: 33%;
 }
 
-/*body{
-	background-image: url("/images/image1.jpg");
-	background-size: 100%;
-}*/
-
-/*#gh{
-	background-color: white;
-	color: black;
-	opacity: 0.1;
-	border-radius: 10px;
-}*/
-
 #gh2{
 	background-image: url("/images/image1.jpg");
 }
-
-/*#jk{
-	border-radius: 50px;
-}*/
 
 .relative{
 	position: relative;
@@ -66,9 +47,7 @@
 
 .nothing{
 	bottom: -25px;
-
 }
-
 
 .absolute{
 	position: absolute;
@@ -80,7 +59,6 @@
 	display: block;
 	height: '300px';
 }
-
 
 .words{
 	color: red;
@@ -98,7 +76,6 @@ ul {
 #testSmall{
 	width: 33%;
 	display: inline-block;
-
 }
 
 .container {
