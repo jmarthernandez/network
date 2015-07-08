@@ -7,7 +7,7 @@ exports.controller = function () {
   var ctrl = this;
 };
 
-exports.view = function (ctrl) {
+exports.view = function (ctrl, user) {
   var links = [
     {title: 'Outcomes', url: '/outcomes'},
     {title: 'Students', url: '/profile'},
@@ -15,7 +15,7 @@ exports.view = function (ctrl) {
   ];
   return m('nav.teal.darken-1', [
     m('.nav-wrapper', [
-      m('a[href=/?/profile]#brand-logo', 'MKS-Network', [
+        m('img.navPic[src=' + user.avatar_url +']'),
         //m('a[href=#]', {'data-activates'="mobile-demo", config: materialize.navDrop}), 
         m('a[data-activates=mobile-demo][href=#].right', {class: 'button-collapse', config: materialize.navDrop}, [ 
           m('i.mdi-action-view-headline')]), 
@@ -40,5 +40,4 @@ exports.view = function (ctrl) {
         ]),
       ])
     ])
-  ]);
 };

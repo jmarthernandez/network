@@ -82,14 +82,19 @@ ul {
   width: 90%;
 }
 
+
+.navPic{
+	height: 64px;
+  }
+
 @media (min-width: 400px) and (max-width: 699px) {
   #testSmall {
     width: 100%;
     display: block;
   } 
+  .navPic{
+	height: 56px;
+  }
 }
-
-
-
 
 
