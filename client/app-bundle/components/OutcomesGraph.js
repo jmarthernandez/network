@@ -36,6 +36,9 @@ function graphOptions (graphData) {
             type: 'funnel',
             marginRight: 100
         },
+        credits: {
+            enabled: false
+        },
         title: {
             text: 'Job Search Tracker',
             x: -50
