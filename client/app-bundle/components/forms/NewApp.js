@@ -10,7 +10,6 @@ exports.controller = function () {
   ctrl.submit  = function (e) {
     e.preventDefault();
     NewApp.postNewApplication(ctrl.newApp).then(function () {
-      console.log('in submit')
       ctrl.newApp = NewApp.vm();
     });
   }
