@@ -7,6 +7,7 @@ exports.controller = function () {
   var ctrl = this;
   ctrl.message = Message.vm();
   ctrl.filter = echo
+  ctrl.message.receiver_uid = m.prop(null)
 
   ctrl.submit = function (e) {
     e.preventDefault();
@@ -20,13 +21,16 @@ exports.controller = function () {
     ctrl.message.sender_uid = e;
   };
 
-  ctrl.filterMessages = function() {
+  ctrl.filterMessages = function(e) {
+    var id = this.getAttribute('value');
+    ctrl.message.receiver_uid(id)
     ctrl.filter = propEq('receiver_name', 'Dan Corman')
   };
 
 };
 
 exports.view = function (ctrl, options) {
+  console.log(ctrl.message.receiver_uid())
   ctrl.selectedUser = '';
   if(ctrl.message.receiver_uid()){
     var user = options.users.filter(function(user){return user.uid === ctrl.message.receiver_uid()});
