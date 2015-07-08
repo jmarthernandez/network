@@ -37,6 +37,10 @@
 	height: 33%;
 }
 
+#bnm{
+  margin-left: 10px;
+}
+
 #gh2{
 	background-image: url("/images/image1.jpg");
 }
