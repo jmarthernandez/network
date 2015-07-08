@@ -37,7 +37,6 @@ exports.controller = function () {
   }
 
 exports.view = function (ctrl, options) {
-  console.log(options.studentInfo)
   ctrl.selectedUser = '';
   if(ctrl.message.receiver_uid()){
     var user = options.users.filter(function(user){return user.uid === ctrl.message.receiver_uid()});
