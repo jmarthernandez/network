@@ -56,7 +56,10 @@ exports.view = function (ctrl, options) {
           placeholder: 'Name',
           optionView: function (contacts) { 
             return contacts.name + "  -  " + contacts.phone_number + "  -  " + contacts.company_name
-           }
+           },
+           route: m('a.waves-effect.waves-light.btn[href=/contacts/' + options.app_id + ']', { config: m.route }, 'Add a Contact')
+           
+
         }),
       ]),
       m('.row',

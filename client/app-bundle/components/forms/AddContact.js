@@ -53,7 +53,9 @@ exports.view = function (ctrl) {
         placeholder: 'Companies',
         optionView: function (company) {
           return company.name + "  -  " + company.address + "  -  " + company.url
-        }
+        },
+        route: m('a.waves-effect.waves-light.btn[href=/company/]', { config: m.route }, 'Add a Company')
+
       })
     ]),
     m('.row.center-align', [
