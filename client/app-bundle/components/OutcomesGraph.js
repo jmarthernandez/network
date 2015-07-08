@@ -10,7 +10,7 @@ exports.controller = function () {
 }
 
 exports.plotter = function(ctrl) { // config class
-    return function(elem,isin) {
+    return function(elem , isin) {
         if(!isin) {
           // m.startComputation();
           // console.log(Highcharts)
