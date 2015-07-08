@@ -5,6 +5,7 @@ var CurrentApps     = require('../components/CurrentApps.js');
 var Messaging       = require('../components/Messaging.js');
 var Graph           = require('../components/OutcomesGraph.js')  
 var StudentProgress = require('../components/StudentProgress.js')
+var Carosel         = require('../components/GraphCarosel.js')
 
 //Models
 var App             = require('../models/App.js');
@@ -24,8 +25,7 @@ exports.view = function(ctrl) {
   return m('.container', [
     m('h1.center-align', 'Student Outcomes'),
     m.component(CurrentApps, {apps: apps}),
-    m.component(Graph),
-    m.component(StudentProgress),
+    m.component(Carosel),
     m.component(Messaging, {
       messages: messagesData.messages,
       users: messagesData.users,
