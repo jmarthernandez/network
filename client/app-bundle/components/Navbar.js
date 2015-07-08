@@ -15,7 +15,8 @@ exports.view = function (ctrl, user) {
   ];
   return m('nav.teal.darken-1', [
     m('.nav-wrapper', [
-        m('a[href="/?/profile"]', m('img.navPic[src=' + user.avatar_url +']')),
+        m('a[href="/?/profile"]', m('img.navPic[src=' + user.avatar_url +'].circle.left')),
+        m('a.left#bnm', user.name), 
         //m('a[href=#]', {'data-activates'="mobile-demo", config: materialize.navDrop}), 
         m('a[data-activates=mobile-demo][href=#].right', {class: 'button-collapse', config: materialize.navDrop}, [ 
           m('i.mdi-action-view-headline')]), 

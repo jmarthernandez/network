@@ -48,8 +48,8 @@ function graphOptions (graphData) {
                     color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black',
                     softConnector: true
                 },
-                neckWidth: '30%',
-                neckHeight: '25%'
+                neckWidth: '0%',
+                neckHeight: '0%'
 
                 //-- Other available options
                 // height: pixels or percent
