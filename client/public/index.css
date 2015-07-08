@@ -95,6 +95,42 @@
   width: 25px;
 }
 
+
+.dropdown-content {
+  background-color: #FFFFFF;
+  margin: 0;
+  display: none;
+  min-width: 100px;
+  max-height: 650px;
+  overflow-y: auto;
+  opacity: 0;
+  position: absolute;
+  white-space: nowrap;
+  z-index: 1;
+  will-change: width, height; 
+}
+
+.dropdown-content li {
+  clear: both;
+  color: rgba(0, 0, 0, 0.87);
+  cursor: pointer;
+  line-height: 1.5rem;
+  width: 100%;
+  text-align: left;
+  text-transform: none; 
+}
+
+.dropdown-content li:hover, .dropdown-content li.active {
+  background-color: #eee; 
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+  font-size: 1.2rem;
+  color: #26a69a;
+  display: block;
+  padding: 1rem 1rem; 
+}
+
 /*Messaging*/
 
 .message {
@@ -116,3 +152,7 @@
 .sender {
   background: yellow;
 }
+
+
+
+

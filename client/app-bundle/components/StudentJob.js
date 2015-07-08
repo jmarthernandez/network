@@ -30,39 +30,27 @@ exports.view = function(ctrl, options){
     m('ul.collapsible#shorten[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       options.apps['1'].map(function(app){
         return m('li', [
-          m('div', app.company_name + ': ' + app.title, 
-            m('a.dropdown-button[data-activates=dropdown1]', {config: materialize.dropDowns}, "Drop Me!"), [
-            m('ul.dropdown-content#dropdown1'), [
-              m('li[href=#!]', "One!")]]),
-          m('.collapsible-body.center-align', [
-            m("br"),
-            m('a.waves-effect.waves-light.btn[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen'),
-            m('a.waves-effect.waves-light.btn[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen'),
-            m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
-            m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
-          ])
+          m('div.collapsible-header', app.company_name + ': ' + app.title,
+            m('a.dropdown-button[href=#][data-activates=dropdown1]', {config: materialize.dropDowns}, "update")), 
+              m('ul#dropdown1', {class:'dropdown-content'}, [
+                m('li', [
+                  m('a.waves-effect.waves-light[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen'),
+                  m('a.waves-effect.waves-light[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen'),
+                  m('a.waves-effect.waves-light[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
+                  m('a.waves-effect.waves-light[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
+                ])
+              ])
+          // m('.collapsible-body.center-align', [
+          //   m("br"),
+          //   m('a.waves-effect.waves-light.btn[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen'),
+          //   m('a.waves-effect.waves-light.btn[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen'),
+          //   m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
+          //   m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
+          // ])
         ])
       })
     ]), 
   ]), //End Active Applications (Phase I)
-
-
-
-  //   <!-- Dropdown Trigger -->
-  // <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>
-
-  // <!-- Dropdown Structure -->
-  // <ul id='dropdown1' class='dropdown-content'>
-  //   <li><a href="#!">one</a></li>
-  //   <li><a href="#!">two</a></li>
-  //   <li class="divider"></li>
-  //   <li><a href="#!">three</a></li>
-  // </ul>
-        
-
-
-
-
 
   //Begin Phone Interviews (Phase 2)
   m('div#events', [
@@ -154,6 +142,15 @@ exports.view = function(ctrl, options){
       })
     ]),//ends ul collaps
   ])  //End Offers (Phase 5)
+
+  //   m('ul#dropdown1', {class:'dropdown-content'}, [
+  //   m('li', [
+  //     m('a.waves-effect.waves-light[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen'),
+  //     m('a.waves-effect.waves-light[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen'),
+  //     m('a.waves-effect.waves-light[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
+  //     m('a.waves-effect.waves-light[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
+  //   ])
+  // ]),
 
   ]); //Ends Return M .col.m9.s12'
 };
