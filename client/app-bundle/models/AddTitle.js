@@ -15,7 +15,6 @@ var AddTitle = module.exports = {
   },
 
   postTitle: function(data){
-      console.log(data, " I AM OVER HERE!")
     return m.request({ method: 'POST', url: 'api/titles', data: data })
   },
   // Makes messages accessible to the view

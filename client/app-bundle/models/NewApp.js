@@ -34,7 +34,6 @@ var NewApp = module.exports = {
   fetchAutocomplete: function() {
     m.request({ method: 'GET', url: '/API/companies/' })
       .then(function(companies) {
-        console.log(companies,'in helper')
         StudentApp.autocomplete = companies.Companies;
       });
   },
