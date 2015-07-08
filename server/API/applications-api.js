@@ -1,4 +1,4 @@
-var Applications = require('../models/Application');
+var Applications = require('../models/Application.js');
 var express = require('express')
 
 
@@ -23,10 +23,10 @@ router.post('/', function(req, res){
 router.get('/:id', function(req, res){
   if (!req.body) return res.sendStatus(400);
     if (req.params.id === 'allUser' || req.params.id === 'alluser'){
-      Applications.retrieveUserWithCompany(req.user).then(function(apps){ res.send({Application: apps})});
+      Applications.retrieveUserWithCompany(req.user).then(function(apps){ res.send({Application: Applications.addCount(apps)})});
     } else if(req.params.id === 'all'){
-      Applications.retrieveAllWithCompany().then(function(apps){ res.send({Application: apps})});
+      Applications.retrieveAllWithCompany().then(function(apps){ res.send({Application: Applications.addCount(apps)})});
     } else {
-      Applications.retrieveOne(req.params.id).then(function(apps){ res.send({Application: apps})});
+      Applications.retrieveOne(req.params.id).then(function(apps){ res.send({Application: Applications.addCount(apps)})});
   }
 })

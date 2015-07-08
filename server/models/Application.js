@@ -66,3 +66,21 @@ var Applications = module.exports = General.access('applications');
     attrs.created_at = new Date();
     return db('applications').insert(attrs).return(attrs);
   };
+
+
+
+
+  module.exports.addCount = function(apps){
+    var newObj = {};
+     (function(){ return db('interviews.app_id').from('interviews')})().then(function(interviews){
+      apps.map(function(app){
+        interviews.forEach(function(interview){
+          if(app.app_id === interview.app_id){
+            app.count ? app.count++ : app.count = 1;
+          }    
+      });
+    });
+  })
+     newObj = apps;
+     return newObj;
+}
