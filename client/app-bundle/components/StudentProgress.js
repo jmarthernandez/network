@@ -41,6 +41,9 @@ function graphOptions(graphData) {
             plotShadow: false,
             type: 'pie'
         },
+        credits: {
+            enabled: false
+        },
         title: {
             text: 'Student Job Search Progress'
         },
