@@ -55,6 +55,12 @@ exports.modalClick = function(elem, isInitialized){
   );
 };
 
+exports.navDrop = function(elem, isInitialized){
+	if (isInitialized) return;
+
+	$(elem).sideNav();
+		
+}
 
 
 
