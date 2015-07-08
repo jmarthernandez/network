@@ -33,10 +33,10 @@ exports.view = function(ctrl, options){
           m('div.collapsible-header', app.company_name + ': ' + app.title),
           m('.collapsible-body.center-align', [
             m("br"),
-            m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
-            m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview'),
             m('a.waves-effect.waves-light.btn[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen'),
-            m('a.waves-effect.waves-light.btn[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen')
+            m('a.waves-effect.waves-light.btn[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen'),
+            m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
+            m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
           ])
         ])
       })
@@ -75,10 +75,10 @@ exports.view = function(ctrl, options){
           m('.collapsible-header', {class: 'green lighten-' + (5 -  app.count) }, app.company_name + ': ' + app.title),
           m('.collapsible-body.center-align', [
             m("br"),
-            m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ' ]', { config: m.route },'Coding Challenge'),
-            m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview'),
             m('a.waves-effect.waves-light.btn[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen'),
-            m('a.waves-effect.waves-light.btn[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen')
+            m('a.waves-effect.waves-light.btn[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen'),
+            m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
+            m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
           ])
         ])
       })
@@ -96,10 +96,10 @@ exports.view = function(ctrl, options){
           m('.collapsible-header', {class: 'green lighten-' + (5 -  app.count) }, app.company_name + ': ' + app.title),
           m('.collapsible-body.center-align', [
             m("br"),
-            m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
-            m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview'),
             m('a.waves-effect.waves-light.btn[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen'),
-            m('a.waves-effect.waves-light.btn[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen')
+            m('a.waves-effect.waves-light.btn[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen'),
+            m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
+            m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
           ])
         ])
       })
@@ -116,10 +116,10 @@ exports.view = function(ctrl, options){
           m('.collapsible-header', {class: 'green lighten-' + (5 -  app.count) }, app.company_name + ': ' + app.title),
           m('.collapsible-body.center-align', [
             m("br"),
-            m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
-            m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview'),
             m('a.waves-effect.waves-light.btn[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen'),
-            m('a.waves-effect.waves-light.btn[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen')
+            m('a.waves-effect.waves-light.btn[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen'),
+            m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
+            m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
           ])
         ])
       })
