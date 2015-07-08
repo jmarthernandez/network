@@ -11,18 +11,24 @@ exports.view = function (ctrl, user) {
   var links = [
     {title: 'Outcomes', url: '/outcomes'},
     {title: 'Students', url: '/profile'},
-    {title: 'Sign Out', url: '/signout'}
+    {title: 'Sign Out', url: '/signout'},
   ];
   return m('nav.teal.darken-1', [
     m('.nav-wrapper', [
-        m('img.navPic[src=' + user.avatar_url +']'),
-
+      m('a[href=/?/profile]#brand-logo', 'MKS-Network', [
         //m('a[href=#]', {'data-activates'="mobile-demo", config: materialize.navDrop}), 
         m('a[data-activates=mobile-demo][href=#].right', {class: 'button-collapse', config: materialize.navDrop}, [ 
           m('i.mdi-action-view-headline')]), 
         m('ul#nav-mobile.right.hide-on-med-and-down', [
           m('li', links.map(function(link) {
             return m('li',
+<<<<<<< HEAD
+              m('a', { href: link.url, config: m.route }, link.title), 
+        m('img.responsive-img.navPic[src=' + user.avatar_url +']'),
+            )},
+          ))
+        ])
+=======
               m('a', { href: link.url, config: m.route }, link.title) 
             )
           })),
@@ -39,6 +45,8 @@ exports.view = function (ctrl, user) {
             m('a[href="/?/signout"]', "Sign Out"),
           ]), 
         ]),
+>>>>>>> 8e74cd46b855ceaf3deee210a4ef051196d40e4f
       ])
+    ])
   ]);
 };
