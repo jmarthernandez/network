@@ -10,6 +10,7 @@ exports.controller = function () {
   ctrl.submit  = function (e) {
     e.preventDefault();
     NewApp.postNewApplication(ctrl.newApp).then(function () {
+      console.log('in submit')
       ctrl.newApp = NewApp.vm();
     });
   }
@@ -17,8 +18,6 @@ exports.controller = function () {
 };
 
 exports.view = function (ctrl) {
-
-  var modelData = NewApp.all(); 
 
   return m('.row', [
     m('.row', [
