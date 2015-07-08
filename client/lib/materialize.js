@@ -62,6 +62,13 @@ exports.navDrop = function(elem, isInitialized){
 		
 }
 
+exports.carosel = function(elem, isInitialized){
+	if (isInitialized) return;
+      $(elem).slider({full_width: true});
+
+
+}
+
 
 
 
