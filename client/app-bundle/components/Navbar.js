@@ -8,15 +8,14 @@ exports.controller = function () {
 };
 
 exports.view = function (ctrl, user) {
-  var links = [
+    var links = [
     {title: 'Outcomes', url: '/outcomes'},
     {title: 'Students', url: '/profile'},
     {title: 'Sign Out', url: '/signout'}
   ];
   return m('nav.teal.darken-1', [
     m('.nav-wrapper', [
-        m('img.navPic[src=' + user.avatar_url +']'),
-
+        m('a[href="/?/profile"]', m('img.navPic[src=' + user.avatar_url +']')),
         //m('a[href=#]', {'data-activates'="mobile-demo", config: materialize.navDrop}), 
         m('a[data-activates=mobile-demo][href=#].right', {class: 'button-collapse', config: materialize.navDrop}, [ 
           m('i.mdi-action-view-headline')]), 
@@ -28,11 +27,6 @@ exports.view = function (ctrl, user) {
           })),
         ]),
         m('ul#mobile-demo.side-nav', [
-          // m('li', links.map(function(link) {
-          //   return m('li',
-          //     m('a', { href: link.url, config: m.route }, link.title)
-          //   )
-          // })), //Does not work in this format
           m('li', [
             m('a[href="/?/outcomes"]', "Outcomes"),
             m('a[href="/?/profile"]', "Profile"),
@@ -40,5 +34,5 @@ exports.view = function (ctrl, user) {
           ]), 
         ]),
       ])
-  ]);
+    ])
 };
