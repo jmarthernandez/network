@@ -11,6 +11,7 @@ exports.controller = function () {
     e.preventDefault();
     NewApp.postNewApplication(ctrl.newApp).then(function () {
       ctrl.newApp = NewApp.vm();
+      m.route('/profile');
     });
   }
   ctrl.fetchInfo = NewApp.fetchInfo();

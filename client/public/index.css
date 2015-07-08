@@ -1,3 +1,11 @@
+.app-link {
+  color: black;
+}
+
+.app-detail-heading {
+  font-size: 30px;
+}
+
 .collapsible{
 	height: 50%;
 	overflow: auto;
