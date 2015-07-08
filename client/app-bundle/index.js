@@ -9,6 +9,7 @@ var App             = require('./app.js');
 var Outcomes        = require('./views/Outcomes.js');
 var StudentProfile  = require('./views/StudentProfile.js');
 var Splash          = require('./views/Splash.js');
+var AppDetail       = require('./views/AppDetail.js');
 var Fuzzy           = require('./views/fuzzy.js');
 
 //Forms
@@ -22,7 +23,8 @@ var AddContact      = require('./components/forms/AddContact.js')
 var AddTitle        = require('./components/forms/AddTitle.js')
 var AddCompany      = require('./components/forms/AddCompany.js')
 
-
+//Models
+var Interview       = require('./models/Interview.js')
  
 
 var checkAuth = function(authorization, componentsArr) {
@@ -54,6 +56,19 @@ var routes = {
     },
     view: function (ctrl) {
       return checkAuth(ctrl.user, m.component(StudentProfile, ctrl));
+    }
+  },
+
+  '/appdetail/:id': {
+    controller: function () {
+      var ctrl = this;
+      ctrl.user = Auth.currentUser();
+      ctrl.appId = m.route.param('id');
+      Interview.fetchIntsForApp(ctrl.appId)
+    },
+    view: function (ctrl) {
+      var interviews = Interview.intsForApp();
+      return  checkAuth(ctrl.user, m.component(AppDetail, interviews.Interviews));
     }
   },
 

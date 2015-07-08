@@ -4,48 +4,61 @@ var StudentApp =  require('./StudentApp.js')
 //TODO: Comment and fix functionality
 var Interview = module.exports = {
 
-	vm: function (attrs) {
-		attrs = attrs || '';
+  vm: function (attrs) {
+    attrs = attrs || '';
 
-		return {
-			app_id: m.prop(null),
-			// user_id: m.prop(StudentApp.studentInfo.uid),
-			type: m.prop(null),
-			contacts: m.prop(null),
-			scheduled_on: m.prop(null),
-			occured_on: m.prop(null),
-			follow_up: m.prop(null),
-			quality: m.prop(null),
-			preparedness: m.prop(null),
-			info: {
-				questions: m.prop(null),
-			}
-		};
-	},
+    return {
+      app_id: m.prop(null),
+      // user_id: m.prop(StudentApp.studentInfo.uid),
+      type: m.prop(null),
+      contacts: m.prop(null),
+      scheduled_on: m.prop(null),
+      occured_on: m.prop(null),
+      follow_up: m.prop(null),
+      quality: m.prop(null),
+      preparedness: m.prop(null),
+      info: {
+        questions: m.prop(null),
+      }
+    };
+  },
 
-	vmApp: function (attrs) {
-		attrs = attrs || '';
+  interviews: null,
 
-		return {};
-	},
+  vmApp: function (attrs) {
+    attrs = attrs || '';
 
-	fetchInt: function (req) {
-		return m.request({ methods: 'GET', url: '/API/interviews/' })
-	},
+    return {};
+  },
 
-	updatePhase: function(applicationFormData) {
-	  return m.request({ method: 'POST', url: '/API/applications/', data: applicationFormData})
-	},
+  fetchInt: function (req) {
+    return m.request({ methods: 'GET', url: '/API/interviews/' })
+  },
 
-	postInterview: function (interview) {
-		return m.request({ method: 'POST', url: '/API/interviews', data: interview })
-			.then(function (serverResponse) {
-				return serverResponse
-			})
-	},
-	
-	all: function() {
-		return Interview.vm();
+  fetchIntsForApp: function (req) {
+    return m.request({ methods: 'GET', url: '/API/interviews/' + req })
+      .then(function (res) {
+        Interview.interviews = res;
+      })
+  },  
+
+  updatePhase: function(applicationFormData) {
+    return m.request({ method: 'POST', url: '/API/applications/', data: applicationFormData})
+  },
+
+  postInterview: function (interview) {
+    return m.request({ method: 'POST', url: '/API/interviews', data: interview })
+      .then(function (serverResponse) {
+        return serverResponse
+      })
+  },
+  
+  all: function () {
+    return Interview.vm();
+  },
+
+  intsForApp: function () {
+    return Interview.interviews
   }
 
 };
