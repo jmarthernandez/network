@@ -78,7 +78,8 @@ var importAuthData = module.exports.importAuthData = function (mks) {
   var userPromise = importUser(mks)
   var schoolPromises = mks.schools.map(School.updateOrCreate)
 
-  return Promise.all(schoolPromises).then(function() {
+  return Promise.all(schoolPromises)
+    .then(function() {
     return Promise.all( mks.memberships.map( getProp('group') ).map(Group.updateOrCreate) )
   }).then(function() {
     return Membership.sync(mks.uid, mks.memberships)

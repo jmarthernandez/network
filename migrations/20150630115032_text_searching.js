@@ -7,5 +7,6 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
+	return Promise.all([knex.schema.raw('DESTROY EXTENSION pg_trgm;')]);
   
 };
