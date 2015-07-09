@@ -135,7 +135,7 @@ exports.view = function(ctrl, options){
 m.component(Fuzzy, {
         search: 'users',
         onSelect: function (users) {
-          ctrl.fuzz(User.arrange(users))
+          ctrl.fuzz = User.arrange(users,function(x){ ctrl.fuzz = x});
         },
         placeholder: 'Alumni',
         optionView: function (student) {
