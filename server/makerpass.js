@@ -34,8 +34,7 @@ exports.mount = function (app, host) {
   })
 
   passport.deserializeUser(function(id, done) {
-    User.find(id)
-      .then(done.papp(null))
+    User.find(id).then(done.papp(null))
       .catch(function (err) {
         if (err.message === 'not_found') {
           done(null, null)
@@ -63,13 +62,11 @@ exports.mount = function (app, host) {
 
 
 app.get('/me', function(req, res){
-  console.log(req.user)
     res.send({ user: req.user})
   })
 
 
   app.post('/signout', function (req, res) {
-    console.log('signout')
     req.session = null
     res.send({})
   })
@@ -80,15 +77,12 @@ var importAuthData = module.exports.importAuthData = function (mks) {
   // These two can run in parallel
   var userPromise = importUser(mks)
   var schoolPromises = mks.schools.map(School.updateOrCreate)
-  console.log(mks)
 
   return Promise.all(schoolPromises).then(function() {
     return Promise.all( mks.memberships.map( getProp('group') ).map(Group.updateOrCreate) )
   }).then(function() {
-    console.log(mks.memberships)
     return Membership.sync(mks.uid, mks.memberships)
-  })
-  .then(function() {
+  }).then(function() {
     return userPromise;
   })
 }
