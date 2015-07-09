@@ -4,8 +4,10 @@ var m = require('mithril');
 var Interview = require('../models/Interview.js');
 
 exports.view = function (ctrl, options) {
-  console.log(options)
   return m('.container' , [
+    m('.row', [
+      m('a.btn[href=/profile]', { config: m.route }, 'Back to profile')
+    ]),
     m('h1.center-align', 'Company Name'),
     m('h2.app-detail-heading', 'Phone Screen'),
     options[1].length === 0 ? m('div', 'No phone screens scheduled') :
