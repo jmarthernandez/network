@@ -16,13 +16,10 @@ exports.controller = function () {
       })
   }
 
-
   ctrl.back = function(e){
     window.history.back();
   }
 };
-
-
 
 exports.view = function (ctrl) {
 
@@ -38,7 +35,6 @@ exports.view = function (ctrl) {
           onchange: m.withAttr('value', ctrl.addQuestion.name)
         }),
         m('label', 'Questions')
-
     ]),
     m('.row.center-align', [
       m('button.btn.waves-effect.waves-light', 'Submit',  [

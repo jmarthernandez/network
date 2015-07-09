@@ -41,7 +41,7 @@ AutocompleteInput.controller = function (attrs) {
   ctrl.select = function () {
     var opt = ctrl.options()[ ctrl.dropdownIndex() ]
     if (opt) {
-      attrs.onSelect(opt.id || opt.uid) // Send back id
+      attrs.onSelect(opt.id ? opt.id : opt.uid) // Send back id
       pendingInputValue = attrs.optionView(opt)
     }
     ctrl.reset()

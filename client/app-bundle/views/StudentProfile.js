@@ -3,14 +3,8 @@ var m               = require('mithril');
 //Components
 var StudentInfo     = require('../components/StudentInfo.js');
 var StudentJob      = require('../components/StudentJob.js');
-var OnsiteInterview = require('../components/forms/OnsiteInterview.js');
 var Messaging       = require('../components/Messaging.js');
 var NewApp          = require('../components/forms/NewApp.js');
-var FollowUp        = require('../components/forms/FollowUp.js')
-var AddCompany      = require('../components/forms/AddCompany.js')
-var AddContacts     = require('../components/forms/AddContact.js')
-var AddTitles       = require('../components/forms/AddTitle.js')
-var AddQuestions    = require('../components/forms/AddQuestions.js')
 var Graph           = require('../components/OutcomesGraph.js')
 
 //Models
