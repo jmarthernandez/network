@@ -12,7 +12,7 @@ var materialize = require('../../lib/materialize.js');
     return m('div.slider', {config: materialize.carosel}, [
       m('ul.slides', [
         m('li', [
-          m.component(Graph), console.log('high')
+          m.component(Graph),
           ]),
         m('li', [
           m.component(StudentProgress)

@@ -11,7 +11,6 @@ exports.controller = function () {
 
 exports.view = function(ctrl, options){
   var fuzzyName = ctrl.fuzz || options;
-  console.log(fuzzyName, 'FUZZY HERE')
  return m('.col.m12.s12', [
   m('head', [
     m('link[href=index.css][rel=stylesheet]')
