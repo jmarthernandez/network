@@ -58,22 +58,7 @@ var Graph = module.exports = {
     return count;
   },
 
-  // fetchApplication: function(req) {
-  //   return m.request({ method: 'GET', url: '/API/applications/'})
-  //                 .then(function (applications) {
-  //                 var phases = Graph.appCount(applications);
-
-
-  //                   // console.log(Graph.plot().series[0].data[0][1])
-  //                   return {
-  //                     submitted: phases,
-  //                     phoneScreens: 4064,
-  //                     interviews: 1987,
-  //                     offers: 976,
-  //                     acceptedOffers: 846,
-  //                   }
-  //                 })
-  // },
+  // Requests all database information 
   fetchAll: function(req) {
     return m.request({ method: 'GET', url: '/API/interviews/all/'})
                   .then(function (all) {
@@ -84,9 +69,8 @@ var Graph = module.exports = {
                   var offer = Graph.offerCount(all);
                   var acceptOffer = Graph.acceptedOffers(all);
 
-
-                    // console.log(Graph.plot().series[0].data[0][1])
-                    return {
+                  // Returns graph data information
+                  return {
                       submitted: phases,
                       phoneScreens: phoneInterview,
                       interviews: onSiteInterview,
