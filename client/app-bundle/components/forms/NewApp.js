@@ -37,7 +37,7 @@ exports.view = function (ctrl) {
           optionView: function (company) {
             return company.name + "  -  " + company.address + "  -  " + company.url
           },
-           route: m('a.waves-effect.waves-light.btn[href=/company/]', { config: m.route }, 'Add a Company')
+           route: m('a.waves-effect.waves-light.btn[href=/company/][style="float:right; width:200px"]', { config: m.route }, 'Add a Company')
 
         }),
         m.component( Fuzzy, {
@@ -47,7 +47,7 @@ exports.view = function (ctrl) {
           },
           placeholder: 'Title',
           optionView: function (titles) { return titles.title  },
-           route: m('a.waves-effect.waves-light.btn[href=/title/]', { config: m.route }, 'Add a Title')
+           route: m('a.waves-effect.waves-light.btn[href=/title/][style="float:right; width:200px"]', { config: m.route }, 'Add a Title')
 
         }),
            m('.input-field.col.s12.m6', [

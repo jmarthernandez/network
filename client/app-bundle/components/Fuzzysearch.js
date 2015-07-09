@@ -119,7 +119,7 @@ AutocompleteInput.view = function (ctrl, attrs) {
  
   return m('.row', [
 
-    m('.autocomplete-input.col.s12.m4', [
+    m('.autocomplete-input.col.s12', [
     
     m('input[type=text]', {
       key: 'autocomplete',
