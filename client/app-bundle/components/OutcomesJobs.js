@@ -135,20 +135,7 @@ exports.view = function(ctrl, options){
 m.component(Fuzzy, {
         search: 'users',
         onSelect: function (users) {
-          
-          var apps = {1: [], 2: [], 3: [], 4: [], 5: []};
-          ctrl.user_uid = users;
-          User.getUser(users, function(applicationsResponse) {
-            if (!Array.isArray(applicationsResponse.Application)) {
-              apps = false;
-            }else{
-              apps = {1: [], 2: [], 3: [], 4: [], 5: []};
-              applicationsResponse.Application.forEach(function(app){
-                apps[app.phase].push(app);
-              });
-            }
-            ctrl.fuzz = {apps: apps}
-          })
+          ctrl.fuzz = User.arrange(users,function(x){ ctrl.fuzz = x});
         },
         placeholder: 'Alumni',
         optionView: function (student) {
