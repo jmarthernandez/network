@@ -32,6 +32,14 @@ exports.view = function(ctrl, options){
         return m('li', [
           m('div.collapsible-header', app.company_name + ': ' + app.title,
             m('a.dropdown-button[href=#][data-activates=dropdown1]', {config: materialize.dropDowns}, "update")), 
+
+
+          
+          
+// m('div.i.mdi-action-view-headline')]), 
+
+
+          
               m('ul#dropdown1', {class:'dropdown-content'}, [
                 m('li', [
                   m('a.waves-effect.waves-light[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen'),
@@ -39,7 +47,7 @@ exports.view = function(ctrl, options){
                   m('a.waves-effect.waves-light[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
                   m('a.waves-effect.waves-light[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
                 ])
-              ])
+              ]),
           // m('.collapsible-body.center-align', [
           //   m("br"),
           //   m('a.waves-effect.waves-light.btn[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen'),

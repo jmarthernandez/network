@@ -18,7 +18,7 @@ exports.view = function (ctrl, user) {
         m('a[href="/?/profile"]', m('img.navPic[src=' + user.avatar_url +'].circle.left')),
         m('a.left#bnm', user.name), 
         m('a[data-activates=mobile-demo][href=#].right', {class: 'button-collapse', config: materialize.navDrop}, [ 
-          m('i.mdi-action-view-headline')]), 
+          m('div.i.mdi-action-view-headline')]), 
         m('ul#nav-mobile.right.hide-on-med-and-down', [
           m('li', links.map(function(link) {
             return m('li',

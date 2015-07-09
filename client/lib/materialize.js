@@ -11,6 +11,7 @@ exports.makeCollapsible = function(elem, isInitialized){
 exports.pickDates = function(elem, isInitialized){
 	if (isInitialized) return;
 
+
   $(elem).pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15, // Creates a dropdown of 15 years to control year
@@ -22,8 +23,10 @@ exports.pickDates = function(elem, isInitialized){
 	  hiddenPrefix: 'prefix__',
 	  hiddenSuffix: '__suffix',
 
-		onSet: function () {
-			this.close();
+		onSet: function (date) {
+			console.log(date.select)
+			if(date.select === undefined) return;
+			else if (date) this.close();
 		},
 
 		onClose: function(){
