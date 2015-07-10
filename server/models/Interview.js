@@ -6,10 +6,10 @@ var Interviews = module.exports = General.access('interviews');
 
 
 module.exports.megaJoin = function(){
-	return db.select('users.*','interviews.*','applications.*').from('interviews')
-	.fullOuterJoin('applications', function() {
+	return db.select('users.name','users.uid','applications.active','applications.phase').from('interviews')
+	.rightJoin('applications', function() {
         this.on('applications.id', '=', 'interviews.app_id')})
-      .fullOuterJoin('users',function() {
+      .join('users',function() {
         this.on('users.uid', '=', 'applications.user_id')})
 }
 
