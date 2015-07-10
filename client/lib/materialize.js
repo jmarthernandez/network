@@ -72,18 +72,23 @@ exports.dropDowns = function (elem, isInitialized){
       outDuration: 225,
       constrain_width: false, // Does not change width of dropdown to that of the activator
       hover: false, // Activate on hover
-      gutter: 0, // Spacing from edge
-      belowOrigin: false // Displays dropdown below the button
+      gutter: 10, // Spacing from edge
+      belowOrigin: true // Displays dropdown below the button
     }
   );
 }
 
 exports.carosel = function(elem, isInitialized){
 	if (isInitialized) return;
-      $(elem).slider({full_width: true});
-
-
+  $(elem).slider({full_width: true});
 }
+
+exports.fullScreenSlider = function(elem, isInitialized){
+	if (isInitialized) return;
+
+	$(elem).slider({full_width: true}); //.slider
+}
+
 
 
 

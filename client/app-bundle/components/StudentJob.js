@@ -86,7 +86,9 @@ exports.view = function(ctrl, options){
         return m('li', [
           m('div.collapsible-header', { class: 'green lighten-' + (5 -  app.count) }, [
             m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.company_name + ': ' + app.title),
-            m('a.dropdown-button[href=#][data-activates=dropdown3]', {config: materialize.dropDowns}, "update")
+          m('a', [
+            m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown3]', {config: materialize.dropDowns})]),
+            //m('a.dropdown-button[href=#][data-activates=dropdown3]', {config: materialize.dropDowns}, "update")
           ]),
           m('ul#dropdown3', {class:'dropdown-content'}, [
             m('li', [
@@ -109,7 +111,9 @@ exports.view = function(ctrl, options){
         return m('li', [
           m('div.collapsible-header', { class: 'green lighten-' + (5 -  app.count) }, [
             m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.company_name + ': ' + app.title),
-            m('a.dropdown-button[href=#][data-activates=dropdown4]', {config: materialize.dropDowns}, "update")
+          m('a', [
+            m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown4]', {config: materialize.dropDowns})]),
+            //m('a.dropdown-button[href=#][data-activates=dropdown4]', {config: materialize.dropDowns}, "update")
           ]),
           m('ul#dropdown4', {class:'dropdown-content'}, [
             m('li', [
@@ -133,7 +137,9 @@ exports.view = function(ctrl, options){
         return m('li', [
           m('div.collapsible-header', { class: 'green lighten-' + (5 -  app.count) }, [
             m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.company_name + ': ' + app.title),
-          m('a.dropdown-button[href=#][data-activates=dropdown5]', {config: materialize.dropDowns}, "update")
+          m('a', [
+            m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown5]', {config: materialize.dropDowns})]),
+          //m('a.dropdown-button[href=#][data-activates=dropdown5]', {config: materialize.dropDowns}, "update")
           ]),
           m('ul#dropdown5', {class:'dropdown-content'}, [
             m('li', [
