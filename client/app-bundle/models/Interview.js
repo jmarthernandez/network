@@ -59,6 +59,9 @@ var Interview = module.exports = {
 
   intsForApp: function () {
     return Interview.interviews
+  },
+  back: function(){
+    window.history.back();
   }
 
 };

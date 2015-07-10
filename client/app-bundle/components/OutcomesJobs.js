@@ -37,13 +37,11 @@ exports.view = function(ctrl, options){
     m('ul.collapsible#shorten[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       fuzzyName.apps['1'].map(function(app){
         return m('li', [
-          m('div.collapsible-header.appText',m('img[src=' + app.avatar_url + '].circle.app'), app.name + ' ' + app.company_name + ': ' + app.title),
+          m('div.collapsible-header', { class: 'green lighten-' + (5 -  app.count) }, [
+            m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, m('img[src=' + app.avatar_url + '].circle.app'), app.name + ' ' + app.company_name + ': ' + app.title)
+          ]),
           m('.collapsible-body.center-align', [
-            m("br"),
-            m('a.waves-effect.waves-light.btn[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen'),
-            m('a.waves-effect.waves-light.btn[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen'),
-            m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
-            m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
+            m("br")
           ])
         ])
       })
@@ -57,13 +55,11 @@ exports.view = function(ctrl, options){
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       fuzzyName.apps['2'].map(function(app){
         return m('li', [
-          m('.collapsible-header', {class: 'green lighten-' + (5 -  app.count) },m('img[src=' + app.avatar_url + '].circle.app'), app.name + ' ' + app.company_name + ': ' + app.title),
+          m('div.collapsible-header', { class: 'green lighten-' + (5 -  app.count) }, [
+            m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, m('img[src=' + app.avatar_url + '].circle.app'), app.name + ' ' + app.company_name + ': ' + app.title)
+          ]),
           m('.collapsible-body.center-align', [
-            m("br"),
-            m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
-            m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview'),
-            m('a.waves-effect.waves-light.btn[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen'),
-            m('a.waves-effect.waves-light.btn[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen')
+            m("br")
           ])
         ])
       })
@@ -79,13 +75,11 @@ exports.view = function(ctrl, options){
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       fuzzyName.apps['3'].map(function(app){
         return m('li', [
-          m('.collapsible-header', {class: 'green lighten-' + (5 -  app.count) },m('img[src=' + app.avatar_url + '].circle.app'), app.name + ' ' + app.company_name + ': ' + app.title),
+          m('div.collapsible-header', { class: 'green lighten-' + (5 -  app.count) }, [
+            m('a.app-link[href=/appdetail/' + app.app_id + ']',{data: 'dogs'}, { config: m.route }, m('img[src=' + app.avatar_url + '].circle.app'), app.name + ' ' + app.company_name + ': ' + app.title)
+          ]),
           m('.collapsible-body.center-align', [
-            m("br"),
-            m('a.waves-effect.waves-light.btn[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen'),
-            m('a.waves-effect.waves-light.btn[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen'),
-            m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
-            m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
+            m("br")
           ])
         ])
       })
@@ -100,17 +94,15 @@ exports.view = function(ctrl, options){
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       fuzzyName.apps['4'].map(function(app){
         return m('li', [
-          m('.collapsible-header', {class: 'green lighten-' + (5 -  app.count) },  m('img[src=' + app.avatar_url + '].circle.app'), app.name + ' ' + app.company_name + ': ' + app.title),
+          m('div.collapsible-header', { class: 'green lighten-' + (5 -  app.count) }, [
+            m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, m('img[src=' + app.avatar_url + '].circle.app'), app.name + ' ' + app.company_name + ': ' + app.title)
+          ]),
           m('.collapsible-body.center-align', [
-            m("br"),
-            m('a.waves-effect.waves-light.btn[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen'),
-            m('a.waves-effect.waves-light.btn[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen'),
-            m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
-            m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
+            m("br")
+            ])
           ])
-        ])
-      })
-    ]),
+        })
+      ]),
     ]),  //End #testSmall
   ]), //End Onsites (Phase 4)  //End#Events
 
@@ -120,18 +112,17 @@ exports.view = function(ctrl, options){
     m('ul.collapsible[data-collapsible=accordion]', { config: materialize.makeCollapsible}, [
       fuzzyName.apps['5'].map(function(app){
         return m('li', [
-          m('.collapsible-header', {class: 'green lighten-' + (5 -  app.count) }, app.name + ' ' + app.company_name + ': ' + app.title),
+          m('div.collapsible-header', { class: 'green lighten-' + (5 -  app.count) }, [
+            m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, m('img[src=' + app.avatar_url + '].circle.app'), app.name + ' ' + app.company_name + ': ' + app.title)
+          ]),
           m('.collapsible-body.center-align', [
-            m("br"),
-            m('a.waves-effect.waves-light.btn[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen'),
-            m('a.waves-effect.waves-light.btn[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen'),
-            m('a.waves-effect.waves-light.btn[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
-            m('a.waves-effect.waves-light.btn[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
+            m("br")
           ])
         ])
       })
     ]),//ends ul collaps
-  ]),  //End Offers (Phase 5)
+  ]),
+    //End Offers (Phase 5)
 m.component(Fuzzy, {
         search: 'users',
         onSelect: function (users) {
@@ -142,6 +133,6 @@ m.component(Fuzzy, {
           return student.name; 
         },
         route: m('a.waves-effect.waves-light.btn', 'Lookup Student')
-      }),
-  ]); //Ends Return M .col.m9.s12'
+      })//Ends Return M .col.m9.s12'
+    ]);
 };
