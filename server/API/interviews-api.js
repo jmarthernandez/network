@@ -26,6 +26,7 @@ router.get('/all', function(req, res){
 router.get('/:id', function(req, res){
   console.log(req.params.id)
   Interviews.allForApp(req.params.id).then(function(interviews){
+    console.log('interviews', interviews)
     var obj = {1: [], 2: [], 3: [], 4: [], 5: []}
     interviews.forEach(function(interview){
       if(interview.type === 'Phone Screen'){ obj[1].push(interview) }
@@ -33,7 +34,6 @@ router.get('/:id', function(req, res){
       else if(interview.type === 'Coding Challenge'){ obj[3].push(interview) }
       else if(interview.type === 'Technical Screen'){ obj[4].push(interview) }
     })
-    console.log(obj, 'interviews')
     res.send({Interviews: obj})
   })
 });
