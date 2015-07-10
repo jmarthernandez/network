@@ -12,19 +12,15 @@ exports.controller = function () {
 exports.plotter = function(ctrl) { // config class
     return function(elem , isin) {
         if(!isin) {
-          // m.startComputation();
-          // console.log(Highcharts)
           ctrl.graphOptions.chart.renderTo = elem;
           var chart = new Highcharts.Chart(ctrl.graphOptions);
-          // m.endComputation();
         }
     };
 };
 
 exports.view = function(ctrl) { // view
     return  m("html", [ m("body", [
-        m("#plot[style=height:400px]", {config: exports.plotter(ctrl)}), console.log(ctrl),
-        m("p",console.log(JSON.stringify(ctrl.fetchAll))),
+        m("#plot[style=height:400px]", {config: exports.plotter(ctrl)}),
         ]),
     ])
 };

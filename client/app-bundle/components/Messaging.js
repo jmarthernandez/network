@@ -1,5 +1,7 @@
 var m = require('mithril');
 var materialize = require('../../lib/materialize.js');
+var Fuzzy = require('./Fuzzysearch.js')
+
 
 //model
 var Message   = require('../models/Message.js');
@@ -10,6 +12,7 @@ exports.controller = function () {
   ctrl.filter = echo
   ctrl.message.receiver_uid = m.prop(null)
 
+
   ctrl.submit = function (e) {
     e.preventDefault();
     Message.postMessage( ctrl.message )
@@ -18,21 +21,15 @@ exports.controller = function () {
       })
   };
 
-  ctrl.setReceiver = function(e) {
-    ctrl.message.sender_uid = e;
-  };
-
-  ctrl.filterMessages = function(e) {
-    var id = this.getAttribute('value');
-    var user = this.getAttribute('me');
-    var other = this.text;
+  ctrl.filterMessages = function(id,uid) {
     ctrl.message.receiver_uid(id)
 
-    ctrl.filter = function(message){
 
-      if((message.receiver_name ===  other && message.sender_name === user) || 
-        (message.sender_name === other && message.receiver_name === user))
+    ctrl.filter = function(message){
+      if((message.receiver_uid ===  ctrl.message.receiver_uid() && message.sender_uid === ctrl.message.sender_uid || 
+         (message.sender_uid === ctrl.message.sender_uid && message.receiver_uid === ctrl.message.receiver_uid()))){
         return message;
+      }
       };
     };
   }
@@ -56,8 +53,10 @@ exports.view = function (ctrl, options) {
               m('h4', ctrl.selectedUser || 'Select a User'),
               m('.message-box', [
                 m('ul', [
+                  console.log(options.messages.reverse().filter(ctrl.filter)),
                   options.messages.reverse().filter(ctrl.filter).map(function(message){
-                    if( message.sender_uid === ctrl.message.sender_uid ) {                  
+                    console.log(message, 'messager are ')
+                    if( message.receiver_uid === ctrl.message.receiver_uid() ) {               
                       return m('.col.s12', [
                         m('.col.s7.offset-s5.indigo.message', [
                           m('li.collection-item.valign', [
@@ -92,19 +91,16 @@ exports.view = function (ctrl, options) {
                   m('i.mdi-content-send.right')
                 ])
               ]),
-              m('ul', [
-                options.users.map(function(user){
-                  if(user.uid !== options.studentInfo.uid){
-                    return m('li', [
-                      m('a', {
-                        value: user.uid,
-                        me: options.studentInfo.name,
-                        onclick: ctrl.filterMessages
-                      }, user.name),
-                    ])
-                  }
-                })
-              ])
+              m.component(Fuzzy, {
+                      search: 'users',
+                      onSelect: function (users) {
+                        ctrl.filterMessages(users, options.studentInfo);
+                      },
+                      placeholder: 'Student',
+                      optionView: function (users) {
+                        return users.name;
+                      }
+                    }),
             ])
           ])
         ])
