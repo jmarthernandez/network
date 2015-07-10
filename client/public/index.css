@@ -14,8 +14,8 @@
 .collapsible-header {
   display: block;
   cursor: pointer;
-  height: 2rem;
-  line-height: 2rem;
+  height: 3rem;
+  line-height: 3rem;
   padding: 0 1rem;
   background-color: #fff;
   border-bottom: 1px solid #ddd;
@@ -24,7 +24,7 @@
 .collapsible-header i {
   width: 2rem;
   font-size: 1.6rem;
-  line-height: 2rem;
+  line-height: 3rem;
   display: block;
   float: left;
   text-align: center;
@@ -45,6 +45,10 @@
 }
 
 #bnm{
+  margin-left: 10px;
+}
+
+#bnm2{
   margin-left: 10px;
 }
 
