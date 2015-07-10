@@ -62,7 +62,7 @@ exports.view = function (ctrl, options) {
         m('h4.center-align', 'Date')
       ),
       m('.row', [
-        m('.input-field.col.s12.m6', [
+        m('.input-field.col.s12', [
           m('input[type=date][placeholder=Scheduled For]', {
             class: 'datepicker', 
             config: materialize.pickDates, 

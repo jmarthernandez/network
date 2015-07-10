@@ -66,7 +66,7 @@ exports.view = function (ctrl, options) {
         m('h4.center-align', 'Date')
       ),
       m('.row', [
-        m('.input-field.col.s12.m6', [
+        m('.input-field.col.s12', [
           //Should have a limit of text
           m('input[type=date][placeholder=Scheduled For]', {
             class: 'datepicker', 
