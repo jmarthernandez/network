@@ -45,49 +45,66 @@ exports.view = function (ctrl, options) {
   };
   ctrl.allMessages = options.messages;
   ctrl.message.sender_uid = options.studentInfo.uid;
-  
+
   return m('section', [
     m('a.btn.modal-trigger', { href: '#chat-modal', config: materialize.modalClick }, 'Send a Message'),
     m('.modal.bottom-sheet#chat-modal', [
       m('.modal-content', [
-        m('h4', ctrl.selectedUser),
-        m('p', 'asdf'),
-        m('form.col.s12', { onsubmit: ctrl.submit }, [
-          m('ul', [
-            options.messages.filter(ctrl.filter).map(function(message){
-              return m('li.collection-item avatar', [
-                m('p', 'From: ' + message.sender_name),
-                m('p', 'To: ' + message.receiver_name),
-                m('span', message.body),
-              ])
-            })
-          ]),
-          m('ul', [
-            options.users.map(function(user){
-              if(user.uid !== options.studentInfo.uid){
-                return m('li', [
-                  m('a', {
-                    value: user.uid,
-                    me: options.studentInfo.name,
-                    onclick: ctrl.filterMessages
-                  }, user.name),
+        m('form', [
+          m('.row', [
+            m('.col.m6.s12.center-align', [
+              m('h4', ctrl.selectedUser || 'Select a User'),
+              m('.message-box', [
+                m('ul', [
+                  options.messages.filter(ctrl.filter).map(function(message){
+                    if( message.sender_uid === ctrl.message.sender_uid ) {                  
+                      return m('.col.s12', [
+                        m('.col.s7.offset-s5.indigo.message', [
+                          m('li.collection-item.valign', [
+                            m('p', message.body),
+                          ])
+                        ])
+                      ])
+                    } else{
+                      return m('.col.s12', [
+                        m('.col.s7.blue.message', [
+                          m('li.collection-item.valign', [
+                            m('p', message.body),
+                          ])
+                        ])
+                      ])
+                    }
+                  })
                 ])
-              }
-            })
-          ]),
-          m('.row', [        
-            m('.row.input-field.col.l6.m6.s12', [
-              m('i.mdi-editor-mode-edit.prefix'),
-              m('textarea#icon_prefix2.materialize-textarea', {
-                value: ctrl.message.body(),
-                onchange: m.withAttr('value', ctrl.message.body)
-              }),
-              m('label[for=icon_prefix2]', 'Message to : ' + ctrl.selectedUser)
-            ])
-          ]),
-          m('.div.center-align', [
-            m('button.btn.waves-effect.waves-light', 'Send Message',[
-              m('i.mdi-content-send.right')
+              ])
+            ]),
+            m('.col.m6.s12.center-align', [
+              m('.row.input-field.col.l6.m6.s12', [
+                m('i.mdi-editor-mode-edit.prefix'),
+                m('textarea#icon_prefix2.materialize-textarea', {
+                  value: ctrl.message.body(),
+                  onchange: m.withAttr('value', ctrl.message.body)
+                }),
+                m('label[for=icon_prefix2]', 'Message to : ' + ctrl.selectedUser)
+              ]),
+              m('.div.center-align', [
+                m('button.btn.waves-effect.waves-light', 'Send Message',[
+                  m('i.mdi-content-send.right')
+                ])
+              ]),
+              m('ul', [
+                options.users.map(function(user){
+                  if(user.uid !== options.studentInfo.uid){
+                    return m('li', [
+                      m('a', {
+                        value: user.uid,
+                        me: options.studentInfo.name,
+                        onclick: ctrl.filterMessages
+                      }, user.name),
+                    ])
+                  }
+                })
+              ])
             ])
           ])
         ])

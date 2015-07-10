@@ -18,7 +18,8 @@
   line-height: 2rem;
   padding: 0 1rem;
   background-color: #fff;
-  border-bottom: 1px solid #ddd; }
+  border-bottom: 1px solid #ddd;
+}
 
 .collapsible-header i {
   width: 2rem;
@@ -27,7 +28,8 @@
   display: block;
   float: left;
   text-align: center;
-  margin-right: 1rem; }
+  margin-right: 1rem;
+}
 
 .buffer{
 	height: 20px;
@@ -66,8 +68,8 @@
 }
 
 #testSmall{
-	width: 33%;
 	display: inline-block;
+  width: 33%;
 }
 
 .container {
@@ -76,7 +78,7 @@
 
 .navPic{
 	height: 64px;
-  }
+}
 
 @media (min-width: 400px) and (max-width: 600px) {
   #testSmall {
@@ -91,4 +93,26 @@
 .app{
   height: 25px;
   width: 25px;
+}
+
+/*Messaging*/
+
+.message {
+  border-radius: 2px;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.message-box {
+  overflow: auto;
+  height: 200px;
+}
+
+.reciever {
+  background: blue;
+  margin-bottom: 10px;
+}
+
+.sender {
+  background: yellow;
 }
