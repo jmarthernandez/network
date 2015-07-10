@@ -6,7 +6,7 @@ var Interview = require('../models/Interview.js');
 exports.view = function (ctrl, options) {
   return m('.container' , [
     m('.row', [
-      m('a.btn[href=/profile]', { config: m.route }, 'Back to profile')
+      m('a.btn', { onclick: Interview.back}, 'Back')
     ]),
     m('h1.center-align', 'Company Name'),
     m('h2.app-detail-heading', 'Phone Screen'),
