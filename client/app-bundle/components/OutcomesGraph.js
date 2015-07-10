@@ -14,8 +14,7 @@ exports.plotter = function(ctrl) { // config class
         if(!isin) {
           // m.startComputation();
           // console.log(Highcharts)
-          ctrl.graphOptions.chart.renderTo = elem
-          console.log("Using options:", ctrl.graphOptions)
+          ctrl.graphOptions.chart.renderTo = elem;
           var chart = new Highcharts.Chart(ctrl.graphOptions);
           // m.endComputation();
         }

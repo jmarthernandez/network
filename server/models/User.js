@@ -6,7 +6,7 @@ var User = module.exports = General.access('users')
   //retreives all applications associated with a specific user
   module.exports.retrieveWithRole = function(id){
     
-    return db('users').select('*').where({ 'users.uid': id })
+    return db('users').select('users.*','memberships.role').where({ 'users.uid': id })
     .join('memberships', function() {
       this.on('memberships.user_uid', '=', 'users.uid')})
     .then(function(row){
