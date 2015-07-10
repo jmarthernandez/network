@@ -33,6 +33,7 @@ router.get('/:id', function(req, res){
       else if(interview.type === 'Onsite Interview'){ obj[2].push(interview) }
       else if(interview.type === 'Coding Challenge'){ obj[3].push(interview) }
       else if(interview.type === 'Technical Screen'){ obj[4].push(interview) }
+      else {res.send({Interviews: interviews})}
     })
     res.send({Interviews: obj})
   })
