@@ -28,8 +28,6 @@ var Message = module.exports = {
       .then(function (serverResponse) {
         Message.fetch();
         Message.all();
-
-      setTimeout(Message.fetch, 2000);
         return serverResponse
     })
   },

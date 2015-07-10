@@ -9,15 +9,16 @@ var Message   = require('../models/Message.js');
 exports.controller = function () {
   var ctrl = this;
   ctrl.message = Message.vm();
-  ctrl.filter = echo
-  ctrl.message.receiver_uid = m.prop(null)
+  ctrl.filter = echo;
+  ctrl.message.receiver_uid = m.prop(null);
 
 
   ctrl.submit = function (e) {
     e.preventDefault();
     Message.postMessage( ctrl.message )
       .then(function(){
-        ctrl.message = Message.vm();
+
+        ctrl.message == Message.vm();
       })
   };
 
@@ -35,14 +36,15 @@ exports.controller = function () {
   }
 
 exports.view = function (ctrl, options) {
-  ctrl.selectedUser = '';
+
+  console.log(ctrl.selectedUser, ctrl.receiver_name, 'RECEIVER NAME')
+  ctrl.selectedUser = ctrl.selectedUser || '';
   if(ctrl.message.receiver_uid()){
     var user = options.users.filter(function(user){return user.uid === ctrl.message.receiver_uid()});
     ctrl.selectedUser = user[0].name;
   };
   ctrl.allMessages = options.messages;
   ctrl.message.sender_uid = options.studentInfo.uid;
-
   return m('section', [
     m('a.btn.modal-trigger', { href: '#chat-modal', config: materialize.modalClick }, 'Send a Message'),
     m('.modal.bottom-sheet#chat-modal', [
@@ -53,9 +55,7 @@ exports.view = function (ctrl, options) {
               m('h4', ctrl.selectedUser || 'Select a User'),
               m('.message-box', [
                 m('ul', [
-                  console.log(options.messages.reverse().filter(ctrl.filter)),
                   options.messages.reverse().filter(ctrl.filter).map(function(message){
-                    console.log(message, 'messager are ')
                     if( message.receiver_uid === ctrl.message.receiver_uid() ) {               
                       return m('.col.s12', [
                         m('.col.s7.offset-s5.indigo.message', [
