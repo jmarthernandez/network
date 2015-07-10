@@ -62,7 +62,7 @@ var Applications = module.exports = General.access('applications');
 
 
 
-  module.exports.create= function (attrs) {
+  module.exports.create = function (attrs) {
     attrs.created_at = new Date();
     return db('applications').insert(attrs).return(attrs);
   };
