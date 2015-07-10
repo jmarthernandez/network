@@ -55,7 +55,7 @@ exports.view = function (ctrl, options) {
               m('h4', ctrl.selectedUser || 'Select a User'),
               m('.message-box', [
                 m('ul', [
-                  options.messages.reverse().filter(ctrl.filter).map(function(message){
+                  options.messages.filter(ctrl.filter).map(function(message){
                     if( message.receiver_uid === ctrl.message.receiver_uid() ) {               
                       return m('.col.s12', [
                         m('.col.s7.offset-s5.indigo.message', [

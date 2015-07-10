@@ -10,8 +10,8 @@ var Message = module.exports = {
   vm: function (attrs) {
     attrs = attrs || '';
     return {
-      sender_uid: m.prop(''),
-      receiver_uid: m.prop(''),
+      sender_uid: m.prop(attrs.uid || ''),
+      receiver_uid: m.prop(attrs.id || ''),
       body: m.prop(''),
     }
   },
@@ -24,6 +24,7 @@ var Message = module.exports = {
   },
 
   postMessage: function(message){
+    console.log(message)
     return m.request({ method: 'POST', url: 'api/messages', data: message })
       .then(function (serverResponse) {
         Message.fetch();
