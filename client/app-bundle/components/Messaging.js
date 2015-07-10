@@ -50,13 +50,13 @@ exports.view = function (ctrl, options) {
     m('a.btn.modal-trigger', { href: '#chat-modal', config: materialize.modalClick }, 'Send a Message'),
     m('.modal.bottom-sheet#chat-modal', [
       m('.modal-content', [
-        m('form', [
+        m('form', { onsubmit: ctrl.submit }, [
           m('.row', [
             m('.col.m6.s12.center-align', [
               m('h4', ctrl.selectedUser || 'Select a User'),
               m('.message-box', [
                 m('ul', [
-                  options.messages.filter(ctrl.filter).map(function(message){
+                  options.messages.reverse().filter(ctrl.filter).map(function(message){
                     if( message.sender_uid === ctrl.message.sender_uid ) {                  
                       return m('.col.s12', [
                         m('.col.s7.offset-s5.indigo.message', [
