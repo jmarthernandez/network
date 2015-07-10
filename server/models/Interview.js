@@ -14,6 +14,10 @@ module.exports.megaJoin = function(){
 }
 
 module.exports.allForApp = function(appId){
-  return db.select('interviews.*').from('interviews')
-  .where('interviews.app_id', appId)
+  return db.select('interviews.*','companies.name AS company_name').from('interviews')
+    .where('interviews.app_id','=', appId)
+    .join('applications',function(){
+      this.on('interviews.app_id','=','applications.id')})
+    .join('companies', function(){
+      this.on('companies.id', '=' , 'applications.company_id')}) 
 }
