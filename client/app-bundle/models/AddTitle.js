@@ -2,11 +2,7 @@ var m = require('mithril');
 
 var AddTitle = module.exports = {
 
-  
-  usersArray: null,
-  me: null,
-
-  //View-model for messages form
+  //View-model for add title form
   vm: function (attrs) {
     attrs = attrs || '';
     return {
@@ -14,10 +10,12 @@ var AddTitle = module.exports = {
     }
   },
 
+  //Post title to database if doesn't exist already
   postTitle: function(data){
     return m.request({ method: 'POST', url: 'api/titles', data: data })
   },
-  // Makes messages accessible to the view
+
+  // Makes AddContacts.vm accessible to the view
   all: function() {
     return AddContacts.vm();
   }
