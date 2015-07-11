@@ -24,7 +24,6 @@ var Message = module.exports = {
   },
 
   postMessage: function(message){
-    console.log(message)
     return m.request({ method: 'POST', url: 'api/messages', data: message })
       .then(function (serverResponse) {
         Message.fetch();

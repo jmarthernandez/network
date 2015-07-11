@@ -27,13 +27,13 @@ exports.controller = function () {
 
 
     ctrl.filter = function(message){
-      if((message.receiver_uid ===  ctrl.message.receiver_uid() && message.sender_uid === ctrl.message.sender_uid || 
-         (message.sender_uid === ctrl.message.sender_uid && message.receiver_uid === ctrl.message.receiver_uid()))){
+      if((message.receiver_uid ===  ctrl.message.receiver_uid() && message.sender_uid === ctrl.message.sender_uid) || 
+         (message.sender_uid === ctrl.message.receiver_uid() && message.receiver_uid === ctrl.message.sender_uid)){
         return message;
       }
-      };
     };
-  }
+  };
+};
 
 exports.view = function (ctrl, options) {
   ctrl.selectedUser = ctrl.selectedUser || '';
@@ -54,7 +54,7 @@ exports.view = function (ctrl, options) {
               m('.message-box', [
                 m('ul', [
                   options.messages.filter(ctrl.filter).map(function(message){
-                    if( message.receiver_uid === ctrl.message.receiver_uid() ) {               
+                    if( message.sender_uid === ctrl.message.sender_uid ) {               
                       return m('.col.s12', [
                         m('.col.s7.offset-s5.indigo.message', [
                           m('li.collection-item.valign', [
@@ -62,7 +62,7 @@ exports.view = function (ctrl, options) {
                           ])
                         ])
                       ])
-                    } else{
+                    } else {
                       return m('.col.s12', [
                         m('.col.s7.blue.message', [
                           m('li.collection-item.valign', [
