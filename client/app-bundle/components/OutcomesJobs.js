@@ -84,7 +84,7 @@ exports.view = function(ctrl, options){
       fuzzyName.apps['3'].map(function(app){
         return m('li', [
           m('div.collapsible-header', { class: 'green lighten-' + (5 -  app.count) }, [
-            m('a.app-link[href=/appdetail/' + app.app_id + ']',{data: 'dogs'}, { config: m.route }, m('img[src=' + app.avatar_url + '].circle.app'), app.name + ' ' + app.company_name + ': ' + app.title)
+            m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, m('img[src=' + app.avatar_url + '].circle.app'), app.name + ' ' + app.company_name + ': ' + app.title)
           ]),
           m('.collapsible-body.center-align', [
             m("br"),
