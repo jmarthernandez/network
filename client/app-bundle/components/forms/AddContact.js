@@ -1,12 +1,11 @@
 var m = require('mithril');
-var Fuzzy = require('../Fuzzysearch.js')
-var Contacts = require('../../models/AddContacts.js')
+var Fuzzy = require('../Fuzzysearch.js');
+var Contacts = require('../../models/AddContacts.js');
 
 
 exports.controller = function () {
   var ctrl = this;
   ctrl.addContacts = Contacts.vm();
-
 
   ctrl.submit = function(e){
     e.preventDefault();
@@ -15,12 +14,11 @@ exports.controller = function () {
         ctrl.addContacts = Contacts.vm();
         ctrl.back()
       })
-  }
-
+  };
 
   ctrl.back = function(e){
     window.history.back();
-  }
+  };
 };
 
 
@@ -63,5 +61,5 @@ exports.view = function (ctrl) {
         m('i.mdi-content-send.right')
       ])
     ])
-  ])
+  ]);
 };

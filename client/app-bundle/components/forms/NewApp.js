@@ -1,7 +1,7 @@
 var m = require('mithril');
-var NewApp = require('../../models/NewApp.js')
+var NewApp = require('../../models/NewApp.js');
 var materialize = require('../../../lib/materialize.js');
-var Fuzzy = require('../Fuzzysearch.js')
+var Fuzzy = require('../Fuzzysearch.js');
 
 exports.controller = function () {
   var ctrl = this;
@@ -13,7 +13,7 @@ exports.controller = function () {
       ctrl.newApp = NewApp.vm();
       m.route('/profile');
     });
-  }
+  };
   ctrl.fetchInfo = NewApp.fetchInfo();
 };
 
