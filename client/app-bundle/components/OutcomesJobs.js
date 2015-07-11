@@ -37,11 +37,11 @@ exports.view = function(ctrl, options){
     m('ul.collapsible#shorten[data-collapsible=accordion]', [
       fuzzyName.apps['1'].map(function(app){
         return m('li', [
-          m('div.collapsible-header', [
-            m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, m('img[src=' + app.avatar_url + '].circle.app'), app.name + ' ' + app.company_name + ': ' + app.title), 
+          m('div.collapsible-header', { class: 'amber lighten-' + (5 -  app.count) }, [
+            m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.name + ' ' + app.company_name + ': ' + app.title),
             m('a', [
-              m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown1]', {config: materialize.dropDowns})
-            ])
+              m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown1].left', {config: materialize.dropDowns})
+            ]),
           ]),
           m('ul#dropdown1', {class:'dropdown-content'}, [
             m('li', [
@@ -63,10 +63,10 @@ exports.view = function(ctrl, options){
     m('ul.collapsible[data-collapsible=accordion]', [
       fuzzyName.apps['2'].map(function(app){
         return m('li', [
-          m('div.collapsible-header', { class: 'green lighten-' + (5 -  app.count) }, [
-            m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, m('img[src=' + app.avatar_url + '].circle.app'), app.name + ' ' + app.company_name + ': ' + app.title),
+          m('div.collapsible-header', { class: 'amber lighten-' + (5 -  app.count) }, [
+            m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.name + ' ' + app.company_name + ': ' + app.title),
             m('a', [
-              m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown2]', {config: materialize.dropDowns})
+              m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown2].left', {config: materialize.dropDowns})
             ]),
           ]),
           m('ul#dropdown2', {class:'dropdown-content'}, [
@@ -91,10 +91,10 @@ exports.view = function(ctrl, options){
     m('ul.collapsible[data-collapsible=accordion]', [
       fuzzyName.apps['3'].map(function(app){
         return m('li', [
-          m('div.collapsible-header', { class: 'green lighten-' + (5 -  app.count) }, [
-            m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, m('img[src=' + app.avatar_url + '].circle.app'), app.name + ' ' + app.company_name + ': ' + app.title),
+          m('div.collapsible-header', { class: 'amber lighten-' + (5 -  app.count) }, [
+            m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.name + ' ' + app.company_name + ': ' + app.title),
             m('a', [
-              m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown3]', {config: materialize.dropDowns})
+              m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown3].left', {config: materialize.dropDowns})
             ]),
           ]),
           m('ul#dropdown3', {class:'dropdown-content'}, [
@@ -118,10 +118,10 @@ exports.view = function(ctrl, options){
     m('ul.collapsible[data-collapsible=accordion]', [
       fuzzyName.apps['4'].map(function(app){
         return m('li', [
-          m('div.collapsible-header', { class: 'green lighten-' + (5 -  app.count) }, [
-            m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, m('img[src=' + app.avatar_url + '].circle.app'), app.name + ' ' + app.company_name + ': ' + app.title),
+          m('div.collapsible-header', { class: 'amber lighten-' + (5 -  app.count) }, [
+            m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.name + ' ' + app.company_name + ': ' + app.title),
             m('a', [
-              m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown4]', {config: materialize.dropDowns})
+              m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown4].left', {config: materialize.dropDowns})
             ]),
           ]),
           m('ul#dropdown4', {class:'dropdown-content'}, [
@@ -144,10 +144,10 @@ exports.view = function(ctrl, options){
     m('ul.collapsible[data-collapsible=accordion]', [
       fuzzyName.apps['5'].map(function(app){
         return m('li', [
-          m('div.collapsible-header', { class: 'green lighten-' + (5 -  app.count) }, [
-            m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, m('img[src=' + app.avatar_url + '].circle.app'), app.name + ' ' + app.company_name + ': ' + app.title),
+          m('div.collapsible-header', { class: 'amber lighten-' + (5 -  app.count) }, [
+            m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.name + ' ' + app.company_name + ': ' + app.title),
             m('a', [
-              m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown5]', {config: materialize.dropDowns})
+              m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown5].left', {config: materialize.dropDowns})
             ]),
           ]),
           m('ul#dropdown5', {class:'dropdown-content'}, [

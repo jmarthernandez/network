@@ -21,7 +21,7 @@ exports.view = function (ctrl) {
 
   return m('.row', [
     m('.row', [
-      m('a.btn[href=/profile]', { config: m.route }, 'Back to profile')
+      m('a.btn[href=/profile]#backButton', { config: m.route }, 'Back to profile')
     ]),
     m('.row', [
       m('h3.center-align', 'Add Application')
@@ -68,7 +68,7 @@ exports.view = function (ctrl) {
         ]),
       ]),
       m('.row.center-align', [
-        m('button.btn.waves-effect.waves-light', 'Submit',  [
+        m('button.btn.waves-effect.waves-light#backButton', 'Submit',  [
           //POST to database
           m('i.mdi-content-send.right')
         ])

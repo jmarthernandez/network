@@ -56,7 +56,7 @@ exports.view = function(ctrl, options){
     m('ul.collapsible[data-collapsible=accordion]', [
       options.apps['2'].map(function(app){
         return m('li', [
-          m('div.collapsible-header', { class: 'green lighten-' + (5 -  app.count) }, [
+          m('div.collapsible-header', { class: 'amber lighten-' + (5 -  app.count) }, [
             m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.company_name + ': ' + app.title),
             m('a', [
               m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown2]', {config: materialize.dropDowns})
@@ -83,7 +83,7 @@ exports.view = function(ctrl, options){
     m('ul.collapsible[data-collapsible=accordion]', [
       options.apps['3'].map(function(app){
         return m('li', [
-          m('div.collapsible-header', { class: 'green lighten-' + (5 -  app.count) }, [
+          m('div.collapsible-header', { class: 'amber lighten-' + (5 -  app.count) }, [
             m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.company_name + ': ' + app.title),
             m('a', [
               m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown3]', {config: materialize.dropDowns})
@@ -109,7 +109,7 @@ exports.view = function(ctrl, options){
     m('ul.collapsible[data-collapsible=accordion]', [
       options.apps['4'].map(function(app){
         return m('li', [
-          m('div.collapsible-header', { class: 'green lighten-' + (5 -  app.count) }, [
+          m('div.collapsible-header', { class: 'amber lighten-' + (5 -  app.count) }, [
             m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.company_name + ': ' + app.title),
             m('a', [
               m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown4]', {config: materialize.dropDowns})
@@ -136,7 +136,7 @@ exports.view = function(ctrl, options){
     m('ul.collapsible[data-collapsible=accordion]', [
       options.apps['5'].map(function(app){
         return m('li', [
-          m('div.collapsible-header', { class: 'green lighten-' + (5 -  app.count) }, [
+          m('div.collapsible-header', { class: 'amber lighten-' + (5 -  app.count) }, [
             m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.company_name + ': ' + app.title),
             m('a', [
               m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown5]', {config: materialize.dropDowns})
