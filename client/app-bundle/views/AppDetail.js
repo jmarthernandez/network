@@ -4,11 +4,19 @@ var m = require('mithril');
 var Interview = require('../models/Interview.js');
 
 exports.view = function (ctrl, options) {
-  var name = options[1][0].company_name || 
-             options[2][0].company_name || 
-             options[3][0].company_name || 
-             options[4][0].company_name || 
-             "Company Name";
+
+
+
+  var opt =  options[1][0]||
+             options[2][0]|| 
+             options[3][0]|| 
+             options[4][0];
+
+  var name = opt.company_name || 'Company Name';
+
+
+
+
   return m('.container' , [
     m('.row', [
       m('a.btn', { onclick: Interview.back}, 'Back')
