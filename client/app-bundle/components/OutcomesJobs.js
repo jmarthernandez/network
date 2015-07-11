@@ -37,8 +37,7 @@ exports.view = function(ctrl, options){
     m('ul.collapsible#shorten[data-collapsible=accordion]', [
       fuzzyName.apps['1'].map(function(app){
         return m('li', [
-          m('div.collapsible-header', { class: 'amber lighten-' + (5 -  app.count) }, [
-            m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.name + ' ' + app.company_name + ': ' + app.title),
+          m('div.collapsible-header', { class: 'amber lighten-' + (5 -  app.count) }, app.name + ' ' + app.company_name + ': ' + app.title, [
             m('a', [
               m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown1].left', {config: materialize.dropDowns})
             ]),

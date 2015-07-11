@@ -30,12 +30,11 @@ exports.view = function(ctrl, options){
     m('ul.collapsible#shorten[data-collapsible=accordion]', [
       options.apps['1'].map(function(app){
         return m('li', [
-          m('.collapsible-header', [
-            m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.company_name + ': ' + app.title),
+          m('.collapsible-header', app.company_name + ': ' + app.title, 
             m('a', [
               m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown1]', {config: materialize.dropDowns})
             ])
-          ]),
+          ),
           m('ul#dropdown1', {class:'dropdown-content'}, [
             m('li', [
               m('a.waves-effect.waves-light[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen'),
