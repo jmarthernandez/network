@@ -24,6 +24,8 @@ exports.view = function (ctrl) {
   var appsData     = StudentApp.all();
   var messagesData = Message.all();
   return m('.container', [
+    m('h1.center-align', 'Pending Applications'),
+
     m('.row'),
     m('.row', [
       // m.component(StudentInfo, { studentInfo: appsData.studentInfo } ),
