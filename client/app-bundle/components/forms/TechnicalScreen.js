@@ -48,7 +48,6 @@ exports.view = function (ctrl, options) {
             value: ctrl.interview.scheduled_on(),
             onchange: m.withAttr('value', ctrl.interview.scheduled_on),
           }),
-          m('label[for=first_name]', 'Scheduled Date')
         ])
       ]),
       m('.row', [
