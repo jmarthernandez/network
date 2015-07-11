@@ -12,7 +12,7 @@ var AddTitle = module.exports = {
 
   //Post title to database if doesn't exist already
   postTitle: function(data){
-    return m.request({ method: 'POST', url: 'api/titles', data: data })
+    return m.request({ method: 'POST', url: 'api/titles', data: data });
   },
 
   // Makes AddContacts.vm accessible to the view

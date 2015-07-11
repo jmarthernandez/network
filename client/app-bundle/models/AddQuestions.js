@@ -8,12 +8,12 @@ var AddQuestions = module.exports = {
     return {
       name: m.prop(''),
       interview_id: m.prop(1)
-    }
+    };
   },
 
   //Post question to database if doesn't exist already
   postQuestions: function(data){
-    return m.request({ method: 'POST', url: 'api/questions', data: data })
+    return m.request({ method: 'POST', url: 'api/questions', data: data });
   },
 
   // Makes AddQuestions.vm() accessible to the view

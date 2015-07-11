@@ -15,9 +15,6 @@ var App             = require('../models/App.js');
 var Message         = require('../models/Message.js');
 var StudentApp      = require('../models/StudentApp.js');
 
-
-
-
 exports.controller = function() {
   //Grabs apps for all students
   App.fetch();
@@ -27,11 +24,10 @@ exports.controller = function() {
 };
 
 exports.view = function(ctrl) {
-
+  
   var apps = App.all();
   var messagesData = Message.all();
   var appsData     = StudentApp.all();
-
 
   return m('.container', [
     m('h1.center-align', 'Student Outcomes'),
