@@ -12,11 +12,12 @@ var AddCompany = module.exports = {
     }
   },
 
+  //Post company to database if doesn't exist already
   postCompany: function(data){
     return m.request({ method: 'POST', url: 'api/companies', data: data })
   },
 
-  // Makes messages accessible to the view
+  // Makes AddCompany.vm accessible to the view
   all: function() {
     return AddCompany.vm();
   }
