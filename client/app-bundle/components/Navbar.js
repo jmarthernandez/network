@@ -2,11 +2,6 @@
 var m = require('mithril');
 var materialize = require('../../lib/materialize.js');
 
-
-exports.controller = function () {
-  var ctrl = this;
-};
-
 exports.view = function (ctrl, user) {
     var links = [
     {title: 'Outcomes', url: '/outcomes'},

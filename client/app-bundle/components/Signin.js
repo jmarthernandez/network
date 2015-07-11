@@ -2,11 +2,6 @@
 var m = require('mithril');
 var materialize = require('../../lib/materialize.js');
 
-
-exports.controller = function () {
-  var ctrl = this;
-};
-
 exports.view = function (ctrl) {
   return m('div.slider.fullscreen', {config: materialize.fullScreenSlider}, [
     m('ul.slides', [

@@ -61,25 +61,21 @@ var Graph = module.exports = {
   // Requests all database information 
   fetchAll: function(req) {
     return m.request({ method: 'GET', url: '/API/interviews/all/'})
-                  .then(function (all) {
-                    
-                  var phases = Graph.appCount(all);
-                  var phoneInterview = Graph.phoneCount(all);
-                  var onSiteInterview = Graph.onsiteCount(all);
-                  var offer = Graph.offerCount(all);
-                  var acceptOffer = Graph.acceptedOffers(all);
+      .then(function (all) {
+        var phases = Graph.appCount(all);
+        var phoneInterview = Graph.phoneCount(all);
+        var onSiteInterview = Graph.onsiteCount(all);
+        var offer = Graph.offerCount(all);
+        var acceptOffer = Graph.acceptedOffers(all);
 
-                  // Returns graph data information
-                  return {
-                      submitted: phases,
-                      phoneScreens: phoneInterview,
-                      interviews: onSiteInterview,
-                      offers: offer,
-                      acceptedOffers: acceptOffer,
-                    }
-                  })
-    },
+        // Returns graph data information
+        return {
+            submitted: phases,
+            phoneScreens: phoneInterview,
+            interviews: onSiteInterview,
+            offers: offer,
+            acceptedOffers: acceptOffer,
+          }
+      })
+  }
 };
-
-
-  // List of all companies all students has applied fo

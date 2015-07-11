@@ -1,6 +1,6 @@
 var m = require('mithril');
-var Fuzzy = require('../Fuzzysearch.js')
-var Title = require('../../models/AddTitle.js')
+var Fuzzy = require('../Fuzzysearch.js');
+var Title = require('../../models/AddTitle.js');
 
 
 exports.controller = function () {
@@ -15,12 +15,12 @@ exports.controller = function () {
         ctrl.addTitle = Title.vm();
         ctrl.back();
       })
-  }
+  };
 
 
   ctrl.back = function(e){
     window.history.back();
-  }
+  };
 };
 
 exports.view = function (ctrl) {
@@ -37,12 +37,12 @@ exports.view = function (ctrl) {
           onchange: m.withAttr('value', ctrl.addTitle.title)
         }),
         m('label', 'Title')
-    ]),
-    m('.row.center-align', [
-      m('button.btn.waves-effect.waves-light', 'Submit',  [
-        m('i.mdi-content-send.right')
+      ]),
+      m('.row.center-align', [
+        m('button.btn.waves-effect.waves-light', 'Submit',  [
+          m('i.mdi-content-send.right')
+        ])
       ])
     ])
-  ])
-    ])
+  ]);
 };

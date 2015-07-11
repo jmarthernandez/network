@@ -1,7 +1,6 @@
 var m = require('mithril');
 var StudentApp =  require('./StudentApp.js')
 
-//TODO: Comment and fix functionality
 var Interview = module.exports = {
 
   vm: function (attrs) {
@@ -9,7 +8,6 @@ var Interview = module.exports = {
 
     return {
       app_id: m.prop(null),
-      // user_id: m.prop(StudentApp.studentInfo.uid),
       type: m.prop(null),
       contacts: m.prop(null),
       scheduled_on: m.prop(null),
@@ -18,7 +16,7 @@ var Interview = module.exports = {
       quality: m.prop(null),
       preparedness: m.prop(null),
       info: {
-        questions: m.prop(null),
+        questions: m.prop(null)
       }
     };
   },
@@ -27,12 +25,11 @@ var Interview = module.exports = {
 
   vmApp: function (attrs) {
     attrs = attrs || '';
-
     return {};
   },
 
   fetchInt: function (req) {
-    return m.request({ methods: 'GET', url: '/API/interviews/' })
+    return m.request({ methods: 'GET', url: '/API/interviews/' });
   },
 
   fetchIntsForApp: function (req) {
@@ -49,7 +46,7 @@ var Interview = module.exports = {
   postInterview: function (interview) {
     return m.request({ method: 'POST', url: '/API/interviews', data: interview })
       .then(function (serverResponse) {
-        return serverResponse
+        return serverResponse;
       })
   },
   
@@ -58,8 +55,9 @@ var Interview = module.exports = {
   },
 
   intsForApp: function () {
-    return Interview.interviews
+    return Interview.interviews;
   },
+
   back: function(){
     window.history.back();
   }
