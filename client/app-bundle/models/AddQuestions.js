@@ -2,11 +2,7 @@ var m = require('mithril');
 
 var AddQuestions = module.exports = {
 
-  
-  usersArray: null,
-  me: null,
-
-  //View-model for messages form
+  //View-model for add question form
   vm: function (attrs) {
     attrs = attrs || '';
     return {
@@ -15,10 +11,12 @@ var AddQuestions = module.exports = {
     }
   },
 
+  //Post question to database if doesn't exist already
   postQuestions: function(data){
     return m.request({ method: 'POST', url: 'api/questions', data: data })
   },
-  // Makes messages accessible to the view
+
+  // Makes AddQuestions.vm() accessible to the view
   all: function() {
     return AddQuestions.vm();
   }
