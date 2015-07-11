@@ -24,7 +24,6 @@ var Message = module.exports = {
   },
 
   postMessage: function(message){
-    console.log(message)
     return m.request({ method: 'POST', url: 'api/messages', data: message })
       .then(function (serverResponse) {
         Message.fetch();
@@ -37,7 +36,6 @@ var Message = module.exports = {
   fetch: function () {
     m.request({ methods: 'GET', url: '/API/messages/user/' })
       .then(function(messagesObj){
-        console.log(messagesObj,' user info')
         Message.messagesArray = null;
         Message.messagesArray = messagesObj.Messages;
       });

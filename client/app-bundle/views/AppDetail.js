@@ -14,7 +14,7 @@ exports.view = function (ctrl, options) {
       m('a.btn', { onclick: Interview.back}, 'Back')
     ]),
     m('h1.center-align', name),
-    m('h2.app-detail-heading', 'Phone Screen', console.log(options)),
+    m('h2.app-detail-heading', 'Phone Screen'),
     options[1].length === 0 ? m('div', 'No phone screens scheduled') :
     options[1].map(function (phoneScreen) {
       return m('div', [
