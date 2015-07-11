@@ -5,7 +5,7 @@ var StudentInfo     = require('../components/StudentInfo.js');
 var StudentJob      = require('../components/StudentJob.js');
 var Messaging       = require('../components/Messaging.js');
 var NewApp          = require('../components/forms/NewApp.js');
-var Graph           = require('../components/OutcomesGraph.js')
+var Graph           = require('../components/OutcomesGraph.js');
 
 //Models
 var StudentApp     = require('../models/StudentApp.js');
@@ -36,6 +36,6 @@ exports.view = function (ctrl) {
       messages: messagesData.messages,
       users: messagesData.users,
       studentInfo: appsData.studentInfo
-    }),
-  ]) 
-}
+    })
+  ]);
+};

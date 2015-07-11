@@ -1,9 +1,5 @@
 var m = require('mithril');
 
-exports.controller = function () {
-  var ctrl = this;
-};
-
 exports.view = function (ctrl) {
   return m('ul.collapsible[data-collapsible=accordion]', [
     m('li', [

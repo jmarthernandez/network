@@ -1,6 +1,6 @@
 var m = require('mithril');
-var Fuzzy = require('../Fuzzysearch.js')
-var Questions = require('../../models/AddQuestions.js')
+var Fuzzy = require('../Fuzzysearch.js');
+var Questions = require('../../models/AddQuestions.js');
 
 
 exports.controller = function () {
@@ -14,11 +14,11 @@ exports.controller = function () {
         ctrl.addQuestion = Questions.vm();
         ctrl.back();
       })
-  }
+  };
 
   ctrl.back = function(e){
     window.history.back();
-  }
+  };
 };
 
 exports.view = function (ctrl) {
@@ -35,12 +35,12 @@ exports.view = function (ctrl) {
           onchange: m.withAttr('value', ctrl.addQuestion.name)
         }),
         m('label', 'Questions')
-    ]),
-    m('.row.center-align', [
-      m('button.btn.waves-effect.waves-light', 'Submit',  [
-        m('i.mdi-content-send.right')
+      ]),
+      m('.row.center-align', [
+        m('button.btn.waves-effect.waves-light', 'Submit',  [
+          m('i.mdi-content-send.right')
+        ])
       ])
     ])
-  ])
-    ])
+  ]);
 };

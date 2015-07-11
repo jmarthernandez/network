@@ -1,6 +1,6 @@
 var m = require('mithril');
 var materialize = require('../../../lib/materialize.js');
-var Fuzzy = require('../Fuzzysearch.js')
+var Fuzzy = require('../Fuzzysearch.js');
 
 //Model
 var Interview   = require('../../models/Interview.js');

@@ -1,12 +1,11 @@
 var m = require('mithril');
-var Fuzzy = require('../../models/Fuzzy.js')
-var Company = require('../../models/AddCompany.js')
+var Fuzzy = require('../../models/Fuzzy.js');
+var Company = require('../../models/AddCompany.js');
 
 
 exports.controller = function () {
   var ctrl = this;
   ctrl.addCompany = Company.vm();
-
 
   ctrl.submit = function(e){
     e.preventDefault();
@@ -15,11 +14,11 @@ exports.controller = function () {
         ctrl.addCompany = Company.vm();
         ctrl.back()
       })
-  }
+  };
 
   ctrl.back = function(e){
     window.history.back();
-  }
+  };
 };
 
 
@@ -58,5 +57,5 @@ exports.view = function (ctrl) {
         ])
       ])
     ])
-  ])
+  ]);
 };

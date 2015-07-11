@@ -9,10 +9,8 @@ var Message   = require('../models/Message.js');
 exports.controller = function () {
   var ctrl = this;
   ctrl.message = Message.vm();
-  console.log(echo)
   ctrl.filter = echo;
   ctrl.message.receiver_uid = m.prop(null);
-
 
   ctrl.submit = function (e) {
     e.preventDefault();
@@ -20,7 +18,7 @@ exports.controller = function () {
       .then(function(){
 
         ctrl.message == Message.vm();
-      })
+      });
   };
 
   ctrl.filterMessages = function(id,uid) {

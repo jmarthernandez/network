@@ -4,7 +4,6 @@ var Interview   = require('../../models/Interview.js');
 //rename to Interview
 exports.controller = function () {
 	var ctrl = this;
-  // Interview.fetchInt();
   ctrl.interview = Interview.vm();
 
   // controller action

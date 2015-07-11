@@ -13,7 +13,7 @@ var Message = module.exports = {
       sender_uid: m.prop(attrs.uid || ''),
       receiver_uid: m.prop(attrs.id || ''),
       body: m.prop(''),
-    }
+    };
   },
 
   fetchMe: function() {

@@ -19,12 +19,12 @@ var CodingChallenge = require('./components/forms/CodingChallenge.js');
 var OnsiteInterview = require('./components/forms/OnsiteInterview.js');
 var PhoneScreen     = require('./components/forms/PhoneScreen.js');
 var TechnicalScreen = require('./components/forms/TechnicalScreen.js');
-var AddContact      = require('./components/forms/AddContact.js')
-var AddTitle        = require('./components/forms/AddTitle.js')
-var AddCompany      = require('./components/forms/AddCompany.js')
+var AddContact      = require('./components/forms/AddContact.js');
+var AddTitle        = require('./components/forms/AddTitle.js');
+var AddCompany      = require('./components/forms/AddCompany.js');
 
 //Models
-var Interview       = require('./models/Interview.js')
+var Interview       = require('./models/Interview.js');
  
 
 var checkAuth = function(authorization, componentsArr) {
@@ -68,7 +68,6 @@ var routes = {
     },
     view: function (ctrl) {
       var interviews = Interview.intsForApp();
-      console.log(interviews.Interviews, 'INTER')
       return  checkAuth(ctrl.user, m.component(AppDetail, interviews.Interviews));
     }
   },

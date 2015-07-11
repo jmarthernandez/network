@@ -1,7 +1,7 @@
 var m         = require('mithril');
 var materialize = require('../../../lib/materialize.js');
-var Fuzzy = require('../Fuzzysearch.js')
-var Contacts = require('./AddContact.js')
+var Fuzzy = require('../Fuzzysearch.js');
+var Contacts = require('./AddContact.js');
 
 //Model
 var Interview   = require('../../models/Interview.js');
