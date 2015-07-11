@@ -68,6 +68,7 @@ var routes = {
     },
     view: function (ctrl) {
       var interviews = Interview.intsForApp();
+      console.log(interviews.Interviews, 'INTER')
       return  checkAuth(ctrl.user, m.component(AppDetail, interviews.Interviews));
     }
   },
