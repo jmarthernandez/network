@@ -7,7 +7,7 @@ exports.view = function (ctrl, options) {
 
 
 
-  var opt = options[1][0] ||
+  var opt =  options[1][0]||
              options[2][0]|| 
              options[3][0]|| 
              options[4][0];
