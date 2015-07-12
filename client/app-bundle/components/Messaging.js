@@ -23,6 +23,19 @@ exports.controller = function () {
 
   ctrl.filterMessages = function(id,uid) {
     ctrl.message.receiver_uid(id);
+  };
+
+  ctrl.tConvert = function(time) {  
+  // Check correct time format and split into components
+  time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+
+  if (time.length > 1) { // If time format correct
+    time = time.slice (1);  // Remove full string match value
+    time[5] = +time[0] < 12 ? 'AM' : 'PM'; // Set AM/PM
+    time[0] = +time[0] % 12 || 12; // Adjust hours
+  }
+  return time.join (''); // return adjusted time or original string
+};
 
 
     ctrl.filter = function(message){
@@ -31,7 +44,6 @@ exports.controller = function () {
         return message;
       }
     };
-  };
 };
 
 exports.view = function (ctrl, options) {
@@ -51,13 +63,14 @@ exports.view = function (ctrl, options) {
             m('.col.m6.s12.center-align', [
               m('h4', ctrl.selectedUser || 'Select a User'),
               m('.message-box', [
-                m('ul', [
+                m('ul', console.log(options.messages), [
                   options.messages.filter(ctrl.filter).map(function(message){
                     if( message.sender_uid === ctrl.message.sender_uid ) {               
                       return m('.col.s12', [
                         m('.col.s7.offset-s5.indigo.message', [
                           m('li.collection-item.valign', [
-                            m('p', message.body),
+                            m('span.right', ctrl.tConvert(message.updated_at.slice(11, 16))),
+                            m('span.left', message.body),
                           ])
                         ])
                       ])
@@ -65,7 +78,8 @@ exports.view = function (ctrl, options) {
                       return m('.col.s12', [
                         m('.col.s7.blue.message', [
                           m('li.collection-item.valign', [
-                            m('p', message.body),
+                            m('span.right', ctrl.tConvert(message.updated_at.slice(11, 16))),
+                            m('span.left', message.body),
                           ])
                         ])
                       ])
