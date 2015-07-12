@@ -9,7 +9,6 @@ var User = module.exports = {
 
   arrange: function(users,callback){
     var apps = {1: [], 2: [], 3: [], 4: [], 5: []};
-    ctrl.user_uid = users;
 
     User.getUser(users, function(applicationsResponse) {
       if (!Array.isArray(applicationsResponse.Application)) {
