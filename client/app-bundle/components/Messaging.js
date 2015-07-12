@@ -63,7 +63,7 @@ exports.view = function (ctrl, options) {
             m('.col.m6.s12.center-align', [
               m('h4', ctrl.selectedUser || 'Select a User'),
               m('.message-box', [
-                m('ul', console.log(options.messages), [
+                m('ul', [
                   options.messages.filter(ctrl.filter).map(function(message){
                     if( message.sender_uid === ctrl.message.sender_uid ) {               
                       return m('.col.s12', [
