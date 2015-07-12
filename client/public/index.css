@@ -89,6 +89,34 @@
 	height: 64px;
 }
 
+.picker__date-display{
+  background-color: #16649F;
+}
+
+.picker__close{
+  color: #16649F;
+}
+
+.picker__today{
+  color: #16649F;
+}
+
+.picker__day.picker__day--today{
+  color: #16649F;
+}
+
+.picker__weekday-display{
+  background-color: #16529F;
+}
+
+.picker--focused .picker__day--selected{
+  background-color: #16529F;
+}
+
+.picker__day--selected:hover{
+  background-color: #16529F;
+}
+
 /*@media (min-width: 400px) and (max-width: 600px) {
   Did not solve width issue for mobile; see new dimensions below
   */
@@ -148,7 +176,7 @@
 
 .dropdown-content li > a, .dropdown-content li > span {
   font-size: 1.2rem;
-  color: #26a69a;
+  color: #16529F;
   display: block;
   padding: 1rem 1rem; 
 }
@@ -314,3 +342,10 @@
 
 .slider .indicators .indicator-item.active {
   background-color: #424242; }
+
+
+
+.contactFuzzy{
+  margin-top: 7px;
+  border: 0;
+}
