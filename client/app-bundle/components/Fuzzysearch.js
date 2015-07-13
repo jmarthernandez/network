@@ -132,7 +132,7 @@ AutocompleteInput.view = function (ctrl, attrs) {
     }),
     ]),
     ctrl.isFocused() ?
-      m('.autocomplete-input--select-drop.relative', [
+      m('.autocomplete-input--select-drop.fixed', [
         m('ul', { class: mode, onmousedown: ctrl.select.chill() }, renderOptions(ctrl.query()))
       ])
       : null,

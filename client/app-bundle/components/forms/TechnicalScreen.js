@@ -42,7 +42,7 @@ exports.view = function (ctrl, options) {
       m('.row', [
         m('.input-field.col.s12.m12', [
           //Should have a limit of text
-          m('input#first_name.datepicker[type=date][placeholder="Scheduled Date"]', {
+          m('input#first_name.datepicker[type=date][placeholder="Scheduled For"]', {
             class: 'datepicker', 
             config: materialize.pickDates, 
             value: ctrl.interview.scheduled_on(),
@@ -50,9 +50,8 @@ exports.view = function (ctrl, options) {
           }),
         ])
       ]),
-      m('.row', [
+      m('.row.center-align', [
         m('button.btn.waves-effect.waves-light', 'Submit',[
-          //POST to database
           m('i.mdi-content-send.right')
         ])
       ])

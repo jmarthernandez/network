@@ -53,7 +53,7 @@ exports.view = function (ctrl, options) {
         m('h4.center-align', 'Date')
       ]),
       m('.row', [
-        m('.input-field.col.s12.m6', [
+        m('.input-field.col.s12.m12', [
           //TODO: Should have a limit of text
           m('input[type=date]', {
             class: 'datepicker', 
@@ -64,7 +64,7 @@ exports.view = function (ctrl, options) {
           m('label[for=first_name]', "Scheduled For")
         ]),
       ]),
-      m('.row', [
+      m('.row.center-align', [
         m('button.btn.waves-effect.waves-light', 'Submit',[
           //POST to database
           m('i.mdi-content-send.right')

@@ -41,17 +41,14 @@ exports.view = function (ctrl, options) {
       m('h3.center-align', 'Onsite Interview')
     ]),
     m('form.col.s12', { onsubmit: ctrl.submit }, [
-      m('.row',
-        m('h4.center-align', 'Interviewer')
-      ),
-      m('.row',[
+      m('.row.center-align',[
         m.component(Fuzzy, {
           search: 'contacts',
           onSelect: function (name) {
             ctrl.interview.contacts = name;
           },
           name: 'Contact',
-          placeholder: 'Name',
+          placeholder: 'Name of Interviewer',
           optionView: function (contacts) { 
             return contacts.name + "  -  " + contacts.phone_number + "  -  " + contacts.company_name
            },
@@ -71,7 +68,7 @@ exports.view = function (ctrl, options) {
           }),
         ]),
       ]),
-      m('.row', [
+      m('.row.center-align', [
         m('button.btn.waves-effect.waves-light', 'Submit', [
           //POST to database
           m('i.mdi-content-send.right')

@@ -32,24 +32,21 @@ exports.view = function (ctrl) {
     m('h4.center-align', 'Add a Company'),
     m('.row', [
       m('.input-field.col.s12.m4', [
-        m('input[type=text]', {
+        m('input[type=text][placeholder="Name"]', {
           value: ctrl.addCompany.name(),
           onchange: m.withAttr('value', ctrl.addCompany.name)
         }),
-        m('label', 'Company Name')
       ]),
       m('.input-field.col.s12.m4', [
-        m('input#[type=text]', {
+        m('input#[type=text][placeholder="Website Address"]', {
           value: ctrl.addCompany.url(),
           onchange: m.withAttr('value', ctrl.addCompany.url)}),
-        m('label', 'URL')
       ]),
       m('.input-field.col.s12.m4', [
-        m('input[type=text]', {
+        m('input[type=text][placeholder="Mailing Address"]', {
           value: ctrl.addCompany.address(),
           onchange: m.withAttr('value', ctrl.addCompany.address)
           }),
-        m('label', 'Location')
       ]),
       m('.row.center-align', [
         m('button.btn.waves-effect.waves-light', 'Submit',  [
