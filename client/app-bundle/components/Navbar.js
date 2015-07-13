@@ -4,6 +4,7 @@ var materialize = require('../../lib/materialize.js');
 
 exports.view = function (ctrl, user) {
     var links = [
+
     {title: 'Outcomes', url: '/outcomes'},
     {title: 'Students', url: '/profile'},
     {title: 'Sign Out', url: '/signout'}
@@ -15,6 +16,7 @@ exports.view = function (ctrl, user) {
         m('a[data-activates=mobile-demo][href=#].right', {class: 'button-collapse', config: materialize.navDrop}, [ 
           m('div.i.mdi-action-view-headline#headlineLarger')]), 
         m('ul#nav-mobile.right.hide-on-med-and-down', [
+          m('li', m('a.modal-trigger.hide-on-med-and-down', { href: '#chat-modal', config: materialize.modalClick }, m('i.tiny.mdi-communication-message'))),
           m('li', links.map(function(link) {
             return m('li',
               m('a', { href: link.url, config: m.route }, link.title) 
@@ -22,19 +24,23 @@ exports.view = function (ctrl, user) {
           })),
         ]),
         m('ul#mobile-demo.side-nav', [  //Note: Does not work properly with link mapping (as above)
-          m('li', [
-            m('div.buffer'),
-            m('a[href="/outcomes"]', { config: m.route }, [
-              m('span.btn', "Outcomes")
+          m('a.modal-trigger.messageBtn', { href: '#chat-modal', config: materialize.modalClick }, m('i.tiny.mdi-communication-message')),
+            m('li', [
+              m('a[href="/outcomes"]', { config: m.route }, [
+                m('span', "Outcomes")
+              ]),
             ]),
-            m('a[href="/profile"]', { config: m.route }, [
-              m('span.btn', "Profile")
+            m('li', [
+              m('a[href="/profile"]', { config: m.route }, [
+                m('span', "Profile")
+              ]),
             ]),
-            m('a[href="/signout"]', { config: m.route }, [
-              m('span.btn', "Sign Out")
+            m('li', [
+              m('a[href="/signout"]', { config: m.route }, [
+                m('span', "Sign Out")
+              ])
             ])
-          ]), 
-        ]),
+        ])
       ])
     ])
 };
