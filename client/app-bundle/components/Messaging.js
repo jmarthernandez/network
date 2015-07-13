@@ -121,5 +121,5 @@ exports.view = function (ctrl, options) {
         ])
       ])
     ])
-  ])
+  ]) //End Section
 };
