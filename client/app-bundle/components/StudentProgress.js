@@ -20,7 +20,7 @@ exports.plotter = function(ctrl) { // config class
     };
 
 exports.view = function(ctrl) { // view
-  return  m("html", [ m("html", [
+  return  m("html", [ m("body", [
     m("#plot[style=height:400px]", {config: exports.plotter(ctrl)}),
     ]),
   ])

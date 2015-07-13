@@ -4,7 +4,6 @@ var materialize = require('../../lib/materialize.js');
 
 exports.view = function (ctrl, user) {
     var links = [
-
     {title: 'Outcomes', url: '/outcomes'},
     {title: 'Students', url: '/profile'},
     {title: 'Sign Out', url: '/signout'}
