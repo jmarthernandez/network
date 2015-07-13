@@ -121,7 +121,7 @@ AutocompleteInput.view = function (ctrl, attrs) {
 
     m('.autocomplete-input.col.s12', [
     
-    m('input[type=text]', {
+    m('input[type=text]#', {
       key: 'autocomplete',
       config: ctrl.cleanInput,
       onkeyup: ctrl.onkeyup,
@@ -132,7 +132,7 @@ AutocompleteInput.view = function (ctrl, attrs) {
     }),
     ]),
     ctrl.isFocused() ?
-      m('.autocomplete-input--select-drop.relative', [
+      m('.autocomplete-input--select-drop.fixed', [
         m('ul', { class: mode, onmousedown: ctrl.select.chill() }, renderOptions(ctrl.query()))
       ])
       : null,

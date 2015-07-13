@@ -88,7 +88,7 @@ exports.view = function (ctrl, options) {
               ]),
             ]),
             m('.col.m6.s12.center-align.fuzzyStudent', [
-              m('h4', ctrl.selectedUser || 'Select a User'),
+              m('h6', ctrl.selectedUser || 'Select a User'),
               m('.fuzzyStudent.s12.m6', [              
                   m.component(Fuzzy, {
                   search: 'users',
@@ -121,5 +121,5 @@ exports.view = function (ctrl, options) {
         ])
       ])
     ])
-  ])
+  ]) //End Section
 };

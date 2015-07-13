@@ -78,7 +78,7 @@ exports.dropDowns = function (elem, isInitialized){
 exports.carosel = function(elem, isInitialized){
 	if (isInitialized) return;
 
-  $(elem).slider({full_width: true, interval: 60000000});
+  $(elem).slider({full_width: true, interval: 10000});
 
 }
 

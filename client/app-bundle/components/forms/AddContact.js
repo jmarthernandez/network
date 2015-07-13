@@ -32,17 +32,16 @@ exports.view = function (ctrl) {
     m('h4.center-align', 'Add a Contact'),
     m('.row', [
       m('.input-field.col.s12.m4', [
-        m('input[type=text]', {
+        m('input[type=text][placeholder="Contact Name"]', {
           value: ctrl.addContacts.name(),
           onchange: m.withAttr('value', ctrl.addContacts.name)
         }),
-        m('label', 'Contact Name')
       ]),
       m('.input-field.col.s12.m4', [
-        m('input#[type=text]', {
+        m('input#[type=text][placeholder="Phone Number"]', {
         value: ctrl.addContacts.phone_number(),
         onchange: m.withAttr('value', ctrl.addContacts.phone_number)}),
-      m('label', 'Phone Number')]),
+      ]),
       m.component(Fuzzy, {
         search: 'companies',
         onSelect: function (company) {
