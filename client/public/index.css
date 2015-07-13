@@ -159,11 +159,13 @@
   border-radius: 2px;
   color: white;
   margin-bottom: 5px;
+  overflow: auto;
 }
 
 .message-box {
   overflow: auto;
-  height: 200px;
+  border: 1px solid #9e9e9e;
+  height: 275px;
 }
 
 .reciever {
@@ -184,6 +186,22 @@
 
 #shadow{
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.fuzzyStudent  {
+  width: 700px;
+  float: center;
+}
+
+.selectUser {
+  float: right;
+}
+.submitMessage{
+  float: right;
+  top: 500px;
+}
+.fuzzyMessage{
+  float:left;
 }
 
 
@@ -288,7 +306,8 @@
 
 .materialize-red-text.text-lighten-2, {
   color: #fdaa4b !important; }
-
+.materialize-blue.lighten-2 {
+  background-color: #fdaa4b !important; }
 
 .navbar-fixed {
   position: relative;
