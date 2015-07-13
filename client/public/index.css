@@ -449,3 +449,24 @@ input[type=text]:disabled, input[type=text][readonly="readonly"], input[type=pas
   input[type=text].invalid, input[type=text]:focus.invalid, input[type=password].invalid, input[type=password]:focus.invalid, input[type=email].invalid, input[type=email]:focus.invalid, input[type=url].invalid, input[type=url]:focus.invalid, input[type=time].invalid, input[type=time]:focus.invalid, input[type=date].invalid, input[type=date]:focus.invalid, input[type=datetime-local].invalid, input[type=datetime-local]:focus.invalid, input[type=tel].invalid, input[type=tel]:focus.invalid, input[type=number].invalid, input[type=number]:focus.invalid, input[type=search].invalid, input[type=search]:focus.invalid, textarea.materialize-textarea.invalid, textarea.materialize-textarea:focus.invalid {
     border-bottom: 1px solid #16649F;
     box-shadow: 0 1px 0 0 #16649F; }
+
+
+
+
+
+    .modal {
+overflow-y: scroll;
+}
+.modal .modal-content {
+  display: block;
+  max-height: 580px !important;
+  overflow: scroll;
+  text-overflow: ellipsis;
+}
+.modal .modal-footer {
+border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+
+

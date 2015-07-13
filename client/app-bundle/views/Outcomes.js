@@ -30,7 +30,7 @@ exports.view = function(ctrl) {
   var appsData     = StudentApp.all();
 
   return m('.container', [
-    m('h1.center-align', 'Student Outcomes'),
+    m('h3.center-align', 'Student Outcomes'),
 
     m.component(OutcomesJobs, { apps: apps, studentInfo: appsData.studentInfo} ),
     m.component(Carosel),
