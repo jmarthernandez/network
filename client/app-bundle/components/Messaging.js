@@ -55,7 +55,7 @@ exports.view = function (ctrl, options) {
   ctrl.allMessages = options.messages;
   ctrl.message.sender_uid = options.studentInfo.uid;
   return m('section', [
-    m('a.btn.modal-trigger', { href: '#chat-modal', config: materialize.modalClick }, 'Send a Message'),
+    m('a.btn.modal-trigger.messageBtn', { href: '#chat-modal', config: materialize.modalClick }, 'Send a Message'),
     m('.modal.bottom-sheet#chat-modal', [
       m('.modal-content', [
         m('form', { onsubmit: ctrl.submit }, [
@@ -88,8 +88,8 @@ exports.view = function (ctrl, options) {
               ]),
             ]),
             m('.col.m6.s12.center-align.fuzzyStudent', [
-              m('h4.selectUse', ctrl.selectedUser || 'Select a User'),
-              m('.fuzzyStudent', [              
+              m('h4', ctrl.selectedUser || 'Select a User'),
+              m('.fuzzyStudent.s12.m6', [              
                   m.component(Fuzzy, {
                   search: 'users',
                   onSelect: function (users) {
