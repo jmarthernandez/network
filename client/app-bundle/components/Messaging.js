@@ -55,7 +55,7 @@ exports.view = function (ctrl, options) {
   ctrl.allMessages = options.messages;
   ctrl.message.sender_uid = options.studentInfo.uid;
   return m('section', [
-    m('a.btn.modal-trigger', { href: '#chat-modal', config: materialize.modalClick }, 'Send a Message'),
+    m('a.btn.modal-trigger.messageBtn', { href: '#chat-modal', config: materialize.modalClick }, 'Send a Message'),
     m('.modal.bottom-sheet#chat-modal', [
       m('.modal-content', [
         m('form', { onsubmit: ctrl.submit }, [
