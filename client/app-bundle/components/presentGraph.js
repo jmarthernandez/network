@@ -13,16 +13,13 @@ exports.controller = function () {
 exports.plotter = function(ctrl) { // config class
   return function(elem,isin) {
     if(!isin) {
-          // m.startComputation();
-          // console.log(Highcharts)
           ctrl.graphOptions.chart.renderTo = elem
           var chart = new Highcharts.Chart(ctrl.graphOptions);
-          // m.endComputation();
         }
       };
     };
 
-exports.view = function(ctrl) { // view
+exports.view = function(ctrl) { 
   return  m("html", [ m("body", [
     m("#plot[style=height:400px]", {config: exports.plotter(ctrl)}),
     ]),
@@ -31,7 +28,6 @@ exports.view = function(ctrl) { // view
 
 function graphOptions(graphData) {
 	return {
-		// console.log('in graphOptions SP')
 		        chart: {
             type: 'scatter',
             zoomType: 'xy'
