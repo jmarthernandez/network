@@ -104,7 +104,7 @@ exports.view = function (ctrl, options) {
             ]),
               m('.row.input-field.col.s12.m6.fuzzyMessage', [
                 // m('i.mdi-editor-mode-edit.prefix'),
-                m('textarea#icon_prefix2.materialize-textarea.light-blue-text.text-accent-3', {
+                m('textarea#icon_prefix2.materialize-textarea', {
                   value: ctrl.message.body(),
                   onchange: m.withAttr('value', ctrl.message.body)
                 }),
