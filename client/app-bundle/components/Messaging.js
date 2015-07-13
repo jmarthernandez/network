@@ -32,7 +32,7 @@ exports.controller = function () {
   if (time.length > 1) { // If time format correct
     time = time.slice (1);  // Remove full string match value
     time[5] = +time[0] < 12 ? 'AM' : 'PM'; // Set AM/PM
-    time[0] = +time[0] % 12 || 12; // Adjust hours
+    time[0] = +(time[0]-5) % 12 || 12; // Adjust hours
   }
   return time.join (''); // return adjusted time or original string
 };
@@ -60,10 +60,9 @@ exports.view = function (ctrl, options) {
       m('.modal-content', [
         m('form', { onsubmit: ctrl.submit }, [
           m('.row', [
-            m('.col.m6.s12.center-align', [
-              m('h4', ctrl.selectedUser || 'Select a User'),
+            m('.col.m6.s12.center-align', 'Message Student', [
               m('.message-box', [
-                m('ul', [
+                m('ul',[
                   options.messages.filter(ctrl.filter).map(function(message){
                     if( message.sender_uid === ctrl.message.sender_uid ) {               
                       return m('.col.s12', [
@@ -86,34 +85,39 @@ exports.view = function (ctrl, options) {
                     }
                   })
                 ])
-              ])
+              ]),
             ]),
-            m('.col.m6.s12.center-align', [
-              m('.row.input-field.col.l6.m6.s12', [
-                m('i.mdi-editor-mode-edit.prefix'),
-                m('textarea#icon_prefix2.materialize-textarea', {
+            m('.col.m6.s12.center-align.fuzzyStudent', [
+              m('h4.selectUse', ctrl.selectedUser || 'Select a User'),
+              m('.fuzzyStudent', [              
+                  m.component(Fuzzy, {
+                  search: 'users',
+                  onSelect: function (users) {
+                    ctrl.filterMessages(users, options.studentInfo);
+                  },
+                  placeholder: 'Student',
+                  optionView: function (users) {
+                    return users.name;
+                  }
+                }),
+              ]),
+            ]),
+              m('.row.input-field.col.s12.m6.fuzzyMessage', [
+                // m('i.mdi-editor-mode-edit.prefix'),
+                m('textarea#icon_prefix2.materialize-textarea.light-blue-text.text-accent-3', {
                   value: ctrl.message.body(),
                   onchange: m.withAttr('value', ctrl.message.body)
                 }),
-                m('label[for=icon_prefix2]', 'Message to : ' + ctrl.selectedUser)
+                m('label[for=icon_prefix2]', 'Message: ' + ctrl.selectedUser)
               ]),
-              m('.div.center-align', [
-                m('button.btn.waves-effect.waves-light', 'Send Message',[
-                  m('i.mdi-content-send.right')
-                ])
+              m('.submitMessage', [         
+                m('.div.center-align', [
+                  m('button.btn.waves-effect.waves-light', 'Send Message',[
+                    m('i.mdi-content-send.right')
+                  ])
+                ]),
               ]),
-              m.component(Fuzzy, {
-                search: 'users',
-                onSelect: function (users) {
-                  ctrl.filterMessages(users, options.studentInfo);
-                },
-                placeholder: 'Student',
-                optionView: function (users) {
-                  return users.name;
-                }
-              }),
             ])
-          ])
         ])
       ])
     ])
