@@ -1,6 +1,7 @@
 var m    = require('mithril');
 var Graph  = require('./OutcomesGraph.js');
-var StudentProgress = require('./StudentProgress.js')
+var StudentProgress = require('./StudentProgress.js');
+var PresentGraph  = require('./PresentGraph.js');
 var materialize = require('../../lib/materialize.js');
   
   
@@ -12,6 +13,9 @@ exports.view = function(ctrl) {
       ]),
       m('li', [
         m.component(StudentProgress)
+      ]),
+      m('li', [
+        m.component(PresentGraph)
       ])
     ])
   ]);
