@@ -20,7 +20,7 @@ exports.plotter = function(ctrl) { // config class
 
 exports.view = function(ctrl) { // view
     return  m("html", [ m("body", [
-        m("#plot[style=height:400px]", {config: exports.plotter(ctrl)}), console.log(ctrl),
+        m("#plot[style=height:400px]", {config: exports.plotter(ctrl)}),
         m("p",console.log(JSON.stringify(ctrl.fetchAll))),
         ]),
     ])
@@ -49,10 +49,6 @@ function graphOptions (graphData) {
                 },
                 neckWidth: '0%',
                 neckHeight: '0%'
-
-                //-- Other available options
-                // height: pixels or percent
-                // width: pixels or percent
             }
         },
         legend: {
@@ -68,14 +64,5 @@ function graphOptions (graphData) {
                 ['Accepted Offers',    graphData.acceptedOffers]
             ]
         }],
-        // tooltip: {
-        //         formatter: function() {
-        //                  return 'Branch: <b>'+ this.series.name +
-        //                     '</b><br/>Date: '+ Highcharts.dateFormat('%e %b',this.x)+
-        //                         '</b><br/>Pass rate: '+ this.y +'%';
-        //                      //     '</b><br/>Pass count: '+  this.point.options.passCount+
-        //                      // '</b><br/>Total count: '+  this.point.options.totalCount;
-        //         }
-        //     },
     }
 }
