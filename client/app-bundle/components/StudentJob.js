@@ -38,12 +38,18 @@ exports.view = function(ctrl, options){
           ]),
           m('ul#dropdown1', {class:'dropdown-content'}, [
             m('li', [
-              m('a.waves-effect.waves-light[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen'),
-              m('a.waves-effect.waves-light[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen'),
-              m('a.waves-effect.waves-light[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
-              m('a.waves-effect.waves-light[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
+              m('a[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen')
+            ]),
+            m('li', [
+              m('a[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen')
+            ]),
+            m('li', [
+              m('a[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge')
+            ]),
+            m('li', [
+              m('a[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
             ])
-          ]),
+          ])
         ]) //End Return M LI
       })
     ]),  //End UL Collapsible
@@ -64,12 +70,18 @@ exports.view = function(ctrl, options){
           ]),
           m('ul#dropdown2', {class:'dropdown-content'}, [
             m('li', [
-              m('a.waves-effect.waves-light[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen'),
-              m('a.waves-effect.waves-light[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen'),
-              m('a.waves-effect.waves-light[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
-              m('a.waves-effect.waves-light[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
+              m('a[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen')
+            ]),
+            m('li', [
+              m('a[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen')
+            ]),
+            m('li', [
+              m('a[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge')
+            ]),
+            m('li', [
+              m('a[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
             ])
-          ]),
+          ])
         ]) //End Return M LI
       })
     ]), //End UL Collapsible
@@ -91,12 +103,18 @@ exports.view = function(ctrl, options){
           ]),
           m('ul#dropdown3', {class:'dropdown-content'}, [
             m('li', [
-              m('a.waves-effect.waves-light[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen'),
-              m('a.waves-effect.waves-light[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen'),
-              m('a.waves-effect.waves-light[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
-              m('a.waves-effect.waves-light[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
+              m('a[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen')
+            ]),
+            m('li', [
+              m('a[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen')
+            ]),
+            m('li', [
+              m('a[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge')
+            ]),
+            m('li', [
+              m('a[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
             ])
-          ]),
+          ])
         ]) //End Return M LI
       })
     ]), //End UL Collapsible
@@ -117,12 +135,18 @@ exports.view = function(ctrl, options){
           ]),
           m('ul#dropdown4', {class:'dropdown-content'}, [
             m('li', [
-              m('a.waves-effect.waves-light[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen'),
-              m('a.waves-effect.waves-light[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen'),
-              m('a.waves-effect.waves-light[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
-              m('a.waves-effect.waves-light[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
+              m('a[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen')
+            ]),
+            m('li', [
+              m('a[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen')
+            ]),
+            m('li', [
+              m('a[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge')
+            ]),
+            m('li', [
+              m('a[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
             ])
-          ]),
+          ])
         ]) //End Return M LI
       })
     ]), //End UL Collapsible
@@ -144,12 +168,18 @@ exports.view = function(ctrl, options){
           ]),
           m('ul#dropdown5', {class:'dropdown-content'}, [
             m('li', [
-              m('a.waves-effect.waves-light[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen'),
-              m('a.waves-effect.waves-light[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen'),
-              m('a.waves-effect.waves-light[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge'),
-              m('a.waves-effect.waves-light[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
+              m('a[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen')
+            ]),
+            m('li', [
+              m('a[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen')
+            ]),
+            m('li', [
+              m('a[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge')
+            ]),
+            m('li', [
+              m('a[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
             ])
-          ]),
+          ])
         ]) //End Return M LI
       })
     ]), //End UL Collapsible
