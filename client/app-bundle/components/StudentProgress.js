@@ -13,11 +13,8 @@ exports.controller = function () {
 exports.plotter = function(ctrl) { // config class
   return function(elem,isin) {
     if(!isin) {
-          // m.startComputation();
-          // console.log(Highcharts)
           ctrl.graphOptions.chart.renderTo = elem
           var chart = new Highcharts.Chart(ctrl.graphOptions);
-          // m.endComputation();
         }
       };
     };
