@@ -1,18 +1,15 @@
-var m = require('mithril');
-var materialize = require('../../../lib/materialize.js');
-var Fuzzy = require('../../models/Fuzzy.js');
+var m             = require('mithril');
+var materialize   = require('../../../lib/materialize.js');
+var Fuzzy         = require('../../models/Fuzzy.js');
 
-//Model
 var Interview = require('../../models/Interview.js');
 
-//TODO: Comment
 exports.controller = function () {
   var ctrl = this;
 
   ctrl.interview = Interview.vm();
   ctrl.interview.type = 'Coding Challenge';
   ctrl.update = Interview.vmApp();
-
 
   ctrl.submit = function (e) {
     e.preventDefault();

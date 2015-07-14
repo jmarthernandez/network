@@ -1,6 +1,5 @@
-// require('./ext/functions.js')
-var m = require('mithril');
-var materialize = require('../../lib/materialize.js');
+var m             = require('mithril');
+var materialize   = require('../../lib/materialize.js');
 
 exports.view = function (ctrl) {
   return m('div.slider.fullscreen', {config: materialize.fullScreenSlider}, [

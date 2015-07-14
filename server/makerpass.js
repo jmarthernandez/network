@@ -1,6 +1,4 @@
-//
 // Authentication with MakerPass
-//
 var passport = require('passport')
 var MakerpassStrategy = require('passport-makerpass').Strategy
 var Promise    = require('bluebird')
@@ -60,7 +58,6 @@ exports.mount = function (app, host) {
     })
   })
 
-
 app.get('/me', function(req, res){
     res.send({ user: req.user})
   })
@@ -87,7 +84,6 @@ var importAuthData = module.exports.importAuthData = function (mks) {
     return userPromise;
   })
 }
-
 
 function importUser (mks) {
   return User.updateOrCreate({

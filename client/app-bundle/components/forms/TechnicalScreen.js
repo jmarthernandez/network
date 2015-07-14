@@ -1,10 +1,7 @@
-var m = require('mithril');
+var m           = require('mithril');
 var materialize = require('../../../lib/materialize.js');
+var Interview     = require('../../models/Interview.js');
 
-//TODO: comment
-var Interview   = require('../../models/Interview.js');
-
-//TODO: comment
 exports.controller = function () {
   var ctrl = this;
 
@@ -13,7 +10,7 @@ exports.controller = function () {
   ctrl.interview.type = 'Technical Screen';
   ctrl.update = Interview.vmApp();
 
-  // controller action
+  // Controller action
   ctrl.submit = function (e) {
     e.preventDefault();
     Interview.postInterview( ctrl.interview )

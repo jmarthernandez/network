@@ -1,4 +1,4 @@
-var m = require('mithril');
+var m               = require('mithril');
 
 //Components
 var CurrentApps     = require('../components/CurrentApps.js');
@@ -7,8 +7,6 @@ var Graph           = require('../components/OutcomesGraph.js');
 var StudentProgress = require('../components/StudentProgress.js');
 var Carosel         = require('../components/GraphCarosel.js');
 var OutcomesJobs    = require('../components/OutcomesJobs.js');
-
-
 
 //Models
 var App             = require('../models/App.js');
@@ -24,14 +22,12 @@ exports.controller = function() {
 };
 
 exports.view = function(ctrl) {
-  
   var apps = App.all();
   var messagesData = Message.all();
   var appsData     = StudentApp.all();
 
   return m('.container', [
     m('h3.center-align', 'Student Outcomes'),
-
     m.component(OutcomesJobs, { apps: apps, studentInfo: appsData.studentInfo} ),
     m.component(Carosel),
     m.component(Messaging, {

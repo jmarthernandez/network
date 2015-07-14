@@ -1,16 +1,15 @@
-var Titles     = require('../models/Title')
-var express = require('express')
+var Titles     	= require('../models/Title')
+var express 		= require('express')
 
 var router = module.exports = express.Router();
 
-
-//endpoint which retrieves all questions
+//Endpoint which retrieves all questions
 router.get('/', function(req, res){
   Titles.retrieveAll().then(function(titles){ res.send({Titles: titles})
   });
 });
 
-//endpoint which adds a new questions
+//Endpoint which adds a new questions
 router.post('/', function(req, res){
   if (!req.body) return res.sendStatus(400);
   Titles.updateOrCreate(req.body);

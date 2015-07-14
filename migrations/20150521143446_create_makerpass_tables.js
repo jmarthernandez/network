@@ -4,7 +4,6 @@ exports.up = function(knex, Promise) {
 
   return Promise.all([
     knex.schema.createTable('users', function (table) {
-
       table.string('uid').primary();
       table.string('name');
       table.string('email');
@@ -16,7 +15,6 @@ exports.up = function(knex, Promise) {
     }),
 
     knex.schema.createTable('groups', function (table) {
-
       table.string('uid').primary();
       table.string('school_uid').references('uid').inTable('schools');
       table.string('name_id');
@@ -28,7 +26,6 @@ exports.up = function(knex, Promise) {
     }),
 
     knex.schema.createTable('jobs', function(table){
-
       table.increments('id').primary();
       table.integer('company_id').references('id').inTable('companies');
       table.integer('title_id').references('id').inTable('titles');
@@ -41,7 +38,6 @@ exports.up = function(knex, Promise) {
     }),
 
     knex.schema.createTable('companies', function (table) {
-
       table.increments('id').primary();
       table.string('name');
       table.string('url');
@@ -51,7 +47,6 @@ exports.up = function(knex, Promise) {
     }),
 
     knex.schema.createTable('schools', function (table) {
-
       table.string('uid').primary();
       table.string('name');
       table.string('name_id');
@@ -62,7 +57,6 @@ exports.up = function(knex, Promise) {
     }),
 
     knex.schema.createTable('applications', function (table) {
-
       table.increments('id').primary();
       table.string('phase');
       table.dateTime('applied_on');
@@ -76,7 +70,6 @@ exports.up = function(knex, Promise) {
     }),
 
     knex.schema.createTable('titles', function(table){
-
       table.increments('id').primary();
       table.string('title');
 
@@ -84,7 +77,6 @@ exports.up = function(knex, Promise) {
     }),
 
     knex.schema.createTable('memberships', function (table) {
-
       table.string('uid').primary();
       table.string('user_uid').references('uid').inTable('users').notNullable();
       table.string('group_uid').references('uid').inTable('groups').notNullable();
@@ -94,7 +86,6 @@ exports.up = function(knex, Promise) {
     }),
 
   knex.schema.createTable('interviews', function(table){
-
       table.increments('id').primary();
       table.integer('app_id').references('id').inTable('applications');
       table.json('info');
@@ -118,7 +109,6 @@ exports.up = function(knex, Promise) {
     }),
 
     knex.schema.createTable('contacts', function(table){
-
       table.increments('id').primary();
       table.string('name');
       table.string('phone_number');

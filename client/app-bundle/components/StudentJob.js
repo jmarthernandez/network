@@ -1,7 +1,6 @@
-var m = require('mithril');
-var materialize = require('../../lib/materialize.js');
+var m             = require('mithril');
+var materialize   = require('../../lib/materialize.js');
 
-//TODO: Add Update button that directs to a form
 exports.view = function(ctrl, options){
 
  return m('.col.m12.s12', [

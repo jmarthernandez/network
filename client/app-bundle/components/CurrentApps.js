@@ -1,5 +1,5 @@
-var m = require('mithril');
-var materialize = require('../../lib/materialize.js');
+var m             = require('mithril');
+var materialize   = require('../../lib/materialize.js');
 
 exports.view = function (ctrl, options) {
   if(options.apps){
@@ -11,7 +11,6 @@ exports.view = function (ctrl, options) {
           if(app.phase === '1'){  
             //var counter++;
             return m('li.collection-item avatar', [
-              //m('div', app.phase),
               m('img[src=' + app.avatar_url + '].circle'),
               m('a.title', {href: '/profile/'+ app.uid, config: m.route} , app.name),
               m('p', 'Title: ' + app.title),

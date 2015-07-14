@@ -1,11 +1,10 @@
-var db = require('../db.js')
-var Promise = require('bluebird')
-var General = require('../lib/general.js');
-var User = module.exports = General.access('users')
+var db          = require('../db.js')
+var Promise     = require('bluebird')
+var General     = require('../lib/general.js');
+var User        = module.exports = General.access('users')
 
-  //retreives all applications associated with a specific user
-  module.exports.retrieveWithRole = function(id){
-    
+  //Retreives all applications associated with a specific user
+  module.exports.retrieveWithRole = function(id){  
     return db('users').select('users.*','memberships.role').where({ 'users.uid': id })
     .join('memberships', function() {
       this.on('memberships.user_uid', '=', 'users.uid')})
@@ -14,7 +13,7 @@ var User = module.exports = General.access('users')
     });
   }
 
-    //retrieves all users
+  //Retrieves all users
   module.exports.retrieve = function () {
     return db('users').select('*')
       .then(function(rows){

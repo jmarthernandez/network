@@ -1,5 +1,4 @@
 (function (global) {
-
   global.getProp = function (propName) {
     return function (obj) { return obj[propName] }
   }

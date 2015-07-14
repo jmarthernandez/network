@@ -2,7 +2,6 @@ var m = require('mithril');
 
 var materialize = require('../../lib/materialize.js');
 
-//Student info in sidebar 
 exports.view = function (ctrl, options) {
   return m('.col.m3.s12', [
     m('div.card.large.teal.darken-1#jk', [ 

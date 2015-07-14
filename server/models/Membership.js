@@ -1,8 +1,7 @@
-var db = require('../db.js')
-var Promise = require('bluebird')
-var General = require('../lib/general.js');
-var Membership = module.exports = General.access('memberships')
-
+var db          = require('../db.js')
+var Promise     = require('bluebird')
+var General     = require('../lib/general.js');
+var Membership  = module.exports = General.access('memberships')
 
   module.exports.sync = function (user_uid, memberships) {
 

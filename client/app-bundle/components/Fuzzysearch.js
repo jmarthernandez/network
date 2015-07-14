@@ -1,6 +1,6 @@
-var m = require('mithril')
-var fuzzyMatch = require('../../../node_modules/fuzzysearch-js/js/FuzzySearch.js')
-var Fuzzy = require('../models/Fuzzy.js')
+var m            = require('mithril')
+var fuzzyMatch   = require('../../../node_modules/fuzzysearch-js/js/FuzzySearch.js')
+var Fuzzy        = require('../models/Fuzzy.js')
  
 var AutocompleteInput = module.exports = {}
 

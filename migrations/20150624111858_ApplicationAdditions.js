@@ -1,4 +1,3 @@
-
 exports.up = function(knex, Promise) {
   console.log('running messages migration');
 

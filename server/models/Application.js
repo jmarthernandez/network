@@ -1,9 +1,9 @@
-var db = require('../db.js');
-var Promise = require('bluebird');
-var General = require('../lib/general.js');
-var Applications = module.exports = General.access('applications');
+var db            = require('../db.js');
+var Promise       = require('bluebird');
+var General        = require('../lib/general.js');
+var Applications  = module.exports = General.access('applications');
 
-  //retrieves a specific application table with company specific info and title specific info
+  //Retrieves a specific application table with company specific info and title specific info
   module.exports.retrieveUserWithCompany = function (user) {
 
     return db.select('*','companies.name AS company_name','applications.id AS app_id').from('applications').where({'applications.user_id': user.uid})
@@ -16,7 +16,7 @@ var Applications = module.exports = General.access('applications');
       });
   };
 
-  //retrieves all applications along with the associated user and title rows
+  //Retrieves all applications along with the associated user and title rows
   module.exports.retrieveAllWithCompany = function () {
 
     return db.select('*','companies.name AS company_name','applications.id AS app_id').from('applications')
@@ -37,9 +37,9 @@ var Applications = module.exports = General.access('applications');
           .then(function(affectedCount) {
             return (affectedCount === 0) ? Promise.reject(new Error('not_found')) : attrs;
           });
-      };
+  };
 
-  //retrieves a single application table with company specific info and title specific info
+  //Retrieves a single application table with company specific info and title specific info
   module.exports.retrieveOne = function(id){
 
     return db.select('*','companies.name AS company_name','applications.id AS app_id').from('applications').where({'applications.user_id': id})
@@ -51,24 +51,19 @@ var Applications = module.exports = General.access('applications');
         this.on('users.uid', '=', 'applications.user_id')})
       .then(function(rows){
         return rows;
-    })
+      })
   };
 
 
-  //updates or creates a specific group depending on prior status
+  //Epdates or creates a specific group depending on prior status
   module.exports.updateOrCreate = function (attrs) {
     return Applications.update(attrs).catch(Applications.create.papp(attrs));
   };
-
-
 
   module.exports.create = function (attrs) {
     attrs.created_at = new Date();
     return db('applications').insert(attrs).return(attrs);
   };
-
-
-
 
   module.exports.addCount = function(apps, callback){
 

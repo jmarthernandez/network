@@ -1,7 +1,7 @@
-var m = require('mithril');
-var NewApp = require('../../models/NewApp.js');
-var materialize = require('../../../lib/materialize.js');
-var Fuzzy = require('../Fuzzysearch.js');
+var m             = require('mithril');
+var NewApp        = require('../../models/NewApp.js');
+var materialize   = require('../../../lib/materialize.js');
+var Fuzzy         = require('../Fuzzysearch.js');
 
 exports.controller = function () {
   var ctrl = this;
@@ -38,7 +38,6 @@ exports.view = function (ctrl) {
             return company.name + "  -  " + company.address + "  -  " + company.url
           },
            route: m('a.waves-effect.waves-light.btn[href=/company/][style="float:right; width:200px"]', { config: m.route }, 'Add a Company')
-
         }),
         m.component( Fuzzy, {
           search: 'titles',
@@ -48,17 +47,14 @@ exports.view = function (ctrl) {
           placeholder: 'Title',
           optionView: function (titles) { return titles.title  },
            route: m('a.waves-effect.waves-light.btn[href=/title/][style="float:right; width:200px"]', { config: m.route }, 'Add a Title')
-
         }),
            m('.input-field.col.s12.m6', [
-          //Should have a limit of text
           m('input.validate[type=text][placeholder=Application Method][name=app_method]', {
             value: ctrl.newApp.app_method(),
             onchange: m.withAttr('value', ctrl.newApp.app_method)
           }),
         ]),
         m('.input-field.col.s12.m6', [
-          //Should auto complete for common jobs
           m('input.[type=date][name=applied_on][placeholder="Applied On"]', {
             class: 'datepicker', 
             config: materialize.pickDates,
@@ -69,7 +65,6 @@ exports.view = function (ctrl) {
       ]),
       m('.row.center-align', [
         m('button.btn.waves-effect.waves-light#backButton', 'Submit',  [
-          //POST to database
           m('i.mdi-content-send.right')
         ])
       ])

@@ -1,7 +1,6 @@
 var m = require('mithril');
 
 var Message = module.exports = {
-
   messagesArray: null,
   usersArray: null,
   me: null,
@@ -32,7 +31,7 @@ var Message = module.exports = {
     })
   },
 
-  //GETs all messages for current user
+  //Get all messages for current user
   fetch: function () {
     m.request({ methods: 'GET', url: '/API/messages/user/' })
       .then(function(messagesObj){
@@ -49,7 +48,7 @@ var Message = module.exports = {
       });
   },
 
-  // Makes messages accessible to the view
+  // Make messages accessible to view
   all: function() {
     return {
       messages: Message.messagesArray,

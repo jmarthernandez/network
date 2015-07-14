@@ -1,9 +1,7 @@
-var db = require('../db.js');
-var Promise = require('bluebird');
-var General = require('../lib/general.js');
-var Interviews = module.exports = General.access('interviews');
-
-
+var db          = require('../db.js');
+var Promise     = require('bluebird');
+var General     = require('../lib/general.js');
+var Interviews  = module.exports = General.access('interviews');
 
 module.exports.megaJoin = function(){
 	return db.select('users.name','users.uid','applications.active','applications.phase').from('interviews')

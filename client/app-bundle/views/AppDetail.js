@@ -51,5 +51,4 @@ exports.view = function (ctrl, options) {
       ])
     }),
   ])
-
 };

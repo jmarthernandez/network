@@ -26,7 +26,6 @@ var AddCompany      = require('./components/forms/AddCompany.js');
 //Models
 var Interview       = require('./models/Interview.js');
  
-
 var checkAuth = function(authorization, componentsArr) {
   //TODO: Check role of user and redirect correctly
   if(authorization()){     
@@ -36,9 +35,7 @@ var checkAuth = function(authorization, componentsArr) {
   }
 };
 
-
 var routes = {
-
   '/': {
     controller: function () {
       var ctrl = this;
@@ -148,7 +145,6 @@ var routes = {
     }
   },
 
-
   '/title/': {
     controller: function () {
       var ctrl = this;
@@ -189,7 +185,6 @@ var routes = {
       return checkAuth(ctrl.user, m.component(Outcomes));
     }
   },
-
 
   '/signout': {
     controller: function () {

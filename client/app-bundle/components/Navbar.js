@@ -1,6 +1,5 @@
-// require('./ext/functions.js')
-var m = require('mithril');
-var materialize = require('../../lib/materialize.js');
+var m             = require('mithril');
+var materialize   = require('../../lib/materialize.js');
 
 exports.view = function (ctrl, user) {
     var links = [
@@ -22,7 +21,7 @@ exports.view = function (ctrl, user) {
             )
           })),
         ]),
-        m('ul#mobile-demo.side-nav', [  //Note: Does not work properly with link mapping (as above)
+        m('ul#mobile-demo.side-nav', [  //Does not work properly with link mapping (as above)
           m('a.modal-trigger.messageBtn', { href: '#chat-modal', config: materialize.modalClick }, m('i.tiny.mdi-communication-message')),
             m('li', [
               m('a[href="/outcomes"]', { config: m.route }, [

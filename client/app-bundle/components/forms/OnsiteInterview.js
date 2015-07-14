@@ -1,12 +1,11 @@
-var m         = require('mithril');
-var materialize = require('../../../lib/materialize.js');
-var Fuzzy = require('../Fuzzysearch.js');
-var Contacts = require('./AddContact.js');
+var m             = require('mithril');
+var materialize   = require('../../../lib/materialize.js');
+var Fuzzy         = require('../Fuzzysearch.js');
+var Contacts      = require('./AddContact.js');
 
 //Model
 var Interview   = require('../../models/Interview.js');
 
-//rename to Interview
 exports.controller = function () {
 	var ctrl = this;
 
@@ -15,7 +14,7 @@ exports.controller = function () {
   ctrl.interview.type = 'Onsite Interview';
   ctrl.update = Interview.vmApp();
 
-  // controller action
+  // Controller action
   ctrl.submit = function (e) {
     e.preventDefault();
     Interview.postInterview( ctrl.interview )
@@ -70,7 +69,6 @@ exports.view = function (ctrl, options) {
       ]),
       m('.row.center-align', [
         m('button.btn.waves-effect.waves-light', 'Submit', [
-          //POST to database
           m('i.mdi-content-send.right')
         ])
       ])

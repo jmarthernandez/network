@@ -1,7 +1,6 @@
-var m = require('mithril');
-var Fuzzy = require('../../models/Fuzzy.js');
-var Company = require('../../models/AddCompany.js');
-
+var m             = require('mithril');
+var Fuzzy         = require('../../models/Fuzzy.js');
+var Company       = require('../../models/AddCompany.js');
 
 exports.controller = function () {
   var ctrl = this;
@@ -20,8 +19,6 @@ exports.controller = function () {
     window.history.back();
   };
 };
-
-
 
 exports.view = function (ctrl) {
 

@@ -5,8 +5,7 @@ var App = module.exports = {
   //Organizes apps by phase 
   apps: {1: [], 2: [], 3: [], 4: [], 5: []},
 
-
-  //GET All open applications for all students 
+  //Get all open applications for all students 
   fetch: function() {
     m.request({ method: 'GET', url: '/API/applications/all' })
       .then(function(applicationsResponse) {
