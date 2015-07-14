@@ -331,7 +331,7 @@ h5 {
   background-color: #689FD3 !important; }
 
 .btn {
-  background-color: #16649F !important; }
+  background-color: #58B0D4 !important; }
 
 .dropdown-button{
   color: #16649F !important; }
@@ -468,5 +468,12 @@ border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 
+#msgDarkColor{
+  background-color: #16649F;
+}
+
+#msgLightColor{
+  background-color: #58B0D4;
+}
 
 
