@@ -1,6 +1,7 @@
-var m             = require('mithril');
-var materialize   = require('../../lib/materialize.js');
-var Fuzzy         = require('./Fuzzysearch.js')
+var m = require('mithril');
+var materialize = require('../../lib/materialize.js');
+var Fuzzy = require('./Fuzzysearch.js')
+
 
 //model
 var Message   = require('../models/Message.js');
@@ -25,15 +26,23 @@ exports.controller = function () {
   };
 
   ctrl.tConvert = function(time) {  
+  // Check correct time format and split into components
   time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
 
   if (time.length > 1) { // If time format correct
     time = time.slice (1);  // Remove full string match value
-    time[5] = +time[0] < 12 ? 'AM' : 'PM'; // Set AM/PM
-    time[0] = +(time[0]-5) % 12 || 12; // Adjust hours
+    if(+time[0] < 12){
+      time[5] = 'AM';
+      time[0] = +time[0] - 17;
+    } else {
+      time[5] = 'PM';
+      time[0] = +time[0] - 5;
+    }
   }
   return time.join (''); // return adjusted time or original string
-  };
+};
+
+
     ctrl.filter = function(message){
       if((message.receiver_uid ===  ctrl.message.receiver_uid() && message.sender_uid === ctrl.message.sender_uid) || 
          (message.sender_uid === ctrl.message.receiver_uid() && message.receiver_uid === ctrl.message.sender_uid)){
@@ -51,7 +60,6 @@ exports.view = function (ctrl, options) {
   ctrl.allMessages = options.messages;
   ctrl.message.sender_uid = options.studentInfo.uid;
   return m('section', [
-
     m('.modal.bottom-sheet#chat-modal', [
       m('.modal-content', [
         m('form', { onsubmit: ctrl.submit }, [
@@ -62,7 +70,7 @@ exports.view = function (ctrl, options) {
                   options.messages.filter(ctrl.filter).map(function(message){
                     if( message.sender_uid === ctrl.message.sender_uid ) {               
                       return m('.col.s12', [
-                        m('.col.s7.offset-s5.message#msgDarkColor', [
+                        m('.col.s7.offset-s5.indigo.message', [
                           m('li.collection-item.valign', [
                             m('span.right', ctrl.tConvert(message.updated_at.slice(11, 16))),
                             m('span.left', message.body),
@@ -71,7 +79,7 @@ exports.view = function (ctrl, options) {
                       ])
                     } else {
                       return m('.col.s12', [
-                        m('.col.s7.message#msgLightColor', [
+                        m('.col.s7.blue.message', [
                           m('li.collection-item.valign', [
                             m('span.right', ctrl.tConvert(message.updated_at.slice(11, 16))),
                             m('span.left', message.body),
@@ -84,7 +92,7 @@ exports.view = function (ctrl, options) {
               ]),
             ]),
             m('.col.m6.s12.center-align.fuzzyStudent', [
-              m('h6', ctrl.selectedUser || 'Select a User'),
+              m('h4', ctrl.selectedUser || 'Select a User'),
               m('.fuzzyStudent.s12.m6', [              
                   m.component(Fuzzy, {
                   search: 'users',
@@ -117,5 +125,5 @@ exports.view = function (ctrl, options) {
         ])
       ])
     ])
-  ]) //End Section
+  ])
 };
