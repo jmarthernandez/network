@@ -1,11 +1,10 @@
-var m = require('mithril');
-var materialize = require('../../../lib/materialize.js');
-var Fuzzy = require('../Fuzzysearch.js');
+var m             = require('mithril');
+var materialize   = require('../../../lib/materialize.js');
+var Fuzzy         = require('../Fuzzysearch.js');
 
 //Model
 var Interview   = require('../../models/Interview.js');
 
-//TODO: comment
 exports.controller = function () {
   var ctrl = this;
 
@@ -27,7 +26,6 @@ exports.controller = function () {
       })
   };
 };
-
 
 exports.view = function (ctrl, options) {
   ctrl.interview.app_id = + options.app_id;
@@ -52,8 +50,6 @@ exports.view = function (ctrl, options) {
             return contacts.name + "  -  " + contacts.phone_number + "  -  " + contacts.company_name
            },
            route: m('a.waves-effect.waves-light.btn[href=/contacts/' + options.app_id + ']', { config: m.route }, 'Add a Contact')
-           
-
         }),
       ]),
       m('.row',
@@ -61,7 +57,6 @@ exports.view = function (ctrl, options) {
       ),
       m('.row.center-align', [
         m('.input-field.col.s12', [
-          //Should have a limit of text
           m('input[type=date][placeholder=Scheduled For]', {
             class: 'datepicker', 
             config: materialize.pickDates, 
@@ -72,7 +67,6 @@ exports.view = function (ctrl, options) {
       ]),
       m('.row.center-align', [
         m('button.btn.waves-effect.waves-light', 'Submit',[
-          //POST to database
           m('i.mdi-content-send.right')
         ])
       ])

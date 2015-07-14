@@ -1,4 +1,3 @@
-
 Array.map = function (fn, array) {
   return array.map(fn)
 }

@@ -1,12 +1,10 @@
-var m         = require('mithril');
-var Interview   = require('../../models/Interview.js');
+var m             = require('mithril');
+var Interview     = require('../../models/Interview.js');
 
-//rename to Interview
 exports.controller = function () {
 	var ctrl = this;
   ctrl.interview = Interview.vm();
 
-  // controller action
   ctrl.submit = function (e) {
     e.preventDefault();
     Interview.postInterview( ctrl.interview ).then(function () {
@@ -28,7 +26,6 @@ exports.view = function (ctrl) {
       ]),
       m('.row', [
         m('.input-field.col.s12.m6',[
-          //Should have a limit of text
           m('input.validate[type=text][placeholder=Follow Up?]', {
             value: ctrl.interview.follow_up(),
             onchange: m.withAttr('value', ctrl.interview.follow_up),
@@ -36,7 +33,6 @@ exports.view = function (ctrl) {
           m('label', 'Follow Up?')
         ]),
         m('.input-field.col.s12.m6', [
-          //Should have a limit of text
           m('input.validate[type=text][placeholder=How prepared did you feel?]', {
             value: ctrl.interview.preparedness(),
             onchange: m.withAttr('value', ctrl.interview.preparedness),
@@ -46,7 +42,6 @@ exports.view = function (ctrl) {
       ]),
      m('.row', [
         m('.input-field.col.s12', [
-          //Should have a limit of text
           m('input.validate[type=text][placeholder=What technical questions were asked?]', {
             value: ctrl.interview.info.questions(),
             onchange: m.withAttr('value', ctrl.interview.info.questions),
@@ -58,10 +53,8 @@ exports.view = function (ctrl) {
             value: ctrl.interview.quality(),
             onchange: m.withAttr('value', ctrl.interview.quality),
           }),
+        ]),
       ]),
-      ]),
-    //  m('.row', [
-    // ]),
       m('.row', [
         m('button.btn.waves-effect.waves-light', 'Submit', [
           //POST to database

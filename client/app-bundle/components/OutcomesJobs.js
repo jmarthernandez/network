@@ -1,8 +1,7 @@
-var m = require('mithril');
-var materialize = require('../../lib/materialize.js');
-var Fuzzy = require('./Fuzzysearch.js')
-var User  = require('../models/User.js')
-
+var m             = require('mithril');
+var materialize   = require('../../lib/materialize.js');
+var Fuzzy         = require('./Fuzzysearch.js')
+var User          = require('../models/User.js')
 
 exports.controller = function () {
   var ctrl = this;
@@ -191,8 +190,9 @@ exports.view = function(ctrl, options){
       })
     ]), //End UL Collapsible
   ]),
-    //End Offers (Phase 5)
-m.component(Fuzzy, {
+  //End Offers (Phase 5)
+
+  m.component(Fuzzy, {
         search: 'users',
         onSelect: function (users) {
           ctrl.fuzz = User.arrange(users,function(x){ ctrl.fuzz = x});

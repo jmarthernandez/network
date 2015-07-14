@@ -6,7 +6,6 @@ var User = module.exports = {
     return m.request({ method: 'GET', url: 'api/applications/' + data}).then(function(x){callback(x)})
   },
 
-
   arrange: function(users,callback){
     var apps = {1: [], 2: [], 3: [], 4: [], 5: []};
 
@@ -22,5 +21,4 @@ var User = module.exports = {
        callback({apps: apps});
     });
   }
-
 };

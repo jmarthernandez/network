@@ -1,20 +1,19 @@
 require('../ext')
 
-var browserify = require('browserify-middleware')
-var glob = require('glob')
-var express = require('express')
-var app = express()
-var port = process.env.PORT || 4000
-var host = process.env.HOST || 'http://localhost:' + port
+var browserify 	= require('browserify-middleware')
+var glob 				= require('glob')
+var express 		= require('express')
+var app 				= express()
+var port 				= process.env.PORT || 4000
+var host 				= process.env.HOST || 'http://localhost:' + port
 
 //provide a browserified file at a path
 var shared = ['mithril', 'highcharts', 'jquery']
-app.get('/js/vendor.js', browserify(shared))
-app.get('/js/app-bundle.js', browserify('./client/app-bundle/index.js', { external: shared }))
+	app.get('/js/vendor.js', browserify(shared))
+	app.get('/js/app-bundle.js', browserify('./client/app-bundle/index.js', { external: shared }))
 
 // Non-js static files
 app.use(express.static('client/public'))
-
 
 var session = require('cookie-session')
 app.use(session({
@@ -24,17 +23,16 @@ app.use(session({
   signed: true
 }))
 
-//enable express router resource which facilitate shared endpoint routing
+//Enable express router resource which facilitate shared endpoint routing
 var resource = require('express-resource');
 
-// bodyparser for endpoint conversion of JSON objects
+// Bodyparser for endpoint conversion of JSON objects
 var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json()
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
 
 var router = express.Router();
-
 
 //API endpoint integration
 require('./makerpass').mount(app, host);
@@ -51,9 +49,6 @@ app.use('/API/contacts',require('./API/contacts-api'));
 app.use('/API/applications',require('./API/applications-api'));
 app.use('/API/schools',require('./API/schools-api'));
 app.use('/API/fuzzy',require('./API/fuzzy-api'));
-
-
-
 
 app.listen(port)
 console.log("Listening on port", port)

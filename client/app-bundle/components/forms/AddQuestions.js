@@ -1,7 +1,6 @@
-var m = require('mithril');
-var Fuzzy = require('../Fuzzysearch.js');
-var Questions = require('../../models/AddQuestions.js');
-
+var m             = require('mithril');
+var Fuzzy         = require('../Fuzzysearch.js');
+var Questions     = require('../../models/AddQuestions.js');
 
 exports.controller = function () {
   var ctrl = this;

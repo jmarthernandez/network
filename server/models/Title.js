@@ -1,7 +1,7 @@
-var db = require('../db.js')
-var Promise = require('bluebird')
-var General = require('../lib/general.js');
-var Titles = module.exports = General.access('titles');
+var db 					= require('../db.js')
+var Promise 		= require('bluebird')
+var General 		= require('../lib/general.js');
+var Titles 			= module.exports = General.access('titles');
 
 
 module.exports.retrieveByName = function(string){

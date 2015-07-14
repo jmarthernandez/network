@@ -1,7 +1,6 @@
-var m = require('mithril');
-var materialize = require('../../lib/materialize.js');
-var Fuzzy = require('./Fuzzysearch.js')
-
+var m             = require('mithril');
+var materialize   = require('../../lib/materialize.js');
+var Fuzzy         = require('./Fuzzysearch.js')
 
 //model
 var Message   = require('../models/Message.js');
@@ -26,7 +25,6 @@ exports.controller = function () {
   };
 
   ctrl.tConvert = function(time) {  
-  // Check correct time format and split into components
   time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
 
   if (time.length > 1) { // If time format correct
@@ -35,9 +33,7 @@ exports.controller = function () {
     time[0] = +(time[0]-5) % 12 || 12; // Adjust hours
   }
   return time.join (''); // return adjusted time or original string
-};
-
-
+  };
     ctrl.filter = function(message){
       if((message.receiver_uid ===  ctrl.message.receiver_uid() && message.sender_uid === ctrl.message.sender_uid) || 
          (message.sender_uid === ctrl.message.receiver_uid() && message.receiver_uid === ctrl.message.sender_uid)){

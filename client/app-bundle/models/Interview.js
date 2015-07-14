@@ -1,5 +1,5 @@
-var m = require('mithril');
-var StudentApp =  require('./StudentApp.js')
+var m           = require('mithril');
+var StudentApp  =  require('./StudentApp.js')
 
 var Interview = module.exports = {
 

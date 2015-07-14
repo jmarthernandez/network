@@ -1,16 +1,16 @@
 var m         = require('mithril');
 var h         = require('highcharts');
-var Graph = require('../models/Graph.js');
+var Graph     = require('../models/Graph.js');
 
 exports.controller = function () {
 	var ctrl = this;
 
 	ctrl.fetchAll = Graph.fetchAll().then(function(appData) {
-   ctrl.graphOptions = graphOptions(appData);
- })
+    ctrl.graphOptions = graphOptions(appData);
+  })
 };
 
-exports.plotter = function(ctrl) { // config class
+exports.plotter = function(ctrl) { 
   return function(elem,isin) {
     if(!isin) {
           ctrl.graphOptions.chart.renderTo = elem
@@ -28,7 +28,6 @@ exports.view = function(ctrl) { // view
 
 function graphOptions(graphData) {
 	return {
-		// console.log('in graphOptions SP')
 		chart: {
       plotBackgroundColor: null,
       plotBorderWidth: null,

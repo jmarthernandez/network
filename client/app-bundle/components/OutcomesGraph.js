@@ -1,6 +1,6 @@
-var m = require('mithril');
-var h = require('highcharts');
-var Graph = require('../models/Graph.js');
+var m           = require('mithril');
+var h           = require('highcharts');
+var Graph       = require('../models/Graph.js');
 
 exports.controller = function () {
   var ctrl = this;

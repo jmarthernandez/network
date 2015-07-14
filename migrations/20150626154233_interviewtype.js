@@ -1,4 +1,3 @@
-
 exports.up = function(knex, Promise) {
   console.log('adding interview_type migration')
 

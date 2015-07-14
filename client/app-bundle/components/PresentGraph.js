@@ -1,13 +1,13 @@
-var m         = require('mithril');
-var h         = require('highcharts');
-var Graph = require('../models/Graph.js');
+var m           = require('mithril');
+var h           = require('highcharts');
+var Graph       = require('../models/Graph.js');
 
 exports.controller = function () {
-	var ctrl = this;
+    var ctrl = this;
 
-	ctrl.fetchAll = Graph.fetchAll().then(function(appData) {
-   ctrl.graphOptions = graphOptions(appData);
- })
+  ctrl.fetchAll = Graph.fetchAll().then(function(appData) {
+    ctrl.graphOptions = graphOptions(appData);
+  })
 };
 
 exports.plotter = function(ctrl) { // config class

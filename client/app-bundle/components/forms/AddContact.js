@@ -1,7 +1,6 @@
-var m = require('mithril');
-var Fuzzy = require('../Fuzzysearch.js');
-var Contacts = require('../../models/AddContacts.js');
-
+var m             = require('mithril');
+var Fuzzy         = require('../Fuzzysearch.js');
+var Contacts      = require('../../models/AddContacts.js');
 
 exports.controller = function () {
   var ctrl = this;
@@ -20,8 +19,6 @@ exports.controller = function () {
     window.history.back();
   };
 };
-
-
 
 exports.view = function (ctrl) {
 
