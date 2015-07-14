@@ -66,7 +66,7 @@ exports.view = function (ctrl, options) {
                   options.messages.filter(ctrl.filter).map(function(message){
                     if( message.sender_uid === ctrl.message.sender_uid ) {               
                       return m('.col.s12', [
-                        m('.col.s7.offset-s5.indigo.message', [
+                        m('.col.s7.offset-s5.message#msgDarkColor', [
                           m('li.collection-item.valign', [
                             m('span.right', ctrl.tConvert(message.updated_at.slice(11, 16))),
                             m('span.left', message.body),
@@ -75,7 +75,7 @@ exports.view = function (ctrl, options) {
                       ])
                     } else {
                       return m('.col.s12', [
-                        m('.col.s7.blue.message', [
+                        m('.col.s7.message#msgLightColor', [
                           m('li.collection-item.valign', [
                             m('span.right', ctrl.tConvert(message.updated_at.slice(11, 16))),
                             m('span.left', message.body),
