@@ -13,7 +13,7 @@ exports.controller = function () {
   ]
 }
 
-exports.view = function (ctrl, options) {
+exports.view = function (ctrl) {
   return m('div.slider.fullscreen', {config: materialize.fullScreenSlider}, [
     m('ul.slides', 
       ctrl.images.map(function (path) {
@@ -23,12 +23,12 @@ exports.view = function (ctrl, options) {
             m('h1.center-align#shadow', 'Welcome to the Network'),
             m('.center-align.login', [
               m('a[href=/auth/makerpass/callback]', [
-              m('button.btn.z-depth-2', 'Login with MakerPass'),
+                m('button.btn.z-depth-2', 'Login with MakerPass'),
               ])
             ]),
             m('.center-align.login', [
               m('a[href=/auth/google/callback]', [
-              m('button.btn.z-depth-2', 'Login with Google'),
+                m('button.btn.z-depth-2', 'Login with Google'),
               ])
             ])
           ])
