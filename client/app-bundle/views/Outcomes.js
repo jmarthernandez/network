@@ -1,7 +1,6 @@
 var m               = require('mithril');
 
 //Components
-var CurrentApps     = require('../components/CurrentApps.js');
 var Messaging       = require('../components/Messaging.js');
 var Graph           = require('../components/OutcomesGraph.js');
 var StudentProgress = require('../components/StudentProgress.js');
