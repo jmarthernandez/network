@@ -41,10 +41,10 @@ exports.view = function(ctrl, options) {
           return m('li', [
             m('div.collapsible-header', app.name + ' ' + app.company_name + ': ' + app.title, [
               m('a', [
-                m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown1].left', {config: materialize.dropDowns})
+                m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown' + app.app_id + '].left', {config: materialize.dropDowns})
               ]),
             ]),
-            m.component(Dropdown, {appId: app.app_id, dropdownId: 1})
+            m.component(Dropdown, {appId: app.app_id})
           ]) //End Return M LI
         })
       ]), //End UL Collapsible
@@ -58,12 +58,12 @@ exports.view = function(ctrl, options) {
           fuzzyName.apps['2'].map(function(app){
             return m('li', [
               m('div.collapsible-header', { class: 'amber lighten-' + (5 -  app.count) }, [
+                m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.name + ' ' + app.company_name + ': ' + app.title),
                 m('a', [
-                  m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown2].left', {config: materialize.dropDowns})
+                  m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown' + app.app_id + '].left', {config: materialize.dropDowns})
                 ]),
-                m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.name + ' ' + app.company_name + ': ' + app.title)
               ]),
-              m.component(Dropdown, {appId: app.app_id, dropdownId: 2})
+              m.component(Dropdown, {appId: app.app_id})
             ]) //End Return M LI
           })
         ]) //End UL Collapsible
@@ -77,12 +77,12 @@ exports.view = function(ctrl, options) {
           fuzzyName.apps['3'].map(function(app){
             return m('li', [
               m('div.collapsible-header', { class: 'amber lighten-' + (5 -  app.count) }, [
+                m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.name + ' ' + app.company_name + ': ' + app.title),
                 m('a', [
-                  m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown3].left', {config: materialize.dropDowns})
+                  m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown' + app.app_id + '].left', {config: materialize.dropDowns})
                 ]),
-                m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.name + ' ' + app.company_name + ': ' + app.title)
               ]),
-              m.component(Dropdown, {appId: app.app_id, dropdownId: 3})
+              m.component(Dropdown, {appId: app.app_id})
             ]) //End Return M LI
           })
         ]) //End UL Collapsible
@@ -96,12 +96,12 @@ exports.view = function(ctrl, options) {
           fuzzyName.apps['4'].map(function(app){
             return m('li', [
               m('div.collapsible-header', { class: 'amber lighten-' + (5 -  app.count) }, [
-                 m('a', [
-                  m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown4].left', {config: materialize.dropDowns})
+                m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.name + ' ' + app.company_name + ': ' + app.title),
+                m('a', [
+                  m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown' + app.app_id + '].left', {config: materialize.dropDowns})
                 ]),
-                m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.name + ' ' + app.company_name + ': ' + app.title)
               ]),
-              m.component(Dropdown, {appId: app.app_id, dropdownId: 4})
+              m.component(Dropdown, {appId: app.app_id})
             ]) //End Return M LI
           })
         ]), //End UL Collapsible
@@ -115,12 +115,12 @@ exports.view = function(ctrl, options) {
         fuzzyName.apps['5'].map(function(app){
           return m('li', [
             m('div.collapsible-header', { class: 'amber lighten-' + (5 -  app.count) }, [
+              m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.name + ' ' + app.company_name + ': ' + app.title),
               m('a', [
-                m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown5].left', {config: materialize.dropDowns})
+                m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown' + app.app_id + '].left', {config: materialize.dropDowns})
               ]),
-              m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.name + ' ' + app.company_name + ': ' + app.title)
             ]),
-            m.component(Dropdown, {appId: app.app_id, dropdownId: 5})
+            m.component(Dropdown, {appId: app.app_id})
           ]) //End Return M LI
         })
       ]) //End UL Collapsible

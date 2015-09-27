@@ -33,10 +33,10 @@ exports.view = function(ctrl, options){
           return m('li', [
             m('.collapsible-header', app.company_name + ': ' + app.title, 
               m('a', [
-                m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown1]', {config: materialize.dropDowns})
+                m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown' + app.app_id + ']', {config: materialize.dropDowns})
               ])
             ),
-            m.component(Dropdown, {appId: app.app_id, dropdownId: 1})
+            m.component(Dropdown, {appId: app.app_id})
           ]) //End Return M LI
         })
       ]),  //End UL Collapsible
@@ -52,10 +52,10 @@ exports.view = function(ctrl, options){
             m('div.collapsible-header', { class: 'orange lighten-' + (5 -  app.count) }, [
               m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.company_name + ': ' + app.title),
               m('a', [
-                m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown2]', {config: materialize.dropDowns})
+                m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown' + app.app_id + ']', {config: materialize.dropDowns})
               ]),
             ]),
-            m.component(Dropdown, {appId: app.app_id, dropdownId: 2})
+            m.component(Dropdown, {appId: app.app_id})
           ]) //End Return M LI
         })
       ]), //End UL Collapsible
@@ -72,10 +72,10 @@ exports.view = function(ctrl, options){
             m('div.collapsible-header', { class: 'orange lighten-' + (5 -  app.count) }, [
               m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.company_name + ': ' + app.title),
               m('a', [
-                m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown3]', {config: materialize.dropDowns})
+                m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown' + app.app_id + ']', {config: materialize.dropDowns})
               ]),
             ]),
-            m.component(Dropdown, {appId: app.app_id, dropdownId: 3})
+            m.component(Dropdown, {appId: app.app_id})
           ]) //End Return M LI
         })
       ]), //End UL Collapsible
@@ -91,10 +91,10 @@ exports.view = function(ctrl, options){
             m('div.collapsible-header', { class: 'orange lighten-' + (5 -  app.count) }, [
               m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.company_name + ': ' + app.title),
               m('a', [
-                m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown4]', {config: materialize.dropDowns})
+                m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown' + app.app_id + ']', {config: materialize.dropDowns})
               ]),
             ]),
-            m.component(Dropdown, {appId: app.app_id, dropdownId: 4})
+            m.component(Dropdown, {appId: app.app_id})
           ]) //End Return M LI
         })
       ]), //End UL Collapsible
@@ -111,10 +111,10 @@ exports.view = function(ctrl, options){
             m('div.collapsible-header', { class: 'orange lighten-' + (5 -  app.count) }, [
               m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.company_name + ': ' + app.title),
               m('a', [
-                m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown5]', {config: materialize.dropDowns})
+                m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown' + app.app_id + ']', {config: materialize.dropDowns})
               ]),
             ]),
-            m.component(Dropdown, {appId: app.app_id, dropdownId: 5})
+            m.component(Dropdown, {appId: app.app_id})
           ]) //End Return M LI
         })
       ]) //End UL Collapsible
