@@ -60,7 +60,7 @@ var Graph = module.exports = {
 
   // Requests all database information 
   fetchAll: function(req) {
-    return m.request({ method: 'GET', url: '/API/interviews/all/'})
+    return m.request({ method: 'GET', url: '/API/interviews/users/applications'})
       .then(function (all) {
         var phases = Graph.appCount(all);
         var phoneInterview = Graph.phoneCount(all);

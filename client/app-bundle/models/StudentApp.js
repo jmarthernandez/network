@@ -16,7 +16,7 @@ var studentApp = module.exports = {
           });
         });
     } else {
-      m.request({ method: 'GET', url: '/api/users/apps'})
+      m.request({ method: 'GET', url: '/api/users/applications'})
         .then(function(applications) {
           if (!Array.isArray(applications.Application)) {
             studentApp.apps = false;
