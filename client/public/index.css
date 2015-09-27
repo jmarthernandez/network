@@ -495,10 +495,10 @@ border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding-top: 10px;
 }
 
-ul {
+ul.collapsible{
   overflow: auto;  
 }
 
-li {
+ul.collapsible>li {
   white-space: nowrap; 
 }
