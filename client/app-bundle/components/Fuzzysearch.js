@@ -17,18 +17,17 @@ Function.prototype.papp = function () {
 Function.prototype.chill = function() {
   var fn = this
   return function(e) {
+    var val = e.target.getAttribute('data-idx');
     e.preventDefault()
-    return fn()
+    return fn(val)
   }
 };
 
 
- 
-
 // attr.options is expected to be an array of objects
 AutocompleteInput.controller = function (attrs) {
   var ctrl = this;
-  var inititalOptions = attrs.initialOptions || [];
+  var initialOptions = attrs.initialOptions || [];
 
   
   ctrl.isFocused = m.prop(false);
@@ -38,11 +37,14 @@ AutocompleteInput.controller = function (attrs) {
  
   ctrl.options = m.prop([]);
  
-  ctrl.select = function () {
-    var opt = ctrl.options()[ ctrl.dropdownIndex() ]
+  ctrl.select = function (val) {
+    var val = val || 0;
+    var opt = ctrl.options()[ ctrl.dropdownIndex(val) ];
     if (opt) {
+
       attrs.onSelect(opt.id ? opt.id : opt.uid) // Send back id
       pendingInputValue = attrs.optionView(opt)
+
     }
     ctrl.reset()
     // ctrl.isFocused(true)
@@ -76,7 +78,7 @@ AutocompleteInput.controller = function (attrs) {
 
     if (newQuery.length < 1) {
       ctrl.query(null)
-      ctrl.options(inititalOptions)
+      ctrl.options(initialOptions)
     }
     else if (newQuery !== query) {
       
@@ -104,10 +106,10 @@ AutocompleteInput.controller = function (attrs) {
  
   // Format: [['myOptionValue', 'myOptionDisplayText', 'myoptiondisplaytext'], ...]
   function updateAllOptions (options) {
-    inititalOptions = options.map(function(op) {
+    initialOptions = options.map(function(op) {
       return [ op[attrs.idAttr], op[attrs.searchAttr], op[attrs.searchAttr].toLowerCase() ]
     })
-    if (ctrl.query() === null) ctrl.options(inititalOptions)
+    if (ctrl.query() === null) ctrl.options(initialOptions)
   }
 }
  
@@ -141,7 +143,7 @@ AutocompleteInput.view = function (ctrl, attrs) {
  
   function renderOptions (query) {
     if (ctrl.options().length === 0 && query !== null) {
-      return m('.row.absolute.nothing',
+      return m('.row.nothing',
         m('li.right-align.nothing', 
           m('i', "No matches found.")
         ))
@@ -155,12 +157,5 @@ AutocompleteInput.view = function (ctrl, attrs) {
       'class': (mode === 'keyboard' && ddIdx == i) ? 'active.z-index' : 'no-hover.z-index',
       'data-idx': i
     }, attrs.optionView(opt) )
-  }
-
-  function selectHovered (e) {
-    if (e.target.tagName !== 'LI') return;
-    var idx = e.target.getAttribute('data-idx')
-    ctrl.dropdownIndex(idx)
-    ctrl.mode('mouse')
   }
 }
