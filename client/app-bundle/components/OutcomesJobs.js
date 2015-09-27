@@ -1,7 +1,10 @@
 var m             = require('mithril');
 var materialize   = require('../../lib/materialize.js');
-var Fuzzy         = require('./Fuzzysearch.js')
 var User          = require('../models/User.js')
+
+//Sub-Components
+var Fuzzy         = require('./Fuzzysearch.js')
+var Dropdown      = require('./Dropdown.js')
 
 exports.controller = function () {
   var ctrl = this;
@@ -41,20 +44,7 @@ exports.view = function(ctrl, options) {
                 m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown1].left', {config: materialize.dropDowns})
               ]),
             ]),
-            m('ul#dropdown1', {class:'dropdown-content'}, [
-              m('li', [
-                m('a[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen')
-              ]),
-              m('li', [
-                m('a[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen')
-              ]),
-              m('li', [
-                m('a[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge')
-              ]),
-              m('li', [
-                m('a[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
-              ])
-            ])
+            m.component(Dropdown, {appId: app.app_id, dropdownId: 1})
           ]) //End Return M LI
         })
       ]), //End UL Collapsible
@@ -73,20 +63,7 @@ exports.view = function(ctrl, options) {
                   m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown2].left', {config: materialize.dropDowns})
                 ]),
               ]),
-              m('ul#dropdown2', {class:'dropdown-content'}, [
-                m('li', [
-                  m('a[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen')
-                ]),
-                m('li', [
-                  m('a[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen')
-                ]),
-                m('li', [
-                  m('a[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge')
-                ]),
-                m('li', [
-                  m('a[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
-                ])
-              ])
+              m.component(Dropdown, {appId: app.app_id, dropdownId: 2})
             ]) //End Return M LI
           })
         ]) //End UL Collapsible
@@ -105,20 +82,7 @@ exports.view = function(ctrl, options) {
                   m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown3].left', {config: materialize.dropDowns})
                 ]),
               ]),
-              m('ul#dropdown3', {class:'dropdown-content'}, [
-                m('li', [
-                  m('a[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen')
-                ]),
-                m('li', [
-                  m('a[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen')
-                ]),
-                m('li', [
-                  m('a[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge')
-                ]),
-                m('li', [
-                  m('a[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
-                ])
-              ])
+              m.component(Dropdown, {appId: app.app_id, dropdownId: 3})
             ]) //End Return M LI
           })
         ]) //End UL Collapsible
@@ -137,20 +101,7 @@ exports.view = function(ctrl, options) {
                   m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown4].left', {config: materialize.dropDowns})
                 ]),
               ]),
-              m('ul#dropdown4', {class:'dropdown-content'}, [
-                m('li', [
-                  m('a[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen')
-                ]),
-                m('li', [
-                  m('a[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen')
-                ]),
-                m('li', [
-                  m('a[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge')
-                ]),
-                m('li', [
-                  m('a[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
-                ])
-              ])
+              m.component(Dropdown, {appId: app.app_id, dropdownId: 4})
             ]) //End Return M LI
           })
         ]), //End UL Collapsible
@@ -169,20 +120,7 @@ exports.view = function(ctrl, options) {
                 m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown5].left', {config: materialize.dropDowns})
               ]),
             ]),
-            m('ul#dropdown5', {class:'dropdown-content'}, [
-              m('li', [
-                m('a[href=/phonescreen/' + app.app_id + ']', { config: m.route }, 'Phone Screen')
-              ]),
-              m('li', [
-                m('a[href=/technicalscreen/' + app.app_id + ']', { config: m.route }, 'Technical Screen')
-              ]),
-              m('li', [
-                m('a[href=/codingchallenge/' + app.app_id + ']', { config: m.route }, 'Coding Challenge')
-              ]),
-              m('li', [
-                m('a[href=/onsiteinterview/' + app.app_id + ']', { config: m.route }, 'Onsite Interview')
-              ])
-            ])
+            m.component(Dropdown, {appId: app.app_id, dropdownId: 5})
           ]) //End Return M LI
         })
       ]) //End UL Collapsible

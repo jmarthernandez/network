@@ -1,25 +1,10 @@
 var m             = require('mithril');
 var materialize   = require('../../lib/materialize.js');
 
+//Sub-Components
+var Dropdown = require('./Dropdown.js')
+
 exports.view = function(ctrl, options){
-
-  var dropdown = function (appId, dropdownId) {
-    return m('ul#dropdown' + dropdownId, {class:'dropdown-content'}, [
-      m('li', [
-        m('a[href=/phonescreen/' + appId + ']', { config: m.route }, 'Phone Screen')
-      ]),
-      m('li', [
-        m('a[href=/technicalscreen/' + appId + ']', { config: m.route }, 'Technical Screen')
-      ]),
-      m('li', [
-        m('a[href=/codingchallenge/' + appId + ']', { config: m.route }, 'Coding Challenge')
-      ]),
-      m('li', [
-        m('a[href=/onsiteinterview/' + appId + ']', { config: m.route }, 'Onsite Interview')
-      ])
-    ])
-  }
-
   return m('.col.m12.s12', [
     m('head', [
       m('link[href=index.css][rel=stylesheet]')
@@ -51,7 +36,7 @@ exports.view = function(ctrl, options){
                 m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown1]', {config: materialize.dropDowns})
               ])
             ),
-            dropdown(app.app_id, 1)
+            m.component(Dropdown, {appId: app.app_id, dropdownId: 1})
           ]) //End Return M LI
         })
       ]),  //End UL Collapsible
@@ -70,7 +55,7 @@ exports.view = function(ctrl, options){
                 m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown2]', {config: materialize.dropDowns})
               ]),
             ]),
-            dropdown(app.app_id, 2)
+            m.component(Dropdown, {appId: app.app_id, dropdownId: 2})
           ]) //End Return M LI
         })
       ]), //End UL Collapsible
@@ -90,7 +75,7 @@ exports.view = function(ctrl, options){
                 m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown3]', {config: materialize.dropDowns})
               ]),
             ]),
-            dropdown(app.app_id, 3)
+            m.component(Dropdown, {appId: app.app_id, dropdownId: 3})
           ]) //End Return M LI
         })
       ]), //End UL Collapsible
@@ -109,7 +94,7 @@ exports.view = function(ctrl, options){
                 m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown4]', {config: materialize.dropDowns})
               ]),
             ]),
-            dropdown(app.app_id, 4)
+            m.component(Dropdown, {appId: app.app_id, dropdownId: 4})
           ]) //End Return M LI
         })
       ]), //End UL Collapsible
@@ -129,7 +114,7 @@ exports.view = function(ctrl, options){
                 m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown5]', {config: materialize.dropDowns})
               ]),
             ]),
-            dropdown(app.app_id, 5)
+            m.component(Dropdown, {appId: app.app_id, dropdownId: 5})
           ]) //End Return M LI
         })
       ]) //End UL Collapsible
