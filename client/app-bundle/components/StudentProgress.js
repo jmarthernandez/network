@@ -13,16 +13,17 @@ exports.controller = function () {
 exports.plotter = function(ctrl) { 
   return function(elem,isin) {
     if(!isin) {
-          ctrl.graphOptions.chart.renderTo = elem
-          var chart = new Highcharts.Chart(ctrl.graphOptions);
-        }
-      };
-    };
+      ctrl.graphOptions.chart.renderTo = elem
+      var chart = new Highcharts.Chart(ctrl.graphOptions);
+    }
+  };
+};
 
 exports.view = function(ctrl) { // view
-  return  m("html", [ m("body", [
-    m("#plot[style=height:400px]", {config: exports.plotter(ctrl)}),
-    ]),
+  return  m("html", [
+    m("body", [
+      m("#plot[style=height:400px]", {config: exports.plotter(ctrl)}),
+    ])
   ])
 };
 
