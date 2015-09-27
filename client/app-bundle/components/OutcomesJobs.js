@@ -1,6 +1,8 @@
 var m             = require('mithril');
 var materialize   = require('../../lib/materialize.js');
 var User          = require('../models/User.js')
+var App          = require('../models/App.js')
+
 
 //Sub-Components
 var Fuzzy         = require('./Fuzzysearch.js')
@@ -9,6 +11,11 @@ var Dropdown      = require('./Dropdown.js')
 exports.controller = function () {
   var ctrl = this;
   ctrl.fuzz = null;
+
+
+  ctrl.reset = function(){
+    ctrl.fuzz = {apps: App.all()};
+  }
 };
 
 exports.view = function(ctrl, options) {
@@ -39,10 +46,10 @@ exports.view = function(ctrl, options) {
       m('ul.collapsible#shorten[data-collapsible=accordion]', [
         fuzzyName.apps['1'].map(function(app){
           return m('li', [
-            m('div.collapsible-header', app.name + ' ' + app.company_name + ': ' + app.title, [
               m('a', [
                 m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown' + app.app_id + '].left', {config: materialize.dropDowns})
               ]),
+            m('div.collapsible-header', app.name + ' ' + app.company_name + ': ' + app.title, [
             ]),
             m.component(Dropdown, {appId: app.app_id})
           ]) //End Return M LI
@@ -58,10 +65,10 @@ exports.view = function(ctrl, options) {
           fuzzyName.apps['2'].map(function(app){
             return m('li', [
               m('div.collapsible-header', { class: 'amber lighten-' + (5 -  app.count) }, [
-                m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.name + ' ' + app.company_name + ': ' + app.title),
                 m('a', [
                   m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown' + app.app_id + '].left', {config: materialize.dropDowns})
                 ]),
+                m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.name + ' ' + app.company_name + ': ' + app.title)
               ]),
               m.component(Dropdown, {appId: app.app_id})
             ]) //End Return M LI
@@ -77,10 +84,10 @@ exports.view = function(ctrl, options) {
           fuzzyName.apps['3'].map(function(app){
             return m('li', [
               m('div.collapsible-header', { class: 'amber lighten-' + (5 -  app.count) }, [
-                m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.name + ' ' + app.company_name + ': ' + app.title),
                 m('a', [
                   m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown' + app.app_id + '].left', {config: materialize.dropDowns})
                 ]),
+                m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.name + ' ' + app.company_name + ': ' + app.title)
               ]),
               m.component(Dropdown, {appId: app.app_id})
             ]) //End Return M LI
@@ -96,10 +103,10 @@ exports.view = function(ctrl, options) {
           fuzzyName.apps['4'].map(function(app){
             return m('li', [
               m('div.collapsible-header', { class: 'amber lighten-' + (5 -  app.count) }, [
-                m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.name + ' ' + app.company_name + ': ' + app.title),
                 m('a', [
                   m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown' + app.app_id + '].left', {config: materialize.dropDowns})
                 ]),
+                m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.name + ' ' + app.company_name + ': ' + app.title)
               ]),
               m.component(Dropdown, {appId: app.app_id})
             ]) //End Return M LI
@@ -115,10 +122,10 @@ exports.view = function(ctrl, options) {
         fuzzyName.apps['5'].map(function(app){
           return m('li', [
             m('div.collapsible-header', { class: 'amber lighten-' + (5 -  app.count) }, [
-              m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.name + ' ' + app.company_name + ': ' + app.title),
               m('a', [
                 m('img[src=' + app.avatar_url + '].circle.app.dropdown-button[href=#][data-activates=dropdown' + app.app_id + '].left', {config: materialize.dropDowns})
               ]),
+              m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.name + ' ' + app.company_name + ': ' + app.title)
             ]),
             m.component(Dropdown, {appId: app.app_id})
           ]) //End Return M LI
@@ -137,6 +144,7 @@ exports.view = function(ctrl, options) {
         return student.name; 
       },
       route: m('a.waves-effect.waves-light.btn', 'Lookup Student')
-    })
+    }),
+    m('button.btn',{onclick: ctrl.reset},'Show All'),
   ]); //Ends Return M.col.m9.s12
 };

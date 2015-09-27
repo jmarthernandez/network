@@ -26,7 +26,6 @@ exports.pickDates = function(elem, isInitialized){
 	  //The onSet section is needed to prevent the modal from closing when
 		//clicking left/right buttons to cycle through months
 		onSet: function (date) {
-			console.log(date.select)
 			if(date.select === undefined) return;
 			else if (date) this.close();
 		},

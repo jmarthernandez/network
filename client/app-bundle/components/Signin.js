@@ -2,7 +2,6 @@ var m             = require('mithril');
 var materialize   = require('../../lib/materialize.js');
 
 exports.controller = function () {
-  console.log(this)
   var ctrl = this;
   ctrl.images = [
   'images/Image1.jpg',

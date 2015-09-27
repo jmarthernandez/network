@@ -50,10 +50,10 @@ exports.view = function(ctrl, options){
         options.apps['2'].map(function(app){
           return m('li', [
             m('div.collapsible-header', { class: 'orange lighten-' + (5 -  app.count) }, [
-              m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.company_name + ': ' + app.title),
               m('a', [
                 m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown' + app.app_id + ']', {config: materialize.dropDowns})
               ]),
+              m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.company_name + ': ' + app.title)
             ]),
             m.component(Dropdown, {appId: app.app_id})
           ]) //End Return M LI
@@ -70,10 +70,10 @@ exports.view = function(ctrl, options){
         options.apps['3'].map(function(app){
           return m('li', [
             m('div.collapsible-header', { class: 'orange lighten-' + (5 -  app.count) }, [
-              m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.company_name + ': ' + app.title),
               m('a', [
                 m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown' + app.app_id + ']', {config: materialize.dropDowns})
               ]),
+              m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.company_name + ': ' + app.title)
             ]),
             m.component(Dropdown, {appId: app.app_id})
           ]) //End Return M LI
@@ -89,10 +89,10 @@ exports.view = function(ctrl, options){
         options.apps['4'].map(function(app){
           return m('li', [
             m('div.collapsible-header', { class: 'orange lighten-' + (5 -  app.count) }, [
-              m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.company_name + ': ' + app.title),
               m('a', [
                 m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown' + app.app_id + ']', {config: materialize.dropDowns})
               ]),
+              m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.company_name + ': ' + app.title)
             ]),
             m.component(Dropdown, {appId: app.app_id})
           ]) //End Return M LI
@@ -109,10 +109,10 @@ exports.view = function(ctrl, options){
         options.apps['5'].map(function(app){
           return m('li', [
             m('div.collapsible-header', { class: 'orange lighten-' + (5 -  app.count) }, [
-              m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.company_name + ': ' + app.title),
               m('a', [
                 m('i.mdi-action-view-headline.dropdown-button[href=#][data-activates=dropdown' + app.app_id + ']', {config: materialize.dropDowns})
               ]),
+              m('a.app-link[href=/appdetail/' + app.app_id + ']', { config: m.route }, app.company_name + ': ' + app.title)
             ]),
             m.component(Dropdown, {appId: app.app_id})
           ]) //End Return M LI

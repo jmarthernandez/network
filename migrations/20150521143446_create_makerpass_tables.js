@@ -1,6 +1,6 @@
 exports.up = function(knex, Promise) {
 
-  console.log('hello')
+  console.log('user table migration, RUNNING!')
 
   return Promise.all([
     knex.schema.createTable('users', function (table) {
