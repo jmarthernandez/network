@@ -1,16 +1,16 @@
 // Authentication with google
-var passport = require('passport')
+var passport       = require('passport')
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;;
-var Promise    = require('bluebird')
-var User       = require('./models/User')
-var Group      = require('./models/Group')
-var Membership = require('./models/Membership')
-var School     = require('./models/School')
+var Promise        = require('bluebird')
+var User           = require('./models/User')
+var Group          = require('./models/Group')
+var Membership     = require('./models/Membership')
+var School         = require('./models/School')
 
 exports.mount = function (app, host) {
 
   if (! process.env.GOOGLE_CLIENT_ID || ! process.env.GOOGLE_CLIENT_SECRET) {
-    throw new Error("Please set MAKERPASS_CLIENT_ID and MAKERPASS_CLIENT_SECRET")
+    throw new Error("Please set GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET")
   }
 
   passport.use(new GoogleStrategy({
@@ -19,8 +19,8 @@ exports.mount = function (app, host) {
       callbackURL: host + '/auth/google/callback'
     },
     function(accessToken, refreshToken, profile, done) {
-
-      importAuthData(profile).then(done.papp(null))
+      importUser(profile).then(done.papp(null))
+      
     }
   ))
 
@@ -47,7 +47,7 @@ exports.mount = function (app, host) {
     passport.authenticate('google'))
 
   app.get('/auth/google/callback',
-    passport.authenticate('google', {scope: [
+    passport.authenticate('google', { scope: [
       'https://www.googleapis.com/auth/userinfo.profile',
       'https://www.googleapis.com/auth/userinfo.email'
     ], failureRedirect: '/' }),
@@ -72,26 +72,11 @@ app.get('/me', function(req, res){
   })
 }
 
-var importAuthData = module.exports.importAuthData = function (user) {
-  // These two can run in parallel
-  var userPromise = importUser(user)
-  var schoolPromises = user.schools.map(School.updateOrCreate)
-
-  return Promise.all(schoolPromises)
-    .then(function() {
-    return Promise.all( user.memberships.map( getProp('group') ).map(Group.updateOrCreate) )
-  }).then(function() {
-    return Membership.sync(user.uid, user.memberships)
-  }).then(function() {
-    return userPromise;
-  })
-}
-
 function importUser (user) {
   return User.updateOrCreate({
-    uid: mks.id,
-    name: mks.name,
-    email: mks.email,
-    avatar_url: mks.avatar_url
+    uid: user.id,
+    name: user.displayName,
+    email: user.email,
+    avatar_url: user._json.image.url
   })
 }

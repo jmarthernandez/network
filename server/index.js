@@ -1,11 +1,11 @@
 require('../ext')
 
-var browserify         = require('browserify-middleware')
-var glob               = require('glob')
-var express            = require('express')
-var app                = express()
-var por                = process.env.PORT || 4000
-var host               = process.env.HOST || 'http://localhost:' + port
+var browserify         = require('browserify-middleware');
+var glob               = require('glob');
+var express            = require('express');
+var app                = express();
+var port               = process.env.PORT || 4000;
+var host               = process.env.HOST || 'http://localhost:' + port;
 
 //provide a browserified file at a path
 var shared = ['mithril', 'highcharts', 'jquery']
