@@ -1,7 +1,7 @@
 var m             = require('mithril');
 
 exports.view = function(ctrl, options){
-  return m('ul#dropdown' + options.dropdownId, {class:'dropdown-content'}, [
+  return m('ul#dropdown' + options.appId, {class:'dropdown-content'}, [
     m('li', [
       m('a[href=/phonescreen/' + options.appId + ']', { config: m.route }, 'Phone Screen')
     ]),
