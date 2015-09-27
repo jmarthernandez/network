@@ -7,7 +7,7 @@ var App = module.exports = {
 
   //Get all open applications for all students 
   fetch: function() {
-    m.request({ method: 'GET', url: '/API/applications/all' })
+    m.request({ method: 'GET', url: '/API/applications/' })
       .then(function(applicationsResponse) {
         if (!Array.isArray(applicationsResponse.Application)) {
           App.apps = false;

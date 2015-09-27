@@ -16,7 +16,7 @@ var studentApp = module.exports = {
           });
         });
     } else {
-      m.request({ method: 'GET', url: '/api/applications/allUser/'})
+      m.request({ method: 'GET', url: '/api/users/apps'})
         .then(function(applications) {
           if (!Array.isArray(applications.Application)) {
             studentApp.apps = false;
@@ -38,7 +38,6 @@ var studentApp = module.exports = {
   },
 
   // All student profile info uid (e.g. avatar, name ...)
-  //TODO: grab student school and active attributes
   fetchInfo: function(ctrl) {
     if(ctrl.thisUserId){
       m.request({ method: 'GET', url: 'api/users/' + ctrl.thisUserId })
