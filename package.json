@@ -36,6 +36,7 @@
     "mithril": "0.2.0",
     "nodemon": "1.3.7",
     "passport": "0.2.2",
+    "passport-google-oauth": "^0.2.0",
     "passport-makerpass": "1.2.0",
     "pg": "4.4.0"
   },
