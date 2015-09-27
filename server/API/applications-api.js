@@ -5,7 +5,9 @@ var router = module.exports = express.Router();
 
 //Endpoint which retrieves all applications
 router.get('/', function(req, res){
-    Applications.retrieveAll().then(function(apps){ res.send({Application: apps})
+  Applications.retrieveAll().then(function(apps){ 
+      Applications.addCount(apps, function(x){res.send({Application: x})
+    })
   });
 });
 
@@ -16,23 +18,13 @@ router.post('/', function(req, res){
   res.send(req.body);
 });
 
+
+
 //Endpoint which retreives all applications of a specific user
 router.get('/:id', function(req, res){
   if (!req.body) return res.sendStatus(400);
-    if (req.params.id === 'allUser' || req.params.id === 'alluser'){
-      Applications.retrieveUserWithCompany(req.user).then(function(apps){ 
-          Applications.addCount(apps, function(x){res.send({Application: x})
-        })
-      });
-    } else if(req.params.id === 'all'){
-        Applications.retrieveAllWithCompany().then(function(apps){ 
-          Applications.addCount(apps, function(x){res.send({Application: x})
-        })
-      });
-    } else {
-      Applications.retrieveOne(req.params.id).then(function(apps){ 
-        Applications.addCount(apps, function(x){res.send({Application: x})
-      })
-    });
-  }
+    Applications.retrieveOne(req.params.id).then(function(apps){ 
+      Applications.addCount(apps, function(x){res.send({Application: x})
+    })
+  });
 })

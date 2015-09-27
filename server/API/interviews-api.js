@@ -16,11 +16,12 @@ router.post('/', function(req, res){
   res.send(req.body);
 });
 
-router.get('/all', function(req, res){
+router.get('/users/applications', function(req, res){
   if (!req.body) return res.sendStatus(400);
   Interviews.megaJoin().then(function(interviews){ res.send({Interviews: interviews})
   })
 });
+
 router.get('/:id', function(req, res){
   Interviews.allForApp(req.params.id).then(function(interviews){
     var obj = {1: [], 2: [], 3: [], 4: [], 5: []}

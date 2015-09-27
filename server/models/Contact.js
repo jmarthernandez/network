@@ -1,7 +1,7 @@
-var db 				= require('../db.js')
-var Promise 	= require('bluebird')
-var General 	= require('../lib/general.js');
-var Contacts 	= module.exports = General.access('contacts');
+var db          = require('../db.js')
+var Promise     = require('bluebird')
+var General     = require('../lib/general.js');
+var Contacts    = module.exports = General.access('contacts');
 
 module.exports.retrieveByName = function(string){
         if (string.length < 4){

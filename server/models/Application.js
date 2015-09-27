@@ -1,6 +1,6 @@
 var db            = require('../db.js');
 var Promise       = require('bluebird');
-var General        = require('../lib/general.js');
+var General       = require('../lib/general.js');
 var Applications  = module.exports = General.access('applications');
 
   //Retrieves a specific application table with company specific info and title specific info
@@ -17,7 +17,7 @@ var Applications  = module.exports = General.access('applications');
   };
 
   //Retrieves all applications along with the associated user and title rows
-  module.exports.retrieveAllWithCompany = function () {
+  module.exports.retrieveAll = function () {
 
     return db.select('*','companies.name AS company_name','applications.id AS app_id').from('applications')
       .join('companies', function() {
