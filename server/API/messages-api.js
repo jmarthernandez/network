@@ -9,11 +9,6 @@ router.get('/', function(req, res){
   });
 });
 
-  //Endpoint which retrieves a message between a specific user and a specific sender
-router.get('/user', function(req, res){
-  if (!req.body) return res.sendStatus(400);
-  Messages.retrieveOne(req.user.uid).then(function(messages){ res.send({Messages: messages})});
-});
   
   //Endpoint which adds a message
 router.post('/', function(req, res){

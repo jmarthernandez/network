@@ -20,11 +20,6 @@ router.post('/', function(req, res){
   res.send(req.body);
 });
 
-router.get('/companies/', function(req, res){
-  Companies.retrieveAll(req.params.id)
-  .then(function(x){ res.send(x)});
-});
-
 //Endpoint which retreives a specific company
 router.get('/companies/:id', function(req, res){
   Companies.retrieveByName(req.params.id)
