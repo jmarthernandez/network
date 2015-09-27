@@ -36,6 +36,8 @@ var router = express.Router();
 
 //API endpoint integration
 require('./makerpass').mount(app, host);
+require('./googleAuth').mount(app, host);
+
 app.use('/API/jobs', require('./API/jobs-api'));
 app.use('/API/users', require('./API/users-api'));
 app.use('/API/companies', require('./API/companies-api'));
