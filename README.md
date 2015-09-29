@@ -8,7 +8,7 @@
 
 Network
 
-An application that enables and streamlines the job search process between an individual and an assisting recruiter. Utilizes the Mithril frontend framework to create a centralized application for users create and maintain job applicaitons.  Users can update the status of each application while maintaining the organization and detail of each relevant interview or event. 
+An application that enables and streamlines the job search process between an individual and an assisting recruiter. Utilizes the [Mithril](http://mithril.js.org/) Front End framework to create a centralized application for users to create and maintain job applications. Users can update the status of each application while maintaining the organization and detail of each relevant interview or event.
 
 The recruiter is able to identify individual applications and visualize the big picture with representative graphs. With built in chat, active database querying and a clean responsive design, Network is sure to provide a positive and beneficial experience.
 
