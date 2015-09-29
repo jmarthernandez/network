@@ -12,7 +12,7 @@ An application that enables and streamlines the job search process between an in
 
 The recruiter is able to identify individual applications and visualize the big picture with representative graphs. With built in chat, active database querying and a clean responsive design, Network is sure to provide a positive and beneficial experience.
 
-This application utilizes [PostgreSQL](http://www.postgresql.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), [Knex](http://knexjs.org/) and [Mithril.js](http://mithril.js.org/), and [Materialize](http://materializecss.com/).
+This application utilizes [PostgreSQL](http://www.postgresql.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), [Knex](http://knexjs.org/), [Mithril.js](http://mithril.js.org/), and [Materialize](http://materializecss.com/).
 ## License
 (The MIT License)
 
